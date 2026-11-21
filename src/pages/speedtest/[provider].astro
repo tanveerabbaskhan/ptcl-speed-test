@@ -20,7 +20,35 @@ const others = providers.filter((p) => p.slug !== provider.slug);
 const isMobile = provider.type === 'mobile' || provider.type === 'wireless';
 const isFibre = provider.type === 'fibre';
 
-// Comparison pages that feature this provider (slug -> label).
+// Related issue guides per provider (slug -> guide links).
+const guideLinks: Record<string, { href: string; label: string }[]> = {
+  'ptcl-speed-test': [
+    { href: '/guides/ptcl-internet-slow', label: 'PTCL internet slow? Fix it in order' },
+    { href: '/guides/ptcl-router-lights', label: 'PTCL router lights explained (DSL, LOS, PON)' },
+    { href: '/guides/ptcl-router-login', label: 'PTCL router login & WiFi password change' },
+    { href: '/guides/reduce-ping-gaming', label: 'Reduce ping for gaming (incl. PTCL FastPath)' },
+  ],
+  'ptcl-flash-fiber': [
+    { href: '/guides/ptcl-internet-slow', label: 'PTCL internet slow? Fix it in order' },
+    { href: '/guides/ptcl-router-lights', label: 'Fibre ONT lights: LOS red, PON explained' },
+    { href: '/guides/reduce-ping-gaming', label: 'Reduce ping for gaming' },
+  ],
+  evo: [
+    { href: '/guides/ptcl-internet-slow', label: 'PTCL internet slow? Fix it in order' },
+    { href: '/guides/troubleshoot-slow-internet', label: 'Troubleshoot by symptom' },
+  ],
+  jazz: [
+    { href: '/guides/jazz-internet-slow', label: 'Jazz internet slow? Fix slow Jazz 4G' },
+    { href: '/guides/jazz-apn-settings', label: 'Jazz APN & internet settings' },
+    { href: '/guides/reduce-ping-gaming', label: 'Reduce ping for gaming on mobile data' },
+  ],
+};
+const defaultGuideLinks = [
+  { href: '/guides/troubleshoot-slow-internet', label: 'Slow internet? Troubleshoot by symptom' },
+  { href: '/guides/understanding-your-results', label: 'Understanding your speed test results' },
+  { href: '/guides/ping-jitter-explained', label: 'Ping & jitter explained' },
+];
+const relatedGuides = guideLinks[provider.slug] ?? defaultGuideLinks;
 const compareLinks: Record<string, { href: string; label: string }[]> = {
   'ptcl-speed-test': [
     { href: '/compare/ptcl-vs-nayatel', label: 'PTCL vs Nayatel' },
@@ -193,6 +221,13 @@ const breadcrumbSchema = {
           </details>
         ))}
       </div>
+
+      <h2>Related guides</h2>
+      <ul>
+        {relatedGuides.map((g) => (
+          <li><a href={g.href}>{g.label}</a></li>
+        ))}
+      </ul>
 
       <div class="cta-band">
         <h2>Compare {provider.name} with the alternatives</h2>

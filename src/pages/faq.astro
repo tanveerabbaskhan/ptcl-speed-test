@@ -71,6 +71,30 @@ const faqs = [
     a: 'On published averages, Nayatel is faster overall (28.3 Mbps average download vs 22.4 Mbps for PTCL\'s fixed network, nPerf 2025). But PTCL Flash Fiber on its own averages 31.7 Mbps (SpeedGeo) — the fair comparison is fibre versus fibre, and availability varies street by street. See our PTCL vs Nayatel comparison for the full data.',
   },
   {
+    q: 'How do I fix slow Jazz internet?',
+    a: 'Check your bundle first (dial *114# — a finished bundle drops your speed sharply), toggle airplane mode for 30 seconds, move near a window, lock the network mode to 4G/LTE, and check your APN settings. Full steps are in our Jazz slow internet guide.',
+  },
+  {
+    q: 'What is the Jazz APN setting?',
+    a: 'The safest way is to get the official settings by SMS: dial *444*6*5# on prepaid or *446*4# on postpay, or send a blank SMS to 7342. Jazz sends the settings to your phone — open the message and tap Install. See our Jazz APN settings guide for the manual values and 4G SIM checks.',
+  },
+  {
+    q: 'What does a red LOS light mean on PTCL fibre?',
+    a: 'LOS means Loss of Signal — the fibre box (ONT) is receiving no light from PTCL. Reseat the green fibre connector until it clicks and power-cycle the ONT for 30 seconds. If LOS stays red, call PTCL on 1218: the fault is in the fibre cable or PTCL\'s equipment, and restarting the router won\'t fix it.',
+  },
+  {
+    q: 'Why is my PTCL DSL light blinking?',
+    a: 'A blinking DSL light means the modem is trying to sync with the exchange. Wait a few minutes after a restart; if it never goes solid, check the phone cable and splitter, confirm the landline has a dial tone, and restart the modem. A DSL light that never syncs usually means a line fault — call PTCL on 1218.',
+  },
+  {
+    q: 'How do I lower my ping for PUBG on PTCL?',
+    a: 'Use an Ethernet cable, choose the nearest game server (Dubai/Middle East or Singapore), close background downloads, and switch DNS to Cloudflare (1.1.1.1) or Google (8.8.8.8). On PTCL DSL, ask PTCL on 1218 to switch your line profile to FastPath instead of Interleaved.',
+  },
+  {
+    q: 'Why is PTCL slow at night?',
+    a: 'Evenings (7–11 pm) are the busiest hours on every Pakistani network, so speeds commonly dip then. Test in the morning and again at 9 pm: if mornings are fast and evenings are slow, that\'s congestion — no router setting will fix it, but both results together are strong evidence for a complaint.',
+  },
+  {
     q: 'Is this site affiliated with PTCL?',
     a: 'No. This is an independent tool built for PTCL customers. It is not affiliated with, endorsed by, or connected to Pakistan Telecommunication Company Limited (PTCL) or Etisalat.',
   },

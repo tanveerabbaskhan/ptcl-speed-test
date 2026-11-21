@@ -46,30 +46,6 @@ const faqSchema = {
         text: 'Yes — the test measures whatever connection your device is using, including Jazz, Zong, Telenor and Ufone mobile data, and other ISPs like Nayatel and StormFiber.',
       },
     },
-    {
-      '@type': 'Question',
-      name: 'PTCL net slow chal raha hai, kya karein?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Pehle is page par speed test chalayein. Agar speed package se bohot kam hai to router 30 second ke liye band kar ke dobara on karein, 5 GHz WiFi ya LAN cable se connect karein, aur doosre devices par downloads band kar dein. Phir bhi slow ho to 1218 par complaint karein aur complaint number zaroor lein.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Internet speed test kaise check karein?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Is page par upar "Start Speed Test" button dabayein. 30 second mein download speed, upload speed, ping aur jitter ka result mil jayega. Koi app install karne ya sign-up ki zaroorat nahi.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'PTCL WiFi ka password kaise change karein?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Mobile ko apne PTCL WiFi se connect karein, browser mein 192.168.10.1 kholein (kuch routers par 192.168.1.1), admin password se login karein, phir WLAN ya Wireless settings mein naya password likh kar Save karein.',
-      },
-    },
   ],
 };
 
@@ -333,62 +309,6 @@ const websiteSchema = {
       <p class="center" style="margin-top: 1.5rem;">
         <a href="/faq">See all questions →</a>
       </p>
-    </div>
-  </section>
-
-  <!-- Roman Urdu FAQ -->
-  <section class="section">
-    <div class="container">
-      <h2 class="center">Roman Urdu mein madad</h2>
-      <p class="lead center" style="max-width: 720px; margin: 0 auto;">
-        PTCL internet ke aam masail ke jawab, aasaan alfaaz mein.
-      </p>
-      <div class="faq-list">
-        <details class="faq">
-          <summary>Internet speed test kaise check karein?</summary>
-          <p>
-            Is page par upar "Start Speed Test" button dabayein. 30 second mein download
-            speed, upload speed, ping aur jitter ka result mil jayega. Koi app install
-            karne ya sign-up ki zaroorat nahi.
-          </p>
-        </details>
-        <details class="faq">
-          <summary>PTCL net slow chal raha hai, kya karein?</summary>
-          <p>
-            Pehle upar speed test chalayein aur apna package select karein. Agar speed
-            package se bohot kam hai to: router 30 second ke liye band kar ke dobara on
-            karein, phone ya laptop ko 5 GHz WiFi ya LAN cable se connect karein, aur
-            doosre devices par downloads band kar dein. Phir bhi slow ho to 1218 par
-            complaint karein aur complaint number zaroor lein.
-          </p>
-        </details>
-        <details class="faq">
-          <summary>Raat ko PTCL internet slow kyun ho jata hai?</summary>
-          <p>
-            Shaam 7 se raat 11 baje tak sab log aik saath internet use karte hain, is
-            liye network par load barh jata hai. Subah dobara test karein — agar subah
-            speed theek hai to masla congestion ka hai, aap ke router ka nahi.
-          </p>
-        </details>
-        <details class="faq">
-          <summary>PTCL WiFi ka password mobile se kaise change karein?</summary>
-          <p>
-            Mobile ko apne PTCL WiFi se connect karein, browser mein 192.168.10.1 kholein
-            (kuch routers par 192.168.1.1), admin password se login karein, phir WLAN /
-            Wireless settings mein naya password likh kar Save karein. Mukammal tareeqa
-            hamari <a href="/guides/ptcl-router-login">router login guide</a> mein hai.
-          </p>
-        </details>
-        <details class="faq">
-          <summary>PTCL ki complaint kaise karein?</summary>
-          <p>
-            Kisi bhi phone se 1218 par call karein. Apna account ID ya landline number
-            aur speed test ka result sath rakhein, aur complaint number zaroor note
-            karein. Agar 3 din mein hal na ho to dobara call kar ke complaint number se
-            follow-up karein.
-          </p>
-        </details>
-      </div>
     </div>
   </section>
 </BaseLayout>

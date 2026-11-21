@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    q: 'How do I get Jazz internet settings on my phone?',
+    a: 'The easiest way is by SMS: dial *444*6*5# on a prepaid Jazz SIM or *446*4# on postpay, or send a blank SMS to 7342. Jazz sends the settings to your phone — open the message and tap Install or Save, then restart the phone. This fills in the APN and all other fields correctly, which is safer than typing values from a forum.',
+  },
+  {
+    q: 'What is the Jazz APN?',
+    a: 'Jazz\'s own help pages list the access point simply as "Jazz" and don\'t publish the full address — which is why the settings SMS is the recommended route. Published third-party values vary (jazzconnect.mobilinkworld.com for prepaid and connect.mobilinkworld.com for postpay are the most widely cited). If your phone already shows a Jazz profile under Access Point Names, select it and leave it alone.',
+  },
+  {
+    q: 'How do I check if my Jazz SIM is 4G?',
+    a: 'Dial *443*7# — it\'s free. To check whether your phone is 4G, dial *443*8# (some Jazz pages list *4437# instead; try the first, then the second). To activate Super 4G on your SIM, dial *583# — also free.',
+  },
+  {
+    q: 'My Jazz internet worked, then stopped after I changed the APN. What do I do?',
+    a: 'Go to Settings, Mobile Network, Access Point Names, and choose Reset to Default — then restart the phone. If that doesn\'t restore it, get the official settings by SMS (*444*6*5# prepaid, *446*4# postpay, or a blank SMS to 7342).',
+  },
+  {
+    q: 'Do I need to set the APN on an iPhone?',
+    a: 'Usually not. iPhones and newer Android phones set the APN automatically from the SIM. If mobile data works, leave it alone. If it doesn\'t, check Settings, Mobile Service, Mobile Data Network — and use the settings SMS route rather than typing values manually.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptclspeed.example.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://ptclspeed.example.com/guides' },
+    { '@type': 'ListItem', position: 3, name: 'Jazz APN Settings & Internet Settings', item: 'https://ptclspeed.example.com/guides/jazz-apn-settings' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Jazz APN Settings & Internet Settings (2026) — Codes, SMS & Manual Setup"
+  description="Get Jazz internet settings by SMS (*444*6*5#, *446*4#, or blank SMS to 7342), check your 4G SIM, and set the Jazz APN manually on Android and iPhone."
+  canonical="/guides/jazz-apn-settings"
+  schema={[faqSchema, breadcrumbSchema]}
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Jazz APN Settings</p>
+      <h1>Jazz APN Settings &amp; Internet Settings</h1>
+      <p class="lead">
+        The APN (Access Point Name) tells your phone how to reach Jazz's data network.
+        Wrong APN settings mean slow internet or no internet at all — and the safest fix
+        is to let Jazz send the settings to your phone automatically.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 720px;">
+      <h2>The easiest way: get settings by SMS</h2>
+      <p>
+        Jazz sends the correct internet settings to your phone as a message. You don't
+        need to type anything — the SMS fills in the APN and every other field for you.
+      </p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Your connection</th><th>What to do</th><th>Result</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Prepaid Jazz</td><td>Dial <strong>*444*6*5#</strong></td><td>Settings arrive by SMS</td></tr>
+          <tr><td>Postpay Jazz</td><td>Dial <strong>*446*4#</strong></td><td>Settings arrive by SMS</td></tr>
+          <tr><td>Prepaid or postpay</td><td>Send a blank SMS to <strong>7342</strong></td><td>Settings arrive by SMS</td></tr>
+        </tbody>
+      </table>
+      <ol>
+        <li>Put the Jazz SIM in the phone and switch mobile data on.</li>
+        <li>Dial the code for your connection, or send the blank SMS.</li>
+        <li>Open the settings message when it arrives and tap <strong>Install</strong> or <strong>Save</strong>.</li>
+        <li>Restart the phone. Mobile data should start working.</li>
+      </ol>
+      <p>
+        If the phone asks for a PIN you don't know, don't guess — call Jazz helpline
+        <strong>111</strong>.
+      </p>
+
+      <h2>Check your SIM and phone are 4G</h2>
+      <p>
+        Settings alone can't make a 3G SIM or a 3G phone run 4G. Jazz provides free
+        checks:
+      </p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Check</th><th>Code</th><th>Charge</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Is my SIM 4G?</td><td><strong>*443*7#</strong></td><td>Free</td></tr>
+          <tr><td>Is my phone 4G?</td><td><strong>*443*8#</strong> (or *4437#)</td><td>Not stated</td></tr>
+          <tr><td>Turn on Super 4G</td><td><strong>*583#</strong></td><td>Free</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Jazz's own pages list two different codes for the handset check — try *443*8#
+        first, and if it fails, try *4437#. If the SIM is old, swap it for a 4G SIM at a
+        Jazz franchise (biometric verification needed). A 4G SIM also works on Jazz 5G if
+        your phone supports it.
+      </p>
+
+      <h2>Manual APN settings (if you must type them)</h2>
+      <p>
+        Jazz's help pages list the access point only as "Jazz" and don't publish the full
+        address — so manual values in circulation come from third-party sources and they
+        disagree. The values below are the most widely cited; if they don't work, use the
+        SMS route above instead of trying random values from forums.
+      </p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Field</th><th>Prepaid</th><th>Postpay</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Name</td><td>Jazz Internet</td><td>Jazz Internet</td></tr>
+          <tr><td>APN</td><td>jazzconnect.mobilinkworld.com</td><td>connect.mobilinkworld.com</td></tr>
+          <tr><td>Username / Password</td><td>Leave blank</td><td>Leave blank</td></tr>
+          <tr><td>MCC</td><td>410</td><td>410</td></tr>
+          <tr><td>MNC</td><td>01</td><td>01</td></tr>
+          <tr><td>APN type</td><td>default</td><td>default</td></tr>
+          <tr><td>APN protocol</td><td>IPv4/IPv6</td><td>IPv4/IPv6</td></tr>
+        </tbody>
+      </table>
+      <p>
+        <strong>Android:</strong> Settings → Connections / Mobile Network → Access Point
+        Names → "+" or "New APN" → enter the values → Save → select the new APN.
+        <strong>iPhone:</strong> Settings → Mobile Service → Mobile Data Network — most
+        iPhones fill this from the SIM automatically; only enter values manually if the
+        fields are empty.
+      </p>
+      <p>
+        If your phone already shows a Jazz profile under Access Point Names, select it and
+        leave it alone — and on a dual-SIM phone, make sure the Jazz SIM is the one chosen
+        for mobile data.
+      </p>
+
+      <h2>If the internet still doesn't work</h2>
+      <ul>
+        <li>Reset APNs to default (Settings → Mobile Network → Access Point Names → Reset to Default), then restart.</li>
+        <li>Check the bundle is active — dial <strong>*114#</strong>. No bundle, no data.</li>
+        <li>Toggle airplane mode for 30 seconds to re-register with the nearest tower.</li>
+        <li>Try the SIM in another phone to separate a phone problem from a SIM/network problem.</li>
+        <li>Still stuck? Call Jazz on <strong>111</strong> — or work through our <a href="/guides/jazz-internet-slow">slow Jazz internet guide</a>.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list" style="margin-top: 1rem;">
+        {faqs.map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <div class="cta-band">
+        <h2>Settings fixed? Test your Jazz speed</h2>
+        <p>See what your connection actually delivers now.</p>
+        <div class="cta-links">
+          <a class="btn" href="/speedtest/jazz">Jazz Speed Test →</a>
+          <a class="btn btn-secondary" href="/guides/jazz-internet-slow">Still slow? Fix guide →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

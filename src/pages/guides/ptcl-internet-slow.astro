@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    q: 'Why is my PTCL internet slow?',
+    a: 'The most common causes: Wi-Fi problems (router placement, 2.4 GHz band, old router), too many devices sharing the connection, peak-hour congestion (7–11 pm), a damaged or distant copper line on DSL, or a wider network issue such as a submarine cable fault. Test over an Ethernet cable first — if wired is fast, your line is fine and the fix is in your home setup.',
+  },
+  {
+    q: 'How do I increase my PTCL internet speed?',
+    a: 'Test wired to find your real line speed, move the router to a central, high spot, use the 5 GHz band near the router, restart the router and ONT, disconnect devices you don\'t need, and check the DSL light and line stats. If the wired speed stays below 80% of your package at quiet times, complain to PTCL on 1218 with your test results.',
+  },
+  {
+    q: 'Is PTCL speed slow at night for everyone?',
+    a: 'Evenings (roughly 7–11 pm) are the busiest hours on every Pakistani network, so speeds commonly dip then. Test in the morning and again at 9 pm: if mornings are fast and evenings are slow, that\'s congestion. Keep both results — together they\'re strong evidence for a complaint.',
+  },
+  {
+    q: 'Should I upgrade my PTCL package or switch to Flash Fiber?',
+    a: 'If you\'re on DSL and Flash Fiber reaches your street, switching to fibre helps far more than a bigger DSL package — fibre gives higher speeds, much faster uploads and lower ping, and isn\'t limited by distance from the exchange. If fibre isn\'t available, upgrade the DSL package only after confirming your line delivers its current speed on a wired test.',
+  },
+  {
+    q: 'How do I complain about slow PTCL internet?',
+    a: 'Call PTCL helpline 1218 with your account or landline number and your dated, wired speed test results. Ask for a complaint number and note it down. If it isn\'t resolved in a few days, follow up quoting the complaint number. For DSL, also quote your SNR margin and line attenuation from the modem settings — they turn a vague complaint into a specific line fault.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptclspeed.example.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://ptclspeed.example.com/guides' },
+    { '@type': 'ListItem', position: 3, name: 'PTCL Internet Slow? How to Fix Slow PTCL Speed', item: 'https://ptclspeed.example.com/guides/ptcl-internet-slow' },
+  ],
+};
+---
+
+<BaseLayout
+  title="PTCL Internet Slow? How to Fix Slow PTCL Speed (DSL & Flash Fiber)"
+  description="PTCL internet slow? Diagnose it in order: wired test, Wi-Fi fixes, router restart, DSL line stats, fibre LOS light, and how to complain to PTCL with evidence."
+  canonical="/guides/ptcl-internet-slow"
+  schema={[faqSchema, breadcrumbSchema]}
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / PTCL Internet Slow</p>
+      <h1>PTCL Internet Slow? How to Fix Slow PTCL Speed</h1>
+      <p class="lead">
+        Slow PTCL internet is usually fixable — but the fix depends on where the problem
+        is. Work through these steps in order: each one rules out a cause before you
+        move to the next.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 720px;">
+      <h2>Step 1: Test wired — find your real line speed</h2>
+      <p>
+        Plug a laptop into the router with an Ethernet cable and
+        <a href="/speed-test">run a speed test</a>. This is the most important step in
+        the whole guide:
+      </p>
+      <ul>
+        <li><strong>Wired is fast, Wi-Fi is slow</strong> — your line is fine. The problem is Wi-Fi: go to Step 3.</li>
+        <li><strong>Wired is slow too</strong> — the problem is your line or the network: go to Step 5.</li>
+        <li><strong>Wired is slow only in the evening</strong> — that's peak-hour congestion. Test at 7 am to confirm.</li>
+      </ul>
+      <p>
+        As a rule of thumb, your wired speed should stay above 80% of your package at
+        quiet times. Keep dated screenshots of your results — they're your evidence if
+        you complain.
+      </p>
+
+      <h2>Step 2: Restart the router (and the ONT, on fibre)</h2>
+      <p>
+        Switch the router off for 30 seconds, then on, and wait for the lights to settle.
+        On Flash Fiber, restart the ONT (the small white fibre box) the same way. A
+        restart clears stuck sessions and forces a fresh line negotiation — it fixes a
+        surprising number of slowdowns. Don't confuse restart with reset: the reset
+        button wipes your settings, including the internet login on DSL.
+      </p>
+
+      <h2>Step 3: Fix the Wi-Fi</h2>
+      <p>
+        Wi-Fi is the most common bottleneck on an otherwise healthy line:
+      </p>
+      <ul>
+        <li><strong>Move the router</strong> — central in the house, up high, out of a cabinet, away from the TV and microwave.</li>
+        <li><strong>Use the right band.</strong> 5 GHz is fast but short-range (same room); 2.4 GHz reaches further but rarely passes 35–45 Mbps in the real world. If your package is above 20 Mbps and you're on 2.4 GHz, the band itself is the cap.</li>
+        <li><strong>Cut the devices.</strong> Every phone, TV and laptop shares the connection. Disconnect what you don't need and test again.</li>
+        <li><strong>Check who's connected.</strong> Log in to the router (192.168.10.1 or 192.168.1.1) and look at the connected-devices list — unknown devices may be using your bandwidth. See our <a href="/guides/ptcl-router-login">router login guide</a>.</li>
+      </ul>
+
+      <h2>Step 4: Check the lights</h2>
+      <p>
+        The router lights name the fault. On DSL, a blinking or red DSL light means the
+        line can't sync. On fibre, a red LOS light means no optical signal is reaching
+        your home — no restart will fix that. Read the full
+        <a href="/guides/ptcl-router-lights">PTCL router lights guide</a> before you
+        call anyone.
+      </p>
+
+      <h2>Step 5: On DSL — check your line stats</h2>
+      <p>
+        If you're on PTCL DSL, your modem knows more about your line than any speed test.
+        Log in at 192.168.10.1 (or 192.168.1.1) and open Status → DSL. Two numbers
+        explain most slow DSL lines: <strong>SNR margin</strong> (above 12 dB is good,
+        below 6 dB causes drops and slow speed) and <strong>line attenuation</strong>
+        (below 30 dB is good, above 50 dB means a long or damaged line). Low SNR that
+        gets worse when it rains usually means a wet or damaged joint — only PTCL can fix
+        that. Quote both numbers when you complain.
+      </p>
+
+      <h2>Step 6: Rule out a wider problem</h2>
+      <p>
+        If neighbours on different providers are slow too, it's the network, not your
+        line. Check for known outages — right now (November 2026), a fault in the SMW5
+        submarine cable is slowing connections across Pakistan. See
+        <a href="/guides/why-internet-slow-pakistan">why the internet is slow in Pakistan</a>
+        for the current situation and how to tell.
+      </p>
+
+      <h2>Step 7: Complain to PTCL with evidence</h2>
+      <p>
+        Call PTCL helpline <strong>1218</strong> when your wired speed stays below about
+        80% of your package at quiet times, when the DSL/LOS light is red, or when drops
+        keep happening after you've checked cables and the splitter. Have ready:
+      </p>
+      <ul>
+        <li>Your account number or landline number.</li>
+        <li>Dated, wired speed test results (morning and evening if congestion is involved).</li>
+        <li>For DSL: your SNR margin and line attenuation figures.</li>
+        <li>What the router lights show.</li>
+      </ul>
+      <p>
+        Ask for a complaint number and note it down. If it isn't resolved in a few days,
+        follow up quoting the number. For gaming-specific lag, also ask whether your DSL
+        line can be switched to FastPath — see our
+        <a href="/guides/reduce-ping-gaming">guide to reducing gaming ping</a>.
+      </p>
+
+      <h2>Should you upgrade — or switch to fibre?</h2>
+      <p>
+        If your wired speed matches your package and you still struggle, you need a
+        faster package. But if you're on DSL and Flash Fiber reaches your street,
+        switching to fibre helps far more than a bigger DSL package: higher speeds, much
+        faster uploads, lower ping, and no distance penalty. Check the
+        <a href="/packages">package speed tiers</a> and the
+        <a href="/speedtest/ptcl-flash-fiber">Flash Fiber speed test</a> page before you
+        decide — and test the new connection the day it's installed.
+      </p>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list" style="margin-top: 1rem;">
+        {faqs.map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <div class="cta-band">
+        <h2>Start with the numbers</h2>
+        <p>Test wired first — then work through the steps above.</p>
+        <div class="cta-links">
+          <a class="btn" href="/speed-test">Test My Speed →</a>
+          <a class="btn btn-secondary" href="/guides/troubleshoot-slow-internet">Troubleshoot by symptom →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

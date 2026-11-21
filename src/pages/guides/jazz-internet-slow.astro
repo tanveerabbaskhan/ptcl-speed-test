@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    q: 'Why is my Jazz internet so slow?',
+    a: 'The most common causes in order: your data bundle has run out (speeds drop to a crawl), weak 4G signal indoors, the phone dropping to 3G, peak-hour congestion (7–11 pm), wrong APN settings, or an old SIM card. Work through the checks in this guide in order — most slow Jazz connections are fixed by one of the first three.',
+  },
+  {
+    q: 'How do I check my remaining Jazz data balance?',
+    a: 'Dial *114# to check your Jazz balance and remaining data, or open the Jazz World (SIMOSA) app. If your high-speed quota is finished, your speed drops sharply until you buy a new bundle — no setting will fix that.',
+  },
+  {
+    q: 'Does airplane mode really fix slow Jazz internet?',
+    a: 'Often, yes — for a temporary problem. Turning airplane mode on for 30 seconds and off again forces your phone to drop its connection and re-register with the nearest, strongest tower. It fixes stuck tower attachments, but it won\'t help with congestion, a finished bundle, or a weak-signal location.',
+  },
+  {
+    q: 'Should I lock my phone to 4G only for Jazz?',
+    a: 'In cities with solid 4G coverage, yes — it stops the phone jumping between 3G and 4G, which causes unstable speeds. In rural areas with patchy 4G, keep Auto mode so you don\'t lose connection entirely. On Android: Settings, Mobile Network, Preferred Network Type, 4G/LTE. On iPhone: Settings, Mobile Data, Mobile Data Options, Voice & Data, LTE.',
+  },
+  {
+    q: 'Can an old SIM card slow down Jazz 4G?',
+    a: 'Yes. SIM cards more than three or four years old can struggle with modern 4G — if your speed is poor even in strong coverage areas, or the signal drops often, get a free biometric SIM replacement at a Jazz franchise. Dial *443*7# to check whether your SIM is 4G.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptclspeed.example.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://ptclspeed.example.com/guides' },
+    { '@type': 'ListItem', position: 3, name: 'Jazz Internet Slow? Fix Slow Jazz 4G Speed', item: 'https://ptclspeed.example.com/guides/jazz-internet-slow' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Jazz Internet Slow? How to Fix Slow Jazz 4G Speed (2026)"
+  description="Jazz 4G slow? Work through the fixes in order: bundle check, airplane mode, signal, 4G-only mode, APN settings, old SIM, and when to file a Jazz network complaint."
+  canonical="/guides/jazz-internet-slow"
+  schema={[faqSchema, breadcrumbSchema]}
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Jazz Internet Slow</p>
+      <h1>Jazz Internet Slow? How to Fix Slow Jazz 4G Speed</h1>
+      <p class="lead">
+        Slow Jazz data is usually one of a handful of causes — and most of them are fixed
+        in settings, not by calling anyone. Work through these checks in order, and test
+        your speed after each step.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 720px;">
+      <h2>1. Check your bundle first</h2>
+      <p>
+        Before anything else, check that your data bundle is active and has quota left.
+        When the high-speed allowance ends, Jazz drops your speed sharply (often to
+        64–128 Kbps) until you buy a new bundle — and no setting on your phone will fix
+        that. Dial <strong>*114#</strong> or open the Jazz World app to check. If the
+        bundle is finished, top up and test again.
+      </p>
+
+      <h2>2. Toggle airplane mode</h2>
+      <p>
+        Turn airplane mode on for 30 seconds, then off. This forces your phone to drop
+        its current tower connection and re-register with the nearest, strongest tower.
+        It fixes stuck attachments and temporary glitches — the single fastest fix when
+        speed suddenly drops for no reason.
+      </p>
+
+      <h2>3. Check your signal — move, then test</h2>
+      <p>
+        4G struggles inside concrete buildings, basements and lifts. Move near a window,
+        a balcony or outdoors and <a href="/speedtest/jazz">run a Jazz speed test</a>.
+        If the speed jumps, the problem is indoor signal, not the network:
+      </p>
+      <ul>
+        <li>Remove metal or magnetic phone cases — they block 4G signal.</li>
+        <li>On a dual-SIM phone, make sure the Jazz SIM is the one selected for mobile data.</li>
+        <li>Test in a few spots: mobile speed can change completely from one room to the next.</li>
+      </ul>
+
+      <h2>4. Lock the network mode to 4G</h2>
+      <p>
+        Phones in Auto mode keep jumping between 2G, 3G and 4G, which makes speeds
+        unstable. Lock it to 4G:
+      </p>
+      <ul>
+        <li><strong>Android:</strong> Settings → Mobile Network → Preferred Network Type → <strong>4G/LTE</strong> (or LTE only).</li>
+        <li><strong>iPhone:</strong> Settings → Mobile Data → Mobile Data Options → Voice &amp; Data → <strong>LTE</strong>.</li>
+      </ul>
+      <p>
+        In cities with solid 4G this is the most impactful single setting. In rural areas
+        with patchy 4G, keep Auto mode so you don't lose connection entirely. After
+        changing it, toggle airplane mode for 30 seconds to reconnect.
+      </p>
+
+      <h2>5. Check your APN settings</h2>
+      <p>
+        Wrong APN settings can choke your connection to an old, slow gateway. The easy
+        fix: get the official settings sent to your phone. Dial <strong>*444*6*5#</strong>
+        on prepaid or <strong>*446*4#</strong> on postpay, or send a blank SMS to
+        <strong>7342</strong> — Jazz sends the settings by SMS; open the message and tap
+        Install or Save. You can also reset APNs to default in Settings → Mobile Network
+        → Access Point Names → Reset to Default. Full details are in our
+        <a href="/guides/jazz-apn-settings">Jazz APN settings guide</a>.
+      </p>
+
+      <h2>6. Rule out your phone and SIM</h2>
+      <ul>
+        <li><strong>Try the SIM in another phone.</strong> If speeds improve, your handset's antenna or settings are the problem.</li>
+        <li><strong>Check the SIM is 4G.</strong> Dial <strong>*443*7#</strong> to check; if the SIM is old, get a biometric 4G SIM replacement at a Jazz franchise — SIMs over three or four years old can struggle with modern 4G.</li>
+        <li><strong>Activate Super 4G.</strong> Dial <strong>*583#</strong> (free) to make sure the 4G service is active on your SIM.</li>
+        <li><strong>Turn off VPN.</strong> VPNs route traffic through remote servers and almost always slow mobile data down.</li>
+        <li><strong>Close background apps.</strong> Auto-updates, cloud photo sync and social apps consume bandwidth silently — clear them before testing.</li>
+        <li><strong>Restart the phone</strong> and install any pending software updates; outdated baseband firmware can affect the modem.</li>
+      </ul>
+
+      <h2>7. Is it just peak hours?</h2>
+      <p>
+        Jazz congestion is worst in dense urban areas between 7 and 11 pm, and during big
+        events, Eid holidays and cricket matches. If your speed is fine in the morning
+        and slow only in the evening, that's congestion — nothing on your phone will fix
+        it. Test at 7 am and 9 pm and keep both results.
+      </p>
+
+      <h2>8. When to complain to Jazz</h2>
+      <p>
+        If speeds are poor at one location at all times of day, a nearby tower may be
+        under maintenance or overloaded. Call Jazz helpline <strong>111</strong> or use
+        the Jazz World app, and ask specifically for a <strong>network complaint</strong> —
+        that routes it to the network operations team for a tower-level check, rather than
+        a general query. Have your speed test screenshots ready, with the time and
+        location of each test. If the problem lasts more than 24 hours, follow up with the
+        complaint reference.
+      </p>
+      <p>
+        If Jazz is consistently poor where you live, it's worth testing another network —
+        Zong often outperforms Jazz in dense urban areas. See our
+        <a href="/compare/jazz-vs-zong">Jazz vs Zong comparison</a> for the data.
+      </p>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list" style="margin-top: 1rem;">
+        {faqs.map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <div class="cta-band">
+        <h2>Test your Jazz speed now</h2>
+        <p>Run a test before and after each fix to see what actually helped.</p>
+        <div class="cta-links">
+          <a class="btn" href="/speedtest/jazz">Jazz Speed Test →</a>
+          <a class="btn btn-secondary" href="/guides/jazz-apn-settings">Jazz APN settings →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
