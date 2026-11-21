@@ -107,8 +107,7 @@ code { background: var(--bg-soft); padding: 0.15em 0.4em; border-radius: 6px; fo
   pointer-events: none;
 }
 .hero h1 { color: #fff; margin-bottom: 0.4em; }
-.hero p { color: #c9dcf0; max-width: 640px; }
-.hero .lead { color: #dbe9f7; }
+.hero .lead { color: #dbe9f7; max-width: 640px; }
 .hero-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 2.5rem; align-items: center; position: relative; z-index: 1; }
 .hero-badges { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.4rem; }
 .badge {
