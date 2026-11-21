@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { providers } from '../../data/providers';
+---
+
+<BaseLayout
+  title="Speed Tests by Provider — PTCL, Jazz, Zong, Nayatel, StormFiber & More"
+  description="Free internet speed tests for every major Pakistani provider: PTCL, Nayatel, StormFiber, Jazz, Zong, Telenor, Wateen, Wi-Tribe, EVO and more. Test your download, upload, ping and jitter."
+  canonical="/speedtest"
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / Speed Tests</p>
+      <h1>Speed Tests by Provider</h1>
+      <p class="lead">
+        Pick your provider for a test tuned to your connection — fibre, mobile data or
+        wireless — with advice written for that kind of line.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cards">
+        {providers.map((p) => (
+          <a class="card card-link" href={`/speedtest/${p.slug}`}>
+            <h3>{p.name} Speed Test</h3>
+            <p>{p.typeLabel} — {p.coverage}</p>
+          </a>
+        ))}
+      </div>
+      <p class="center" style="margin-top: 2rem;">
+        Not sure which you have? The <a href="/speed-test">general speed test</a> works
+        for any connection.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

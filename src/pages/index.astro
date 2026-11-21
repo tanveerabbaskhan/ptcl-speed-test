@@ -1,0 +1,271 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SpeedTest from '../components/SpeedTest.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How accurate is this PTCL speed test?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The test measures your real connection to the nearest Cloudflare edge server in Pakistan. For the most accurate result, connect your computer directly to the router with an Ethernet cable, close other apps and tabs, and run the test two or three times.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is a good internet speed for PTCL broadband?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'For one or two people browsing and streaming in HD, 10–15 Mbps is enough. For 4K streaming, online classes and video calls at the same time, aim for 25 Mbps or more. Online gaming cares more about low ping (under 50 ms) than raw speed.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Why is my PTCL speed slower than my package?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Advertised speeds are maximums. Your real speed depends on your distance from the telephone exchange, the quality of your copper line or fibre, Wi-Fi signal strength, how many devices are connected, and peak-hour congestion.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is this speed test free?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. The test is completely free, needs no account and no sign-up, and you can run it as many times as you like.',
+      },
+    },
+  ],
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'PTCL Speed Test',
+  url: 'https://ptclspeed.example.com',
+  description:
+    'Free PTCL internet speed test for Pakistan. Check your download speed, upload speed, ping and jitter in seconds.',
+  inLanguage: 'en',
+};
+---
+
+<BaseLayout
+  title="PTCL Speed Test — Check Your Internet Speed in Pakistan"
+  description="Free PTCL speed test. Measure your download speed, upload speed, ping and jitter in under 30 seconds. No sign-up, works on any PTCL broadband or fibre connection."
+  canonical="/"
+  schema={[websiteSchema, faqSchema]}
+>
+  <!-- Hero with live speed test -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>PTCL Speed Test — Check Your Internet Speed</h1>
+        <p class="lead">
+          Is your PTCL connection as fast as you pay for? Run a free test in under 30
+          seconds and see your real download speed, upload speed, ping and jitter.
+        </p>
+        <div class="hero-badges">
+          <span class="badge">✓ Free, no sign-up</span>
+          <span class="badge">✓ Download &amp; upload</span>
+          <span class="badge">✓ Ping &amp; jitter</span>
+          <span class="badge">✓ Works on mobile &amp; desktop</span>
+        </div>
+      </div>
+      <SpeedTest />
+    </div>
+  </section>
+
+  <!-- What the test measures -->
+  <section class="section">
+    <div class="container">
+      <h2 class="center">What does the speed test measure?</h2>
+      <p class="lead center" style="max-width: 720px; margin: 0 auto;">
+        A single "speed" number never tells the whole story. Your connection has four
+        numbers that matter — here is what each one means.
+      </p>
+      <div class="cards">
+        <div class="card">
+          <div class="icon">⬇️</div>
+          <h3>Download Speed</h3>
+          <p>
+            How fast data comes <em>to</em> you, in Mbps. This decides how quickly pages
+            load, videos stream and files download. It is the number PTCL advertises on
+            your package.
+          </p>
+        </div>
+        <div class="card">
+          <div class="icon">⬆️</div>
+          <h3>Upload Speed</h3>
+          <p>
+            How fast data leaves <em>your</em> device. It matters for video calls, online
+            classes, sending large files and livestreaming — and it is usually much slower
+            than download on DSL connections.
+          </p>
+        </div>
+        <div class="card">
+          <div class="icon">📶</div>
+          <h3>Ping (Latency)</h3>
+          <p>
+            How long a signal takes to reach the server and back, in milliseconds. Low ping
+            (under 50&nbsp;ms) means snappy browsing and responsive online gaming. High
+            ping feels like lag even on a fast connection.
+          </p>
+        </div>
+        <div class="card">
+          <div class="icon">〰️</div>
+          <h3>Jitter</h3>
+          <p>
+            How much your ping varies from moment to moment. High jitter causes stuttering
+            video calls and choppy voice — steady ping under 30&nbsp;ms jitter is what you
+            want for calls and gaming.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section section-soft">
+    <div class="container">
+      <h2 class="center">How the test works</h2>
+      <div class="steps">
+        <div class="step">
+          <h3>Press start</h3>
+          <p>Click "Start Speed Test" above. No app to install, no account needed.</p>
+        </div>
+        <div class="step">
+          <h3>We measure ping first</h3>
+          <p>Small signals are sent to the nearest test server to measure latency and jitter.</p>
+        </div>
+        <div class="step">
+          <h3>Then download &amp; upload</h3>
+          <p>Data is downloaded and uploaded for a few seconds each to measure real throughput.</p>
+        </div>
+        <div class="step">
+          <h3>Get your verdict</h3>
+          <p>See all four results, what they mean for streaming, calls and gaming — and your test history.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What speed do you need -->
+  <section class="section">
+    <div class="container">
+      <h2>What speed do you actually need?</h2>
+      <p>
+        PTCL sells packages by download speed, but the right speed depends on what your
+        household does online. Use this as a rough guide:
+      </p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead>
+            <tr><th>Download speed</th><th>Good for</th><th>Not ideal for</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Up to 4 Mbps</strong></td><td>Browsing, email, music, SD video</td><td>HD streaming, video calls, big downloads</td></tr>
+            <tr><td><strong>6 – 10 Mbps</strong></td><td>HD streaming, video calls, online classes</td><td>4K video, several people streaming at once</td></tr>
+            <tr><td><strong>15 – 25 Mbps</strong></td><td>Full HD on 2–3 devices, smooth video calls</td><td>4K on multiple screens</td></tr>
+            <tr><td><strong>30 – 50 Mbps</strong></td><td>4K streaming, gaming, work from home</td><td>Very little — comfortable for most homes</td></tr>
+            <tr><td><strong>100 Mbps+</strong></td><td>Everything at once: 4K, downloads, gaming, calls</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        <a href="/packages">See how PTCL packages compare →</a>
+      </p>
+
+      <h2>Why your speed may be slower than your package</h2>
+      <p>
+        The speed on your PTCL package is a maximum, not a promise. If your test result is
+        well below it, one of these is usually the reason:
+      </p>
+      <ul>
+        <li>
+          <strong>Distance from the exchange.</strong> On DSL, the further your home is from
+          PTCL's telephone exchange, the weaker the signal — two neighbours on the same
+          package can get very different speeds.
+        </li>
+        <li>
+          <strong>Old wiring.</strong> Damaged or very old copper telephone lines inside or
+          outside your home quietly eat speed. Fibre (Flash Fiber) connections don't have
+          this problem.
+        </li>
+        <li>
+          <strong>Wi-Fi, not the line.</strong> A weak Wi-Fi signal, a router in the wrong
+          room, or an old router can halve your speed. Test with an Ethernet cable to see
+          what your line itself delivers.
+        </li>
+        <li>
+          <strong>Too many devices.</strong> Every phone, TV and laptop shares the same
+          connection. A 10&nbsp;Mbps line split five ways feels like 2&nbsp;Mbps each.
+        </li>
+        <li>
+          <strong>Peak hours.</strong> Evenings are the busiest time on any network, so
+          speeds often dip between 7&nbsp;pm and 11&nbsp;pm.
+        </li>
+      </ul>
+      <p>
+        If your wired speed is consistently far below your package, contact PTCL support
+        (1218) with your test results — a dated screenshot of a slow result is useful
+        evidence. <a href="/guides/improve-ptcl-speed">More ways to improve your speed →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-soft">
+    <div class="container">
+      <h2 class="center">Frequently asked questions</h2>
+      <div class="faq-list">
+        <details class="faq">
+          <summary>How accurate is this PTCL speed test?</summary>
+          <p>
+            The test measures your real connection to the nearest Cloudflare edge server.
+            For the most accurate result, connect your computer directly to the router with
+            an Ethernet cable, close other apps and tabs, and run the test two or three times.
+          </p>
+        </details>
+        <details class="faq">
+          <summary>What is a good internet speed for PTCL broadband?</summary>
+          <p>
+            For one or two people browsing and streaming in HD, 10–15&nbsp;Mbps is enough.
+            For 4K streaming, online classes and video calls at the same time, aim for
+            25&nbsp;Mbps or more. Online gaming cares more about low ping (under 50&nbsp;ms)
+            than raw speed.
+          </p>
+        </details>
+        <details class="faq">
+          <summary>Why is my PTCL speed slower than my package?</summary>
+          <p>
+            Advertised speeds are maximums. Your real speed depends on your distance from the
+            telephone exchange, the quality of your copper line or fibre, Wi-Fi signal
+            strength, how many devices are connected, and peak-hour congestion.
+          </p>
+        </details>
+        <details class="faq">
+          <summary>Is this speed test free?</summary>
+          <p>
+            Yes. The test is completely free, needs no account and no sign-up, and you can
+            run it as many times as you like.
+          </p>
+        </details>
+        <details class="faq">
+          <summary>Can I test my mobile data speed here too?</summary>
+          <p>
+            Yes — the test measures whatever connection your device is using, including
+            Jazz, Zong, Telenor and Ufone mobile data, and other ISPs like Nayatel and
+            StormFiber. The advice on this site is written with PTCL in mind, but the test
+            itself works for any connection.
+          </p>
+        </details>
+      </div>
+      <p class="center" style="margin-top: 1.5rem;">
+        <a href="/faq">See all questions →</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

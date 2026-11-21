@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SpeedTest from '../components/SpeedTest.astro';
+---
+
+<BaseLayout
+  title="Internet Speed Test — PTCL Speed Test"
+  description="Run a free internet speed test for your PTCL connection. Get accurate download, upload, ping and jitter results in under 30 seconds — no sign-up needed."
+  canonical="/speed-test"
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / Speed Test</p>
+      <h1>Internet Speed Test</h1>
+      <p class="lead">
+        Test your PTCL broadband or fibre connection. The test takes under 30 seconds and
+        measures download speed, upload speed, ping and jitter against the nearest server.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 720px;">
+      <SpeedTest />
+
+      <h2>For the most accurate result</h2>
+      <ul>
+        <li>
+          <strong>Use an Ethernet cable</strong> if you can — Wi-Fi almost always reads
+          slower than your line itself.
+        </li>
+        <li>
+          <strong>Close other apps and tabs</strong>, especially video streaming, downloads
+          and cloud backups.
+        </li>
+        <li>
+          <strong>Disconnect other devices</strong> from your Wi-Fi during the test, or at
+          least pause their streaming.
+        </li>
+        <li>
+          <strong>Run the test 2–3 times</strong> and take the middle result — single tests
+          can be thrown off by a momentary dip.
+        </li>
+        <li>
+          <strong>Test at different times of day.</strong> Evening peak hours (7–11&nbsp;pm)
+          are usually slower than mornings.
+        </li>
+      </ul>
+
+      <h2>What do the numbers mean?</h2>
+      <p>
+        <strong>Download</strong> is what your package advertises — how fast data reaches
+        you. <strong>Upload</strong> is how fast you send data, which matters for video
+        calls and sending files. <strong>Ping</strong> is responsiveness: under
+        50&nbsp;ms is good, under 20&nbsp;ms is great. <strong>Jitter</strong> is how
+        steady that ping is — under 30&nbsp;ms keeps calls and games smooth.
+      </p>
+      <p>
+        <a href="/guides/understanding-your-results">Read the full guide to understanding your results →</a>
+      </p>
+
+      <div class="callout">
+        <p>
+          <strong>Your results stay on your device.</strong> Test history is saved only in
+          your own browser (localStorage) — we never see it, and clearing it removes it
+          completely. See our <a href="/privacy-policy">privacy policy</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About Us — PTCL Speed Test"
+  description="About PTCL Speed Test: a free, independent tool for checking PTCL broadband speed in Pakistan, with honest guides on what your results mean."
+  canonical="/about"
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / About</p>
+      <h1>About PTCL Speed Test</h1>
+      <p class="lead">
+        A free, independent tool to check your PTCL internet speed — and understand what
+        the numbers actually mean.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>What this site does</h2>
+      <p>
+        This site runs a real speed test in your browser: it measures your download
+        speed, upload speed, ping and jitter against the nearest test server, in under 30
+        seconds. No account, no app, no sign-up.
+      </p>
+      <p>
+        Around the test, you'll find plain-English guides: how to read your results, how
+        to squeeze more speed out of your PTCL connection, and what ping and jitter mean
+        for gaming and video calls. The goal is simple — help you know whether you're
+        getting the speed you pay for, and what to do if you're not.
+      </p>
+
+      <h2>How the test works</h2>
+      <p>
+        The test runs entirely in your browser. It sends small timing requests to measure
+        ping and jitter, then downloads and uploads test data for a few seconds each to
+        measure throughput. Test traffic goes to the nearest Cloudflare edge server. Your
+        results are shown to you immediately, and a short history is kept only in your own
+        browser — we never see your results.
+      </p>
+
+      <h2>Independent and unaffiliated</h2>
+      <p>
+        This site is not affiliated with, endorsed by, or connected to Pakistan
+        Telecommunication Company Limited (PTCL), Etisalat, or any other internet service
+        provider. "PTCL" is used only to describe whose customers this tool is made for.
+        For official packages, billing and complaints, contact PTCL directly on helpline
+        1218 or at ptcl.com.pk.
+      </p>
+
+      <h2>Accuracy and limits</h2>
+      <p>
+        Speed tests measure your connection at a moment in time. Results vary with Wi-Fi
+        signal, other devices, time of day and server load — that's why we recommend
+        testing over Ethernet and running the test a few times. The test is a useful
+        indicator, not a lab measurement, and it can't diagnose faults inside PTCL's
+        network.
+      </p>
+
+      <p><a href="/contact">Questions or feedback? Contact us →</a></p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page Not Found — PTCL Speed Test"
+  description="The page you were looking for doesn't exist. Run a speed test or browse the guides instead."
+  canonical="/404"
+  noindex
+>
+  <section class="section">
+    <div class="container center" style="max-width: 640px;">
+      <p style="font-size: 4rem; margin: 0;">🧭</p>
+      <h1>Page not found</h1>
+      <p class="lead">
+        That page doesn't exist — it may have moved, or the link may be mistyped.
+      </p>
+      <p>
+        <a class="btn" href="/speed-test">Run a Speed Test</a>
+        &nbsp;
+        <a class="btn btn-outline" href="/">Back to Home</a>
+      </p>
+      <p class="small muted" style="margin-top: 1.5rem;">
+        Looking for a provider test? See <a href="/speedtest">all provider speed tests</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

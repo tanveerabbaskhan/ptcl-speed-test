@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Understanding Your Speed Test Results — PTCL Speed Test"
+  description="What do download speed, upload speed, ping and jitter actually mean? A plain-English guide to reading your speed test results and what counts as good."
+  canonical="/guides/understanding-your-results"
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Understanding Your Results</p>
+      <h1>Understanding Your Speed Test Results</h1>
+      <p class="lead">
+        Four numbers, four different stories. Here's how to read each one — and what
+        "good" actually looks like for a home connection in Pakistan.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Download speed (Mbps)</h2>
+      <p>
+        Download speed is how fast data travels <em>to</em> your device. It is measured in
+        megabits per second (Mbps) and it is the number your PTCL package advertises. It
+        decides how fast web pages load, how smoothly videos stream, and how long files
+        take to download.
+      </p>
+      <p>
+        One common confusion: <strong>megabits are not megabytes</strong>. A 10&nbsp;Mbps
+        connection downloads at roughly 1.25&nbsp;MB per second (divide by 8). So a
+        1&nbsp;GB file takes about 13 minutes at 10&nbsp;Mbps, not 100 seconds.
+      </p>
+
+      <h2>Upload speed (Mbps)</h2>
+      <p>
+        Upload speed is how fast data travels <em>from</em> your device. On PTCL DSL it is
+        usually a small fraction of your download speed — often 1&nbsp;Mbps or less. It
+        matters most for video calls, online classes, sending large files, livestreaming
+        and cloud backups. If people on your Zoom calls say you freeze or sound robotic,
+        low upload speed is the usual suspect. Fibre connections have far better upload
+        speeds than DSL.
+      </p>
+
+      <h2>Ping / latency (ms)</h2>
+      <p>
+        Ping is the time a signal takes to go to the server and back, measured in
+        milliseconds (ms). Lower is better:
+      </p>
+      <ul>
+        <li><strong>Under 20 ms</strong> — excellent. Everything feels instant.</li>
+        <li><strong>20–50 ms</strong> — good. Browsing, calls and gaming all feel fine.</li>
+        <li><strong>50–100 ms</strong> — acceptable for browsing and calls; competitive gamers will notice lag.</li>
+        <li><strong>Over 100 ms</strong> — poor. Video calls feel delayed, games feel sluggish.</li>
+      </ul>
+      <p>
+        Ping depends mostly on distance and routing, not on your package speed. A
+        100&nbsp;Mbps connection can still have bad ping to a far-away game server.
+      </p>
+
+      <h2>Jitter (ms)</h2>
+      <p>
+        Jitter is how much your ping jumps around. A connection with a steady 40&nbsp;ms
+        ping feels better than one that swings between 20 and 120&nbsp;ms — even though
+        the average looks similar. Under 30&nbsp;ms of jitter is fine for calls and
+        gaming; over 50&nbsp;ms and you'll hear stuttering and see freezing.
+      </p>
+
+      <h2>How much speed do common activities need?</h2>
+      <div class="table-wrap">
+        <table class="data">
+          <thead>
+            <tr><th>Activity</th><th>Download needed</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Browsing &amp; email</td><td>1–5 Mbps</td><td>Light; ping matters more than speed</td></tr>
+            <tr><td>YouTube / Netflix HD (1080p)</td><td>5–8 Mbps</td><td>Per stream</td></tr>
+            <tr><td>Netflix / YouTube 4K</td><td>25 Mbps</td><td>Per stream</td></tr>
+            <tr><td>Zoom / Teams video call</td><td>3 Mbps down, 3 Mbps up</td><td>Upload matters here</td></tr>
+            <tr><td>Online gaming</td><td>3–6 Mbps</td><td>Low ping (&lt;50 ms) matters far more</td></tr>
+            <tr><td>Large downloads / updates</td><td>As much as possible</td><td>10 GB takes ~2.5 hrs at 10 Mbps</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Remember: these are <em>per activity</em>. Two HD streams plus a video call need
+        roughly 15&nbsp;Mbps at the same time — plus headroom.
+      </p>
+
+      <h2>Why do my results change between tests?</h2>
+      <p>
+        Speed varies minute to minute. Wi-Fi interference, other devices using the
+        connection, the test server's load, and network congestion all shift the numbers.
+        Run the test a few times and look at the pattern rather than one result — and test
+        over Ethernet for the truest picture of your line.
+      </p>
+
+      <div class="cta-band">
+        <h2>Put it into practice</h2>
+        <p>Run the test now and read your results with fresh eyes.</p>
+        <a class="btn" href="/speed-test">Run the Speed Test</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

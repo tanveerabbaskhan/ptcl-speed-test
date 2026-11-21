@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact Us — PTCL Speed Test"
+  description="Contact PTCL Speed Test with questions, feedback or corrections about the speed test tool and guides."
+  canonical="/contact"
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / Contact</p>
+      <h1>Contact Us</h1>
+      <p class="lead">
+        Questions about the speed test, a correction for a guide, or feedback on the site?
+        Send us a message.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <div class="callout">
+        <p>
+          <strong>For PTCL account issues</strong> — billing, new connections, faults and
+          complaints — please contact PTCL directly on helpline <strong>1218</strong> or at
+          <a href="https://www.ptcl.com.pk" rel="noopener" target="_blank">ptcl.com.pk</a>.
+          We are an independent tool and can't access PTCL accounts.
+        </p>
+      </div>
+
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" required autocomplete="name" />
+        </div>
+        <div class="form-group">
+          <label for="email">Your email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="topic">Topic</label>
+          <select id="topic" name="topic">
+            <option>Speed test problem</option>
+            <option>Question about my results</option>
+            <option>Correction to a guide</option>
+            <option>Feedback or suggestion</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+        <button class="btn" type="submit">Send message</button>
+        <p class="small muted" style="margin-top: 0.8rem;">
+          Sending opens your email app with the message ready to send — nothing is stored
+          on this site.
+        </p>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('contact-form');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = (document.getElementById('name') as HTMLInputElement).value.trim();
+    const email = (document.getElementById('email') as HTMLInputElement).value.trim();
+    const topic = (document.getElementById('topic') as HTMLSelectElement).value;
+    const message = (document.getElementById('message') as HTMLTextAreaElement).value.trim();
+    const subject = encodeURIComponent(`[PTCL Speed Test] ${topic}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nTopic: ${topic}\n\n${message}`);
+    // TODO: replace with the site owner's real contact address before launch.
+    window.location.href = `mailto:contact@ptclspeed.example.com?subject=${subject}&body=${body}`;
+  });
+</script>

@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SpeedTest from '../../components/SpeedTest.astro';
+import { providers, typeAdvice, type Provider } from '../../data/providers';
+
+export function getStaticPaths() {
+  return providers.map((provider) => ({
+    params: { provider: provider.slug },
+    props: { provider },
+  }));
+}
+
+interface Props {
+  provider: Provider;
+}
+
+const { provider } = Astro.props;
+const advice = typeAdvice[provider.type];
+const others = providers.filter((p) => p.slug !== provider.slug);
+const isMobile = provider.type === 'mobile' || provider.type === 'wireless';
+
+const faqs = [
+  {
+    q: `How do I check my ${provider.name} internet speed?`,
+    a: `Press "Start Speed Test" on this page. The test takes under 30 seconds and measures your download speed, upload speed, ping and jitter against the nearest server. No sign-up or app is needed.`,
+  },
+  {
+    q: `What is a good speed for ${provider.name}?`,
+    a: isMobile
+      ? `For mobile data, 10–20 Mbps down is good for HD video and calls; 5 Mbps is enough for browsing and messaging. Ping under 80 ms feels fine on mobile — under 50 ms is great for gaming.`
+      : `For most homes, 10–15 Mbps covers HD streaming and video calls; 25 Mbps or more handles 4K and several people online at once. Ping under 50 ms is good, and jitter under 30 ms keeps calls smooth.`,
+  },
+  {
+    q: `Why is my ${provider.name} speed slow?`,
+    a: isMobile
+      ? `Usually signal: weak coverage, distance from the tower, or a busy cell at peak hours. Move near a window or outdoors, check you're on 4G, and test again. If it's slow everywhere at all times, the issue may be your device or SIM.`
+      : `Usually Wi-Fi, too many devices sharing the connection, or peak-hour congestion. Test over an Ethernet cable first: if the wired result is close to your package speed, your line is fine and the fix is in your home setup.`,
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<BaseLayout
+  title={`${provider.name} Speed Test — Check Your ${provider.name} Internet Speed`}
+  description={`Free ${provider.name} speed test. Measure your ${provider.name} download speed, upload speed, ping and jitter in under 30 seconds — no sign-up needed.`}
+  canonical={`/speedtest/${provider.slug}`}
+  schema={faqSchema}
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/speedtest">Speed Tests</a> / {provider.name}</p>
+      <h1>{provider.name} Speed Test</h1>
+      <p class="lead">{provider.about}</p>
+      <p class="small muted">{provider.typeLabel} · {provider.coverage}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 720px;">
+      <SpeedTest />
+
+      <h2>How to check your {provider.name} speed</h2>
+      <ol>
+        {advice.tips.map((tip) => (
+          <li>{tip}</li>
+        ))}
+      </ol>
+
+      <h2>What affects your {provider.name} speed?</h2>
+      <ul>
+        {advice.factors.map((factor) => (
+          <li>{factor}</li>
+        ))}
+      </ul>
+
+      <h2>What do the results mean?</h2>
+      <p>
+        <strong>Download</strong> is how fast data reaches you — the number your package
+        advertises. <strong>Upload</strong> is how fast you send data, which matters for
+        video calls and sending files. <strong>Ping</strong> is responsiveness (under
+        50&nbsp;ms is good), and <strong>jitter</strong> is how steady that ping is
+        (under 30&nbsp;ms keeps calls and games smooth).
+        <a href="/guides/understanding-your-results">Read the full guide →</a>
+      </p>
+
+      <h2>{provider.name} speed test FAQ</h2>
+      <div class="faq-list" style="margin-top: 1rem;">
+        {faqs.map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container">
+      <h2 class="center">Test another provider</h2>
+      <div class="cards">
+        {others.map((p) => (
+          <a class="card card-link" href={`/speedtest/${p.slug}`}>
+            <h3>{p.name} Speed Test</h3>
+            <p>{p.typeLabel}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

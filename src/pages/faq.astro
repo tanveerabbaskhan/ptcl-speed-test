@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    q: 'How accurate is this PTCL speed test?',
+    a: 'The test measures your real connection to the nearest Cloudflare edge server. For the most accurate result, connect your computer directly to the router with an Ethernet cable, close other apps and tabs, and run the test two or three times.',
+  },
+  {
+    q: 'What is a good internet speed for PTCL broadband?',
+    a: 'For one or two people browsing and streaming in HD, 10–15 Mbps is enough. For 4K streaming, online classes and video calls at the same time, aim for 25 Mbps or more. Online gaming cares more about low ping (under 50 ms) than raw speed.',
+  },
+  {
+    q: 'Why is my PTCL speed slower than my package?',
+    a: 'Advertised speeds are maximums. Your real speed depends on your distance from the telephone exchange, the quality of your copper line or fibre, Wi-Fi signal strength, how many devices are connected, and peak-hour congestion.',
+  },
+  {
+    q: 'Is this speed test free?',
+    a: 'Yes. The test is completely free, needs no account and no sign-up, and you can run it as many times as you like.',
+  },
+  {
+    q: 'Can I test my mobile data speed here too?',
+    a: 'Yes — the test measures whatever connection your device is using, including Jazz, Zong, Telenor and Ufone mobile data, and other ISPs like Nayatel and StormFiber. The advice on this site is written with PTCL in mind, but the test itself works for any connection.',
+  },
+  {
+    q: 'How much data does a speed test use?',
+    a: 'Each full test downloads and uploads roughly 100–200 MB of test data. Avoid running it repeatedly on a limited mobile data bundle — on home broadband it does not count against any cap.',
+  },
+  {
+    q: 'What is the difference between Mbps and MBps?',
+    a: 'Mbps means megabits per second; MBps means megabytes per second. There are 8 bits in a byte, so a 40 Mbps connection downloads at about 5 MB per second. ISPs advertise in Mbps, while browsers usually show downloads in MBps.',
+  },
+  {
+    q: 'Why is my upload speed so much slower than my download speed?',
+    a: 'Most home connections are asymmetric by design — PTCL DSL packages typically offer far less upload than download, because most people download much more than they upload. Fibre (Flash Fiber) packages have much faster uploads.',
+  },
+  {
+    q: 'What ping is good for gaming in Pakistan?',
+    a: 'Under 50 ms to the game server is good; under 30 ms is great. Your ping to a nearby test server will be lower than your ping to a game server in Europe or the US, which is decided by distance. Choose Asian servers when a game offers them.',
+  },
+  {
+    q: 'My speed is slow. Should I upgrade my package?',
+    a: 'Test over an Ethernet cable first. If the wired result is close to your package speed and you still struggle, an upgrade may help. If the wired result is far below your package, fix the connection first — an upgrade on a bad line just costs more for the same speed.',
+  },
+  {
+    q: 'Does the test store my results?',
+    a: 'Your test history is saved only in your own browser (localStorage), so you can compare tests over time. We never see it, and you can clear it any time from the test page. See the privacy policy for details.',
+  },
+  {
+    q: 'Is this site affiliated with PTCL?',
+    a: 'No. This is an independent tool built for PTCL customers. It is not affiliated with, endorsed by, or connected to Pakistan Telecommunication Company Limited (PTCL) or Etisalat.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<BaseLayout
+  title="Speed Test FAQ — PTCL Speed Test"
+  description="Answers to common questions about PTCL internet speed: what is a good speed, why your connection is slower than your package, ping for gaming, Mbps vs MBps, and more."
+  canonical="/faq"
+  schema={faqSchema}
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / FAQ</p>
+      <h1>Frequently Asked Questions</h1>
+      <p class="lead">
+        Everything people usually ask about PTCL speed tests and broadband speeds.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+      <p class="center" style="margin-top: 2rem;">
+        Still stuck? <a href="/contact">Contact us</a> or
+        <a href="/guides/improve-ptcl-speed"> read the speed improvement guide</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const guides = [
+  {
+    href: '/guides/understanding-your-results',
+    icon: '📊',
+    title: 'Understanding Your Speed Test Results',
+    desc: 'Download, upload, ping and jitter — what each number means, what counts as "good", and how much speed common activities actually need.',
+  },
+  {
+    href: '/guides/improve-ptcl-speed',
+    icon: '🚀',
+    title: 'How to Improve Your PTCL Speed',
+    desc: 'Ten practical fixes, from router placement to checking your line — in order of what helps most, with when to call PTCL.',
+  },
+  {
+    href: '/guides/ping-jitter-explained',
+    icon: '🎮',
+    title: 'Ping & Jitter Explained',
+    desc: 'Why your game lags on a "fast" connection, what good ping looks like in Pakistan, and how to lower it.',
+  },
+];
+---
+
+<BaseLayout
+  title="Internet Speed Guides — PTCL Speed Test"
+  description="Plain-English guides to internet speed: understanding your speed test results, improving your PTCL connection, and what ping and jitter mean for gaming and calls."
+  canonical="/guides"
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / Guides</p>
+      <h1>Internet Speed Guides</h1>
+      <p class="lead">
+        Short, practical guides — no jargon. Learn what your speed test results mean and
+        how to get more out of your PTCL connection.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cards">
+        {guides.map((g) => (
+          <a class="card card-link" href={g.href}>
+            <div class="icon">{g.icon}</div>
+            <h3>{g.title}</h3>
+            <p>{g.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
