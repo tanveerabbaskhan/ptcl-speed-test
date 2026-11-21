@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    q: 'What is the difference between download and upload speed?',
+    a: 'Download speed is how fast data reaches you — streaming, browsing, game downloads. Upload speed is how fast you send data — video calls, sending files, cloud backups. Most connections download faster than they upload; fibre is the exception, with near-symmetrical speeds.',
+  },
+  {
+    q: 'What is a good ping?',
+    a: 'Under 50 ms is good for most uses; under 30 ms is great for gaming. Above 100 ms, video calls feel delayed and games lag. Ping depends on the server’s location and your connection type — fibre is lowest, mobile data and satellite are higher.',
+  },
+  {
+    q: 'What is jitter?',
+    a: 'Jitter is how much your ping varies from moment to moment. A steady 40 ms ping is fine; a ping that jumps between 20 and 150 ms causes stuttering calls and rubber-banding in games even though the average looks good. Under 30 ms of jitter is good.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptcl-speed-test.pages.dev/' },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://ptcl-speed-test.pages.dev/guides' },
+    { '@type': 'ListItem', position: 3, name: 'Internet Speed Glossary', item: 'https://ptcl-speed-test.pages.dev/guides/glossary' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Internet Speed Glossary — Bandwidth, Ping, Jitter, FUP & More Explained"
+  description="Plain-English definitions of internet speed terms: bandwidth, throughput, latency, ping, jitter, packet loss, FUP, GPON, ONT, SNR, APN, Mbps vs MBps and more."
+  canonical="/guides/glossary"
+  schema={[faqSchema, breadcrumbSchema]}
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Glossary</p>
+      <h1>Internet Speed Glossary</h1>
+      <p class="lead">
+        Every term your provider, your router and this site use — in plain English,
+        with what counts as "good" where it matters.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 720px;">
+      <h2>Speed terms</h2>
+
+      <h3>Bandwidth</h3>
+      <p>The maximum capacity of your connection — the size of the pipe. Your package’s advertised speed (say 50 Mbps) is its bandwidth. What you actually get is throughput.</p>
+
+      <h3>Throughput</h3>
+      <p>The speed you actually measure — the water flowing through the pipe. A healthy connection delivers at least 80% of its bandwidth on a wired test at a quiet time.</p>
+
+      <h3>Download speed</h3>
+      <p>How fast data reaches you — streaming, browsing, game downloads. This is the number your package advertises.</p>
+
+      <h3>Upload speed</h3>
+      <p>How fast you send data — video calls, sending files, cloud backups. On DSL it’s typically just 1–1.5 Mbps; on fibre it’s close to the download speed.</p>
+
+      <h3>Mbps</h3>
+      <p>Megabits per second — how ISPs and speed tests measure speed. Not the same as MBps (megabytes per second): 1 byte = 8 bits, so 100 Mbps downloads at about 12.5 MB/s. See <a href="/guides/mbps-vs-mbps">Mbps vs MBps explained</a>.</p>
+
+      <h3>Latency / Ping</h3>
+      <p>How long a signal takes to reach a server and come back, in milliseconds (ms). Under 50 ms is good; under 30 ms is great for gaming. Fibre is lowest; mobile data and satellite are higher.</p>
+
+      <h3>Jitter</h3>
+      <p>How much your ping varies from moment to moment. A steady 40 ms ping is fine; a ping jumping between 20 and 150 ms causes stuttering calls and rubber-banding in games. Under 30 ms of jitter is good.</p>
+
+      <h3>Packet loss</h3>
+      <p>Data packets that never arrive, as a percentage. Anything above 1–2% causes noticeable problems — frozen video, lag spikes, dropped calls. Usually a sign of a bad line, weak Wi-Fi or congestion.</p>
+
+      <h2>Connection terms</h2>
+
+      <h3>DSL</h3>
+      <p>Digital Subscriber Line — internet over copper telephone lines. Speed depends on your distance from the exchange and the condition of the line. PTCL DSL is the most widely available home internet in Pakistan.</p>
+
+      <h3>FTTH / Fibre</h3>
+      <p>Fibre to the home — internet over glass fibre cable, all the way to your house. Near-symmetrical uploads, low ping, and speeds that don’t degrade with distance. PTCL Flash Fiber, Nayatel, StormFiber and Transworld are all FTTH.</p>
+
+      <h3>GPON</h3>
+      <p>The technology most Pakistani fibre providers use to share one fibre cable between many homes. You don’t need to know how it works — just that it’s the standard for FTTH here.</p>
+
+      <h3>ONT</h3>
+      <p>Optical Network Terminal — the small white box that converts the fibre signal into an Ethernet connection for your router. Its LOS light turns red when the fibre signal is lost.</p>
+
+      <h3>SNR (Signal-to-Noise Ratio)</h3>
+      <p>A DSL line-quality figure, in decibels (dB). Above 10 dB is healthy; below 6 dB means the line is noisy and speeds will suffer. Found in your modem’s settings.</p>
+
+      <h3>Attenuation</h3>
+      <p>How much signal your DSL line loses over distance, in dB. Below 30 dB is good; above 50 dB means a long line and limited speed. Together with SNR, it explains most slow DSL lines.</p>
+
+      <h3>FastPath / Interleaving</h3>
+      <p>Two DSL line profiles. Interleaving corrects errors but adds latency (bad for gaming); FastPath skips the error correction for lower ping. PTCL DSL users can ask for FastPath on 1218 — it only helps if the line is clean.</p>
+
+      <h3>FUP (Fair Usage Policy)</h3>
+      <p>A data cap on your package. After you use a set amount of data in a month, your speed drops until the next billing cycle. See <a href="/guides/ptcl-fup-data-cap">PTCL data cap (FUP) explained</a>.</p>
+
+      <h3>DNS</h3>
+      <p>Domain Name System — the internet’s phone book, translating website names into addresses. A slow DNS makes pages feel slow to start loading even on a fast connection. Switching to Cloudflare (1.1.1.1) or Google (8.8.8.8) DNS sometimes helps.</p>
+
+      <h2>Mobile terms</h2>
+
+      <h3>APN (Access Point Name)</h3>
+      <p>The setting that tells your phone how to reach your mobile network’s data service. A wrong APN means slow or no internet. Each network has its own: zonginternet (Zong), internet (Telenor), ufone.pinternet (Ufone prepaid).</p>
+
+      <h3>4G / LTE</h3>
+      <p>The current standard for mobile data in Pakistan. National 4G averages run from 7.5 Mbps (Telenor) to 18.6 Mbps (Zong) on the PTA’s Q2 2026 benchmarking.</p>
+
+      <h3>5G</h3>
+      <p>The next generation of mobile data, launched in Pakistan on 19 March 2026. Median downloads around 220 Mbps where it’s live — but coverage is still pockets in 24 cities. See <a href="/guides/5g-in-pakistan">5G in Pakistan</a>.</p>
+
+      <h3>Band n78</h3>
+      <p>The 3.5 GHz radio band — Pakistan’s main 5G band, used by both Jazz and Zong. Your phone must support n78 to use 5G here.</p>
+
+      <h3>Throttling</h3>
+      <p>When a provider deliberately slows your connection — usually after a data cap (FUP) or at peak hours. Different from congestion, which is the network being busy rather than deliberately slowed.</p>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list" style="margin-top: 1rem;">
+        {faqs.map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <div class="cta-band">
+        <h2>Now test what the terms mean for you</h2>
+        <p>Run a test and see your own download, upload, ping and jitter.</p>
+        <div class="cta-links">
+          <a class="btn" href="/speed-test">Test My Speed →</a>
+          <a class="btn btn-secondary" href="/guides/understanding-your-results">Understanding your results →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

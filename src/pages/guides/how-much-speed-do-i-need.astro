@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    q: 'How much internet speed do I need for working from home?',
+    a: 'For video calls and email, 10–25 Mbps down is plenty — but check your upload: Zoom needs about 3.8 Mbps up for 1080p group calls, and DSL uploads (typically 1–1.5 Mbps) can make your video freeze even when downloads are fine. If you upload large files or join calls all day, fibre’s near-symmetrical uploads matter more than a bigger download number.',
+  },
+  {
+    q: 'Is 10 Mbps enough?',
+    a: 'For one or two people: yes, for browsing, email, HD streaming and video calls. It struggles when two people stream HD at once, or when anyone wants 4K (15 Mbps per stream). For a household of four or more, 10 Mbps is tight.',
+  },
+  {
+    q: 'What speed do I need for 4K streaming?',
+    a: 'Netflix recommends 15 Mbps for 4K; YouTube needs about 20 Mbps and Disney+ about 25 Mbps for their highest quality. That’s per stream — two 4K TVs at once need 30–50 Mbps of steady speed, not just a package that says it.',
+  },
+  {
+    q: 'Does gaming need a fast connection?',
+    a: 'Not really — most online games use only 3–6 Mbps. What gaming needs is low, stable ping: under 50 ms is good, under 30 ms is great. A 10 Mbps fibre line with 20 ms ping plays far better than a 100 Mbps line with 150 ms ping. See our guide on reducing ping for gaming.',
+  },
+  {
+    q: 'Why does my speed test show less than my package?',
+    a: 'A healthy connection should deliver at least 80% of the advertised speed on a wired test at a quiet time. Below that, something is wrong — Wi-Fi, line quality, or the provider. Test wired, test early in the morning, and keep the results as evidence if you complain.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptcl-speed-test.pages.dev/' },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://ptcl-speed-test.pages.dev/guides' },
+    { '@type': 'ListItem', position: 3, name: 'How Much Internet Speed Do I Need?', item: 'https://ptcl-speed-test.pages.dev/guides/how-much-speed-do-i-need' },
+  ],
+};
+---
+
+<BaseLayout
+  title="How Much Internet Speed Do I Need? (2026) — By Activity & Household"
+  description="How much speed do you need for Netflix 4K, Zoom, gaming and work from home? Per-activity numbers from the services themselves, household recommendations, and which PTCL connection fits."
+  canonical="/guides/how-much-speed-do-i-need"
+  schema={[faqSchema, breadcrumbSchema]}
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / How Much Speed Do I Need?</p>
+      <h1>How Much Internet Speed Do I Need?</h1>
+      <p class="lead">
+        Most people buy more speed than they use — or too little for what they actually
+        do. The answer is just arithmetic: add up what your household does at the same
+        time, and you get your number.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 720px;">
+      <h2>What each activity actually needs</h2>
+      <p>
+        These are the services’ own published recommendations — the speed one stream or
+        call needs to work properly.
+      </p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Activity</th><th>Speed needed</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Browsing, email, messaging</td><td>1–5 Mbps</td><td>Almost nothing by modern standards</td></tr>
+          <tr><td>Music streaming</td><td>0.5–2 Mbps</td><td>Spotify and YouTube Music</td></tr>
+          <tr><td>Video call (Zoom, 1080p group)</td><td>3.0 down / 3.8 up Mbps</td><td>Upload matters — DSL struggles here</td></tr>
+          <tr><td>HD video (1080p)</td><td>5 Mbps</td><td>Netflix, YouTube, Disney+ HD</td></tr>
+          <tr><td>4K video — Netflix</td><td>15 Mbps</td><td>Per stream</td></tr>
+          <tr><td>4K video — YouTube</td><td>~20 Mbps</td><td>Per stream</td></tr>
+          <tr><td>4K video — Disney+</td><td>25 Mbps</td><td>Per stream</td></tr>
+          <tr><td>Online gaming</td><td>3–6 Mbps</td><td>Ping matters far more than speed</td></tr>
+          <tr><td>Game downloads &amp; updates</td><td>As fast as possible</td><td>A 100 GB game takes ~4.5 hours at 50 Mbps</td></tr>
+          <tr><td>Cloud backup / large uploads</td><td>Upload speed</td><td>Fibre uploads are 10–20× faster than DSL</td></tr>
+        </tbody>
+      </table>
+      <p class="small muted">
+        Sources: Netflix, YouTube and Disney+ published recommendations; Zoom system
+        requirements; game publishers’ minimum requirements.
+      </p>
+
+      <h2>How to work out your number</h2>
+      <ol>
+        <li><strong>Count the simultaneous streams.</strong> Two people watching 4K at once need 30–50 Mbps — not 15. Add up the busiest moment in your house, not the average.</li>
+        <li><strong>Add video calls and gaming.</strong> A work call needs about 4 Mbps up and 3 down; a game needs 3–6 Mbps but demands low ping.</li>
+        <li><strong>Add a 25% margin.</strong> Real speeds dip below the package figure, especially at peak hours. If your arithmetic says 30 Mbps, a 40 Mbps package is the comfortable fit.</li>
+        <li><strong>Check the upload.</strong> If anyone works from home or uploads video, the upload speed decides whether calls freeze — DSL’s 1–1.5 Mbps uploads are the usual culprit.</li>
+      </ol>
+      <p>
+        Try our <a href="/tools/speed-calculator">speed calculator</a> — pick your
+        activities and household size and it works out the recommendation for you.
+      </p>
+
+      <h2>Recommendations by household</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Household</th><th>Recommended speed</th><th>What it handles</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1–2 people, light use</td><td>10–15 Mbps</td><td>Browsing, HD streaming, video calls</td></tr>
+          <tr><td>Family, mostly HD</td><td>25–50 Mbps</td><td>Two HD streams + calls + browsing</td></tr>
+          <tr><td>Family, 4K streaming</td><td>50–100 Mbps</td><td>Two 4K streams at once, comfortably</td></tr>
+          <tr><td>Heavy use / gamers / WFH</td><td>100 Mbps+</td><td>4K, gaming, uploads, smart home — all at once</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Which PTCL connection fits?</h2>
+      <ul>
+        <li><strong>PTCL DSL</strong> suits light households: up to ~100 Mbps on paper, but real speeds depend on your distance from the exchange, and uploads stay around 1–1.5 Mbps. Fine for HD and browsing; tight for 4K and work calls.</li>
+        <li><strong>PTCL Flash Fiber</strong> suits everyone else: near-symmetrical uploads, low ping, and speeds that don’t degrade with distance. If fibre reaches your street, it’s the right choice for 4K, gaming and working from home.</li>
+        <li><strong>Mobile data (4G/5G)</strong> works as a backup or for a single person — the national 4G average is about 18 Mbps. 5G is far faster where it’s live, but coverage is still patchy.</li>
+      </ul>
+      <p>
+        See the full comparison on our <a href="/compare/dsl-vs-flash-fiber">DSL vs
+        Flash Fiber</a> page, and the package tiers on our
+        <a href="/packages">packages page</a>.
+      </p>
+
+      <h2>The 80% rule</h2>
+      <p>
+        A healthy connection should deliver at least 80% of its advertised speed on a
+        wired test at a quiet time. If you pay for 30 Mbps and consistently get under
+        24 Mbps wired, something is wrong — and you have grounds to complain. Test your
+        connection, keep dated results, and compare them with your package before you
+        call your provider.
+      </p>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list" style="margin-top: 1rem;">
+        {faqs.map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <div class="cta-band">
+        <h2>Know your number? Test your connection</h2>
+        <p>See whether your line actually delivers the speed you’re paying for.</p>
+        <div class="cta-links">
+          <a class="btn" href="/speed-test">Test My Speed →</a>
+          <a class="btn btn-secondary" href="/tools/speed-calculator">Speed Calculator →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

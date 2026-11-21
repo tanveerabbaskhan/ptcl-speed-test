@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const tools = [
+  {
+    href: '/speed-test',
+    icon: '⚡',
+    title: 'Internet Speed Test',
+    desc: 'Measure download, upload, ping and jitter in under 30 seconds — the main test, free, no sign-up.',
+  },
+  {
+    href: '/tools/speed-calculator',
+    icon: '🧮',
+    title: 'Speed Calculator',
+    desc: 'How much speed does your household actually need? Pick your activities and get a recommendation.',
+  },
+  {
+    href: '/tools/package-health',
+    icon: '🩺',
+    title: 'Package Health Checker',
+    desc: 'Are you getting the speed you pay for? Check your measured speed against your package with the 80% rule.',
+  },
+  {
+    href: '/tools/ptcl-complaint',
+    icon: '✉️',
+    title: 'Complaint Draft Generator',
+    desc: 'Slow internet? Generate a complaint letter with your package, measured speeds and evidence — ready to send.',
+  },
+  {
+    href: '/ping-test',
+    icon: '🎯',
+    title: 'Ping Test',
+    desc: 'Measure your latency (ping) and see whether it’s good enough for gaming and video calls.',
+  },
+  {
+    href: '/jitter-test',
+    icon: '📈',
+    title: 'Jitter Test',
+    desc: 'Measure how steady your ping is — jitter is what makes calls stutter even on a fast connection.',
+  },
+  {
+    href: '/upload-speed-test',
+    icon: '⬆️',
+    title: 'Upload Speed Test',
+    desc: 'Measure your upload speed — the number that decides whether video calls freeze and backups crawl.',
+  },
+];
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptcl-speed-test.pages.dev/' },
+    { '@type': 'ListItem', position: 2, name: 'Tools', item: 'https://ptcl-speed-test.pages.dev/tools' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Free Internet Tools — Speed Test, Calculator, Health Check & More"
+  description="Free internet tools: speed test, speed calculator, package health checker, complaint draft generator, ping test, jitter test and upload speed test. No sign-up, nothing leaves your browser."
+  canonical="/tools"
+  schema={breadcrumbSchema}
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / Tools</p>
+      <h1>Internet Tools</h1>
+      <p class="lead">
+        Free tools to measure, understand and fix your connection. No sign-up, no
+        account — and nothing you type into the calculators or generators leaves your
+        browser.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cards">
+        {tools.map((t) => (
+          <a class="card card-link" href={t.href}>
+            <div class="icon">{t.icon}</div>
+            <h2>{t.title}</h2>
+            <p>{t.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

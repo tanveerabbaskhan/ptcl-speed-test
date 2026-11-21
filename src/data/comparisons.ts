@@ -20,6 +20,8 @@ export interface Comparison {
   aSlug: string;
   bSlug: string;
   title: string;
+  /** Optional custom meta description; defaults to a generated one. */
+  description?: string;
   intro: string;
   verdict: string;
   rows: CompareRow[];
@@ -299,6 +301,294 @@ export const comparisons: Comparison[] = [
       {
         q: 'Does 5G change the comparison?',
         a: '5G is still limited in Pakistan and the PTA’s published averages are for 4G. Both networks are rolling out 5G in selected areas; where it’s available, speeds are far higher than 4G, but coverage is the deciding factor — not the headline speed.',
+      },
+    ],
+  },
+  {
+    slug: 'ptcl-vs-stormfiber',
+    aName: 'PTCL',
+    bName: 'StormFiber',
+    aSlug: 'ptcl-speed-test',
+    bSlug: 'stormfiber',
+    title: 'PTCL vs StormFiber: Speed, Ping & Coverage Compared',
+    intro:
+      'PTCL is the nationwide incumbent; StormFiber (by Cybernet) is the pure-fibre challenger in Karachi, Lahore, Islamabad and Faisalabad. Recent community tests put StormFiber ahead on measured averages, while PTCL’s fibre tops the national rankings — here’s how to read the two pictures.',
+    verdict:
+      'On recent community tests StormFiber delivers higher average speeds and much lower ping than PTCL’s overall network — but PTCL Flash Fiber on its own is a different story, topping SpeedGeo’s national ranking. If StormFiber reaches your street it’s a strong pick; if it doesn’t, PTCL Flash Fiber is the closest equivalent.',
+    rows: [
+      {
+        metric: 'Avg download, last 30 days (PakSpeed)',
+        a: '21.7 Mbps (972 tests)',
+        b: '26.7 Mbps (1,083 tests)',
+        winner: 'b',
+      },
+      {
+        metric: 'Avg upload, last 30 days (PakSpeed)',
+        a: '9.2 Mbps',
+        b: '20.5 Mbps',
+        winner: 'b',
+      },
+      {
+        metric: 'Avg ping, last 30 days (PakSpeed)',
+        a: '170 ms',
+        b: '60 ms',
+        winner: 'b',
+      },
+      {
+        metric: 'Avg download (nPerf 2025)',
+        a: '22.4 Mbps',
+        b: '16.6 Mbps (Cybernet, StormFiber’s parent)',
+        winner: 'a',
+      },
+      {
+        metric: 'Avg latency (nPerf 2025)',
+        a: '97 ms',
+        b: '95 ms (Cybernet)',
+        winner: 'b',
+      },
+      {
+        metric: 'Coverage',
+        a: 'Nationwide',
+        b: 'Karachi, Lahore, Islamabad, Rawalpindi, Faisalabad + major cities',
+        winner: 'a',
+      },
+    ],
+    aStrengths: [
+      'Available almost everywhere — DSL in most towns, Flash Fiber in many cities.',
+      'Flash Fiber specifically ranks first in Pakistan on SpeedGeo’s broadband ranking (31.7 Mbps average download, Q4 2025 – Q3 2026).',
+      'Highest Ookla Speedtest score for fixed broadband in Pakistan, H1 2025 (56.95).',
+    ],
+    bStrengths: [
+      'Higher average download and upload on recent community tests (PakSpeed, last 30 days).',
+      'Much lower average ping than PTCL on the same tests (60 ms vs 170 ms).',
+      'Pure fibre (FTTH) — no copper DSL in the mix, so performance is more consistent.',
+    ],
+    choose: [
+      {
+        label: 'Choose PTCL if',
+        text: 'StormFiber doesn’t cover your area, or you’re on Flash Fiber — where PTCL’s fibre is right at the top of the national rankings.',
+      },
+      {
+        label: 'Choose StormFiber if',
+        text: 'It covers your street and you want the higher recent community-test averages and lower ping.',
+      },
+    ],
+    sources: [
+      { label: 'PakSpeed best ISP rankings (last 30 days)', url: 'https://pakspeed.com/best-isp' },
+      { label: 'nPerf fixed-internet barometer, Pakistan 2025', url: 'https://media.nperf.com/files/publications/PK/PK-Barometer-fixe-connections-nPerf-2025_8036.pdf' },
+      { label: 'SpeedGeo internet speed in Pakistan', url: 'https://www.speedgeo.net/statistics/pakistan' },
+    ],
+    faqs: [
+      {
+        q: 'Which is faster, PTCL or StormFiber?',
+        a: 'On recent community tests, StormFiber: PakSpeed’s last 30 days of tests put StormFiber at 26.7 Mbps average download versus 21.7 Mbps for PTCL, with much faster uploads (20.5 vs 9.2 Mbps) and lower ping (60 vs 170 ms). But that compares StormFiber’s pure fibre with PTCL’s mix of fibre and older DSL — PTCL Flash Fiber on its own averages 31.7 Mbps on SpeedGeo’s ranking. Fibre against fibre, the two are close.',
+      },
+      {
+        q: 'Is StormFiber available in my city?',
+        a: 'StormFiber serves Karachi, Lahore, Islamabad, Rawalpindi, Faisalabad and other major cities, but not everywhere in them. PTCL’s network covers far more of the country. Check availability for your exact address before deciding.',
+      },
+      {
+        q: 'Why is PTCL’s average ping so high on PakSpeed?',
+        a: 'PTCL’s average mixes fibre and older DSL lines, and DSL adds latency — especially on interleaved line profiles. PTCL Flash Fiber’s average ping is far lower: 27 ms on SpeedGeo’s ranking. If you’re on DSL and ping matters, ask PTCL about a FastPath line profile.',
+      },
+    ],
+  },
+  {
+    slug: 'dsl-vs-flash-fiber',
+    aName: 'PTCL DSL',
+    bName: 'PTCL Flash Fiber',
+    aSlug: 'ptcl-speed-test',
+    bSlug: 'ptcl-flash-fiber',
+    title: 'PTCL DSL vs Flash Fiber: Speed, Uploads, Ping & Reliability Compared',
+    description:
+      'PTCL DSL vs Flash Fiber: the two technologies compared — speed, uploads, ping, reliability and which one fits your home.',
+    intro:
+      'PTCL sells two very different home connections under one brand: DSL over copper telephone lines, and Flash Fiber over glass fibre. They aren’t speed tiers of the same thing — they’re different technologies, and the difference shows up in uploads, ping, reliability and what your line can ever deliver.',
+    verdict:
+      'If Flash Fiber reaches your street, take it — it’s faster, more stable, and the product PTCL is investing in. DSL is the right choice only where fibre hasn’t arrived yet, or for light use on a tight budget.',
+    rows: [
+      {
+        metric: 'Technology',
+        a: 'Copper telephone line (ADSL/VDSL)',
+        b: 'Fibre-optic cable (FTTH/GPON)',
+        winner: 'tie',
+      },
+      {
+        metric: 'Top speed',
+        a: 'Up to ~100 Mbps (line-dependent)',
+        b: 'Up to 1 Gbps',
+        winner: 'b',
+      },
+      {
+        metric: 'Upload speed',
+        a: 'Asymmetric — typically 1–1.5 Mbps',
+        b: 'Near-symmetrical — close to download speed',
+        winner: 'b',
+      },
+      {
+        metric: 'Ping',
+        a: 'Higher and more variable',
+        b: 'Low and stable (~27 ms average)',
+        winner: 'b',
+      },
+      {
+        metric: 'Effect of distance',
+        a: 'Speed drops the further you are from the exchange',
+        b: 'No meaningful drop over distance',
+        winner: 'b',
+      },
+      {
+        metric: 'Reliability',
+        a: 'Affected by line condition, joints and rain',
+        b: 'Stable; immune to electrical interference',
+        winner: 'b',
+      },
+      {
+        metric: 'Availability',
+        a: 'Nationwide, including small towns',
+        b: '100+ cities, selected streets',
+        winner: 'a',
+      },
+      {
+        metric: 'Best for',
+        a: 'Light browsing, email, HD streaming',
+        b: '4K streaming, gaming, work from home',
+        winner: 'b',
+      },
+    ],
+    aStrengths: [
+      'Available almost everywhere PTCL has a telephone exchange — including towns fibre hasn’t reached.',
+      'Uses your existing phone line, so installation is usually quick.',
+      'Enough for light use: browsing, email, calls and HD streaming on one or two devices.',
+    ],
+    bStrengths: [
+      'Much faster downloads and near-symmetrical uploads — video calls and cloud backups feel completely different.',
+      'Low, stable ping: 27 ms average on SpeedGeo’s ranking, versus DSL’s higher and more variable latency.',
+      'Speed doesn’t degrade with distance from the exchange, and the line isn’t affected by rain or line noise the way copper is.',
+    ],
+    choose: [
+      {
+        label: 'Choose DSL if',
+        text: 'Flash Fiber hasn’t reached your street, or your household only browses, emails and streams in HD — and you’d rather not pay for speed you won’t use.',
+      },
+      {
+        label: 'Choose Flash Fiber if',
+        text: 'It’s available at your address and anyone in the house streams in 4K, games online, works from home, or uploads large files.',
+      },
+    ],
+    sources: [
+      { label: 'SpeedGeo internet speed in Pakistan', url: 'https://www.speedgeo.net/statistics/pakistan' },
+      { label: 'nPerf fixed-internet barometer, Pakistan 2025', url: 'https://media.nperf.com/files/publications/PK/PK-Barometer-fixe-connections-nPerf-2025_8036.pdf' },
+    ],
+    faqs: [
+      {
+        q: 'Can I upgrade from PTCL DSL to Flash Fiber?',
+        a: 'Yes — call PTCL on 1218 and ask whether Flash Fiber is available at your address. The upgrade needs a new fibre cable run to your home and an ONT (the small white fibre box) installed; it isn’t just a settings change. Check availability before you get attached to a fibre package.',
+      },
+      {
+        q: 'Is DSL enough for Netflix?',
+        a: 'For HD streaming, yes — Netflix needs about 5 Mbps for 1080p, and a healthy 10–20 Mbps DSL line handles it. For 4K you need about 15 Mbps of steady speed per stream, which is where DSL starts to struggle and fibre wins clearly.',
+      },
+      {
+        q: 'Why is my DSL slower than my package?',
+        a: 'DSL speed depends on your distance from the exchange and the condition of the copper line — a long or damaged line simply can’t carry the headline speed. Check your SNR margin and line attenuation in the modem settings; low SNR (below 6 dB) or high attenuation (above 50 dB) explains most slow DSL lines.',
+      },
+    ],
+  },
+  {
+    slug: 'jazz-5g-vs-zong-5g',
+    aName: 'Jazz 5G',
+    bName: 'Zong 5G',
+    aSlug: 'jazz-5g',
+    bSlug: 'zong-5g',
+    title: 'Jazz 5G vs Zong 5G: Sites, Spectrum, Speeds & Cities Compared',
+    description:
+      'Jazz 5G vs Zong 5G: live sites, spectrum, bands, speeds and strongest cities compared — Pakistan’s 5G race on the published numbers.',
+    intro:
+      'Jazz and Zong launched Pakistan’s first commercial 5G on the same day — 19 March 2026. Eight months on, Jazz leads on scale with over 1,000 sites, while Zong leads in several cities. Here’s the 5G race on the published numbers.',
+    verdict:
+      'Jazz has the bigger 5G network by a wide margin, and the most spectrum. But 5G is still pockets, not blanket coverage — Zong leads in Peshawar, Quetta, Sialkot and Sheikhupura. Check which network has a site near you before choosing on 5G alone.',
+    rows: [
+      {
+        metric: 'Live 5G sites (Oct 2026)',
+        a: '1,015',
+        b: '640',
+        winner: 'a',
+      },
+      {
+        metric: 'Spectrum won (Mar 2026 auction)',
+        a: '190 MHz',
+        b: '110 MHz',
+        winner: 'a',
+      },
+      {
+        metric: '5G bands',
+        a: '700, 2300, 2600, 3500 MHz',
+        b: '2600, 3500 MHz',
+        winner: 'a',
+      },
+      {
+        metric: 'Commercial launch',
+        a: '19–20 March 2026',
+        b: '19 March 2026',
+        winner: 'tie',
+      },
+      {
+        metric: 'Strongest cities',
+        a: 'Karachi, Lahore, Faisalabad, Multan',
+        b: 'Peshawar, Quetta, Sialkot, Sheikhupura',
+        winner: 'tie',
+      },
+      {
+        metric: 'Single-site test speeds',
+        a: '200–500 Mbps (field tests, strong coverage)',
+        b: '244–290 Mbps (near towers, May 2026)',
+        winner: 'tie',
+      },
+      {
+        metric: '4G fallback (PTA Q2 2026 avg download)',
+        a: '17.6 Mbps',
+        b: '18.6 Mbps',
+        winner: 'b',
+      },
+    ],
+    aStrengths: [
+      'Most 5G sites in Pakistan by a wide margin — 1,015 of the country’s 1,782 (October 2026).',
+      'Most spectrum (190 MHz) and the only operator holding all four 5G bands, including 700 MHz for wider coverage.',
+      'Strongest 5G presence in Karachi, Lahore, Faisalabad and Multan.',
+    ],
+    bStrengths: [
+      'First to launch commercial 5G, live in 16+ cities on day one.',
+      'Leads 5G in Peshawar, Quetta, Sialkot and Sheikhupura.',
+      'Higher 4G averages than Jazz (18.6 vs 17.6 Mbps) — the network you fall back to outside 5G pockets.',
+    ],
+    choose: [
+      {
+        label: 'Choose Jazz 5G if',
+        text: 'You’re in Karachi, Lahore, Faisalabad or Multan, or you want the widest 5G network and the most spectrum behind it.',
+      },
+      {
+        label: 'Choose Zong 5G if',
+        text: 'You’re in Peshawar, Quetta, Sialkot or Sheikhupura — Zong leads 5G there — or you want the stronger 4G fallback.',
+      },
+    ],
+    sources: [
+      { label: 'Beam: 5G in Pakistan — cities, Jazz vs Zong vs Ufone', url: 'https://beam.pk/5g-in-pakistan-cities-jazz-vs-zong-vs-ufone-and-phones-that-work/' },
+      { label: '5Gistan: 5G in Pakistan — launch, timeline & status', url: 'https://5gistan.com/5g-in-pakistan/' },
+      { label: 'PTA Mobile Network Experience Benchmarking, Q2 2026 (via RabbitROI)', url: 'https://www.rabbitroi.com/blog/mobile-internet-speed-pakistan' },
+    ],
+    faqs: [
+      {
+        q: 'Do I need a new SIM for 5G?',
+        a: 'No — a recent 4G SIM usually works on 5G. What you need is a phone that supports band n78 (3.5 GHz), Pakistan’s main 5G band, and to be near a 5G site. Set the network mode to 5G/Auto in your phone’s mobile network settings.',
+      },
+      {
+        q: 'How fast is 5G in Pakistan really?',
+        a: 'Community speed tests from January to June 2026 put the median 5G download at about 220 Mbps; another tracker reports an average near 130 Mbps over the same period. Single-site tests near towers run higher (200–500 Mbps on Jazz, 244–290 Mbps on Zong). The official roadmap is more modest, targeting 50–100 Mbps averages as the network matures. Your speed depends on distance from the tower and how many people are connected.',
+      },
+      {
+        q: 'Is 5G available in my city?',
+        a: '5G is live in 24 cities, but only in pockets — business districts, university campuses, hospitals and city centres got sites first. Check Jazz’s and Zong’s coverage maps for your exact area before buying a phone just for 5G.',
       },
     ],
   },

@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    q: 'How do I test internet speed on PS5?',
+    a: 'Go to Settings, Network, Connection Status, Test Internet Connection. The PS5 runs its own download and upload test and shows your NAT type. For a second opinion, open the PS5’s web browser and run a browser-based speed test — the two won’t match exactly, because they test against different servers.',
+  },
+  {
+    q: 'How do I test internet speed on Xbox?',
+    a: 'Go to Settings, General, Network settings, Test network speed & statistics. Xbox shows download and upload speed, packet loss and latency. Run it wired (Ethernet) for the true figure, and again on Wi-Fi to see what the wireless connection costs you.',
+  },
+  {
+    q: 'How do I test internet speed on a smart TV?',
+    a: 'Most smart TVs have a network test in Settings, Network — Samsung and LG both include one. Otherwise, open the TV’s web browser (if it has one) and run a browser-based test, or test from a laptop placed where the TV sits — that tells you what the TV’s Wi-Fi spot actually delivers.',
+  },
+  {
+    q: 'What speed do I need for 4K streaming on a TV?',
+    a: 'Netflix recommends 15 Mbps for 4K; YouTube needs about 20 Mbps and Disney+ about 25 Mbps. That’s per stream, measured at the TV — if the TV is on weak Wi-Fi in a far room, the line speed doesn’t matter. Test from where the TV sits.',
+  },
+  {
+    q: 'Why is my PS5 slow when my phone is fast?',
+    a: 'Usually Wi-Fi: the console sits further from the router, behind a TV (which blocks signal), or on the 2.4 GHz band while your phone uses 5 GHz. Wire the console with an Ethernet cable if you can — it’s the single biggest improvement for gaming and downloads. If the console is on Wi-Fi, move the router or add a mesh node nearby.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptcl-speed-test.pages.dev/' },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://ptcl-speed-test.pages.dev/guides' },
+    { '@type': 'ListItem', position: 3, name: 'Test Speed on PS5, Xbox & Smart TV', item: 'https://ptcl-speed-test.pages.dev/guides/test-speed-console-tv' },
+  ],
+};
+---
+
+<BaseLayout
+  title="How to Test Internet Speed on PS5, Xbox & Smart TV (2026)"
+  description="Test internet speed on PS5, Xbox Series X/S and smart TV: built-in network tests, browser tests, what speed 4K streaming and gaming need, and why the console is slower than your phone."
+  canonical="/guides/test-speed-console-tv"
+  schema={[faqSchema, breadcrumbSchema]}
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Test Speed on PS5, Xbox &amp; TV</p>
+      <h1>How to Test Internet Speed on PS5, Xbox &amp; Smart TV</h1>
+      <p class="lead">
+        Your phone says 50 Mbps, your PS5 downloads at a crawl. The two devices aren’t
+        measuring the same thing — or the same Wi-Fi. Here’s how to test each device
+        properly, and what the numbers mean.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 720px;">
+      <h2>PS5: built-in test</h2>
+      <ol>
+        <li>Go to <strong>Settings → Network → Connection Status → Test Internet Connection</strong>.</li>
+        <li>The PS5 tests download speed, upload speed and NAT type.</li>
+        <li>Note the NAT type: NAT 1 or 2 is fine for online play; NAT 3 can cause matchmaking problems and usually needs a router setting change (UPnP on, or port forwarding).</li>
+      </ol>
+      <p>
+        For a second opinion, open the PS5’s web browser and run a browser-based test.
+        The two won’t match exactly — they test against different servers — but a large
+        gap between them usually means the PS5’s Wi-Fi is the problem, not the line.
+      </p>
+
+      <h2>Xbox: built-in test</h2>
+      <ol>
+        <li>Go to <strong>Settings → General → Network settings → Test network speed &amp; statistics</strong>.</li>
+        <li>Xbox shows download speed, upload speed, packet loss and latency.</li>
+        <li>Run it wired (Ethernet) for the true figure, then again on Wi-Fi to see what the wireless connection costs you.</li>
+      </ol>
+      <p>
+        Xbox also shows packet loss, which the PS5 test doesn’t — anything above 1–2%
+        packet loss will cause lag and rubber-banding in games even when the speed
+        looks fine.
+      </p>
+
+      <h2>Smart TV: network test or browser test</h2>
+      <p>
+        Most smart TVs have a network test in Settings → Network — Samsung and LG both
+        include one, though it usually only confirms the connection rather than
+        measuring speed precisely. Better options:
+      </p>
+      <ul>
+        <li><strong>TV browser:</strong> if your TV has a web browser, open it and run a browser-based speed test. Clunky, but it measures the TV’s actual connection.</li>
+        <li><strong>Laptop in the TV’s spot:</strong> put a laptop where the TV sits and test from there. That tells you what the TV’s Wi-Fi spot actually delivers — which is what matters for streaming.</li>
+        <li><strong>Streaming app stats:</strong> Netflix has a "Check your network" option in its app settings (under Get Help), and YouTube shows "Stats for nerds" on videos — both show the speed the app is actually getting.</li>
+      </ul>
+
+      <h2>What speed do these devices need?</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Use</th><th>Speed needed</th><th>What matters most</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Netflix 4K</td><td>15 Mbps</td><td>Steady speed at the TV</td></tr>
+          <tr><td>YouTube 4K</td><td>~20 Mbps</td><td>Steady speed at the TV</td></tr>
+          <tr><td>Disney+ 4K</td><td>25 Mbps</td><td>Steady speed at the TV</td></tr>
+          <tr><td>Online gaming</td><td>3–6 Mbps</td><td>Low ping (under 50 ms) and no packet loss</td></tr>
+          <tr><td>Game downloads</td><td>As fast as possible</td><td>A 100 GB game takes ~4.5 hours at 50 Mbps</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Why the console is slower than your phone</h2>
+      <ul>
+        <li><strong>It’s further from the router</strong> — and behind a TV, which blocks Wi-Fi signal.</li>
+        <li><strong>It’s on the 2.4 GHz band</strong> while your phone uses 5 GHz. Check which network the console is connected to.</li>
+        <li><strong>Downloads are throttled by the game servers</strong> — PlayStation and Xbox download servers don’t always deliver full speed, especially at peak hours. A slow download doesn’t always mean a slow connection.</li>
+        <li><strong>Rest mode downloads are slower</strong> — the PS5 limits download speed in rest mode to save power. Test while the console is fully on.</li>
+      </ul>
+      <p>
+        The single biggest improvement for any console: wire it with an Ethernet cable.
+        If that’s not possible, move the router closer or add a mesh node near the TV.
+        See our <a href="/guides/improve-wifi-signal">Wi-Fi signal guide</a> and the
+        <a href="/guides/reduce-ping-gaming">ping reduction guide</a>.
+      </p>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list" style="margin-top: 1rem;">
+        {faqs.map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <div class="cta-band">
+        <h2>Test your connection</h2>
+        <p>Run a test from your phone in the same spot as the console or TV.</p>
+        <div class="cta-links">
+          <a class="btn" href="/speed-test">Test My Speed →</a>
+          <a class="btn btn-secondary" href="/guides/reduce-ping-gaming">Reduce ping for gaming →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

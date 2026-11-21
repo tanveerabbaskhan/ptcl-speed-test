@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    q: 'When will Starlink launch in Pakistan?',
+    a: 'There is no official launch date. Starlink is registered as a company in Pakistan, but it still needs a security clearance from the Ministry of Interior and a licence from the PTA before it can sell service. As of 7 November 2026 the clearance was still pending. Any date you see online is speculation.',
+  },
+  {
+    q: 'How much will Starlink cost in Pakistan?',
+    a: 'There is no official price. Prices circulating online — such as Rs 35,000 per month — are guesses or, worse, scams. Starlink has not announced Pakistani pricing, and no one can legitimately sell you a Starlink subscription in Pakistan yet. Be very careful with anyone asking for payment or a deposit.',
+  },
+  {
+    q: 'Is Starlink legal in Pakistan?',
+    a: 'Using satellite internet without a PTA licence is not legal. Starlink itself is not banned — it is going through the licensing process — but until it holds a licence, its service cannot legally be sold or used in Pakistan.',
+  },
+  {
+    q: 'What are the alternatives to Starlink in Pakistan?',
+    a: 'For most homes, fibre is the best option where available — PTCL Flash Fiber, Nayatel, StormFiber and Transworld all offer it in the big cities. In areas without fibre, 5G is now live in 24 cities (median downloads around 220 Mbps), and PTCL CharJi or a 4G hotspot covers the rest. Satellite only wins where no terrestrial option exists at all.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptcl-speed-test.pages.dev/' },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://ptcl-speed-test.pages.dev/guides' },
+    { '@type': 'ListItem', position: 3, name: 'Starlink in Pakistan', item: 'https://ptcl-speed-test.pages.dev/guides/starlink-in-pakistan' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Starlink in Pakistan (2026) — Launch Status, Price & Availability"
+  description="Is Starlink available in Pakistan? No — not yet. The honest status: registered, security clearance pending, no PTA licence, no official price or launch date. Updated 21 November 2026."
+  canonical="/guides/starlink-in-pakistan"
+  schema={[faqSchema, breadcrumbSchema]}
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Starlink in Pakistan</p>
+      <h1>Starlink in Pakistan</h1>
+      <p class="lead">
+        Short answer: Starlink is <strong>not available in Pakistan yet</strong>. It’s
+        registered as a company and working through the licensing process — but it has
+        no licence, no official price and no launch date. Here’s the honest status,
+        and what to use instead.
+      </p>
+      <p class="small muted">Last updated: 21 November 2026</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 720px;">
+      <h2>Status at a glance</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Step</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Company registered (SECP)</td><td>Yes — Starlink Internet Services Pakistan (Pvt) Ltd</td></tr>
+          <tr><td>Security clearance (Ministry of Interior)</td><td>Pending — confirmed still outstanding on 7 November 2026</td></tr>
+          <tr><td>PSARB / space regulator approval</td><td>Required — not granted</td></tr>
+          <tr><td>PTA licence</td><td>Not issued</td></tr>
+          <tr><td>Official price</td><td>None announced</td></tr>
+          <tr><td>Launch date</td><td>None announced</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Starlink needs to clear three gates before it can sell service: a security
+        clearance, space-regulator approval, and a PTA licence. It has cleared none of
+        the three so far. Six satellite internet companies are registered in Pakistan in
+        total — Starlink is the best known, but it is not the only one waiting.
+      </p>
+
+      <h2>What has actually happened</h2>
+      <p>
+        Starlink registered its Pakistani company with the SECP and applied for the
+        necessary clearances. On 7 November 2026, the SECP confirmed to a Senate
+        committee that the security clearance was still pending with the Ministry of
+        Interior. The PTA has said it cannot issue a licence until the clearance is
+        granted. No timeline has been given by any authority.
+      </p>
+      <p>
+        This matters because the process is genuinely slow — satellite licensing involves
+        national-security review, spectrum allocation and ground-station approvals, and
+        none of those has a published deadline. Anyone giving you a launch month is
+        guessing.
+      </p>
+
+      <h2>Beware of Starlink scams</h2>
+      <p>
+        Because Starlink is so talked about, it attracts scams. Be suspicious of:
+      </p>
+      <ul>
+        <li><strong>Anyone selling a Starlink subscription or dish in Pakistan.</strong> There is no legal way to buy one here yet.</li>
+        <li><strong>Prices quoted in rupees.</strong> Figures like Rs 35,000 a month circulate online — they are guesses, sometimes attached to fake booking pages.</li>
+        <li><strong>Pre-orders and deposits.</strong> Starlink has not opened pre-orders for Pakistan. Anyone collecting deposits is not Starlink.</li>
+        <li><strong>"Starlink available now" ads.</strong> Usually resellers of other satellite services, or outright fraud.</li>
+      </ul>
+
+      <h2>What to use instead</h2>
+      <p>
+        Starlink’s real advantage is reaching places no cable or tower serves. For most
+        people in Pakistan, a terrestrial connection is faster, cheaper and available
+        today:
+      </p>
+      <ul>
+        <li><strong>Fibre</strong> — PTCL Flash Fiber, Nayatel, StormFiber and Transworld cover the big cities. Check availability for your exact address.</li>
+        <li><strong>5G</strong> — live in 24 cities since March 2026, with median downloads around 220 Mbps. See our <a href="/guides/5g-in-pakistan">5G in Pakistan</a> guide.</li>
+        <li><strong>4G hotspot</strong> — PTCL CharJi or a mobile hotspot works wherever there’s mobile signal.</li>
+        <li><strong>Fixed wireless</strong> — in areas without fibre, providers like Wi-Tribe offer wireless broadband.</li>
+      </ul>
+      <p>
+        If you live somewhere with no fibre and weak mobile signal, that is exactly the
+        gap Starlink would fill — when it eventually launches. Until then, the honest
+        advice is to test what’s actually available at your address.
+      </p>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list" style="margin-top: 1rem;">
+        {faqs.map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <div class="cta-band">
+        <h2>Test what you have today</h2>
+        <p>Starlink isn’t here yet — but your current connection can be measured in 30 seconds.</p>
+        <div class="cta-links">
+          <a class="btn" href="/speed-test">Test My Speed →</a>
+          <a class="btn btn-secondary" href="/best-internet-provider-pakistan">Best ISP in Pakistan →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

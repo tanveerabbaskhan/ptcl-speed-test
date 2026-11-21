@@ -40,7 +40,7 @@ const breadcrumbSchema = {
 
 <BaseLayout
   title={`${c.aName} vs ${c.bName} — Speed, Ping & Coverage Compared (2026)`}
-  description={`${c.aName} vs ${c.bName}: compare real measured speeds, ping and coverage from published PTA, nPerf, Ookla and PakSpeed data — then test your own connection.`}
+  description={c.description ?? `${c.aName} vs ${c.bName}: compare real measured speeds, ping and coverage from published PTA, nPerf, Ookla and PakSpeed data — then test your own connection.`}
   canonical={`/compare/${c.slug}`}
   schema={[faqSchema, breadcrumbSchema]}
 >

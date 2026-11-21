@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    q: 'Why is my Zong internet slow?',
+    a: 'The usual reasons, in order: your bundle has run out (check *102#), weak signal where you are, the phone is on 3G instead of 4G, a wrong APN, or peak-hour tower congestion (7–11 pm). Work through the steps in this guide in order — most slow Zong connections are fixed by the first three.',
+  },
+  {
+    q: 'What is a good Zong 4G speed?',
+    a: 'The PTA’s Q2 2026 benchmarking puts Zong’s national 4G average at 18.6 Mbps download and 7.8 Mbps upload — the highest of any Pakistani network. In Lahore it averages 21.3 Mbps, in Karachi 18.3 Mbps. If you consistently get under 5 Mbps in a good-signal area, something is wrong.',
+  },
+  {
+    q: 'How do I make Zong internet faster?',
+    a: 'Check your bundle first, then move somewhere with better signal, make sure the phone is set to 4G/LTE (not 3G), and confirm the APN reads zonginternet. Toggle airplane mode for 30 seconds to re-register with the nearest tower. If the SIM is old, swap it for a 4G SIM at a Zong franchise.',
+  },
+  {
+    q: 'Is Zong 5G faster than 4G?',
+    a: 'Far faster where it’s live — community 5G tests put the median 5G download at about 220 Mbps versus 18.6 Mbps on 4G. But 5G is only in pockets of 24 cities, so check coverage where you live. You need a phone that supports band n78 (3.5 GHz).',
+  },
+  {
+    q: 'How do I complain about slow Zong internet?',
+    a: 'Call Zong on 310 from your Zong number. Before you call, run three speed tests at different times and note the results, your location, and whether the problem is everywhere or in one spot — that evidence gets a faster, better answer than "my internet is slow".',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptcl-speed-test.pages.dev/' },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://ptcl-speed-test.pages.dev/guides' },
+    { '@type': 'ListItem', position: 3, name: 'Zong Internet Slow?', item: 'https://ptcl-speed-test.pages.dev/guides/zong-internet-slow' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Zong Internet Slow? How to Fix Slow Zong 4G Speed (2026)"
+  description="Zong internet slow? Fix it in order: bundle check (*102#), signal, 4G-only mode, APN settings, old SIM — and when to call 310. Based on Zong's own settings and PTA speed data."
+  canonical="/guides/zong-internet-slow"
+  schema={[faqSchema, breadcrumbSchema]}
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Zong Internet Slow</p>
+      <h1>Zong Internet Slow? How to Fix Slow Zong 4G</h1>
+      <p class="lead">
+        Zong has the fastest 4G averages in Pakistan — so if your Zong is slow, something
+        specific is wrong. Work through these fixes in order; most slow Zong connections
+        are fixed by the first three.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 720px;">
+      <h2>Step 1: Check your bundle is active</h2>
+      <p>
+        The most common cause of slow Zong internet is the simplest: the data bundle has
+        run out or expired. Dial <strong>*102#</strong> to check your remaining MBs
+        (10 paisa plus tax) or <strong>*100#</strong> for your main balance. No bundle,
+        no data — or data at a crawl on pay-as-you-go rates.
+      </p>
+
+      <h2>Step 2: Check your signal</h2>
+      <p>
+        Mobile speed is mostly signal. Move near a window or outdoors and test again —
+        one or two bars indoors can become four bars outside. If the speed jumps, the
+        problem was your location, not the network. Walls, basements and metal roofs all
+        eat signal.
+      </p>
+
+      <h2>Step 3: Make sure you’re on 4G</h2>
+      <p>
+        If the status bar shows E, H or H+, you’re on 2G/3G — far slower than 4G. Go to
+        Settings → Mobile Network → Preferred Network Type and set it to 4G or LTE (or
+        5G/4G on a 5G phone). Also check the Zong SIM is in the slot that supports 4G —
+        on some dual-SIM phones only one slot does.
+      </p>
+
+      <h2>Step 4: Toggle airplane mode</h2>
+      <p>
+        Switch airplane mode on for 30 seconds, then off. This forces the phone to
+        re-register with the nearest tower, which fixes the common case where the phone
+        is clinging to a distant, overloaded tower.
+      </p>
+
+      <h2>Step 5: Check the APN</h2>
+      <p>
+        The APN (Access Point Name) tells your phone how to reach Zong’s data network.
+        It should read <strong>zonginternet</strong> — no spaces, no capitals, username
+        and password blank. The easiest fix is to get the settings sent to your phone:
+        send <strong>"all"</strong> to <strong>2161</strong> (free), then install the
+        message with PIN 1234. See our full
+        <a href="/guides/zong-apn-settings"> Zong APN settings guide</a>.
+      </p>
+
+      <h2>Step 6: Check the SIM</h2>
+      <p>
+        An old 3G-era SIM can’t run 4G properly. If the SIM is years old, swap it for a
+        4G SIM at a Zong franchise (biometric verification needed). A 4G SIM also works
+        on Zong 5G if your phone supports it.
+      </p>
+
+      <h2>Step 7: Test at a quiet time</h2>
+      <p>
+        Evenings (7–11 pm) are the busiest hours on any mobile network. Test early in the
+        morning and again at 9 pm: if mornings are fast and evenings are slow, that’s
+        tower congestion, and no phone setting will fix it. Keep both results as evidence.
+      </p>
+
+      <h2>What speed should you expect?</h2>
+      <p>
+        The PTA’s Q2 2026 benchmarking puts Zong’s national 4G average at
+        <strong>18.6 Mbps download and 7.8 Mbps upload</strong>, with 96.6% of time on
+        4G — the highest of any Pakistani network. City averages are higher in places:
+        Lahore 21.3 Mbps, Multan 21.6 Mbps, Karachi 18.3 Mbps. If you consistently get
+        under 5 Mbps in a good-signal area at a quiet time, something is wrong.
+      </p>
+
+      <h2>Still slow? Complain with evidence</h2>
+      <p>
+        Call Zong on <strong>310</strong> from your Zong number. Before you call, run
+        three speed tests at different times, note the results, your location, and
+        whether the problem is everywhere or in one spot. That evidence gets a faster,
+        better answer than "my internet is slow".
+      </p>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list" style="margin-top: 1rem;">
+        {faqs.map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <div class="cta-band">
+        <h2>Test your Zong speed</h2>
+        <p>Run a test now and compare with the PTA averages above.</p>
+        <div class="cta-links">
+          <a class="btn" href="/speedtest/zong">Zong Speed Test →</a>
+          <a class="btn btn-secondary" href="/guides/zong-apn-settings">Zong APN settings →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

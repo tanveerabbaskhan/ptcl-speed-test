@@ -1,0 +1,222 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    q: 'How much speed do I need for 4K streaming?',
+    a: 'Netflix recommends 15 Mbps per 4K stream; YouTube needs about 20 Mbps and Disney+ about 25 Mbps. Two 4K TVs at once need 30–50 Mbps of steady speed — not just a package that says it.',
+  },
+  {
+    q: 'Does gaming need a fast connection?',
+    a: 'Not really — most online games use only 3–6 Mbps. What gaming needs is low, stable ping: under 50 ms is good, under 30 ms is great. A 10 Mbps fibre line with 20 ms ping plays far better than a 100 Mbps line with 150 ms ping.',
+  },
+  {
+    q: 'Why does the calculator add 25%?',
+    a: 'Because real speeds dip below the package figure, especially at peak hours, and because a household’s busiest moment is what matters — not the average. A 25% margin means the recommendation still works when the connection is under load.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptcl-speed-test.pages.dev/' },
+    { '@type': 'ListItem', position: 2, name: 'Tools', item: 'https://ptcl-speed-test.pages.dev/tools' },
+    { '@type': 'ListItem', position: 3, name: 'Speed Calculator', item: 'https://ptcl-speed-test.pages.dev/tools/speed-calculator' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Internet Speed Calculator — How Much Speed Does Your Household Need?"
+  description="Work out how much internet speed you need: pick your household's simultaneous activities and get a recommended speed, with whether DSL or fibre fits."
+  canonical="/tools/speed-calculator"
+  schema={[faqSchema, breadcrumbSchema]}
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/tools">Tools</a> / Speed Calculator</p>
+      <h1>Internet Speed Calculator</h1>
+      <p class="lead">
+        Count what your household does at the same time — at the busiest moment, not
+        the average — and this calculator works out the speed you actually need.
+        Nothing you enter leaves your browser.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 720px;">
+      <form id="calc-form" onsubmit="return false;">
+        <h2 style="margin-top: 0;">At the busiest time in your home, how many of these happen at once?</h2>
+        <div class="form-group">
+          <label for="hd">HD video streams (1080p — Netflix, YouTube, Disney+)</label>
+          <select id="hd">
+            <option value="0">0</option>
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="uhd">4K video streams</label>
+          <select id="uhd">
+            <option value="0" selected>0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="calls">Video calls (Zoom, Teams, Meet)</label>
+          <select id="calls">
+            <option value="0" selected>0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="gamers">Online gamers</label>
+          <select id="gamers">
+            <option value="0" selected>0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="browsers">People browsing / on social media</label>
+          <select id="browsers">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label><input id="backup" type="checkbox" style="width: auto; margin-right: 0.4rem;" /> Cloud backup or large uploads running in the background</label>
+        </div>
+        <div class="form-group">
+          <label><input id="smart" type="checkbox" style="width: auto; margin-right: 0.4rem;" /> Smart home devices (cameras, assistants, smart TV idle)</label>
+        </div>
+        <button class="btn" type="button" id="calc-btn">Calculate my speed →</button>
+      </form>
+
+      <div id="result" style="display: none; margin-top: 2rem;">
+        <h2>Your recommended speed</h2>
+        <div class="results-grid" style="grid-template-columns: repeat(2, 1fr);">
+          <div class="result-box download">
+            <div class="label">You need at least</div>
+            <div class="value" id="speed-value">—</div>
+          </div>
+          <div class="result-box">
+            <div class="label">Best connection type</div>
+            <div class="value" id="type-value" style="font-size: 1.2rem;">—</div>
+          </div>
+        </div>
+        <div id="advice" style="margin-top: 1.2rem;"></div>
+        <div class="cta-links" style="margin-top: 1.5rem;">
+          <a class="btn btn-secondary" href="/guides/how-much-speed-do-i-need">Full guide →</a>
+          <a class="btn btn-secondary" href="/packages">PTCL packages →</a>
+        </div>
+      </div>
+
+      <h2 style="margin-top: 2.5rem;">How the numbers work</h2>
+      <ul>
+        <li><strong>HD stream:</strong> 5 Mbps each (Netflix/YouTube 1080p).</li>
+        <li><strong>4K stream:</strong> 20 Mbps each (Netflix 15, YouTube ~20, Disney+ 25 — we use 20 as the middle).</li>
+        <li><strong>Video call:</strong> 4 Mbps each (Zoom 1080p needs 3.8 up / 3.0 down).</li>
+        <li><strong>Online gaming:</strong> 5 Mbps each — but ping matters far more than speed.</li>
+        <li><strong>Browsing:</strong> 2 Mbps each.</li>
+        <li><strong>Cloud backup / uploads:</strong> 10 Mbps — and this is where upload speed matters.</li>
+        <li><strong>Margin:</strong> +25%, because real speeds dip below the package figure at peak hours.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list" style="margin-top: 1rem;">
+        {faqs.map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var calcBtn = document.getElementById('calc-btn');
+      var result = document.getElementById('result');
+      var speedValue = document.getElementById('speed-value');
+      var typeValue = document.getElementById('type-value');
+      var advice = document.getElementById('advice');
+
+      function num(id) {
+        var el = document.getElementById(id);
+        return el ? parseInt(el.value, 10) || 0 : 0;
+      }
+      function checked(id) {
+        var el = document.getElementById(id);
+        return el ? el.checked : false;
+      }
+
+      calcBtn.addEventListener('click', function () {
+        var hd = num('hd');
+        var uhd = num('uhd');
+        var calls = num('calls');
+        var gamers = num('gamers');
+        var browsers = num('browsers');
+        var backup = checked('backup');
+        var smart = checked('smart');
+
+        var total = hd * 5 + uhd * 20 + calls * 4 + gamers * 5 + browsers * 2;
+        if (backup) total += 10;
+        if (smart) total += 2;
+        var withMargin = Math.ceil((total * 1.25) / 5) * 5;
+        if (withMargin < 10) withMargin = 10;
+
+        var tier;
+        if (withMargin <= 15) tier = '10–15 Mbps';
+        else if (withMargin <= 30) tier = '25–30 Mbps';
+        else if (withMargin <= 60) tier = '50 Mbps';
+        else if (withMargin <= 110) tier = '100 Mbps';
+        else tier = '100+ Mbps (250 Mbps if available)';
+
+        speedValue.textContent = tier + ' (' + withMargin + ' Mbps calculated)';
+
+        var needsFibre = uhd > 0 || calls > 0 || gamers > 0 || backup || withMargin > 25;
+        if (needsFibre) {
+          typeValue.textContent = 'Fibre';
+          advice.innerHTML =
+            '<p><strong>Fibre is the right fit.</strong> ' +
+            (uhd > 0 ? '4K streaming needs steady speed that DSL struggles to deliver. ' : '') +
+            (calls > 0 ? 'Video calls need upload speed — DSL uploads of 1–1.5 Mbps will freeze your video. ' : '') +
+            (gamers > 0 ? 'Gaming needs low, stable ping, which fibre delivers far better than DSL. ' : '') +
+            (backup ? 'Cloud backups need upload speed — fibre uploads are 10–20× faster than DSL. ' : '') +
+            'If fibre reaches your street, take it — see <a href="/compare/dsl-vs-flash-fiber">DSL vs Flash Fiber</a>.</p>';
+        } else {
+          typeValue.textContent = 'DSL is fine';
+          advice.innerHTML =
+            '<p><strong>Your needs are light.</strong> A DSL connection in the ' + tier + ' range handles this comfortably, as long as the line is healthy. If fibre is available at a similar price, it’s still the better long-term choice — but you don’t need it for this usage.</p>';
+        }
+        result.style.display = 'block';
+        result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    })();
+  </script>
+</BaseLayout>

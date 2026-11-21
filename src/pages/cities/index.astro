@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { cities } from '../../data/cities';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptcl-speed-test.pages.dev/' },
+    { '@type': 'ListItem', position: 2, name: 'Cities', item: 'https://ptcl-speed-test.pages.dev/cities' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Internet Speed by City in Pakistan — Karachi, Lahore, Islamabad & More"
+  description="Internet speed by city: fastest fixed and mobile providers in Karachi, Lahore, Islamabad, Rawalpindi, Faisalabad, Multan, Peshawar and Quetta, from published PakSpeed and PTA data."
+  canonical="/cities"
+  schema={breadcrumbSchema}
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / Cities</p>
+      <h1>Internet Speed by City</h1>
+      <p class="lead">
+        Internet speed is local — the fastest provider in Karachi isn’t the fastest
+        in Lahore. Each city page shows the fastest fixed and mobile providers from
+        published data, the 5G status, and a speed test for your own connection.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cards">
+        {cities.map((c) => (
+          <a class="card card-link" href={`/cities/${c.slug}`}>
+            <h2>{c.name} Internet Speed</h2>
+            <p>
+              {c.fastestFixed
+                ? `Fastest fixed: ${c.fastestFixed.provider} · Fastest mobile: ${c.fastestMobile.provider}`
+                : `Fastest mobile: ${c.fastestMobile.provider} · ${c.fiveG}`}
+            </p>
+          </a>
+        ))}
+      </div>
+      <p class="center" style="margin-top: 2rem;">
+        Want the national picture? See our <a href="/statistics">Pakistan internet speed statistics</a> and the
+        <a href="/best-internet-provider-pakistan"> best ISP in Pakistan</a> ranking.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

@@ -40,7 +40,38 @@ const guideLinks: Record<string, { href: string; label: string }[]> = {
   jazz: [
     { href: '/guides/jazz-internet-slow', label: 'Jazz internet slow? Fix slow Jazz 4G' },
     { href: '/guides/jazz-apn-settings', label: 'Jazz APN & internet settings' },
+    { href: '/guides/5g-in-pakistan', label: '5G in Pakistan: cities, speeds & phones' },
     { href: '/guides/reduce-ping-gaming', label: 'Reduce ping for gaming on mobile data' },
+  ],
+  zong: [
+    { href: '/guides/zong-internet-slow', label: 'Zong internet slow? Fix slow Zong 4G' },
+    { href: '/guides/zong-apn-settings', label: 'Zong APN & internet settings' },
+    { href: '/guides/5g-in-pakistan', label: '5G in Pakistan: cities, speeds & phones' },
+    { href: '/guides/reduce-ping-gaming', label: 'Reduce ping for gaming on mobile data' },
+  ],
+  telenor: [
+    { href: '/guides/telenor-internet-slow', label: 'Telenor internet slow? Fix slow Telenor 4G' },
+    { href: '/guides/telenor-apn-settings', label: 'Telenor APN & internet settings' },
+    { href: '/guides/reduce-ping-gaming', label: 'Reduce ping for gaming on mobile data' },
+  ],
+  ufone: [
+    { href: '/guides/ufone-internet-slow', label: 'Ufone internet slow? Fix slow Ufone 4G' },
+    { href: '/guides/ufone-apn-settings', label: 'Ufone APN & internet settings' },
+    { href: '/guides/reduce-ping-gaming', label: 'Reduce ping for gaming on mobile data' },
+  ],
+  'jazz-5g': [
+    { href: '/guides/5g-in-pakistan', label: '5G in Pakistan: cities, speeds & phones' },
+    { href: '/guides/jazz-internet-slow', label: 'Jazz internet slow? Fix slow Jazz 4G' },
+    { href: '/guides/reduce-ping-gaming', label: 'Reduce ping for gaming on mobile data' },
+  ],
+  'zong-5g': [
+    { href: '/guides/5g-in-pakistan', label: '5G in Pakistan: cities, speeds & phones' },
+    { href: '/guides/zong-internet-slow', label: 'Zong internet slow? Fix slow Zong 4G' },
+    { href: '/guides/reduce-ping-gaming', label: 'Reduce ping for gaming on mobile data' },
+  ],
+  'ptcl-charji': [
+    { href: '/guides/ptcl-internet-slow', label: 'PTCL internet slow? Fix it in order' },
+    { href: '/guides/troubleshoot-slow-internet', label: 'Troubleshoot by symptom' },
   ],
 };
 const defaultGuideLinks = [
@@ -53,11 +84,17 @@ const compareLinks: Record<string, { href: string; label: string }[]> = {
   'ptcl-speed-test': [
     { href: '/compare/ptcl-vs-nayatel', label: 'PTCL vs Nayatel' },
     { href: '/compare/ptcl-vs-transworld', label: 'PTCL vs Transworld' },
+    { href: '/compare/ptcl-vs-stormfiber', label: 'PTCL vs StormFiber' },
+    { href: '/compare/dsl-vs-flash-fiber', label: 'DSL vs Flash Fiber' },
   ],
+  'ptcl-flash-fiber': [{ href: '/compare/dsl-vs-flash-fiber', label: 'DSL vs Flash Fiber' }],
   nayatel: [{ href: '/compare/ptcl-vs-nayatel', label: 'PTCL vs Nayatel' }],
   transworld: [{ href: '/compare/ptcl-vs-transworld', label: 'PTCL vs Transworld' }],
+  stormfiber: [{ href: '/compare/ptcl-vs-stormfiber', label: 'PTCL vs StormFiber' }],
   jazz: [{ href: '/compare/jazz-vs-zong', label: 'Jazz vs Zong' }],
   zong: [{ href: '/compare/jazz-vs-zong', label: 'Jazz vs Zong' }],
+  'jazz-5g': [{ href: '/compare/jazz-5g-vs-zong-5g', label: 'Jazz 5G vs Zong 5G' }],
+  'zong-5g': [{ href: '/compare/jazz-5g-vs-zong-5g', label: 'Jazz 5G vs Zong 5G' }],
 };
 
 const faqs = [
@@ -112,6 +149,7 @@ const breadcrumbSchema = {
       <h1>{provider.name} Speed Test</h1>
       <p class="lead">{provider.about}</p>
       <p class="small muted">{provider.typeLabel} · {provider.coverage}</p>
+      {provider.note && <p>{provider.note}</p>}
     </div>
   </section>
 

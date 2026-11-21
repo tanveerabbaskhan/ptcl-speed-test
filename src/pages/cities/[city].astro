@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SpeedTest from '../../components/SpeedTest.astro';
+import { cities, type City } from '../../data/cities';
+
+export function getStaticPaths() {
+  return cities.map((city) => ({
+    params: { city: city.slug },
+    props: { city },
+  }));
+}
+
+interface Props {
+  city: City;
+}
+
+const { city } = Astro.props;
+const others = cities.filter((c) => c.slug !== city.slug);
+
+const fastestFixedAnswer = city.fastestFixed
+  ? `On published community tests, ${city.fastestFixed.provider} is the fastest fixed-line provider in ${city.name} at ${city.fastestFixed.detail} (${city.fastestFixed.source}). But fixed-line speed depends on your street — check which providers have fibre on yours before choosing.`
+  : city.fixedNote ?? '';
+
+const faqs = [
+  {
+    q: `What is the fastest internet in ${city.name}?`,
+    a: fastestFixedAnswer,
+  },
+  {
+    q: `Which mobile network is fastest in ${city.name}?`,
+    a: `${city.fastestMobile.provider} — ${city.fastestMobile.detail} (${city.fastestMobile.source}). Mobile speed varies by location and tower load, so test both SIMs where you actually live and work.`,
+  },
+  {
+    q: `Is 5G available in ${city.name}?`,
+    a: city.fiveG,
+  },
+  {
+    q: `How do I test my internet speed in ${city.name}?`,
+    a: `Press "Start Speed Test" on this page. For the most accurate result, test over an Ethernet cable on a fibre or DSL line, or with Wi-Fi off on mobile data. Run the test two or three times and compare the middle results.`,
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptcl-speed-test.pages.dev/' },
+    { '@type': 'ListItem', position: 2, name: 'Cities', item: 'https://ptcl-speed-test.pages.dev/cities' },
+    { '@type': 'ListItem', position: 3, name: `${city.name} Internet Speed`, item: `https://ptcl-speed-test.pages.dev/cities/${city.slug}` },
+  ],
+};
+---
+
+<BaseLayout
+  title={`${city.name} Internet Speed — Fastest Providers & 5G Status (2026)`}
+  description={`Internet speed in ${city.name}: fastest fixed and mobile providers from published PakSpeed and PTA data, 5G status, and a free speed test for your connection.`}
+  canonical={`/cities/${city.slug}`}
+  schema={[faqSchema, breadcrumbSchema]}
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/cities">Cities</a> / {city.name}</p>
+      <h1>Internet Speed in {city.name}</h1>
+      <p class="lead">{city.intro}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 720px;">
+      <SpeedTest />
+
+      <h2>Fastest internet in {city.name}</h2>
+      {city.fastestFixed ? (
+        <>
+          <table class="data-table">
+            <thead>
+              <tr><th>Type</th><th>Fastest provider</th><th>Average</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Fixed broadband</td>
+                <td>{city.fastestFixed.provider}</td>
+                <td>{city.fastestFixed.detail}</td>
+              </tr>
+              <tr>
+                <td>Mobile 4G</td>
+                <td>{city.fastestMobile.provider}</td>
+                <td>{city.fastestMobile.detail}</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="small muted">
+            Sources: <a href={city.fastestFixed.sourceUrl} target="_blank" rel="noopener">{city.fastestFixed.source}</a>;
+            <a href={city.fastestMobile.sourceUrl} target="_blank" rel="noopener">{city.fastestMobile.source}</a>.
+            Averages mix many packages and devices — your own result is what matters.
+          </p>
+        </>
+      ) : (
+        <>
+          <p>{city.fixedNote}</p>
+          <table class="data-table">
+            <thead>
+              <tr><th>Type</th><th>Fastest provider</th><th>Average</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Mobile 4G</td>
+                <td>{city.fastestMobile.provider}</td>
+                <td>{city.fastestMobile.detail}</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="small muted">
+            Source: <a href={city.fastestMobile.sourceUrl} target="_blank" rel="noopener">{city.fastestMobile.source}</a>.
+          </p>
+        </>
+      )}
+
+      <h2>5G in {city.name}</h2>
+      <p>{city.fiveG}</p>
+      <p>
+        5G coverage is still pockets, not blanket — business districts, campuses and
+        city centres got sites first. See our guide on
+        <a href="/guides/5g-in-pakistan"> 5G in Pakistan</a> for the full picture,
+        including how to check whether your phone supports it.
+      </p>
+
+      <h2>Providers in {city.name}</h2>
+      <ul>
+        {city.providers.map((p) => (
+          <li>{p}</li>
+        ))}
+      </ul>
+      <p class="small muted">
+        Availability varies street by street — check each provider for your exact
+        address before choosing.
+      </p>
+
+      <h2>Tips for {city.name}</h2>
+      <ul>
+        {city.tips.map((t) => (
+          <li>{t}</li>
+        ))}
+      </ul>
+
+      <h2>{city.name} internet FAQ</h2>
+      <div class="faq-list" style="margin-top: 1rem;">
+        {faqs.map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <div class="cta-band">
+        <h2>Compare providers before you choose</h2>
+        <p>
+          The fastest provider on paper isn’t always the fastest on your street.
+          Compare the published data, then test your own connection.
+        </p>
+        <div class="cta-links">
+          <a class="btn" href="/compare">Compare providers →</a>
+          <a class="btn btn-secondary" href="/best-internet-provider-pakistan">Best ISP in Pakistan →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container">
+      <h2 class="center">Internet speed in other cities</h2>
+      <div class="cards">
+        {others.map((c) => (
+          <a class="card card-link" href={`/cities/${c.slug}`}>
+            <h3>{c.name} Internet Speed</h3>
+            <p>Fastest providers &amp; 5G status</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

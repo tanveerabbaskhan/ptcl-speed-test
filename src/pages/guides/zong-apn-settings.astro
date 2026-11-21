@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    q: 'How do I get Zong internet settings on my phone?',
+    a: 'The easiest way is by SMS: send "all" to 2161 (free). Zong sends the settings to your phone — open the message, enter PIN 1234 when asked, and tap Install. This fills in the APN and all other fields correctly, which is safer than typing values from a forum.',
+  },
+  {
+    q: 'What is the Zong APN?',
+    a: 'zonginternet — the same value for Android and iPhone, with username and password left blank, authentication set to None and APN type "default". Zong’s own settings guide lists exactly these values. Ignore the old "zongwap" profile — that was for WAP browsing on feature phones, not modern smartphones.',
+  },
+  {
+    q: 'How do I turn on 4G on Zong?',
+    a: 'Go to Settings, Mobile Network, Preferred Network Type and select 4G or LTE (or 5G/4G on a 5G phone). The Zong SIM must sit in the slot that supports 4G — on some dual-SIM phones only one slot does. If the status bar still shows E or H, move somewhere with better signal.',
+  },
+  {
+    q: 'My Zong internet worked, then stopped after I changed the APN. What do I do?',
+    a: 'Go to Settings, Mobile Network, Access Point Names, and choose Reset to Default — then restart the phone. If that doesn\'t restore it, get the official settings by SMS: send "all" to 2161 and install with PIN 1234.',
+  },
+  {
+    q: 'Do I need to set the APN on an iPhone?',
+    a: 'Usually not. iPhones and newer Android phones set the APN automatically from the SIM. If mobile data works, leave it alone. If it doesn\'t, check Settings, Mobile Data, Mobile Data Network — the APN should read zonginternet — and use the settings SMS route rather than typing values manually.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptcl-speed-test.pages.dev/' },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://ptcl-speed-test.pages.dev/guides' },
+    { '@type': 'ListItem', position: 3, name: 'Zong APN Settings & Internet Settings', item: 'https://ptcl-speed-test.pages.dev/guides/zong-apn-settings' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Zong APN Settings & Internet Settings (2026) — SMS, Codes & Manual Setup"
+  description="Get Zong internet settings by SMS (send 'all' to 2161, free), set the Zong APN (zonginternet) manually on Android and iPhone, and fix Zong internet that won't connect."
+  canonical="/guides/zong-apn-settings"
+  schema={[faqSchema, breadcrumbSchema]}
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Zong APN Settings</p>
+      <h1>Zong APN Settings &amp; Internet Settings</h1>
+      <p class="lead">
+        The APN (Access Point Name) tells your phone how to reach Zong’s data network.
+        Wrong APN settings mean slow internet or no internet at all — and the safest fix
+        is to let Zong send the settings to your phone automatically.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 720px;">
+      <h2>The easiest way: get settings by SMS</h2>
+      <p>
+        Zong sends the correct internet settings to your phone as a message. You don’t
+        need to type anything — the SMS fills in the APN and every other field for you.
+      </p>
+      <ol>
+        <li>Put the Zong SIM in the phone and switch mobile data on.</li>
+        <li>Send <strong>"all"</strong> (without quotes) to <strong>2161</strong>. The SMS is free.</li>
+        <li>Wait for the settings message — usually within 1–5 minutes.</li>
+        <li>Open it, enter PIN <strong>1234</strong> when asked, and tap <strong>Install</strong>.</li>
+        <li>Turn mobile data off and on, then open a website to test.</li>
+      </ol>
+      <p>
+        You can also call Zong on <strong>310</strong> from your Zong number and staff
+        will help configure the phone.
+      </p>
+
+      <h2>Manual APN settings</h2>
+      <p>
+        Zong’s own settings guide lists one set of values for Android and iPhone. Type
+        them exactly as shown, in small letters, and leave the username and password
+        empty.
+      </p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Field</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Name</td><td>Internet (any name you like works)</td></tr>
+          <tr><td>APN</td><td><strong>zonginternet</strong></td></tr>
+          <tr><td>Username</td><td>Leave empty</td></tr>
+          <tr><td>Password</td><td>Leave empty</td></tr>
+          <tr><td>Authentication type</td><td>None</td></tr>
+          <tr><td>APN type</td><td>default</td></tr>
+          <tr><td>MCC</td><td>410</td></tr>
+          <tr><td>MNC</td><td>Leave whatever your SIM shows (listings disagree — the SIM default is correct)</td></tr>
+          <tr><td>APN protocol</td><td>IPv4/IPv6</td></tr>
+        </tbody>
+      </table>
+      <p>
+        <strong>Android:</strong> Settings → Network &amp; Internet → SIMs (or
+        Connections → Mobile networks) → Access Point Names → "+" → enter the values →
+        Save from the three-dot menu → select the new APN.
+        <strong>iPhone:</strong> Settings → Mobile Data → Mobile Data Network — type
+        zonginternet in the APN field under Mobile Data.
+      </p>
+      <p>
+        Ignore the old <strong>zongwap</strong> profile you may see in older guides —
+        that was for WAP browsing on feature phones. On a modern smartphone, use
+        zonginternet. If your phone already shows a Zong profile under Access Point
+        Names, select it and leave it alone.
+      </p>
+
+      <h2>Turn on 4G</h2>
+      <p>
+        Settings alone can’t make a phone run 4G if it’s set to 3G. Go to Settings →
+        Mobile Network → Preferred Network Type and select 4G or LTE (or the option
+        that includes 5G on a 5G phone). The Zong SIM must sit in the slot that supports
+        4G — on some dual-SIM phones only one slot does.
+      </p>
+
+      <h2>MMS settings (if you need them)</h2>
+      <p>
+        Most people never use MMS, but if picture messages fail, add a second APN with
+        these values: APN <strong>zongmms</strong>, MMSC
+        http://10.81.6.11:8080, MMS proxy 10.81.6.33, MMS port 8000, APN type mms.
+      </p>
+
+      <h2>If the internet still doesn’t work</h2>
+      <ul>
+        <li>Reset APNs to default (Settings → Mobile Network → Access Point Names → Reset to Default), then restart.</li>
+        <li>Check the bundle is active — dial <strong>*102#</strong> to see remaining MBs. No bundle, no data.</li>
+        <li>Toggle airplane mode for 30 seconds to re-register with the nearest tower.</li>
+        <li>Try the SIM in another phone to separate a phone problem from a SIM/network problem.</li>
+        <li>Still stuck? Call Zong on <strong>310</strong> — or work through our <a href="/guides/zong-internet-slow">slow Zong internet guide</a>.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list" style="margin-top: 1rem;">
+        {faqs.map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <div class="cta-band">
+        <h2>Settings fixed? Test your Zong speed</h2>
+        <p>See what your connection actually delivers now.</p>
+        <div class="cta-links">
+          <a class="btn" href="/speedtest/zong">Zong Speed Test →</a>
+          <a class="btn btn-secondary" href="/guides/zong-internet-slow">Still slow? Fix guide →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

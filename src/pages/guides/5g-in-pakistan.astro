@@ -1,0 +1,188 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    q: 'When did 5G launch in Pakistan?',
+    a: '19 March 2026. Zong switched on commercial 5G first, with Jazz following the same day. The spectrum auction happened nine days earlier, on 10 March 2026, raising about $507 million for 480 MHz of spectrum.',
+  },
+  {
+    q: 'How fast is 5G in Pakistan?',
+    a: 'Community speed tests from January to June 2026 put the median 5G download at about 220 Mbps; another tracker reports an average near 130 Mbps over the same period. Single-site tests near towers run higher — 200–500 Mbps on Jazz and 244–290 Mbps on Zong. The official roadmap is more modest, targeting 50–100 Mbps averages as the network matures. Your speed depends on distance from the tower, how many people are connected, and whether you are on 700 MHz (wider reach, slower) or 3.5 GHz (fastest).',
+  },
+  {
+    q: 'Which phone do I need for 5G in Pakistan?',
+    a: 'Any phone that supports band n78 (3.5 GHz) — that is Pakistan’s main 5G band, used by both Jazz and Zong. Band n41 (2.6 GHz) is a bonus. You do not need a new SIM: a recent 4G SIM works on 5G. Check the phone’s spec sheet for "5G bands" before you buy — a phone that only supports bands used abroad will not connect here.',
+  },
+  {
+    q: 'Is 5G available in my city?',
+    a: '5G is live in 24 cities, but only in pockets — business districts, university campuses, hospitals and city centres got sites first. Karachi has the most sites (385), followed by Lahore (373) and Islamabad (276). Check Jazz’s and Zong’s coverage maps for your exact area before buying a phone just for 5G.',
+  },
+  {
+    q: 'Is 5G worth it in Pakistan yet?',
+    a: 'If you are near a 5G site, it is a real jump over 4G — median downloads around 220 Mbps versus about 18 Mbps on 4G. But coverage is the deciding factor: outside the pockets, your phone falls back to 4G, so check the coverage map for your home and workplace first. A 5G phone is still a sensible buy — the network is growing fast — but don’t pay extra for a 5G plan until you know you are covered.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptcl-speed-test.pages.dev/' },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://ptcl-speed-test.pages.dev/guides' },
+    { '@type': 'ListItem', position: 3, name: '5G in Pakistan', item: 'https://ptcl-speed-test.pages.dev/guides/5g-in-pakistan' },
+  ],
+};
+---
+
+<BaseLayout
+  title="5G in Pakistan (2026) — Launch, Cities, Speeds, Operators & Phones"
+  description="5G launched in Pakistan on 19 March 2026: 1,782 live sites across 24 cities, median speeds around 220 Mbps, Jazz vs Zong vs Ufone compared, and how to check if your phone supports it."
+  canonical="/guides/5g-in-pakistan"
+  schema={[faqSchema, breadcrumbSchema]}
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / 5G in Pakistan</p>
+      <h1>5G in Pakistan</h1>
+      <p class="lead">
+        5G launched in Pakistan on 19 March 2026 — eight months on, there are 1,782 live
+        sites across 24 cities and about 1.8 million users. Here’s what’s actually live,
+        how fast it is, which operator leads where, and whether your phone can use it.
+      </p>
+      <p class="small muted">Last updated: 21 November 2026</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 720px;">
+      <h2>The 5G story so far</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Date</th><th>What happened</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>10 March 2026</td><td>Spectrum auction: about $507 million raised for 480 MHz across four bands</td></tr>
+          <tr><td>19 March 2026</td><td>Zong launches commercial 5G first, live in 16+ cities on day one; Jazz launches the same day</td></tr>
+          <tr><td>March–October 2026</td><td>Rollout accelerates: 1,782 sites live across 24 cities by October 2026, about 1.8 million users</td></tr>
+          <tr><td>October 2026</td><td>Ufone holds a 5G licence and 127 sites, but has not announced a consumer launch</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Pakistan came to 5G late — most countries launched years earlier — but the rollout
+        since March has been fast. The three operators split the spectrum differently:
+        Jazz won the most (190 MHz), Ufone 180 MHz, Zong 110 MHz.
+      </p>
+
+      <h2>Who leads 5G in Pakistan?</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Operator</th><th>Live sites (Oct 2026)</th><th>Spectrum</th><th>5G bands</th><th>Strongest cities</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Jazz</td><td>1,015</td><td>190 MHz</td><td>700, 2300, 2600, 3500 MHz</td><td>Karachi, Lahore, Faisalabad, Multan</td></tr>
+          <tr><td>Zong</td><td>640</td><td>110 MHz</td><td>2600, 3500 MHz</td><td>Peshawar, Quetta, Sialkot, Sheikhupura</td></tr>
+          <tr><td>Ufone</td><td>127</td><td>180 MHz</td><td>—</td><td>No consumer launch yet</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Jazz has the biggest 5G network by a wide margin and is the only operator holding
+        all four bands — including 700 MHz, which travels further and penetrates buildings
+        better. A PTA survey dated 5 November 2026 counted Jazz at 1,237 sites, suggesting
+        the network is still growing fast and published figures lag reality. Zong leads in
+        several smaller cities despite fewer sites overall. See the full head-to-head on
+        our <a href="/compare/jazz-5g-vs-zong-5g">Jazz 5G vs Zong 5G</a> page.
+      </p>
+
+      <h2>5G cities and site counts</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>City</th><th>Live 5G sites (Oct 2026)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Karachi</td><td>385</td></tr>
+          <tr><td>Lahore</td><td>373</td></tr>
+          <tr><td>Islamabad</td><td>276</td></tr>
+          <tr><td>Faisalabad</td><td>144</td></tr>
+          <tr><td>Peshawar</td><td>122</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Nineteen more cities have 5G, including Rawalpindi, Multan, Quetta, Sialkot and
+        Sheikhupura. But "live in 24 cities" means pockets, not blanket coverage —
+        business districts, university campuses, hospitals and city centres got sites
+        first. Two streets in the same city can have very different 5G.
+      </p>
+
+      <h2>How fast is 5G in Pakistan?</h2>
+      <p>
+        It depends on who measures and where. Community speed tests from January to June
+        2026 put the <strong>median 5G download at about 220 Mbps</strong>; another
+        tracker reports an average near 130 Mbps over the same period. Single-site tests
+        near towers run higher — 200–500 Mbps on Jazz, 244–290 Mbps on Zong, and one
+        Ufone test at F11 Markaz in Islamabad hit 750 Mbps. The official roadmap is more
+        modest, targeting 50–100 Mbps averages as the network matures.
+      </p>
+      <p>
+        Either way, 5G is a large jump over 4G, where the national average is about 18
+        Mbps. The catch is consistency: your 5G speed depends on your distance from the
+        tower, how many people are connected to it, and which band you’re on — 3.5 GHz
+        (n78) is fastest, 700 MHz reaches further but is slower.
+      </p>
+
+      <h2>Will your phone work on Pakistan’s 5G?</h2>
+      <p>
+        Two things matter — the phone and the SIM:
+      </p>
+      <ol>
+        <li><strong>Band n78 (3.5 GHz) is essential.</strong> This is Pakistan’s main 5G band, used by both Jazz and Zong. Band n41 (2.6 GHz) is a bonus. Check the phone’s spec sheet under "5G bands" — a phone that only supports bands used abroad will not connect here, however expensive it was.</li>
+        <li><strong>Your 4G SIM is fine.</strong> A recent 4G SIM works on 5G — you don’t need a new SIM. If your SIM is very old, swap it at a franchise.</li>
+        <li><strong>Switch 5G on.</strong> In your phone’s mobile network settings, set the preferred network type to 5G (or 5G/4G/3G auto). Then test with Wi-Fi off.</li>
+      </ol>
+      <p>
+        On iPhone, go to Settings → Mobile Service → Mobile Data Options → Voice &amp;
+        Data, and pick 5G Auto or 5G On. On Android, it’s under Settings → Connections /
+        Network → Mobile networks → Preferred network type.
+      </p>
+
+      <h2>How to test your 5G speed</h2>
+      <p>
+        Open the test on your phone with Wi-Fi off and 5G showing in the status bar.
+        Stand near a window or outdoors — 5G signal drops fast through walls — and run
+        the test two or three times. If the result looks like 4G speeds (under 30 Mbps),
+        you’re probably not actually on 5G: check the status bar and your network mode
+        setting.
+      </p>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list" style="margin-top: 1rem;">
+        {faqs.map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <div class="cta-band">
+        <h2>On 5G? Test it</h2>
+        <p>See what your 5G connection actually delivers where you are.</p>
+        <div class="cta-links">
+          <a class="btn" href="/speedtest/jazz-5g">Jazz 5G Speed Test →</a>
+          <a class="btn btn-secondary" href="/speedtest/zong-5g">Zong 5G Speed Test →</a>
+          <a class="btn btn-secondary" href="/compare/jazz-5g-vs-zong-5g">Jazz 5G vs Zong 5G →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

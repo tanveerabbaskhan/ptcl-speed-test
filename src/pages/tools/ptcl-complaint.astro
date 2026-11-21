@@ -1,0 +1,228 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    q: 'How do I complain about slow PTCL internet?',
+    a: 'Call PTCL on 1218 with your account number and your measured speeds. The most effective complaints quote numbers: your package speed, your measured download and upload, the date and time of the tests, and whether you tested over Ethernet. This generator writes that complaint for you — copy it, paste it into an email or read it on the call.',
+  },
+  {
+    q: 'What evidence do I need for a slow internet complaint?',
+    a: 'Three speed tests at different times (including one in the morning, when the network is quiet), all over an Ethernet cable, with the dates noted. If your wired speed stays below about 80% of your package at quiet times, that is grounds for a complaint. Screenshots with dates are the strongest evidence.',
+  },
+  {
+    q: 'What should I do if my complaint is ignored?',
+    a: 'Note the complaint reference number, the date, and who you spoke to. If there is no fix within the time they promise, call again and quote the reference number. If the provider still does not act, you can escalate to the PTA’s complaint system with your reference number and test results.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptcl-speed-test.pages.dev/' },
+    { '@type': 'ListItem', position: 2, name: 'Tools', item: 'https://ptcl-speed-test.pages.dev/tools' },
+    { '@type': 'ListItem', position: 3, name: 'Complaint Draft Generator', item: 'https://ptcl-speed-test.pages.dev/tools/ptcl-complaint' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Internet Complaint Draft Generator — PTCL, Nayatel, StormFiber & More"
+  description="Generate a ready-to-send complaint about slow internet: enter your package, your measured speed and the problem, and get a complaint letter with the evidence your provider needs."
+  canonical="/tools/ptcl-complaint"
+  schema={[faqSchema, breadcrumbSchema]}
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/tools">Tools</a> / Complaint Draft Generator</p>
+      <h1>Internet Complaint Draft Generator</h1>
+      <p class="lead">
+        "My internet is slow" gets ignored. A complaint with numbers gets fixed. Fill in
+        your package and your measured speeds, and this tool writes a complaint letter
+        you can paste into an email or read out on a call. Nothing you type leaves your
+        browser.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 720px;">
+      <form id="complaint-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="provider">Provider</label>
+          <select id="provider">
+            <option value="PTCL">PTCL</option>
+            <option value="Nayatel">Nayatel</option>
+            <option value="StormFiber">StormFiber</option>
+            <option value="Transworld">Transworld</option>
+            <option value="Jazz">Jazz</option>
+            <option value="Zong">Zong</option>
+            <option value="Ufone">Ufone</option>
+            <option value="Telenor">Telenor</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="issue">Problem</label>
+          <select id="issue">
+            <option value="slow">Slow speed (below my package)</option>
+            <option value="drops">Frequent disconnections</option>
+            <option value="none">No internet at all</option>
+            <option value="ping">High ping / lag</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="package">Your package speed (Mbps)</label>
+          <input id="package" type="number" min="1" max="1000" placeholder="e.g. 30" />
+        </div>
+        <div class="form-group">
+          <label for="measured">Measured download speed (Mbps)</label>
+          <input id="measured" type="number" min="0" max="1000" step="0.1" placeholder="e.g. 12.4" />
+        </div>
+        <div class="form-group">
+          <label for="upload">Measured upload speed (Mbps) — optional</label>
+          <input id="upload" type="number" min="0" max="1000" step="0.1" placeholder="e.g. 1.2" />
+        </div>
+        <div class="form-group">
+          <label for="testdate">Date of the test</label>
+          <input id="testdate" type="date" />
+        </div>
+        <div class="form-group">
+          <label for="account">Account / customer number — optional</label>
+          <input id="account" type="text" placeholder="e.g. your PTCL account number" />
+        </div>
+        <div class="form-group">
+          <label for="name">Your name — optional</label>
+          <input id="name" type="text" placeholder="Your name" />
+        </div>
+        <button class="btn" type="button" id="generate-btn">Generate complaint →</button>
+      </form>
+
+      <div id="result" style="display: none; margin-top: 2rem;">
+        <h2>Your complaint</h2>
+        <div class="form-group">
+          <textarea id="draft" rows="14" readonly style="width: 100%;"></textarea>
+        </div>
+        <button class="btn btn-secondary" type="button" id="copy-btn">Copy to clipboard</button>
+        <p class="small muted" id="copy-status" style="margin-top: 0.5rem;"></p>
+        <div class="callout" style="margin-top: 1.5rem;">
+          <p><strong>Where to send it:</strong> PTCL customers can call <strong>1218</strong> and read this out, or send it to PTCL’s customer care email. For other providers, call their helpline or use their complaint portal — and always note the complaint reference number you’re given.</p>
+        </div>
+      </div>
+
+      <h2 style="margin-top: 2.5rem;">Before you complain</h2>
+      <ul>
+        <li><strong>Test wired.</strong> A complaint based on Wi-Fi results will be dismissed — test over an Ethernet cable (or with Wi-Fi off, on mobile data).</li>
+        <li><strong>Test three times.</strong> Morning, afternoon and evening. If mornings are fast and evenings are slow, that’s congestion, not a fault — and your complaint should say so.</li>
+        <li><strong>Rule out your own setup.</strong> Restart the router, check for a red LOS light on fibre, and work through our <a href="/guides/troubleshoot-slow-internet">troubleshooter</a> first. A complaint that survives those checks is much stronger.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list" style="margin-top: 1rem;">
+        {faqs.map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var dateInput = document.getElementById('testdate');
+      if (dateInput && !dateInput.value) {
+        dateInput.value = new Date().toISOString().slice(0, 10);
+      }
+      var generateBtn = document.getElementById('generate-btn');
+      var copyBtn = document.getElementById('copy-btn');
+      var result = document.getElementById('result');
+      var draft = document.getElementById('draft');
+      var copyStatus = document.getElementById('copy-status');
+
+      function val(id) {
+        var el = document.getElementById(id);
+        return el ? el.value.trim() : '';
+      }
+
+      generateBtn.addEventListener('click', function () {
+        var provider = val('provider') || 'PTCL';
+        var issue = val('issue');
+        var pkg = parseFloat(val('package'));
+        var measured = parseFloat(val('measured'));
+        var upload = parseFloat(val('upload'));
+        var testdate = val('testdate');
+        var account = val('account');
+        var name = val('name');
+
+        var issueText = {
+          slow: 'my internet speed is consistently well below the speed of my package',
+          drops: 'my internet connection drops frequently throughout the day',
+          none: 'I have no internet connection at all',
+          ping: 'my connection suffers from high latency (ping), making video calls and online gaming unusable',
+        }[issue] || 'my internet speed is consistently well below the speed of my package';
+
+        var lines = [];
+        lines.push('Subject: Complaint — ' + issueText.charAt(0).toUpperCase() + issueText.slice(1));
+        lines.push('');
+        lines.push('Dear ' + provider + ' Customer Support,');
+        lines.push('');
+        lines.push('I am writing to report that ' + issueText + '.');
+        if (account) lines.push('My account number is ' + account + '.');
+        lines.push('');
+        if (!isNaN(pkg) && !isNaN(measured)) {
+          var pct = Math.round((measured / pkg) * 100);
+          lines.push(
+            'My package is advertised at ' + pkg + ' Mbps. I tested my connection on ' +
+            (testdate || 'a recent date') + ' and measured a download speed of ' + measured +
+            ' Mbps — only ' + pct + '% of the advertised speed.' +
+            (pct < 80 ? ' This is below the 80% of package speed that a healthy connection should deliver.' : '')
+          );
+          if (!isNaN(upload)) {
+            lines.push('My measured upload speed was ' + upload + ' Mbps.');
+          }
+          lines.push('');
+        }
+        lines.push(
+          'I tested over an Ethernet cable (not Wi-Fi) at a quiet time of day, with other devices disconnected, and repeated the test more than once. The results were consistent.'
+        );
+        lines.push('');
+        lines.push(
+          'Please investigate and resolve this issue, and let me know the complaint reference number for my records. I can provide dated screenshots of the test results on request.'
+        );
+        lines.push('');
+        lines.push('Thank you,');
+        lines.push(name || '[Your name]');
+
+        draft.value = lines.join('\n');
+        result.style.display = 'block';
+        copyStatus.textContent = '';
+        result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      copyBtn.addEventListener('click', function () {
+        draft.select();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(draft.value).then(function () {
+            copyStatus.textContent = 'Copied to clipboard.';
+          });
+        } else {
+          document.execCommand('copy');
+          copyStatus.textContent = 'Copied to clipboard.';
+        }
+      });
+    })();
+  </script>
+</BaseLayout>

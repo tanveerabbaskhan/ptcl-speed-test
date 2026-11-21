@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    q: 'Why is my Ufone internet slow?',
+    a: 'The usual reasons, in order: your bundle has run out (check *706#), weak signal where you are, the phone is on 3G instead of 4G, a wrong APN, or peak-hour tower congestion (7–11 pm). Work through the steps in this guide in order — most slow Ufone connections are fixed by the first three.',
+  },
+  {
+    q: 'What is a good Ufone 4G speed?',
+    a: 'The PTA’s Q2 2026 benchmarking puts Ufone’s national 4G average at 12.8 Mbps download and 4.4 Mbps upload. That’s enough for browsing, messaging and HD video, but tight for 4K. If you consistently get under 3 Mbps in a good-signal area, something is wrong.',
+  },
+  {
+    q: 'How do I check my Ufone data balance?',
+    a: 'Dial *706# to see your remaining MBs/GBs. The same code tells you whether your SIM is 4G — if the response shows 4G, you’re set.',
+  },
+  {
+    q: 'How do I make Ufone internet faster?',
+    a: 'Check your bundle first (*706#), then move somewhere with better signal, make sure the phone is set to 4G/LTE (not 3G), and confirm the APN reads ufone.pinternet (prepaid) or ufone.internet (postpaid). Toggle airplane mode for 30 seconds to re-register with the nearest tower. If the SIM is old, swap it for a 4G SIM at a Ufone franchise.',
+  },
+  {
+    q: 'How do I complain about slow Ufone internet?',
+    a: 'Call Ufone on 333 from your Ufone number. Before you call, run three speed tests at different times and note the results, your location, and whether the problem is everywhere or in one spot — that evidence gets a faster, better answer than "my internet is slow".',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptcl-speed-test.pages.dev/' },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://ptcl-speed-test.pages.dev/guides' },
+    { '@type': 'ListItem', position: 3, name: 'Ufone Internet Slow?', item: 'https://ptcl-speed-test.pages.dev/guides/ufone-internet-slow' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Ufone Internet Slow? How to Fix Slow Ufone 4G Speed (2026)"
+  description="Ufone internet slow? Fix it in order: bundle check (*706#), signal, 4G-only mode, APN settings, old SIM — and when to call 333. Based on Ufone's own settings and PTA speed data."
+  canonical="/guides/ufone-internet-slow"
+  schema={[faqSchema, breadcrumbSchema]}
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Ufone Internet Slow</p>
+      <h1>Ufone Internet Slow? How to Fix Slow Ufone 4G</h1>
+      <p class="lead">
+        Ufone’s 4G is the third-fastest of Pakistan’s big four networks on the PTA’s
+        averages — good enough for HD video and calls, but not the fastest. If your
+        Ufone is well below even that, work through these fixes in order.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 720px;">
+      <h2>Step 1: Check your bundle is active</h2>
+      <p>
+        The most common cause of slow mobile internet is the simplest: the data bundle
+        has run out or expired. Dial <strong>*706#</strong> to check your remaining MBs
+        or GBs. The same code tells you whether your SIM is 4G — if the response shows
+        4G, you’re set. No bundle, no data — or data at a crawl on pay-as-you-go rates.
+      </p>
+
+      <h2>Step 2: Check your signal</h2>
+      <p>
+        Mobile speed is mostly signal. Move near a window or outdoors and test again —
+        one or two bars indoors can become four bars outside. If the speed jumps, the
+        problem was your location, not the network. Walls, basements and metal roofs all
+        eat signal. Ufone’s network is strongest in Khyber Pakhtunkhwa and parts of
+        Punjab — in other areas, coverage can be thinner.
+      </p>
+
+      <h2>Step 3: Make sure you’re on 4G</h2>
+      <p>
+        If the status bar shows E, H or H+, you’re on 2G/3G — far slower than 4G. Go to
+        Settings → Mobile Network → Preferred Network Type and set it to 4G or LTE. Dial
+        <strong>*4#</strong> to check whether your SIM and phone are 4G-compatible. On
+        dual-SIM phones, check the Ufone SIM is in the slot that supports 4G.
+      </p>
+
+      <h2>Step 4: Toggle airplane mode</h2>
+      <p>
+        Switch airplane mode on for 30 seconds, then off. This forces the phone to
+        re-register with the nearest tower, which fixes the common case where the phone
+        is clinging to a distant, overloaded tower.
+      </p>
+
+      <h2>Step 5: Check the APN</h2>
+      <p>
+        The APN (Access Point Name) tells your phone how to reach Ufone’s data network.
+        It should read <strong>ufone.pinternet</strong> for prepaid or
+        <strong>ufone.internet</strong> for postpaid. The easiest fix is to get the
+        settings sent to your phone: send your phone’s model number by SMS to
+        <strong>222</strong>, then install the message with PIN 1234 if asked. See our
+        full <a href="/guides/ufone-apn-settings">Ufone APN settings guide</a>.
+      </p>
+
+      <h2>Step 6: Check the SIM</h2>
+      <p>
+        An old 3G-era SIM can’t run 4G properly — Ufone’s 4G needs a 4G-capable SIM (the
+        newer nano-SIM format). If the SIM is years old, swap it at a Ufone franchise
+        (biometric verification needed).
+      </p>
+
+      <h2>Step 7: Test at a quiet time</h2>
+      <p>
+        Evenings (7–11 pm) are the busiest hours on any mobile network. Test early in the
+        morning and again at 9 pm: if mornings are fast and evenings are slow, that’s
+        tower congestion, and no phone setting will fix it. Keep both results as evidence.
+      </p>
+
+      <h2>What speed should you expect?</h2>
+      <p>
+        The PTA’s Q2 2026 benchmarking puts Ufone’s national 4G average at
+        <strong>12.8 Mbps download and 4.4 Mbps upload</strong> — third of the big four,
+        behind Zong (18.6 Mbps) and Jazz (17.6 Mbps) but ahead of Telenor (7.5 Mbps).
+        That’s enough for browsing, messaging and HD video. If you consistently get under
+        3 Mbps in a good-signal area at a quiet time, something is wrong.
+      </p>
+
+      <h2>Still slow? Complain with evidence</h2>
+      <p>
+        Call Ufone on <strong>333</strong> from your Ufone number. Before you call, run
+        three speed tests at different times, note the results, your location, and
+        whether the problem is everywhere or in one spot. That evidence gets a faster,
+        better answer than "my internet is slow".
+      </p>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list" style="margin-top: 1rem;">
+        {faqs.map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <div class="cta-band">
+        <h2>Test your Ufone speed</h2>
+        <p>Run a test now and compare with the PTA averages above.</p>
+        <div class="cta-links">
+          <a class="btn" href="/speedtest/ufone">Ufone Speed Test →</a>
+          <a class="btn btn-secondary" href="/guides/ufone-apn-settings">Ufone APN settings →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

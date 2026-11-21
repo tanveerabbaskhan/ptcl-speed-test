@@ -29,6 +29,8 @@ export interface Provider {
   /** Where the provider mainly operates, in general terms. */
   coverage: string;
   typical?: TypicalSpeed;
+  /** Optional extra context shown on the provider page (e.g. a merger note). */
+  note?: string;
 }
 
 export const providers: Provider[] = [
@@ -174,7 +176,7 @@ export const providers: Provider[] = [
     type: 'mobile',
     typeLabel: 'Mobile data',
     about:
-      'Telenor Pakistan is a mobile network operator, so a Telenor speed test measures your 4G (or 3G) mobile data connection. Signal strength matters more than anything else — move near a window or outdoors and test again if your result looks low.',
+      'Telenor Pakistan is a mobile network operator, so a Telenor speed test measures your 4G (or 3G) mobile data connection. PTCL bought Telenor Pakistan in December 2025, and on 1 July 2026 Telenor Pakistan was merged into Ufone — Telenor SIMs still work, and if the old Telenor settings stop connecting, the Ufone settings usually fix it.',
     coverage: 'Nationwide mobile coverage.',
     typical: {
       download: '7.5 Mbps',
@@ -218,6 +220,94 @@ export const providers: Provider[] = [
     about:
       'Connect Communications is an internet service provider in Pakistan. Run the test below to measure your connection, and compare the result with the speed your package promises.',
     coverage: 'Selected areas — check availability for your address.',
+  },
+  {
+    slug: 'ptcl-charji',
+    name: 'PTCL CharJi',
+    type: 'wireless',
+    typeLabel: 'Portable 4G LTE hotspot',
+    about:
+      'PTCL CharJi is PTCL’s portable 4G LTE hotspot service — a small battery-powered device that shares mobile broadband with up to 10 devices over Wi-Fi. Like all mobile broadband, CharJi speed depends on signal strength and tower load, so where you place the device matters.',
+    coverage: 'CharJi coverage areas nationwide — check availability for your location.',
+    note: 'CharJi is PTCL’s current wireless device. The older EVO and Nitro devices are legacy products — new buyers are generally steered to CharJi, or to fibre where it’s available.',
+  },
+  {
+    slug: 'cybernet',
+    name: 'Cybernet',
+    type: 'fibre',
+    typeLabel: 'Fibre broadband',
+    about:
+      'Cybernet (Cyber Internet Services) is one of Pakistan’s oldest internet providers, offering fibre broadband to homes and businesses. It is also the company behind the StormFiber brand — the two share the same network.',
+    coverage: 'Karachi, Lahore and selected other cities.',
+    typical: {
+      download: '16.6 Mbps',
+      upload: '14.0 Mbps',
+      ping: '95 ms',
+      source: 'nPerf fixed-internet barometer, Pakistan 2025',
+      sourceUrl: 'https://media.nperf.com/files/publications/PK/PK-Barometer-fixe-connections-nPerf-2025_8036.pdf',
+    },
+  },
+  {
+    slug: 'optix',
+    name: 'Optix',
+    type: 'fibre',
+    typeLabel: 'Fibre (FTTH)',
+    about:
+      'Optix is a fibre-to-the-home provider serving residential societies in Lahore, Karachi and other cities, often in partnership with property developers. As a pure fibre service it usually delivers fast uploads and stable ping.',
+    coverage: 'Lahore, Karachi and selected residential societies.',
+    typical: {
+      download: '19.9 Mbps',
+      upload: '25.7 Mbps',
+      ping: '107 ms',
+      source: 'PakSpeed community tests, Pakistan, last 30 days (221 tests)',
+      sourceUrl: 'https://pakspeed.com/best-isp',
+    },
+  },
+  {
+    slug: 'worldcall',
+    name: 'Worldcall',
+    type: 'isp',
+    typeLabel: 'Cable broadband',
+    about:
+      'Worldcall is a cable broadband provider offering internet and digital TV in 25+ cities across Pakistan. Cable broadband shares capacity with the neighbourhood, so speeds vary more by time of day than on a dedicated fibre line.',
+    coverage: '25+ cities across Pakistan.',
+    typical: {
+      download: '30.6 Mbps',
+      upload: '14.2 Mbps',
+      ping: '95 ms',
+      source: 'PakSpeed community tests, Pakistan, last 30 days (61 tests)',
+      sourceUrl: 'https://pakspeed.com/best-isp',
+    },
+  },
+  {
+    slug: 'scom',
+    name: 'SCOM',
+    type: 'mobile',
+    typeLabel: 'Mobile data (GB & AJK)',
+    about:
+      'SCOM (Special Communications Organization) is the main mobile network in Gilgit-Baltistan and Azad Jammu & Kashmir, where the big four networks have limited or no presence. SCOM offers 2G, 3G and 4G mobile data across the region.',
+    coverage: 'Gilgit-Baltistan and Azad Jammu & Kashmir.',
+    note: 'SCOM internet settings: APN scointernet. You can also get the settings sent to your phone by SMS — send “Setting” to 605.',
+  },
+  {
+    slug: 'jazz-5g',
+    name: 'Jazz 5G',
+    type: 'mobile',
+    typeLabel: '5G mobile data',
+    about:
+      'Jazz 5G launched on 19 March 2026 and is Pakistan’s largest 5G network, with over 1,000 live sites across 24 cities. 5G speeds are far higher than 4G — but only where you’re near a 5G site. Test on your phone with 5G switched on and Wi-Fi off.',
+    coverage: '24 cities incl. Karachi, Lahore, Islamabad, Faisalabad, Multan — pockets of coverage, not full cities.',
+    note: 'Jazz 5G runs on 1,015 live sites (October 2026) and the most 5G spectrum of any Pakistani operator (190 MHz). You need a phone that supports band n78 (3.5 GHz). Community 5G tests put the median 5G download at about 220 Mbps — your speed depends on distance from the tower and how many people are connected.',
+  },
+  {
+    slug: 'zong-5g',
+    name: 'Zong 5G',
+    type: 'mobile',
+    typeLabel: '5G mobile data',
+    about:
+      'Zong 5G launched on 19 March 2026 — the first commercial 5G launch in Pakistan, live in 16+ cities on day one. Zong runs 640 live 5G sites and leads 5G in Peshawar, Quetta, Sialkot and Sheikhupura. Test on your phone with 5G on and Wi-Fi off.',
+    coverage: '24 cities incl. Karachi, Lahore, Islamabad, Peshawar, Quetta — pockets of coverage, not full cities.',
+    note: 'Zong 5G runs on 640 live sites (October 2026). Field tests near Zong towers recorded 244–290 Mbps (May 2026) — single-site results, not a national average. You need a phone that supports band n78 (3.5 GHz).',
   },
 ];
 
