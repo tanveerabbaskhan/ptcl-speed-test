@@ -105,12 +105,108 @@ const startLabels: Record<string, string> = {
     </div>
   </div>
 
+  <div class="mascot" id="mascot">
+    <svg class="mascot-svg" viewBox="0 0 200 200" role="img" aria-label="Marky the markhor, our mascot">
+      <!-- speed lines (sprint only) -->
+      <g id="mascot-lines" stroke="#00A9CE" stroke-width="5" stroke-linecap="round" style="display: none;">
+        <line x1="6" y1="100" x2="38" y2="100" />
+        <line x1="2" y1="124" x2="32" y2="124" />
+        <line x1="10" y1="148" x2="38" y2="148" />
+        <line x1="162" y1="100" x2="194" y2="100" />
+        <line x1="168" y1="124" x2="198" y2="124" />
+        <line x1="162" y1="148" x2="190" y2="148" />
+      </g>
+      <!-- horns -->
+      <g fill="none" stroke="#D9C7A7" stroke-width="15" stroke-linecap="round">
+        <path d="M 70 96 C 50 82, 38 60, 46 38 C 50 26, 62 22, 68 30" />
+        <path d="M 130 96 C 150 82, 162 60, 154 38 C 150 26, 138 22, 132 30" />
+      </g>
+      <g stroke="#B39B73" stroke-width="3" stroke-linecap="round">
+        <line x1="40" y1="58" x2="52" y2="50" />
+        <line x1="42" y1="44" x2="54" y2="38" />
+        <line x1="160" y1="58" x2="148" y2="50" />
+        <line x1="158" y1="44" x2="146" y2="38" />
+      </g>
+      <!-- ears -->
+      <ellipse cx="50" cy="122" rx="13" ry="9" fill="#A06B3F" transform="rotate(-25 50 122)" />
+      <ellipse cx="50" cy="122" rx="7" ry="4.5" fill="#E8C9A0" transform="rotate(-25 50 122)" />
+      <ellipse cx="150" cy="122" rx="13" ry="9" fill="#A06B3F" transform="rotate(25 150 122)" />
+      <ellipse cx="150" cy="122" rx="7" ry="4.5" fill="#E8C9A0" transform="rotate(25 150 122)" />
+      <!-- head -->
+      <ellipse cx="100" cy="122" rx="55" ry="52" fill="#B07D4F" />
+      <ellipse cx="100" cy="140" rx="36" ry="28" fill="#E8C9A0" />
+      <!-- beard -->
+      <path d="M 88 170 Q 100 192 112 170 Q 106 178 100 176 Q 94 178 88 170 Z" fill="#8B5E3C" />
+      <!-- brows -->
+      <g id="mascot-brows-flat" stroke="#8B5E3C" stroke-width="4" stroke-linecap="round">
+        <line x1="70" y1="100" x2="88" y2="100" />
+        <line x1="112" y1="100" x2="130" y2="100" />
+      </g>
+      <g id="mascot-brows-raised" stroke="#8B5E3C" stroke-width="4" stroke-linecap="round" fill="none" style="display: none;">
+        <path d="M 70 100 Q 79 93 88 99" />
+        <path d="M 112 99 Q 121 93 130 100" />
+      </g>
+      <!-- eyes: open -->
+      <g id="mascot-eyes-open">
+        <circle cx="80" cy="114" r="7.5" fill="#2B1A0E" />
+        <circle cx="120" cy="114" r="7.5" fill="#2B1A0E" />
+        <circle cx="82.5" cy="111.5" r="2.5" fill="#fff" />
+        <circle cx="122.5" cy="111.5" r="2.5" fill="#fff" />
+      </g>
+      <!-- eyes: closed (asleep) -->
+      <g id="mascot-eyes-closed" stroke="#2B1A0E" stroke-width="3.5" stroke-linecap="round" fill="none" style="display: none;">
+        <path d="M 72 114 Q 80 121 88 114" />
+        <path d="M 112 114 Q 120 121 128 114" />
+      </g>
+      <!-- eyes: happy -->
+      <g id="mascot-eyes-happy" stroke="#2B1A0E" stroke-width="3.5" stroke-linecap="round" fill="none" style="display: none;">
+        <path d="M 72 116 Q 80 107 88 116" />
+        <path d="M 112 116 Q 120 107 128 116" />
+      </g>
+      <!-- sunglasses (sprint only) -->
+      <g id="mascot-shades" style="display: none;">
+        <rect x="66" y="104" width="30" height="19" rx="8" fill="#0A2540" />
+        <rect x="104" y="104" width="30" height="19" rx="8" fill="#0A2540" />
+        <rect x="94" y="110" width="12" height="5" rx="2" fill="#0A2540" />
+        <g stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity="0.7">
+          <line x1="72" y1="118" x2="80" y2="108" />
+          <line x1="110" y1="118" x2="118" y2="108" />
+        </g>
+      </g>
+      <!-- nose -->
+      <ellipse cx="100" cy="140" rx="9" ry="6.5" fill="#5C3A21" />
+      <!-- mouth: small smile -->
+      <path id="mascot-mouth-smile" d="M 86 154 Q 100 162 114 154" stroke="#5C3A21" stroke-width="3" stroke-linecap="round" fill="none" />
+      <!-- mouth: open smile -->
+      <path id="mascot-mouth-open" d="M 86 152 Q 100 172 114 152 Z" fill="#7A3B2E" style="display: none;" />
+      <!-- Zzz (asleep only) -->
+      <g id="mascot-zzz" class="mascot-zzz" fill="#5B6B7C" font-weight="700" font-family="inherit" style="display: none;">
+        <text x="148" y="66" font-size="24">Z</text>
+        <text x="162" y="46" font-size="17">Z</text>
+        <text x="174" y="30" font-size="12">Z</text>
+      </g>
+    </svg>
+    <p class="mascot-name">Marky the markhor</p>
+    <p class="mascot-caption" id="mascot-caption">Marky is waiting. Press start when you are ready.</p>
+  </div>
+
   <div class="verdict" id="verdict" hidden></div>
   <div class="test-error" id="test-error" hidden></div>
 
   <div class="history-actions" id="result-actions" hidden>
     <button class="btn btn-outline btn-small" id="copy-btn" type="button">Copy result</button>
+    <button class="btn btn-outline btn-small" id="roast-btn" type="button">Roast my speed</button>
     <button class="btn btn-outline btn-small" id="retest-btn" type="button">Test again</button>
+  </div>
+
+  <div class="roast-card" id="roast-card" hidden>
+    <p class="roast-label">Your roast, ready to share</p>
+    <p class="roast-text" id="roast-text"></p>
+    <div class="roast-actions">
+      <button class="btn btn-outline btn-small" id="roast-copy-btn" type="button">Copy for WhatsApp</button>
+      <a class="btn btn-outline btn-small" id="roast-wa-link" href="#" target="_blank" rel="noopener">Share on WhatsApp</a>
+    </div>
+    <p class="small muted roast-status" id="roast-status"></p>
   </div>
 
   <p class="server-meta" id="server-meta">
@@ -135,6 +231,7 @@ const startLabels: Record<string, string> = {
   const DOWN_URL = 'https://speed.cloudflare.com/__down';
   const UP_URL = 'https://speed.cloudflare.com/__up';
   const META_URL = 'https://speed.cloudflare.com/meta';
+  const SITE_URL = 'https://ptcl-speed-test.pages.dev';
   const HISTORY_KEY = 'ptcl-speed-history';
   const MAX_GAUGE_MBPS = 1000;
 
@@ -155,6 +252,15 @@ const startLabels: Record<string, string> = {
   const historyEl = $('history');
   const historyBody = $('history-body');
   const resultsGrid = $('results-grid');
+  const mascotCaption = $('mascot-caption');
+  const roastCard = $('roast-card');
+  const roastTextEl = $('roast-text');
+  const roastStatus = $('roast-status');
+  const roastWaLink = $('roast-wa-link');
+
+  let running = false;
+  let stopFlag = false;
+  let lastNumbers = null; // { down, up, ping, jitter } in numbers, or null when unmeasured
 
   // Hide result boxes this mode never measures, and size the grid to fit.
   if (mode === 'ping' || mode === 'jitter') {
@@ -165,9 +271,6 @@ const startLabels: Record<string, string> = {
     $('box-download').style.display = 'none';
     resultsGrid.style.gridTemplateColumns = 'repeat(3, 1fr)';
   }
-
-  let running = false;
-  let stopFlag = false;
 
   /** Map Mbps to a 0–1 gauge fraction on a log scale (0–1000 Mbps). */
   function toFraction(mbps) {
@@ -197,6 +300,125 @@ const startLabels: Record<string, string> = {
   function hideError() {
     errorEl.hidden = true;
     errorEl.textContent = '';
+  }
+
+  /* Marky the markhor: the mascot reacts to the result. */
+  const MASCOT_MOODS = {
+    idle: { eyes: 'open', mouth: 'smile', brows: 'flat', zzz: false, lines: false, shades: false, caption: 'Marky is waiting. Press start when you are ready.' },
+    sleep: { eyes: 'closed', mouth: 'smile', brows: 'flat', zzz: true, lines: false, shades: false, caption: 'Marky fell asleep waiting for your internet.' },
+    smile: { eyes: 'open', mouth: 'open', brows: 'raised', zzz: false, lines: false, shades: false, caption: 'Marky is strolling. Your internet is getting there.' },
+    happy: { eyes: 'happy', mouth: 'open', brows: 'raised', zzz: false, lines: false, shades: false, caption: 'Marky approves. That is a solid connection.' },
+    sprint: { eyes: 'happy', mouth: 'open', brows: 'raised', zzz: false, lines: true, shades: true, caption: 'Marky cannot keep up with your internet.' },
+    fail: { eyes: 'closed', mouth: 'smile', brows: 'flat', zzz: false, lines: false, shades: false, caption: 'Marky could not reach the test server either.' },
+  };
+
+  function setMascot(moodName) {
+    const m = MASCOT_MOODS[moodName] || MASCOT_MOODS.idle;
+    const show = (id, on) => { const el = $(id); if (el) el.style.display = on ? '' : 'none'; };
+    show('mascot-eyes-open', m.eyes === 'open');
+    show('mascot-eyes-closed', m.eyes === 'closed');
+    show('mascot-eyes-happy', m.eyes === 'happy' && !m.shades);
+    show('mascot-brows-flat', m.brows === 'flat');
+    show('mascot-brows-raised', m.brows === 'raised');
+    show('mascot-mouth-smile', m.mouth === 'smile');
+    show('mascot-mouth-open', m.mouth === 'open');
+    show('mascot-zzz', m.zzz);
+    show('mascot-lines', m.lines);
+    show('mascot-shades', m.shades);
+    mascotCaption.textContent = m.caption;
+  }
+
+  function speedMood(mbps) {
+    if (mbps === null || mbps === undefined || isNaN(mbps)) return 'idle';
+    if (mbps < 4) return 'sleep';
+    if (mbps < 10) return 'smile';
+    if (mbps < 100) return 'happy';
+    return 'sprint';
+  }
+
+  function moodFor(numbers) {
+    if (mode === 'ping') {
+      const p = numbers.ping;
+      if (p === null || p === undefined) return 'idle';
+      if (p < 30) return 'sprint';
+      if (p < 50) return 'happy';
+      if (p < 100) return 'smile';
+      return 'sleep';
+    }
+    if (mode === 'jitter') {
+      const j = numbers.jitter;
+      if (j === null || j === undefined) return 'idle';
+      if (j < 10) return 'sprint';
+      if (j < 30) return 'happy';
+      if (j < 50) return 'smile';
+      return 'sleep';
+    }
+    if (mode === 'upload') return speedMood(numbers.up);
+    return speedMood(numbers.down);
+  }
+
+  /* Roast my speed: a funny, shareable one-liner built from the result. */
+  function pick(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
+  function roastJoke(numbers) {
+    if (mode === 'ping') {
+      const p = numbers.ping;
+      if (p < 30) return pick([`My ping is ${p} ms. My game character moves before I even think.`, `My ping is ${p} ms. Basically telepathy.`]);
+      if (p < 50) return pick([`My ping is ${p} ms. Good enough for ranked games and smooth calls.`, `My ping is ${p} ms. No excuses left for losing.`]);
+      if (p < 100) return pick([`My ping is ${p} ms. Playable, but my character sometimes teleports.`, `My ping is ${p} ms. My calls are fine, my games are suspicious.`]);
+      return pick([`My ping is ${p} ms. I press jump, my character jumps next week.`, `My ping is ${p} ms. My game is buffering my reflexes.`]);
+    }
+    if (mode === 'jitter') {
+      const j = numbers.jitter;
+      if (j < 10) return pick([`My jitter is ${j} ms. Rock steady, calls never stutter.`, `My jitter is ${j} ms. Steadier than my sleep schedule.`]);
+      if (j < 30) return pick([`My jitter is ${j} ms. Steady enough for smooth calls.`, `My jitter is ${j} ms. My ping behaves itself.`]);
+      if (j < 50) return pick([`My jitter is ${j} ms. My voice breaks up just when the joke lands.`, `My jitter is ${j} ms. My ping has commitment issues.`]);
+      return pick([`My jitter is ${j} ms. My ping jumps around more than a goat on a mountain.`, `My jitter is ${j} ms. My connection cannot decide how fast it is.`]);
+    }
+    if (mode === 'upload') {
+      const u = numbers.up;
+      if (u < 2) return pick([`My upload is ${u} Mbps. My video freezes, my backups crawl, my DSL is doing its best.`, `My upload is ${u} Mbps. Sending a photo takes longer than taking it.`]);
+      if (u < 10) return pick([`My upload is ${u} Mbps. Calls work, backups take the scenic route.`, `My upload is ${u} Mbps. Fine for calls, hopeless for cloud backups.`]);
+      if (u < 25) return pick([`My upload is ${u} Mbps. Backups and video calls, no drama.`, `My upload is ${u} Mbps. My files actually arrive.`]);
+      return pick([`My upload is ${u} Mbps. I could livestream from the roof.`, `My upload is ${u} Mbps. Backups finish before my chai gets cold.`]);
+    }
+    const d = numbers.down;
+    if (d < 4) return pick([`My internet is officially a tortoise: ${d} Mbps down. Even the markhor fell asleep.`, `My internet moves like Lahore traffic on a rainy Friday: ${d} Mbps down. Send help (and fibre).`]);
+    if (d < 10) return pick([`My internet runs on one bar of signal and pure hope: ${d} Mbps down.`, `My internet can do WhatsApp. 4K? Let us not talk about it. ${d} Mbps down.`]);
+    if (d < 25) return pick([`My internet is decent, like a rickshaw with a new engine: ${d} Mbps down.`, `My internet finally behaves most days: ${d} Mbps down.`]);
+    if (d < 50) return pick([`My internet is solid: ${d} Mbps down. The buffering uncle has left the building.`, `4K streams, no freezes, no drama: ${d} Mbps down. My internet grew up.`]);
+    if (d < 100) return pick([`My internet is fast enough to make the neighbours jealous: ${d} Mbps down.`, `Downloads finish before my chai gets cold: ${d} Mbps down.`]);
+    return pick([`My internet is faster than gossip in a Lahori drawing room: ${d} Mbps down.`, `Fibre flex: ${d} Mbps down. The markhor cannot keep up.`]);
+  }
+
+  function buildRoast(numbers) {
+    const joke = roastJoke(numbers);
+    const extras = [];
+    if (mode === 'full') {
+      if (numbers.up !== null && numbers.up !== undefined) extras.push(`upload ${numbers.up} Mbps`);
+      if (numbers.ping !== null && numbers.ping !== undefined) extras.push(`ping ${numbers.ping} ms`);
+    } else if (mode === 'ping' || mode === 'jitter') {
+      const other = mode === 'ping' ? numbers.jitter : numbers.ping;
+      const label = mode === 'ping' ? 'jitter' : 'ping';
+      if (other !== null && other !== undefined) extras.push(`${label} ${other} ms`);
+    } else if (mode === 'upload') {
+      if (numbers.ping !== null && numbers.ping !== undefined) extras.push(`ping ${numbers.ping} ms`);
+    }
+    const extraText = extras.length ? ` ${extras[0].charAt(0).toUpperCase() + extras[0].slice(1)}${extras.length > 1 ? `, ${extras.slice(1).join(', ')}` : ''}.` : '';
+    return `${joke}${extraText} Test yours: ${SITE_URL}`;
+  }
+
+  async function copyText(text, statusEl, doneMsg) {
+    try {
+      await navigator.clipboard.writeText(text);
+      if (statusEl) statusEl.textContent = doneMsg;
+      return true;
+    } catch {
+      if (statusEl) statusEl.textContent = 'Copy did not work in this browser. Select the text above to copy it manually.';
+      return false;
+    }
   }
 
   function verdictFor(down, ping) {
@@ -413,6 +635,10 @@ const startLabels: Record<string, string> = {
     hideError();
     verdictEl.hidden = true;
     resultActions.hidden = true;
+    roastCard.hidden = true;
+    roastStatus.textContent = '';
+    lastNumbers = null;
+    setMascot('idle');
     startBtn.disabled = true;
     startBtn.textContent = 'Testing…';
     gaugeUnit.textContent = 'Mbps';
@@ -439,6 +665,7 @@ const startLabels: Record<string, string> = {
         }
         setGauge(0);
         result = { down: '–', up: '–', ping: ping.toFixed(0), jitter: jitter.toFixed(0) };
+        lastNumbers = { down: null, up: null, ping: Math.round(ping), jitter: Math.round(jitter) };
         verdictHtml = mode === 'jitter' ? jitterVerdict(jitter, ping) : pingVerdict(ping);
       } else if (mode === 'upload') {
         // Quick ping for context, then upload only.
@@ -454,6 +681,7 @@ const startLabels: Record<string, string> = {
         gaugeNumber.textContent = up.toFixed(1);
         setGauge(up);
         result = { down: '–', up: up.toFixed(1), ping: ping.toFixed(0), jitter: jitter.toFixed(0) };
+        lastNumbers = { down: null, up: parseFloat(up.toFixed(1)), ping: Math.round(ping), jitter: Math.round(jitter) };
         verdictHtml = uploadVerdict(up, ping);
       } else {
         setPhase('Measuring ping');
@@ -495,6 +723,12 @@ const startLabels: Record<string, string> = {
           ping: ping.toFixed(0),
           jitter: jitter.toFixed(0),
         };
+        lastNumbers = {
+          down: parseFloat(down.toFixed(1)),
+          up: up === null ? null : parseFloat(up.toFixed(1)),
+          ping: Math.round(ping),
+          jitter: Math.round(jitter),
+        };
         verdictHtml = verdictFor(down, ping);
         if (up === null) {
           verdictHtml +=
@@ -507,6 +741,7 @@ const startLabels: Record<string, string> = {
       verdictEl.innerHTML = verdictHtml;
       verdictEl.hidden = false;
       resultActions.hidden = false;
+      setMascot(moodFor(lastNumbers));
       saveResult(result);
     } catch (err) {
       console.error(err);
@@ -514,6 +749,7 @@ const startLabels: Record<string, string> = {
         'The test could not reach the test server. Check your internet connection and try again. If you use a VPN, ad-blocker or firewall, it may be blocking the test.'
       );
       setPhase('Test failed');
+      setMascot('fail');
     } finally {
       running = false;
       startBtn.disabled = false;
@@ -540,6 +776,29 @@ const startLabels: Record<string, string> = {
       setTimeout(() => { $('copy-btn').textContent = 'Copy result'; }, 2000);
     } catch {
       showError('Could not copy automatically. Select the numbers above to copy them manually.');
+    }
+  });
+  $('roast-btn')?.addEventListener('click', async () => {
+    if (!lastNumbers) return;
+    const text = buildRoast(lastNumbers);
+    roastTextEl.textContent = text;
+    roastWaLink.href = `https://wa.me/?text=${encodeURIComponent(text)}`;
+    roastCard.hidden = false;
+    roastStatus.textContent = '';
+    const ok = await copyText(text, roastStatus, 'Copied. Paste it on WhatsApp or anywhere you like.');
+    const roastBtn = $('roast-btn');
+    if (ok && roastBtn) {
+      roastBtn.textContent = 'Copied!';
+      setTimeout(() => { roastBtn.textContent = 'Roast my speed'; }, 2000);
+    }
+    roastCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+  $('roast-copy-btn')?.addEventListener('click', async () => {
+    const ok = await copyText(roastTextEl.textContent, roastStatus, 'Copied. Paste it on WhatsApp or anywhere you like.');
+    const btn = $('roast-copy-btn');
+    if (ok && btn) {
+      btn.textContent = 'Copied!';
+      setTimeout(() => { btn.textContent = 'Copy for WhatsApp'; }, 2000);
     }
   });
   $('clear-history-btn')?.addEventListener('click', () => {

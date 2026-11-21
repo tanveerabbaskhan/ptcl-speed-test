@@ -162,6 +162,27 @@ code { background: var(--bg-soft); padding: 0.15em 0.4em; border-radius: 6px; fo
 .history-actions { display: flex; gap: 0.6rem; margin-top: 0.8rem; flex-wrap: wrap; }
 .btn-small { font-size: 0.85rem; padding: 0.45rem 1rem; box-shadow: none; }
 
+/* ---------- Marky the markhor (mascot) ---------- */
+.mascot { text-align: center; margin: 1.3rem 0 0.2rem; }
+.mascot-svg { width: 118px; height: 118px; animation: mascot-bob 3.2s ease-in-out infinite; }
+@keyframes mascot-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+.mascot-name { margin: 0.1rem 0 0; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); }
+.mascot-caption { margin: 0.15rem 0 0; font-size: 0.95rem; color: var(--text); min-height: 1.4em; }
+.mascot-zzz text { animation: zzz-float 2.4s ease-in-out infinite; }
+.mascot-zzz text:nth-child(2) { animation-delay: 0.3s; }
+.mascot-zzz text:nth-child(3) { animation-delay: 0.6s; }
+@keyframes zzz-float { 0% { opacity: 0; transform: translateY(4px); } 40% { opacity: 1; } 100% { opacity: 0; transform: translateY(-6px); } }
+@media (prefers-reduced-motion: reduce) {
+  .mascot-svg, .mascot-zzz text { animation: none; }
+}
+
+/* ---------- Roast my speed ---------- */
+.roast-card { margin-top: 1rem; padding: 1rem 1.2rem; border-radius: var(--radius); background: var(--blue-light); border: 1px solid #c4dbf3; }
+.roast-label { margin: 0 0 0.35rem; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--blue); }
+.roast-text { margin: 0 0 0.8rem; font-size: 1.02rem; color: var(--navy); }
+.roast-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.roast-status { margin: 0.5rem 0 0; min-height: 1.2em; }
+
 /* ---------- Cards & grids ---------- */
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
 .card {
