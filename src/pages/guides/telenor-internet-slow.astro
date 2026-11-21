@@ -12,11 +12,11 @@ const faqs = [
   },
   {
     q: 'Is Telenor still working after the Ufone merger?',
-    a: 'Yes. PTCL bought Telenor Pakistan in December 2025 and merged it into Ufone on 1 July 2026, but Telenor SIMs still work. If the old Telenor settings stop connecting, try the Ufone settings instead, APN ufone.pinternet for prepaid or ufone.internet for postpaid.',
+    a: 'Yes. PTCL bought Telenor Pakistan in December 2025 and merged it into Ufone on 1 July 2026, but Telenor SIMs still work. If the old Telenor settings stop connecting, try the Ufone settings instead: APN ufone.pinternet for prepaid or ufone.internet for postpaid.',
   },
   {
     q: 'How do I complain about slow Telenor internet?',
-    a: 'Call Telenor on 345 from your Telenor number. Before you call, run three speed tests at different times and note the results, your location, and whether the problem is everywhere or in one spot, that evidence gets a faster, better answer than "my internet is slow".',
+    a: 'Call Telenor on 345 from your Telenor number. Before you call, run three speed tests at different times and note the results, your location, and whether the problem is everywhere or in one spot. That evidence gets a faster, better answer than "my internet is slow".',
   },
 ];
 
@@ -49,7 +49,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Telenor Internet Slow</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">Telenor Internet Slow</li>
+        </ol>
+      </nav>
       <h1>Telenor Internet Slow? How to Fix Slow Telenor 4G</h1>
       <p class="lead">
         Telenor has the lowest 4G averages of Pakistan’s big four networks, so slow

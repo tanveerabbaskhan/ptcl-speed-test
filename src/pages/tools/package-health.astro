@@ -45,7 +45,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/tools">Tools</a> / Package Health Checker</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools">Tools</a></li>
+          <li aria-current="page">Package Health Checker</li>
+        </ol>
+      </nav>
       <h1>Package Health Checker</h1>
       <p class="lead">
         A healthy connection delivers at least 80% of its advertised speed on a wired

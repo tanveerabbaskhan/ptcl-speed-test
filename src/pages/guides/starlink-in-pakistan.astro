@@ -12,11 +12,11 @@ const faqs = [
   },
   {
     q: 'Is Starlink legal in Pakistan?',
-    a: 'Using satellite internet without a PTA licence is not legal. Starlink itself is not banned, it is going through the licensing process, but until it holds a licence, its service cannot legally be sold or used in Pakistan.',
+    a: 'Using satellite internet without a PTA licence is not legal. Starlink itself is not banned. It is going through the licensing process, but until it holds a licence, its service cannot legally be sold or used in Pakistan.',
   },
   {
     q: 'What are the alternatives to Starlink in Pakistan?',
-    a: 'For most homes, fibre is the best option where available, PTCL Flash Fiber, Nayatel, StormFiber and Transworld all offer it in the big cities. In areas without fibre, 5G is now live in 24 cities (median downloads around 220 Mbps), and PTCL CharJi or a 4G hotspot covers the rest. Satellite only wins where no terrestrial option exists at all.',
+    a: 'For most homes, fibre is the best option where available: PTCL Flash Fiber, Nayatel, StormFiber and Transworld all offer it in the big cities. In areas without fibre, 5G is now live in 24 cities (median downloads around 220 Mbps), and PTCL CharJi or a 4G hotspot covers the rest. Satellite only wins where no terrestrial option exists at all.',
   },
 ];
 
@@ -49,7 +49,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Starlink in Pakistan</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">Starlink in Pakistan</li>
+        </ol>
+      </nav>
       <h1>Starlink in Pakistan</h1>
       <p class="lead">
         Short answer: Starlink is <strong>not available in Pakistan yet</strong>. It’s
@@ -66,7 +72,7 @@ const breadcrumbSchema = {
       <h2>Status at a glance</h2>
       <table class="data-table">
         <thead>
-          <tr><th>Step</th><th>Status</th></tr>
+          <tr><th scope="col">Step</th><th scope="col">Status</th></tr>
         </thead>
         <tbody>
           <tr><td>Company registered (SECP)</td><td>Yes, Starlink Internet Services Pakistan (Pvt) Ltd</td></tr>
@@ -105,7 +111,7 @@ const breadcrumbSchema = {
       </p>
       <ul>
         <li><strong>Anyone selling a Starlink subscription or dish in Pakistan.</strong> There is no legal way to buy one here yet.</li>
-        <li><strong>Prices quoted in rupees.</strong> Figures like Rs 35,000 a month circulate online, they are guesses, sometimes attached to fake booking pages.</li>
+        <li><strong>Prices quoted in rupees.</strong> Figures like Rs 35,000 a month circulate online. They are guesses, sometimes attached to fake booking pages.</li>
         <li><strong>Pre-orders and deposits.</strong> Starlink has not opened pre-orders for Pakistan. Anyone collecting deposits is not Starlink.</li>
         <li><strong>"Starlink available now" ads.</strong> Usually resellers of other satellite services, or outright fraud.</li>
       </ul>

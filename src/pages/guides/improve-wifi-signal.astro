@@ -8,7 +8,7 @@ const faqs = [
   },
   {
     q: 'Should I use 2.4 GHz or 5 GHz Wi-Fi?',
-    a: 'Use 5 GHz when you’re near the router, it’s faster but doesn’t travel far or pass through walls well. Use 2.4 GHz further away or through walls, it’s slower but reaches further. Most modern routers broadcast both; connect to 5 GHz in the same room as the router and 2.4 GHz in distant rooms.',
+    a: 'Use 5 GHz when you’re near the router. It’s faster but doesn’t travel far or pass through walls well. Use 2.4 GHz further away or through walls. It’s slower but reaches further. Most modern routers broadcast both; connect to 5 GHz in the same room as the router and 2.4 GHz in distant rooms.',
   },
   {
     q: 'Does a Wi-Fi extender slow down my internet?',
@@ -53,7 +53,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Improve Wi-Fi Signal</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">Improve Wi-Fi Signal</li>
+        </ol>
+      </nav>
       <h1>How to Improve Your Wi-Fi Signal</h1>
       <p class="lead">
         Most "slow internet" complaints are actually slow Wi-Fi, the line is fine, but
@@ -69,7 +75,7 @@ const breadcrumbSchema = {
       <p>
         Plug a laptop into the router with an Ethernet cable and run a
         <a href="/speed-test">speed test</a>. If the wired result is close to your
-        package speed and Wi-Fi is slow, your line is fine, the fixes below will help.
+        package speed and Wi-Fi is slow, your line is fine. The fixes below will help.
         If wired is slow too, the problem is the line or the provider, and no Wi-Fi fix
         will help.
       </p>
@@ -94,7 +100,7 @@ const breadcrumbSchema = {
       <h2>2. Use the right band: 2.4 GHz vs 5 GHz</h2>
       <table class="data-table">
         <thead>
-          <tr><th>Band</th><th>Speed</th><th>Range</th><th>Best for</th></tr>
+          <tr><th scope="col">Band</th><th scope="col">Speed</th><th scope="col">Range</th><th scope="col">Best for</th></tr>
         </thead>
         <tbody>
           <tr><td>5 GHz</td><td>Fast</td><td>Short, struggles through walls</td><td>Same room as the router, 4K streaming, gaming</td></tr>
@@ -130,7 +136,7 @@ const breadcrumbSchema = {
       <h2>5. Fix the dead spots: extender, mesh or powerline?</h2>
       <table class="data-table">
         <thead>
-          <tr><th>Option</th><th>How it works</th><th>Downside</th></tr>
+          <tr><th scope="col">Option</th><th scope="col">How it works</th><th scope="col">Downside</th></tr>
         </thead>
         <tbody>
           <tr><td>Wi-Fi extender / repeater</td><td>Rebroadcasts the router’s signal further</td><td>Roughly halves speed on the extended network; adds latency</td></tr>
@@ -151,7 +157,7 @@ const breadcrumbSchema = {
         <li><strong>Old routers struggle.</strong> A router from the Wi-Fi 4 era (802.11n) caps out well below modern speeds. Wi-Fi 5 (802.11ac) is the minimum for a fast connection; Wi-Fi 6 handles many devices better.</li>
         <li><strong>ISP routers are basic.</strong> The router your provider supplied is built to a budget. If you have fast fibre and many devices, a better router is often the single biggest upgrade.</li>
         <li><strong>Too many devices.</strong> A typical ISP router handles 10–20 devices; beyond that, connections start dropping. A Wi-Fi 6 router or mesh system handles the load better.</li>
-        <li><strong>Update the firmware.</strong> Log in to the router and check for a firmware update, it can fix bugs and improve stability. See our <a href="/guides/ptcl-router-login">PTCL router login guide</a>.</li>
+        <li><strong>Update the firmware.</strong> Log in to the router and check for a firmware update. It can fix bugs and improve stability. See our <a href="/guides/ptcl-router-login">PTCL router login guide</a>.</li>
       </ul>
 
       <h2>Frequently asked questions</h2>

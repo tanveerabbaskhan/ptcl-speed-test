@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const faqs = [
   {
     q: 'What does a red LOS light mean on my PTCL router?',
-    a: 'LOS means Loss of Signal: the fibre box (ONT) is receiving no light from PTCL\'s equipment. It is a fibre-line fault, not a Wi-Fi problem, and restarting the router will not fix it. Reseat the green fibre connector until it clicks and power-cycle the ONT for 30 seconds; if LOS is still red, call PTCL on 1218, the fault is in the fibre cable or PTCL\'s equipment.',
+    a: 'LOS means Loss of Signal: the fibre box (ONT) is receiving no light from PTCL\'s equipment. It is a fibre-line fault, not a Wi-Fi problem, and restarting the router will not fix it. Reseat the green fibre connector until it clicks and power-cycle the ONT for 30 seconds; if LOS is still red, call PTCL on 1218. The fault is in the fibre cable or PTCL\'s equipment.',
   },
   {
     q: 'Why is my PTCL DSL light blinking?',
@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: 'What do the lights on a PTCL Flash Fiber ONT mean?',
-    a: 'PON solid green means the fibre link is registered and healthy. PON blinking green means it is trying to register. LOS red means no optical signal is arriving. LAN blinking is normal traffic to your router; LAN off means the cable or router port is dead. POWER off means no power at all, check the plug and adapter.',
+    a: 'PON solid green means the fibre link is registered and healthy. PON blinking green means it is trying to register. LOS red means no optical signal is arriving. LAN blinking is normal traffic to your router; LAN off means the cable or router port is dead. POWER off means no power at all. Check the plug and adapter.',
   },
   {
     q: 'Is it safe to unplug the fibre cable from the ONT?',
@@ -49,7 +49,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / PTCL Router Lights</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">PTCL Router Lights</li>
+        </ol>
+      </nav>
       <h1>PTCL Router Lights Explained</h1>
       <p class="lead">
         The small lights on your PTCL modem or fibre box name the fault for you. Read
@@ -68,7 +74,7 @@ const breadcrumbSchema = {
       </p>
       <table class="data-table">
         <thead>
-          <tr><th>Light</th><th>State</th><th>What it means</th><th>What to do</th></tr>
+          <tr><th scope="col">Light</th><th scope="col">State</th><th scope="col">What it means</th><th scope="col">What to do</th></tr>
         </thead>
         <tbody>
           <tr><td><strong>DSL</strong></td><td>Solid green</td><td>Line is synced with the exchange, healthy</td><td>Nothing; the line is fine</td></tr>
@@ -94,13 +100,13 @@ const breadcrumbSchema = {
       </p>
       <table class="data-table">
         <thead>
-          <tr><th>Light</th><th>State</th><th>What it means</th><th>What to do</th></tr>
+          <tr><th scope="col">Light</th><th scope="col">State</th><th scope="col">What it means</th><th scope="col">What to do</th></tr>
         </thead>
         <tbody>
           <tr><td><strong>POWER</strong></td><td>Off</td><td>No power</td><td>Check the plug and power adapter</td></tr>
           <tr><td><strong>PON</strong></td><td>Solid green</td><td>Fibre link registered, healthy</td><td>Nothing</td></tr>
-          <tr><td><strong>PON</strong></td><td>Blinking green</td><td>Trying to register on the network</td><td>Wait; if it never settles, it's a provisioning issue, call 1218</td></tr>
-          <tr><td><strong>LOS</strong></td><td>Off</td><td>Optical signal arriving normally</td><td>Nothing, this is the good state</td></tr>
+          <tr><td><strong>PON</strong></td><td>Blinking green</td><td>Trying to register on the network</td><td>Wait; if it never settles, it's a provisioning issue. Call 1218</td></tr>
+          <tr><td><strong>LOS</strong></td><td>Off</td><td>Optical signal arriving normally</td><td>Nothing. This is the good state</td></tr>
           <tr><td><strong>LOS</strong></td><td>Red / blinking red</td><td>Loss of Signal, no light reaching the ONT</td><td>Reseat the fibre connector, power-cycle the ONT, then call 1218</td></tr>
           <tr><td><strong>LAN</strong></td><td>Blinking</td><td>Normal traffic to your router</td><td>Nothing</td></tr>
           <tr><td><strong>LAN</strong></td><td>Off</td><td>No connection to the router</td><td>Check the cable between the ONT and the router</td></tr>

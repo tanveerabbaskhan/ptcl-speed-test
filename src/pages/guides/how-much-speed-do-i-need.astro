@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: 'What speed do I need for 4K streaming?',
-    a: 'Netflix recommends 15 Mbps for 4K; YouTube needs about 20 Mbps and Disney+ about 25 Mbps for their highest quality. That’s per stream, two 4K TVs at once need 30–50 Mbps of steady speed, not just a package that says it.',
+    a: 'Netflix recommends 15 Mbps for 4K; YouTube needs about 20 Mbps and Disney+ about 25 Mbps for their highest quality. That’s per stream. Two 4K TVs at once need 30–50 Mbps of steady speed, not just a package that says it.',
   },
   {
     q: 'Does gaming need a fast connection?',
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: 'Why does my speed test show less than my package?',
-    a: 'A healthy connection should deliver at least 80% of the advertised speed on a wired test at a quiet time. Below that, something is wrong, Wi-Fi, line quality, or the provider. Test wired, test early in the morning, and keep the results as evidence if you complain.',
+    a: 'A healthy connection should deliver at least 80% of the advertised speed on a wired test at a quiet time. Below that, something is wrong: Wi-Fi, line quality, or the provider. Test wired, test early in the morning, and keep the results as evidence if you complain.',
   },
 ];
 
@@ -53,7 +53,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / How Much Speed Do I Need?</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">How Much Speed Do I Need?</li>
+        </ol>
+      </nav>
       <h1>How Much Internet Speed Do I Need?</h1>
       <p class="lead">
         Most people buy more speed than they use, or too little for what they actually
@@ -72,7 +78,7 @@ const breadcrumbSchema = {
       </p>
       <table class="data-table">
         <thead>
-          <tr><th>Activity</th><th>Speed needed</th><th>Notes</th></tr>
+          <tr><th scope="col">Activity</th><th scope="col">Speed needed</th><th scope="col">Notes</th></tr>
         </thead>
         <tbody>
           <tr><td>Browsing, email, messaging</td><td>1–5 Mbps</td><td>Almost nothing by modern standards</td></tr>
@@ -107,7 +113,7 @@ const breadcrumbSchema = {
       <h2>Recommendations by household</h2>
       <table class="data-table">
         <thead>
-          <tr><th>Household</th><th>Recommended speed</th><th>What it handles</th></tr>
+          <tr><th scope="col">Household</th><th scope="col">Recommended speed</th><th scope="col">What it handles</th></tr>
         </thead>
         <tbody>
           <tr><td>1–2 people, light use</td><td>10–15 Mbps</td><td>Browsing, HD streaming, video calls</td></tr>

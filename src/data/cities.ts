@@ -48,7 +48,7 @@ export const cities: City[] = [
     fiveG: '385 live 5G sites, the most of any Pakistani city (October 2026).',
     providers: ['PTCL', 'Transworld', 'StormFiber', 'FiberLink', 'Connect Communications', 'Jazz', 'Zong', 'Ufone', 'Telenor'],
     tips: [
-      'Fibre availability in Karachi varies street by street, check each provider for your exact address before choosing.',
+      'Fibre availability in Karachi varies street by street. Check each provider for your exact address before choosing.',
       'Evening congestion is heavy in dense areas; test in the morning and again at 9 pm to see the real range.',
     ],
   },
@@ -96,7 +96,7 @@ export const cities: City[] = [
     fiveG: '276 live 5G sites (October 2026), concentrated in business districts and the city centre.',
     providers: ['PTCL', 'Nayatel', 'StormFiber', 'Transworld', 'Jazz', 'Zong', 'Ufone', 'Telenor'],
     tips: [
-      'Nayatel and PTCL Flash Fiber both serve large parts of Islamabad, if both reach your street, test both before choosing.',
+      'Nayatel and PTCL Flash Fiber both serve large parts of Islamabad. If both reach your street, test both before choosing.',
       'Ufone recorded single-site 5G tests up to 750 Mbps at F11 Markaz, but that’s one site, not the city average.',
     ],
   },
@@ -104,7 +104,7 @@ export const cities: City[] = [
     slug: 'rawalpindi',
     name: 'Rawalpindi',
     intro:
-      'Rawalpindi shares Islamabad’s fibre market, Nayatel is strongest in the twin cities, and PTCL Flash Fiber is widely available. On mobile data, Jazz leads the PTA’s city benchmarking.',
+      'Rawalpindi shares Islamabad’s fibre market. Nayatel is strongest in the twin cities, and PTCL Flash Fiber is widely available. On mobile data, Jazz leads the PTA’s city benchmarking.',
     fastestMobile: {
       provider: 'Jazz',
       detail: 'Fastest 4G in the city (PTA Q2 2026 benchmarking; no city figure published)',
@@ -112,11 +112,11 @@ export const cities: City[] = [
       sourceUrl: 'https://www.rabbitroi.com/blog/mobile-internet-speed-pakistan',
     },
     fixedNote:
-      'No published fixed-line city average was available for Rawalpindi at the time of writing. Nayatel is strongest in the twin cities, and PTCL Flash Fiber is widely available, test your own line rather than trusting a national average.',
+      'No published fixed-line city average was available for Rawalpindi at the time of writing. Nayatel is strongest in the twin cities, and PTCL Flash Fiber is widely available. Test your own line rather than trusting a national average.',
     fiveG: '5G is live in Rawalpindi, one of the 24 cities with commercial 5G since March 2026.',
     providers: ['PTCL', 'Nayatel', 'StormFiber', 'Jazz', 'Zong', 'Ufone', 'Telenor'],
     tips: [
-      'Check fibre availability street by street, Nayatel and PTCL Flash Fiber coverage differs by sector.',
+      'Check fibre availability street by street. Nayatel and PTCL Flash Fiber coverage differs by sector.',
       'Test over an Ethernet cable to see your real line speed; Wi-Fi hides it.',
     ],
   },
@@ -148,7 +148,7 @@ export const cities: City[] = [
     slug: 'multan',
     name: 'Multan',
     intro:
-      'Multan has the fastest measured mobile 4G of any city in the PTA’s Q2 2026 benchmarking, Zong at 21.60 Mbps. Fixed-line choice is narrower than in the big three cities, so check what fibre has actually reached your street.',
+      'Multan has the fastest measured mobile 4G of any city in the PTA’s Q2 2026 benchmarking: Zong at 21.60 Mbps. Fixed-line choice is narrower than in the big three cities, so check what fibre has actually reached your street.',
     fastestMobile: {
       provider: 'Zong',
       detail: '21.60 Mbps average 4G download, the highest city average in the PTA’s Q2 2026 benchmarking',
@@ -156,7 +156,7 @@ export const cities: City[] = [
       sourceUrl: 'https://www.rabbitroi.com/blog/mobile-internet-speed-pakistan',
     },
     fixedNote:
-      'No published fixed-line city average was available for Multan at the time of writing. PTCL (DSL and Flash Fiber where laid) is the main fixed provider, test your own line and compare it with your package.',
+      'No published fixed-line city average was available for Multan at the time of writing. PTCL (DSL and Flash Fiber where laid) is the main fixed provider. Test your own line and compare it with your package.',
     fiveG: '5G is live in Multan, one of the 24 cities with commercial 5G since March 2026.',
     providers: ['PTCL', 'Jazz', 'Zong', 'Ufone', 'Telenor'],
     tips: [
@@ -176,8 +176,8 @@ export const cities: City[] = [
       sourceUrl: 'https://www.rabbitroi.com/blog/mobile-internet-speed-pakistan',
     },
     fixedNote:
-      'No published fixed-line city average was available for Peshawar at the time of writing. Nayatel and PTCL Flash Fiber both serve parts of the city, test your own line rather than trusting a national average.',
-    fiveG: '122 live 5G sites (October 2026), Zong leads 5G in Peshawar.',
+      'No published fixed-line city average was available for Peshawar at the time of writing. Nayatel and PTCL Flash Fiber both serve parts of the city. Test your own line rather than trusting a national average.',
+    fiveG: '122 live 5G sites (October 2026). Zong leads 5G in Peshawar.',
     providers: ['PTCL', 'Nayatel', 'Jazz', 'Zong', 'Ufone', 'Telenor'],
     tips: [
       'If you want 5G in Peshawar, Zong has the strongest 5G presence in the city.',
@@ -188,7 +188,7 @@ export const cities: City[] = [
     slug: 'quetta',
     name: 'Quetta',
     intro:
-      'Quetta has the single fastest city 4G average in the PTA’s Q2 2026 benchmarking, Jazz at 22.41 Mbps. Fixed-line choice is narrower than in the big cities, and 5G is live but limited.',
+      'Quetta has the single fastest city 4G average in the PTA’s Q2 2026 benchmarking: Jazz at 22.41 Mbps. Fixed-line choice is narrower than in the big cities, and 5G is live but limited.',
     fastestMobile: {
       provider: 'Jazz',
       detail: '22.41 Mbps average 4G download, the highest city average in the PTA’s Q2 2026 benchmarking',
@@ -196,7 +196,7 @@ export const cities: City[] = [
       sourceUrl: 'https://www.rabbitroi.com/blog/mobile-internet-speed-pakistan',
     },
     fixedNote:
-      'No published fixed-line city average was available for Quetta at the time of writing. PTCL is the main fixed provider, test your own line and compare it with your package.',
+      'No published fixed-line city average was available for Quetta at the time of writing. PTCL is the main fixed provider. Test your own line and compare it with your package.',
     fiveG: '5G is live in Quetta, one of the 24 cities with commercial 5G since March 2026; Zong leads 5G here.',
     providers: ['PTCL', 'Jazz', 'Zong', 'Ufone', 'Telenor'],
     tips: [

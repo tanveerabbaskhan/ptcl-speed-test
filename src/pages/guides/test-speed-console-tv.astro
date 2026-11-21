@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: 'How do I test internet speed on a smart TV?',
-    a: 'Most smart TVs have a network test in Settings, Network, Samsung and LG both include one. Otherwise, open the TV’s web browser (if it has one) and run a browser-based test, or test from a laptop placed where the TV sits, that tells you what the TV’s Wi-Fi spot actually delivers.',
+    a: 'Most smart TVs have a network test in Settings, Network. Samsung and LG both include one. Otherwise, open the TV’s web browser (if it has one) and run a browser-based test, or test from a laptop placed where the TV sits. That tells you what the TV’s Wi-Fi spot actually delivers.',
   },
   {
     q: 'What speed do I need for 4K streaming on a TV?',
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: 'Why is my PS5 slow when my phone is fast?',
-    a: 'Usually Wi-Fi: the console sits further from the router, behind a TV (which blocks signal), or on the 2.4 GHz band while your phone uses 5 GHz. Wire the console with an Ethernet cable if you can, it’s the single biggest improvement for gaming and downloads. If the console is on Wi-Fi, move the router or add a mesh node nearby.',
+    a: 'Usually Wi-Fi: the console sits further from the router, behind a TV (which blocks signal), or on the 2.4 GHz band while your phone uses 5 GHz. Wire the console with an Ethernet cable if you can. It’s the single biggest improvement for gaming and downloads. If the console is on Wi-Fi, move the router or add a mesh node nearby.',
   },
 ];
 
@@ -53,7 +53,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Test Speed on PS5, Xbox &amp; TV</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">Test Speed on PS5, Xbox &amp; TV</li>
+        </ol>
+      </nav>
       <h1>How to Test Internet Speed on PS5, Xbox &amp; Smart TV</h1>
       <p class="lead">
         Your phone says 50 Mbps, your PS5 downloads at a crawl. The two devices aren’t
@@ -73,7 +79,7 @@ const breadcrumbSchema = {
       </ol>
       <p>
         For a second opinion, open the PS5’s web browser and run a browser-based test.
-        The two won’t match exactly, they test against different servers, but a large
+        The two won’t match exactly. They test against different servers, but a large
         gap between them usually means the PS5’s Wi-Fi is the problem, not the line.
       </p>
 
@@ -91,7 +97,7 @@ const breadcrumbSchema = {
 
       <h2>Smart TV: network test or browser test</h2>
       <p>
-        Most smart TVs have a network test in Settings → Network, Samsung and LG both
+        Most smart TVs have a network test in Settings → Network. Samsung and LG both
         include one, though it usually only confirms the connection rather than
         measuring speed precisely. Better options:
       </p>
@@ -104,7 +110,7 @@ const breadcrumbSchema = {
       <h2>What speed do these devices need?</h2>
       <table class="data-table">
         <thead>
-          <tr><th>Use</th><th>Speed needed</th><th>What matters most</th></tr>
+          <tr><th scope="col">Use</th><th scope="col">Speed needed</th><th scope="col">What matters most</th></tr>
         </thead>
         <tbody>
           <tr><td>Netflix 4K</td><td>15 Mbps</td><td>Steady speed at the TV</td></tr>

@@ -1,16 +1,31 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SpeedTest from '../components/SpeedTest.astro';
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptcl-speed-test.pages.dev/' },
+    { '@type': 'ListItem', position: 2, name: 'Speed Test', item: 'https://ptcl-speed-test.pages.dev/speed-test' },
+  ],
+};
+
 ---
 
 <BaseLayout
   title="Internet Speed Test | PTCL Speed Test"
   description="Run a free internet speed test for your PTCL connection. Get accurate download, upload, ping and jitter results in under 30 seconds, no sign-up needed."
   canonical="/speed-test"
+  schema={breadcrumbSchema}
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / Speed Test</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li aria-current="page">Speed Test</li>
+        </ol>
+      </nav>
       <h1>Internet Speed Test</h1>
       <p class="lead">
         Test your PTCL broadband or fibre connection. The test takes under 30 seconds and

@@ -49,7 +49,12 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / Upload Speed Test</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li aria-current="page">Upload Speed Test</li>
+        </ol>
+      </nav>
       <h1>Upload Speed Test</h1>
       <p class="lead">
         Download gets all the attention, but upload is what carries your voice on
@@ -74,7 +79,7 @@ const breadcrumbSchema = {
       <h2>What’s a good upload speed?</h2>
       <table class="data-table">
         <thead>
-          <tr><th>Upload</th><th>What it handles</th></tr>
+          <tr><th scope="col">Upload</th><th scope="col">What it handles</th></tr>
         </thead>
         <tbody>
           <tr><td>1–2 Mbps</td><td>Basic video calls (720p), email, messaging, typical DSL</td></tr>

@@ -53,7 +53,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Zong APN Settings</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">Zong APN Settings</li>
+        </ol>
+      </nav>
       <h1>Zong APN Settings &amp; Internet Settings</h1>
       <p class="lead">
         The APN (Access Point Name) tells your phone how to reach Zong’s data network.
@@ -90,7 +96,7 @@ const breadcrumbSchema = {
       </p>
       <table class="data-table">
         <thead>
-          <tr><th>Field</th><th>Value</th></tr>
+          <tr><th scope="col">Field</th><th scope="col">Value</th></tr>
         </thead>
         <tbody>
           <tr><td>Name</td><td>Internet (any name you like works)</td></tr>

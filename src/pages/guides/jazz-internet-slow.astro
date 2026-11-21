@@ -53,7 +53,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Jazz Internet Slow</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">Jazz Internet Slow</li>
+        </ol>
+      </nav>
       <h1>Jazz Internet Slow? How to Fix Slow Jazz 4G Speed</h1>
       <p class="lead">
         Slow Jazz data is usually one of a handful of causes, and most of them are fixed
@@ -89,7 +95,7 @@ const breadcrumbSchema = {
         If the speed jumps, the problem is indoor signal, not the network:
       </p>
       <ul>
-        <li>Remove metal or magnetic phone cases, they block 4G signal.</li>
+        <li>Remove metal or magnetic phone cases. They block 4G signal.</li>
         <li>On a dual-SIM phone, make sure the Jazz SIM is the one selected for mobile data.</li>
         <li>Test in a few spots: mobile speed can change completely from one room to the next.</li>
       </ul>
@@ -114,7 +120,7 @@ const breadcrumbSchema = {
         Wrong APN settings can choke your connection to an old, slow gateway. The easy
         fix: get the official settings sent to your phone. Dial <strong>*444*6*5#</strong>
         on prepaid or <strong>*446*4#</strong> on postpay, or send a blank SMS to
-        <strong>7342</strong>, Jazz sends the settings by SMS; open the message and tap
+        <strong>7342</strong>. Jazz sends the settings by SMS; open the message and tap
         Install or Save. You can also reset APNs to default in Settings → Mobile Network
         → Access Point Names → Reset to Default. Full details are in our
         <a href="/guides/jazz-apn-settings">Jazz APN settings guide</a>.
@@ -123,7 +129,7 @@ const breadcrumbSchema = {
       <h2>6. Rule out your phone and SIM</h2>
       <ul>
         <li><strong>Try the SIM in another phone.</strong> If speeds improve, your handset's antenna or settings are the problem.</li>
-        <li><strong>Check the SIM is 4G.</strong> Dial <strong>*443*7#</strong> to check; if the SIM is old, get a biometric 4G SIM replacement at a Jazz franchise, SIMs over three or four years old can struggle with modern 4G.</li>
+        <li><strong>Check the SIM is 4G.</strong> Dial <strong>*443*7#</strong> to check; if the SIM is old, get a biometric 4G SIM replacement at a Jazz franchise. SIMs over three or four years old can struggle with modern 4G.</li>
         <li><strong>Activate Super 4G.</strong> Dial <strong>*583#</strong> (free) to make sure the 4G service is active on your SIM.</li>
         <li><strong>Turn off VPN.</strong> VPNs route traffic through remote servers and almost always slow mobile data down.</li>
         <li><strong>Close background apps.</strong> Auto-updates, cloud photo sync and social apps consume bandwidth silently, clear them before testing.</li>
@@ -134,8 +140,7 @@ const breadcrumbSchema = {
       <p>
         Jazz congestion is worst in dense urban areas between 7 and 11 pm, and during big
         events, Eid holidays and cricket matches. If your speed is fine in the morning
-        and slow only in the evening, that's congestion, nothing on your phone will fix
-        it. Test at 7 am and 9 pm and keep both results.
+        and slow only in the evening, that's congestion. Nothing on your phone will fix it. Test at 7 am and 9 pm and keep both results.
       </p>
 
       <h2>8. When to complain to Jazz</h2>

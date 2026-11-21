@@ -56,8 +56,8 @@ export const providers: Provider[] = [
     type: 'fibre',
     typeLabel: 'Fibre (FTTH)',
     about:
-      'PTCL Flash Fiber is PTCL’s fibre-to-the-home service (GPON), delivering internet over glass fibre instead of copper telephone lines. That means near-symmetrical uploads, very low ping, and speeds that hold up over distance, test it over an Ethernet cable to see what your fibre line really delivers.',
-    coverage: 'Selected areas in major cities, availability varies street by street.',
+      'PTCL Flash Fiber is PTCL’s fibre-to-the-home service (GPON), delivering internet over glass fibre instead of copper telephone lines. That means near-symmetrical uploads, very low ping, and speeds that hold up over distance. Test it over an Ethernet cable to see what your fibre line really delivers.',
+    coverage: 'Selected areas in major cities. Availability varies street by street.',
     typical: {
       download: '31.7 Mbps',
       upload: '30.1 Mbps',
@@ -98,7 +98,7 @@ export const providers: Provider[] = [
     typeLabel: 'Fibre broadband',
     about:
       'Wateen Telecom provides fibre broadband and enterprise connectivity in Pakistan. If you’re on a Wateen fibre line, test over Ethernet to see the true speed of the connection rather than your Wi-Fi.',
-    coverage: 'Selected cities, check availability for your address.',
+    coverage: 'Selected cities. Check availability for your address.',
   },
   {
     slug: 'transworld',
@@ -123,7 +123,7 @@ export const providers: Provider[] = [
     typeLabel: 'Fibre broadband',
     about:
       'FiberLink provides fibre internet services in Pakistan. On a fibre line your speed test should come close to your package speed, if it doesn’t, the cause is usually Wi-Fi, the router, or congestion rather than the line itself.',
-    coverage: 'Selected cities, check availability for your address.',
+    coverage: 'Selected cities. Check availability for your address.',
   },
   {
     slug: 'jazz',
@@ -146,7 +146,7 @@ export const providers: Provider[] = [
     type: 'mobile',
     typeLabel: 'Mobile data',
     about:
-      'Zong is a mobile network operator in Pakistan with wide 4G coverage. Zong speed tests measure your phone’s mobile data connection, results vary a lot by location, signal bars and time of day.',
+      'Zong is a mobile network operator in Pakistan with wide 4G coverage. Zong speed tests measure your phone’s mobile data connection. Results vary a lot by location, signal bars and time of day.',
     coverage: 'Nationwide mobile coverage.',
     typical: {
       download: '18.6 Mbps',
@@ -161,7 +161,7 @@ export const providers: Provider[] = [
     type: 'mobile',
     typeLabel: 'Mobile data',
     about:
-      'Ufone is a mobile network operator in Pakistan and part of the PTCL Group. A Ufone speed test measures your 4G mobile data connection, turn Wi-Fi off first so the test measures mobile data, not your home broadband.',
+      'Ufone is a mobile network operator in Pakistan and part of the PTCL Group. A Ufone speed test measures your 4G mobile data connection. Turn Wi-Fi off first so the test measures mobile data, not your home broadband.',
     coverage: 'Nationwide mobile coverage.',
     typical: {
       download: '12.8 Mbps',
@@ -176,7 +176,7 @@ export const providers: Provider[] = [
     type: 'mobile',
     typeLabel: 'Mobile data',
     about:
-      'Telenor Pakistan is a mobile network operator, so a Telenor speed test measures your 4G (or 3G) mobile data connection. PTCL bought Telenor Pakistan in December 2025, and on 1 July 2026 Telenor Pakistan was merged into Ufone, Telenor SIMs still work, and if the old Telenor settings stop connecting, the Ufone settings usually fix it.',
+      'Telenor Pakistan is a mobile network operator, so a Telenor speed test measures your 4G (or 3G) mobile data connection. PTCL bought Telenor Pakistan in December 2025, and on 1 July 2026 Telenor Pakistan was merged into Ufone. Telenor SIMs still work, and if the old Telenor settings stop connecting, the Ufone settings usually fix it.',
     coverage: 'Nationwide mobile coverage.',
     typical: {
       download: '7.5 Mbps',
@@ -191,8 +191,8 @@ export const providers: Provider[] = [
     type: 'wireless',
     typeLabel: 'Wireless broadband',
     about:
-      'PTCL EVO (Charji) is PTCL’s wireless broadband service, delivered through a portable device rather than a phone line. Like mobile data, EVO speed depends on signal strength and tower load, device placement makes a real difference.',
-    coverage: 'Available in EVO coverage areas, check availability for your location.',
+      'PTCL EVO (Charji) is PTCL’s wireless broadband service, delivered through a portable device rather than a phone line. Like mobile data, EVO speed depends on signal strength and tower load. Device placement makes a real difference.',
+    coverage: 'Available in EVO coverage areas. Check availability for your location.',
   },
   {
     slug: 'wi-tribe',
@@ -200,8 +200,8 @@ export const providers: Provider[] = [
     type: 'wireless',
     typeLabel: 'Wireless broadband',
     about:
-      'Wi-Tribe is a wireless broadband provider. Wireless connections are sensitive to distance from the base station, obstacles and weather, test with the device near a window, facing the nearest tower, for the best result.',
-    coverage: 'Selected cities, check availability for your address.',
+      'Wi-Tribe is a wireless broadband provider. Wireless connections are sensitive to distance from the base station, obstacles and weather. Test with the device near a window, facing the nearest tower, for the best result.',
+    coverage: 'Selected cities. Check availability for your address.',
   },
   {
     slug: 'kk-networks',
@@ -210,7 +210,7 @@ export const providers: Provider[] = [
     typeLabel: 'Internet provider',
     about:
       'KK Networks is an internet service provider in Pakistan. Use the test below to check your connection’s download and upload speeds, ping and jitter, and test over Ethernet for the most accurate reading.',
-    coverage: 'Selected areas, check availability for your address.',
+    coverage: 'Selected areas. Check availability for your address.',
   },
   {
     slug: 'connect-communications',
@@ -219,7 +219,7 @@ export const providers: Provider[] = [
     typeLabel: 'Internet provider',
     about:
       'Connect Communications is an internet service provider in Pakistan. Run the test below to measure your connection, and compare the result with the speed your package promises.',
-    coverage: 'Selected areas, check availability for your address.',
+    coverage: 'Selected areas. Check availability for your address.',
   },
   {
     slug: 'ptcl-charji',
@@ -228,7 +228,7 @@ export const providers: Provider[] = [
     typeLabel: 'Portable 4G LTE hotspot',
     about:
       'PTCL CharJi is PTCL’s portable 4G LTE hotspot service, a small battery-powered device that shares mobile broadband with up to 10 devices over Wi-Fi. Like all mobile broadband, CharJi speed depends on signal strength and tower load, so where you place the device matters.',
-    coverage: 'CharJi coverage areas nationwide, check availability for your location.',
+    coverage: 'CharJi coverage areas nationwide. Check availability for your location.',
     note: 'CharJi is PTCL’s current wireless device. The older EVO and Nitro devices are legacy products, new buyers are generally steered to CharJi, or to fibre where it’s available.',
   },
   {
@@ -297,7 +297,7 @@ export const providers: Provider[] = [
     about:
       'Jazz 5G launched on 19 March 2026 and is Pakistan’s largest 5G network, with over 1,000 live sites across 24 cities. 5G speeds are far higher than 4G, but only where you’re near a 5G site. Test on your phone with 5G switched on and Wi-Fi off.',
     coverage: '24 cities incl. Karachi, Lahore, Islamabad, Faisalabad, Multan, pockets of coverage, not full cities.',
-    note: 'Jazz 5G runs on 1,015 live sites (October 2026) and the most 5G spectrum of any Pakistani operator (190 MHz). You need a phone that supports band n78 (3.5 GHz). Community 5G tests put the median 5G download at about 220 Mbps, your speed depends on distance from the tower and how many people are connected.',
+    note: 'Jazz 5G runs on 1,015 live sites (October 2026) and the most 5G spectrum of any Pakistani operator (190 MHz). You need a phone that supports band n78 (3.5 GHz). Community 5G tests put the median 5G download at about 220 Mbps. Your speed depends on distance from the tower and how many people are connected.',
   },
   {
     slug: 'zong-5g',
@@ -318,7 +318,7 @@ export const typeAdvice: Record<
 > = {
   fibre: {
     tips: [
-      'Test over an Ethernet cable, Wi-Fi almost always reads slower than the fibre line itself.',
+      'Test over an Ethernet cable. Wi-Fi almost always reads slower than the fibre line itself.',
       'Restart your ONT (the small white fibre box) and router if speeds have dropped recently.',
       'Close other apps and pause downloads, cloud backups and streams on every device.',
       'Run the test 2–3 times and take the middle result.',
@@ -327,13 +327,13 @@ export const typeAdvice: Record<
       'Wi-Fi signal and router quality, the most common bottleneck on fibre.',
       'How many devices are using the connection at once.',
       'Peak-hour congestion in your area (evenings are busiest).',
-      'The server you’re testing against, this test uses the nearest edge server.',
+      'The server you’re testing against: this test uses the nearest edge server.',
     ],
   },
   mobile: {
     tips: [
-      'Test with a strong signal, move near a window or outdoors if you’re on one or two bars.',
-      'Make sure you’re on 4G, not 3G, check your phone’s status bar.',
+      'Test with a strong signal, Move near a window or outdoors if you’re on one or two bars.',
+      'Make sure you’re on 4G, not 3G. Check your phone’s status bar.',
       'Close background apps and pause app updates and cloud photo sync.',
       'Test in a few different spots: mobile speed can change completely from one room to the next.',
     ],
@@ -347,8 +347,8 @@ export const typeAdvice: Record<
   wireless: {
     tips: [
       'Place the device near a window, high up, facing the nearest tower.',
-      'Check the device’s signal bars, move it until they’re as high as possible.',
-      'Restart the device if speeds have dropped, it re-connects to the best available signal.',
+      'Check the device’s signal bars. Move it until they’re as high as possible.',
+      'Restart the device if speeds have dropped. It re-connects to the best available signal.',
       'Test at different times of day to separate signal problems from tower congestion.',
     ],
     factors: [
@@ -360,7 +360,7 @@ export const typeAdvice: Record<
   },
   isp: {
     tips: [
-      'Test over an Ethernet cable if you can, it shows what your line itself delivers.',
+      'Test over an Ethernet cable if you can. It shows what your line itself delivers.',
       'Close other apps and pause downloads and streams on every device.',
       'Restart your router if speeds have dropped recently.',
       'Run the test 2–3 times and take the middle result.',

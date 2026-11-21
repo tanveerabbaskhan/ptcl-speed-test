@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const faqs = [
   {
     q: 'How do I get Jazz internet settings on my phone?',
-    a: 'The easiest way is by SMS: dial *444*6*5# on a prepaid Jazz SIM or *446*4# on postpay, or send a blank SMS to 7342. Jazz sends the settings to your phone, open the message and tap Install or Save, then restart the phone. This fills in the APN and all other fields correctly, which is safer than typing values from a forum.',
+    a: 'The easiest way is by SMS: dial *444*6*5# on a prepaid Jazz SIM or *446*4# on postpay, or send a blank SMS to 7342. Jazz sends the settings to your phone. Open the message and tap Install or Save, then restart the phone. This fills in the APN and all other fields correctly, which is safer than typing values from a forum.',
   },
   {
     q: 'What is the Jazz APN?',
@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: 'How do I check if my Jazz SIM is 4G?',
-    a: 'Dial *443*7#, it\'s free. To check whether your phone is 4G, dial *443*8# (some Jazz pages list *4437# instead; try the first, then the second). To activate Super 4G on your SIM, dial *583#, also free.',
+    a: 'Dial *443*7#. It\'s free. To check whether your phone is 4G, dial *443*8# (some Jazz pages list *4437# instead; try the first, then the second). To activate Super 4G on your SIM, dial *583#, also free.',
   },
   {
     q: 'My Jazz internet worked, then stopped after I changed the APN. What do I do?',
@@ -53,7 +53,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Jazz APN Settings</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">Jazz APN Settings</li>
+        </ol>
+      </nav>
       <h1>Jazz APN Settings &amp; Internet Settings</h1>
       <p class="lead">
         The APN (Access Point Name) tells your phone how to reach Jazz's data network.
@@ -72,7 +78,7 @@ const breadcrumbSchema = {
       </p>
       <table class="data-table">
         <thead>
-          <tr><th>Your connection</th><th>What to do</th><th>Result</th></tr>
+          <tr><th scope="col">Your connection</th><th scope="col">What to do</th><th scope="col">Result</th></tr>
         </thead>
         <tbody>
           <tr><td>Prepaid Jazz</td><td>Dial <strong>*444*6*5#</strong></td><td>Settings arrive by SMS</td></tr>
@@ -87,7 +93,7 @@ const breadcrumbSchema = {
         <li>Restart the phone. Mobile data should start working.</li>
       </ol>
       <p>
-        If the phone asks for a PIN you don't know, don't guess, call Jazz helpline
+        If the phone asks for a PIN you don't know, don't guess. Call Jazz helpline
         <strong>111</strong>.
       </p>
 
@@ -98,7 +104,7 @@ const breadcrumbSchema = {
       </p>
       <table class="data-table">
         <thead>
-          <tr><th>Check</th><th>Code</th><th>Charge</th></tr>
+          <tr><th scope="col">Check</th><th scope="col">Code</th><th scope="col">Charge</th></tr>
         </thead>
         <tbody>
           <tr><td>Is my SIM 4G?</td><td><strong>*443*7#</strong></td><td>Free</td></tr>
@@ -107,7 +113,7 @@ const breadcrumbSchema = {
         </tbody>
       </table>
       <p>
-        Jazz's own pages list two different codes for the handset check, try *443*8#
+        Jazz's own pages list two different codes for the handset check. Try *443*8#
         first, and if it fails, try *4437#. If the SIM is old, swap it for a 4G SIM at a
         Jazz franchise (biometric verification needed). A 4G SIM also works on Jazz 5G if
         your phone supports it.
@@ -122,7 +128,7 @@ const breadcrumbSchema = {
       </p>
       <table class="data-table">
         <thead>
-          <tr><th>Field</th><th>Prepaid</th><th>Postpay</th></tr>
+          <tr><th scope="col">Field</th><th scope="col">Prepaid</th><th scope="col">Postpay</th></tr>
         </thead>
         <tbody>
           <tr><td>Name</td><td>Jazz Internet</td><td>Jazz Internet</td></tr>

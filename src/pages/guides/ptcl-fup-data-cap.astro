@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const faqs = [
   {
     q: 'What is FUP on PTCL?',
-    a: 'FUP, Fair Usage Policy, is a data cap on your broadband package. After you use a set amount of data in a month, PTCL reduces your speed for the rest of the billing cycle. The cap and the reduced speed vary by package, and PTCL has changed them over time, check the terms of your current package.',
+    a: 'FUP, Fair Usage Policy, is a data cap on your broadband package. After you use a set amount of data in a month, PTCL reduces your speed for the rest of the billing cycle. The cap and the reduced speed vary by package, and PTCL has changed them over time. Check the terms of your current package.',
   },
   {
     q: 'How do I know if I’ve hit my FUP limit?',
@@ -49,7 +49,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / PTCL Data Cap (FUP)</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">PTCL Data Cap (FUP)</li>
+        </ol>
+      </nav>
       <h1>PTCL Data Cap (FUP) Explained</h1>
       <p class="lead">
         Your PTCL was fast all month, then suddenly it wasn’t, and nothing you do
@@ -91,7 +97,7 @@ const breadcrumbSchema = {
 
       <h2>How to check your usage</h2>
       <p>
-        Check your data usage in the PTCL app or customer portal, it shows how much
+        Check your data usage in the PTCL app or customer portal. It shows how much
         of your allowance you’ve used in the current cycle. If the usage is at or near
         the cap for your package, that confirms it. If you can’t find the usage figure,
         call PTCL on 1218 and ask, and ask what the cap and the reduced speed are for
@@ -109,7 +115,7 @@ const breadcrumbSchema = {
       <h2>How much data do common activities use?</h2>
       <table class="data-table">
         <thead>
-          <tr><th>Activity</th><th>Data used</th></tr>
+          <tr><th scope="col">Activity</th><th scope="col">Data used</th></tr>
         </thead>
         <tbody>
           <tr><td>Netflix HD (1080p)</td><td>~3 GB per hour</td></tr>

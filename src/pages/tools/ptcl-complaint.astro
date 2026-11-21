@@ -45,7 +45,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/tools">Tools</a> / Complaint Draft Generator</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools">Tools</a></li>
+          <li aria-current="page">Complaint Draft Generator</li>
+        </ol>
+      </nav>
       <h1>Internet Complaint Draft Generator</h1>
       <p class="lead">
         "My internet is slow" gets ignored. A complaint with numbers gets fixed. Fill in
@@ -112,7 +118,7 @@ const breadcrumbSchema = {
       <div id="result" style="display: none; margin-top: 2rem;">
         <h2>Your complaint</h2>
         <div class="form-group">
-          <textarea id="draft" rows="14" readonly style="width: 100%;"></textarea>
+          <textarea id="draft" rows="14" readonly aria-label="Your complaint letter" style="width: 100%;"></textarea>
         </div>
         <button class="btn btn-secondary" type="button" id="copy-btn">Copy to clipboard</button>
         <p class="small muted" id="copy-status" style="margin-top: 0.5rem;"></p>

@@ -1,15 +1,30 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptcl-speed-test.pages.dev/' },
+    { '@type': 'ListItem', position: 2, name: 'About', item: 'https://ptcl-speed-test.pages.dev/about' },
+  ],
+};
+
 ---
 
 <BaseLayout
   title="About Us | PTCL Speed Test"
   description="About PTCL Speed Test: a free, independent tool for checking PTCL broadband speed in Pakistan, with honest guides on what your results mean."
   canonical="/about"
+  schema={breadcrumbSchema}
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / About</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li aria-current="page">About</li>
+        </ol>
+      </nav>
       <h1>About PTCL Speed Test</h1>
       <p class="lead">
         A free, independent tool to check your PTCL internet speed, and understand what
@@ -39,7 +54,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         ping and jitter, then downloads and uploads test data for a few seconds each to
         measure throughput. Test traffic goes to the nearest Cloudflare edge server. Your
         results are shown to you immediately, and a short history is kept only in your own
-        browser, we never see your results.
+        browser. We never see your results.
       </p>
 
       <h2>Independent and unaffiliated</h2>
@@ -54,7 +69,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2>Accuracy and limits</h2>
       <p>
         Speed tests measure your connection at a moment in time. Results vary with Wi-Fi
-        signal, other devices, time of day and server load, that's why we recommend
+        signal, other devices, time of day and server load. That's why we recommend
         testing over Ethernet and running the test a few times. The test is a useful
         indicator, not a lab measurement, and it can't diagnose faults inside PTCL's
         network.

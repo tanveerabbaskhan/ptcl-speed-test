@@ -12,15 +12,15 @@ const faqs = [
   },
   {
     q: 'Is PTCL speed slow at night for everyone?',
-    a: 'Evenings (roughly 7–11 pm) are the busiest hours on every Pakistani network, so speeds commonly dip then. Test in the morning and again at 9 pm: if mornings are fast and evenings are slow, that\'s congestion. Keep both results, together they\'re strong evidence for a complaint.',
+    a: 'Evenings (roughly 7–11 pm) are the busiest hours on every Pakistani network, so speeds commonly dip then. Test in the morning and again at 9 pm: if mornings are fast and evenings are slow, that\'s congestion. Keep both results. Together they\'re strong evidence for a complaint.',
   },
   {
     q: 'Should I upgrade my PTCL package or switch to Flash Fiber?',
-    a: 'If you\'re on DSL and Flash Fiber reaches your street, switching to fibre helps far more than a bigger DSL package, fibre gives higher speeds, much faster uploads and lower ping, and isn\'t limited by distance from the exchange. If fibre isn\'t available, upgrade the DSL package only after confirming your line delivers its current speed on a wired test.',
+    a: 'If you\'re on DSL and Flash Fiber reaches your street, switching to fibre helps far more than a bigger DSL package. Fibre gives higher speeds, much faster uploads and lower ping, and isn\'t limited by distance from the exchange. If fibre isn\'t available, upgrade the DSL package only after confirming your line delivers its current speed on a wired test.',
   },
   {
     q: 'How do I complain about slow PTCL internet?',
-    a: 'Call PTCL helpline 1218 with your account or landline number and your dated, wired speed test results. Ask for a complaint number and note it down. If it isn\'t resolved in a few days, follow up quoting the complaint number. For DSL, also quote your SNR margin and line attenuation from the modem settings, they turn a vague complaint into a specific line fault.',
+    a: 'Call PTCL helpline 1218 with your account or landline number and your dated, wired speed test results. Ask for a complaint number and note it down. If it isn\'t resolved in a few days, follow up quoting the complaint number. For DSL, also quote your SNR margin and line attenuation from the modem settings. They turn a vague complaint into a specific line fault.',
   },
 ];
 
@@ -53,7 +53,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / PTCL Internet Slow</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">PTCL Internet Slow</li>
+        </ol>
+      </nav>
       <h1>PTCL Internet Slow? How to Fix Slow PTCL Speed</h1>
       <p class="lead">
         Slow PTCL internet is usually fixable, but the fix depends on where the problem
@@ -78,7 +84,7 @@ const breadcrumbSchema = {
       </ul>
       <p>
         As a rule of thumb, your wired speed should stay above 80% of your package at
-        quiet times. Keep dated screenshots of your results, they're your evidence if
+        quiet times. Keep dated screenshots of your results. They're your evidence if
         you complain.
       </p>
 
@@ -86,7 +92,7 @@ const breadcrumbSchema = {
       <p>
         Switch the router off for 30 seconds, then on, and wait for the lights to settle.
         On Flash Fiber, restart the ONT (the small white fibre box) the same way. A
-        restart clears stuck sessions and forces a fresh line negotiation, it fixes a
+        restart clears stuck sessions and forces a fresh line negotiation. It fixes a
         surprising number of slowdowns. Don't confuse restart with reset: the reset
         button wipes your settings, including the internet login on DSL.
       </p>

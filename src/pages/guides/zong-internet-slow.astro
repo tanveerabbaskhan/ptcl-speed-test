@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: 'How do I complain about slow Zong internet?',
-    a: 'Call Zong on 310 from your Zong number. Before you call, run three speed tests at different times and note the results, your location, and whether the problem is everywhere or in one spot, that evidence gets a faster, better answer than "my internet is slow".',
+    a: 'Call Zong on 310 from your Zong number. Before you call, run three speed tests at different times and note the results, your location, and whether the problem is everywhere or in one spot. That evidence gets a faster, better answer than "my internet is slow".',
   },
 ];
 
@@ -53,7 +53,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Zong Internet Slow</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">Zong Internet Slow</li>
+        </ol>
+      </nav>
       <h1>Zong Internet Slow? How to Fix Slow Zong 4G</h1>
       <p class="lead">
         Zong has the fastest 4G averages in Pakistan, so if your Zong is slow, something

@@ -1,15 +1,30 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptcl-speed-test.pages.dev/' },
+    { '@type': 'ListItem', position: 2, name: 'Packages', item: 'https://ptcl-speed-test.pages.dev/packages' },
+  ],
+};
+
 ---
 
 <BaseLayout
   title="PTCL Packages & Speeds: Which Speed Do You Need?"
   description="PTCL broadband and Flash Fiber speed tiers explained: what 6, 10, 20, 50 and 100 Mbps are actually good for, and how to pick the right package."
   canonical="/packages"
+  schema={breadcrumbSchema}
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / Packages</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li aria-current="page">Packages</li>
+        </ol>
+      </nav>
       <h1>PTCL Packages &amp; Speeds</h1>
       <p class="lead">
         PTCL sells broadband by download speed, but the number on the package is a
@@ -34,7 +49,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="table-wrap">
         <table class="data">
           <thead>
-            <tr><th>Speed</th><th>Best for</th><th>Household size</th></tr>
+            <tr><th scope="col">Speed</th><th scope="col">Best for</th><th scope="col">Household size</th></tr>
           </thead>
           <tbody>
             <tr><td><strong>4 – 6 Mbps</strong></td><td>Browsing, WhatsApp, YouTube in SD/HD, email</td><td>1–2 people, light use</td></tr>
@@ -49,14 +64,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2>What speed should you actually get?</h2>
       <p>
         On a <strong>wired test at a quiet time</strong>, your download should land close
-        to your package speed. These are realistic expectations, Wi-Fi reads lower, and
+        to your package speed. These are realistic expectations. Wi-Fi reads lower, and
         evenings run slower than mornings. If your wired result stays below about 80% of
         your tier, that's worth a complaint to PTCL with your results as evidence.
       </p>
       <div class="table-wrap">
         <table class="data">
           <thead>
-            <tr><th>Package</th><th>Technology</th><th>Expected download</th><th>Expected upload</th><th>Typical ping</th></tr>
+            <tr><th scope="col">Package</th><th scope="col">Technology</th><th scope="col">Expected download</th><th scope="col">Expected upload</th><th scope="col">Typical ping</th></tr>
           </thead>
           <tbody>
             <tr><td><strong>6 Mbps</strong></td><td>DSL (ADSL2+)</td><td>5 – 6 Mbps</td><td>0.5 – 1 Mbps</td><td>25 – 45 ms</td></tr>

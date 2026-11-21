@@ -49,7 +49,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Test Speed Using CMD</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">Test Speed Using CMD</li>
+        </ol>
+      </nav>
       <h1>How to Test Internet Speed Using CMD</h1>
       <p class="lead">
         You don't always need a browser to check your connection. Windows Command Prompt
@@ -64,7 +70,7 @@ const breadcrumbSchema = {
       <h2>First: open Command Prompt</h2>
       <p>
         Press the <strong>Windows key</strong>, type <code>cmd</code>, and press Enter.
-        A black window opens, that's Command Prompt. Type the commands below and press
+        A black window opens. That's Command Prompt. Type the commands below and press
         Enter after each one.
       </p>
 
@@ -123,14 +129,14 @@ speedtest</code></pre>
       <p>
         This shows the Wi-Fi network you're connected to, the band (2.4 GHz or 5 GHz),
         the channel, and the signal strength as a percentage. Below about 50% signal,
-        Wi-Fi becomes the bottleneck no matter how fast your line is, move closer to the
+        Wi-Fi becomes the bottleneck no matter how fast your line is. Move closer to the
         router or switch to a cable and test again.
       </p>
 
       <h2>What the numbers mean</h2>
       <table class="data-table">
         <thead>
-          <tr><th>Measurement</th><th>Good</th><th>Poor</th></tr>
+          <tr><th scope="col">Measurement</th><th scope="col">Good</th><th scope="col">Poor</th></tr>
         </thead>
         <tbody>
           <tr><td>Ping to google.com</td><td>Under 50 ms</td><td>Over 100 ms</td></tr>

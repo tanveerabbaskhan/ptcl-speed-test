@@ -116,15 +116,15 @@ export const comparisons: Comparison[] = [
     faqs: [
       {
         q: 'Which is faster, PTCL or Nayatel?',
-        a: 'On published averages, Nayatel is faster overall: nPerf’s 2025 barometer puts Nayatel at 28.3 Mbps average download versus 22.4 Mbps for PTCL’s fixed network. But that compares Nayatel’s pure fibre with PTCL’s mix of fibre and older DSL, PTCL Flash Fiber on its own averages 31.7 Mbps (SpeedGeo, Q4 2025 – Q3 2026), ahead of Nayatel’s 21.6 Mbps on the same ranking. Your street matters more than the national average: test both where you live.',
+        a: 'On published averages, Nayatel is faster overall: nPerf’s 2025 barometer puts Nayatel at 28.3 Mbps average download versus 22.4 Mbps for PTCL’s fixed network. But that compares Nayatel’s pure fibre with PTCL’s mix of fibre and older DSL. PTCL Flash Fiber on its own averages 31.7 Mbps (SpeedGeo, Q4 2025 – Q3 2026), ahead of Nayatel’s 21.6 Mbps on the same ranking. Your street matters more than the national average: test both where you live.',
       },
       {
         q: 'Is Nayatel available outside Islamabad and Rawalpindi?',
-        a: 'Nayatel has expanded to Faisalabad, Peshawar and selected other cities, but its footprint is far smaller than PTCL’s nationwide network. Check availability for your exact address, fibre availability varies street by street.',
+        a: 'Nayatel has expanded to Faisalabad, Peshawar and selected other cities, but its footprint is far smaller than PTCL’s nationwide network. Check availability for your exact address. Fibre availability varies street by street.',
       },
       {
         q: 'Should I switch from PTCL DSL to Nayatel fibre?',
-        a: 'If Nayatel fibre reaches your home, it will almost certainly beat PTCL DSL on speed, uploads and ping, fibre versus copper is not a close contest. The comparison that matters is Nayatel fibre versus PTCL Flash Fiber, where the two are much closer.',
+        a: 'If Nayatel fibre reaches your home, it will almost certainly beat PTCL DSL on speed, uploads and ping. Fibre versus copper is not a close contest. The comparison that matters is Nayatel fibre versus PTCL Flash Fiber, where the two are much closer.',
       },
     ],
   },
@@ -136,7 +136,7 @@ export const comparisons: Comparison[] = [
     bSlug: 'transworld',
     title: 'PTCL vs Transworld: Speed, Ping & Coverage Compared',
     intro:
-      'PTCL and Transworld are the two closest rivals at the top of Pakistan’s fixed-broadband rankings, Ookla’s H1 2025 scores put just 0.24 points between them. Transworld is the fibre challenger, strongest in Karachi; PTCL is the nationwide incumbent. Here’s how they compare on published data.',
+      'PTCL and Transworld are the two closest rivals at the top of Pakistan’s fixed-broadband rankings. Ookla’s H1 2025 scores put just 0.24 points between them. Transworld is the fibre challenger, strongest in Karachi; PTCL is the nationwide incumbent. Here’s how they compare on published data.',
     verdict:
       'This is the closest race in Pakistani broadband. Transworld edges the community-test averages, PTCL edges the Ookla score, and both are within a few percent of each other. Choose on coverage and service in your area, the speed difference is too small to decide it.',
     rows: [
@@ -278,7 +278,7 @@ export const comparisons: Comparison[] = [
     choose: [
       {
         label: 'Choose Jazz if',
-        text: 'You’re in Islamabad, Rawalpindi, Faisalabad or Peshawar, Jazz leads the PTA city tables there, or most of your contacts are on Jazz.',
+        text: 'You’re in Islamabad, Rawalpindi, Faisalabad or Peshawar, where Jazz leads the PTA city tables, or most of your contacts are on Jazz.',
       },
       {
         label: 'Choose Zong if',
@@ -292,7 +292,7 @@ export const comparisons: Comparison[] = [
     faqs: [
       {
         q: 'Which is faster, Jazz or Zong?',
-        a: 'Nationally, Zong is slightly ahead: the PTA’s Q2 2026 benchmarking gives Zong 18.6 Mbps average 4G download versus 17.6 Mbps for Jazz, with higher uploads and more time on 4G. But city by city it flips, Jazz is fastest in Islamabad, Rawalpindi, Faisalabad and Peshawar, while Zong leads in Lahore, Multan and Karachi. Test both where you live.',
+        a: 'Nationally, Zong is slightly ahead: the PTA’s Q2 2026 benchmarking gives Zong 18.6 Mbps average 4G download versus 17.6 Mbps for Jazz, with higher uploads and more time on 4G. But city by city it flips. Jazz is fastest in Islamabad, Rawalpindi, Faisalabad and Peshawar, while Zong leads in Lahore, Multan and Karachi. Test both where you live.',
       },
       {
         q: 'How do I test Jazz vs Zong fairly?',
@@ -381,7 +381,7 @@ export const comparisons: Comparison[] = [
     faqs: [
       {
         q: 'Which is faster, PTCL or StormFiber?',
-        a: 'On recent community tests, StormFiber: PakSpeed’s last 30 days of tests put StormFiber at 26.7 Mbps average download versus 21.7 Mbps for PTCL, with much faster uploads (20.5 vs 9.2 Mbps) and lower ping (60 vs 170 ms). But that compares StormFiber’s pure fibre with PTCL’s mix of fibre and older DSL, PTCL Flash Fiber on its own averages 31.7 Mbps on SpeedGeo’s ranking. Fibre against fibre, the two are close.',
+        a: 'On recent community tests, StormFiber: PakSpeed’s last 30 days of tests put StormFiber at 26.7 Mbps average download versus 21.7 Mbps for PTCL, with much faster uploads (20.5 vs 9.2 Mbps) and lower ping (60 vs 170 ms). But that compares StormFiber’s pure fibre with PTCL’s mix of fibre and older DSL. PTCL Flash Fiber on its own averages 31.7 Mbps on SpeedGeo’s ranking. Fibre against fibre, the two are close.',
       },
       {
         q: 'Is StormFiber available in my city?',
@@ -403,9 +403,9 @@ export const comparisons: Comparison[] = [
     description:
       'PTCL DSL vs Flash Fiber: the two technologies compared on speed, uploads, ping, reliability and which one fits your home.',
     intro:
-      'PTCL sells two very different home connections under one brand: DSL over copper telephone lines, and Flash Fiber over glass fibre. They aren’t speed tiers of the same thing, they’re different technologies, and the difference shows up in uploads, ping, reliability and what your line can ever deliver.',
+      'PTCL sells two very different home connections under one brand: DSL over copper telephone lines, and Flash Fiber over glass fibre. They aren’t speed tiers of the same thing. They’re different technologies, and the difference shows up in uploads, ping, reliability and what your line can ever deliver.',
     verdict:
-      'If Flash Fiber reaches your street, take it, it’s faster, more stable, and the product PTCL is investing in. DSL is the right choice only where fibre hasn’t arrived yet, or for light use on a tight budget.',
+      'If Flash Fiber reaches your street, take it. It’s faster, more stable, and the product PTCL is investing in. DSL is the right choice only where fibre hasn’t arrived yet, or for light use on a tight budget.',
     rows: [
       {
         metric: 'Technology',
@@ -507,7 +507,7 @@ export const comparisons: Comparison[] = [
     intro:
       'Jazz and Zong launched Pakistan’s first commercial 5G on the same day, 19 March 2026. Eight months on, Jazz leads on scale with over 1,000 sites, while Zong leads in several cities. Here’s the 5G race on the published numbers.',
     verdict:
-      'Jazz has the bigger 5G network by a wide margin, and the most spectrum. But 5G is still pockets, not blanket coverage, Zong leads in Peshawar, Quetta, Sialkot and Sheikhupura. Check which network has a site near you before choosing on 5G alone.',
+      'Jazz has the bigger 5G network by a wide margin, and the most spectrum. But 5G is still pockets, not blanket coverage. Zong leads in Peshawar, Quetta, Sialkot and Sheikhupura. Check which network has a site near you before choosing on 5G alone.',
     rows: [
       {
         metric: 'Live 5G sites (Oct 2026)',
@@ -569,7 +569,7 @@ export const comparisons: Comparison[] = [
       },
       {
         label: 'Choose Zong 5G if',
-        text: 'You’re in Peshawar, Quetta, Sialkot or Sheikhupura, Zong leads 5G there, or you want the stronger 4G fallback.',
+        text: 'You’re in Peshawar, Quetta, Sialkot or Sheikhupura, where Zong leads 5G, or you want the stronger 4G fallback.',
       },
     ],
     sources: [

@@ -1,15 +1,32 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptcl-speed-test.pages.dev/' },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://ptcl-speed-test.pages.dev/guides' },
+    { '@type': 'ListItem', position: 3, name: 'Understanding Your Results', item: 'https://ptcl-speed-test.pages.dev/guides/understanding-your-results' },
+  ],
+};
+
 ---
 
 <BaseLayout
   title="Understanding Your Speed Test Results | PTCL Speed Test"
   description="What do download speed, upload speed, ping and jitter actually mean? A plain-English guide to reading your speed test results and what counts as good."
   canonical="/guides/understanding-your-results"
+  schema={breadcrumbSchema}
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Understanding Your Results</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">Understanding Your Results</li>
+        </ol>
+      </nav>
       <h1>Understanding Your Speed Test Results</h1>
       <p class="lead">
         Four numbers, four different stories. Here's how to read each one, and what
@@ -71,7 +88,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <div class="table-wrap">
         <table class="data">
           <thead>
-            <tr><th>Activity</th><th>Download needed</th><th>Notes</th></tr>
+            <tr><th scope="col">Activity</th><th scope="col">Download needed</th><th scope="col">Notes</th></tr>
           </thead>
           <tbody>
             <tr><td>Browsing &amp; email</td><td>1–5 Mbps</td><td>Light; ping matters more than speed</td></tr>

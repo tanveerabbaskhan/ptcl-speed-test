@@ -53,7 +53,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Reduce Ping for Gaming</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">Reduce Ping for Gaming</li>
+        </ol>
+      </nav>
       <h1>How to Reduce Ping for Gaming in Pakistan</h1>
       <p class="lead">
         High ping is the most frustrating gaming problem because your speed test can look
@@ -73,7 +79,7 @@ const breadcrumbSchema = {
       </p>
       <table class="data-table">
         <thead>
-          <tr><th>Ping to the game server</th><th>What it feels like</th></tr>
+          <tr><th scope="col">Ping to the game server</th><th scope="col">What it feels like</th></tr>
         </thead>
         <tbody>
           <tr><td>Under 30 ms</td><td>Excellent, no noticeable lag</td></tr>
@@ -112,12 +118,12 @@ const breadcrumbSchema = {
       <h2>4. Change your DNS</h2>
       <p>
         DNS resolves game server addresses; a slow ISP DNS adds delay to every new
-        connection. Switch to Cloudflare or Google DNS, test both, because the faster
+        connection. Switch to Cloudflare or Google DNS. Test both, because the faster
         one varies by network:
       </p>
       <table class="data-table">
         <thead>
-          <tr><th>DNS provider</th><th>Primary</th><th>Secondary</th></tr>
+          <tr><th scope="col">DNS provider</th><th scope="col">Primary</th><th scope="col">Secondary</th></tr>
         </thead>
         <tbody>
           <tr><td>Cloudflare</td><td>1.1.1.1</td><td>1.0.0.1</td></tr>
@@ -139,7 +145,7 @@ const breadcrumbSchema = {
         removes it, cutting ping, at the cost of slightly less protection against line
         noise. If your line is stable, FastPath is better for gaming. You can't change
         this yourself: call PTCL on <strong>1218</strong> and ask for your line profile
-        to be switched to FastPath. On fibre (Flash Fiber) this doesn't apply, fibre
+        to be switched to FastPath. On fibre (Flash Fiber) this doesn't apply. Fibre
         latency is already low.
       </p>
 
@@ -148,13 +154,13 @@ const breadcrumbSchema = {
         If you play competitively, the connection type matters more than any setting.
         Fibre customers typically see 10–25 ms to local servers, versus 35–80 ms on PTCL
         DSL. If Flash Fiber (or another fibre provider) reaches your street, it's the
-        biggest single upgrade for gaming, see our
+        biggest single upgrade for gaming. See our
         <a href="/compare/ptcl-vs-nayatel">provider comparisons</a> for the numbers.
       </p>
 
       <h2>7. On mobile data (PUBG Mobile, Free Fire)</h2>
       <ul>
-        <li>Play on 4G with full signal, move near a window if you're on one or two bars.</li>
+        <li>Play on 4G with full signal. Move near a window if you're on one or two bars.</li>
         <li>Lock the network mode to 4G/LTE so the phone doesn't drop to 3G mid-match.</li>
         <li>Close background apps and pause cloud sync before playing.</li>
         <li>Zong 4G generally delivers the lowest mobile gaming ping in Pakistan; Jazz is close behind in many cities. Test both SIMs where you play.</li>

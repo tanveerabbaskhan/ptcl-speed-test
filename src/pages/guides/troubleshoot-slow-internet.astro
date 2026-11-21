@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     q: 'How do I check my DSL line quality?',
-    a: 'Log in to your modem at 192.168.10.1 (or 192.168.1.1 on older modems) and open Status, then DSL or Device Info. Look at the downstream SNR margin, above 12 dB is good, below 6 dB causes drops and slow speed, and line attenuation, below 30 dB is good, above 50 dB means a long or damaged line. Quote both numbers when you complain to PTCL.',
+    a: 'Log in to your modem at 192.168.10.1 (or 192.168.1.1 on older modems) and open Status, then DSL or Device Info. Look at the downstream SNR margin: above 12 dB is good, below 6 dB causes drops and slow speed, and line attenuation: below 30 dB is good, above 50 dB means a long or damaged line. Quote both numbers when you complain to PTCL.',
   },
 ];
 
@@ -49,7 +49,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Troubleshoot Slow Internet</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">Troubleshoot Slow Internet</li>
+        </ol>
+      </nav>
       <h1>Slow Internet? Troubleshoot by Symptom</h1>
       <p class="lead">
         Don't guess, match what you're seeing to the symptom below and work through the
@@ -82,7 +88,7 @@ const breadcrumbSchema = {
       <ol>
         <li>Test again early in the morning. Fast at 7 am and slow at 9 pm means peak-hour congestion.</li>
         <li>Check the router lights (see below), a red LOS or DSL light means a line fault.</li>
-        <li>Check for a known outage or cable fault, see <a href="/guides/why-internet-slow-pakistan">why the internet is slow in Pakistan</a>.</li>
+        <li>Check for a known outage or cable fault. See <a href="/guides/why-internet-slow-pakistan">why the internet is slow in Pakistan</a>.</li>
         <li>On DSL, check your line stats in the modem (below) and quote them to your provider.</li>
         <li>Call your provider with dated, wired test results. For PTCL, the helpline is 1218.</li>
       </ol>
@@ -125,7 +131,7 @@ const breadcrumbSchema = {
         <strong>Diagnosis:</strong> the device, not the connection. Check for background
         updates or cloud sync running on that device, turn off any VPN, forget and
         rejoin the Wi-Fi network, and restart the device. On older laptops, a weak Wi-Fi
-        adapter or an old driver can cap speed well below what the line delivers, test
+        adapter or an old driver can cap speed well below what the line delivers. Test
         the same device over Ethernet to confirm.
       </p>
 
@@ -138,7 +144,7 @@ const breadcrumbSchema = {
       </p>
       <table class="data-table">
         <thead>
-          <tr><th>Reading (downstream)</th><th>Good</th><th>Fair</th><th>Bad</th></tr>
+          <tr><th scope="col">Reading (downstream)</th><th scope="col">Good</th><th scope="col">Fair</th><th scope="col">Bad</th></tr>
         </thead>
         <tbody>
           <tr><td><strong>SNR margin</strong></td><td>Above 12 dB</td><td>6–12 dB</td><td>Below 6 dB: drops and slow speed</td></tr>
@@ -146,7 +152,7 @@ const breadcrumbSchema = {
         </tbody>
       </table>
       <p>
-        Quote both numbers when you complain, they turn "my internet is slow" into a
+        Quote both numbers when you complain. They turn "my internet is slow" into a
         specific line fault the technician can act on.
       </p>
 
@@ -156,7 +162,7 @@ const breadcrumbSchema = {
         at quiet times, when the LOS/DSL light is red, or when drops keep happening after
         you've checked cables and the splitter. Have ready: your account or landline
         number, dated test results, and (for DSL) your SNR and attenuation figures. For
-        PTCL, the helpline is <strong>1218</strong>, ask for a complaint number and note
+        PTCL, the helpline is <strong>1218</strong>. Ask for a complaint number and note
         it down.
       </p>
 

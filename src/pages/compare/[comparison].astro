@@ -46,7 +46,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/compare">Compare</a> / {c.aName} vs {c.bName}</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/compare">Compare</a></li>
+          <li aria-current="page">{c.aName} vs {c.bName}</li>
+        </ol>
+      </nav>
       <h1>{c.aName} vs {c.bName}</h1>
       <p class="lead">{c.intro}</p>
     </div>
@@ -62,7 +68,7 @@ const breadcrumbSchema = {
       <h2>{c.aName} vs {c.bName}: side by side</h2>
       <table class="data-table">
         <thead>
-          <tr><th>Metric</th><th>{c.aName}</th><th>{c.bName}</th></tr>
+          <tr><th scope="col">Metric</th><th scope="col">{c.aName}</th><th scope="col">{c.bName}</th></tr>
         </thead>
         <tbody>
           {c.rows.map((r) => (
@@ -76,7 +82,7 @@ const breadcrumbSchema = {
       </table>
       <p class="small muted">
         Averages mix many packages, cities and devices. Your own result depends on your
-        package, your street and the time of day, test it above rather than trusting any
+        package, your street and the time of day. Test it above rather than trusting any
         national average.
       </p>
 
@@ -119,7 +125,7 @@ const breadcrumbSchema = {
       <div class="cta-band">
         <h2>Test your own connection</h2>
         <p>
-          Averages are a starting point, your line is the only number that matters.
+          Averages are a starting point. Your line is the only number that matters.
           Test it on your provider's page:
         </p>
         <div class="cta-links">

@@ -49,7 +49,12 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / Jitter Test</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li aria-current="page">Jitter Test</li>
+        </ol>
+      </nav>
       <h1>Jitter Test</h1>
       <p class="lead">
         Your ping looks fine, but calls still stutter and games still rubber-band.
@@ -74,7 +79,7 @@ const breadcrumbSchema = {
       <h2>What’s a good jitter?</h2>
       <table class="data-table">
         <thead>
-          <tr><th>Jitter</th><th>Verdict</th><th>Feels like</th></tr>
+          <tr><th scope="col">Jitter</th><th scope="col">Verdict</th><th scope="col">Feels like</th></tr>
         </thead>
         <tbody>
           <tr><td>Under 10 ms</td><td>Excellent</td><td>Rock steady, ideal for calls and gaming</td></tr>

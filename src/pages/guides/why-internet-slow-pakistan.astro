@@ -49,7 +49,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Why Is the Internet Slow?</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">Why Is the Internet Slow?</li>
+        </ol>
+      </nav>
       <h1>Why Is the Internet Slow in Pakistan?</h1>
       <p class="lead">
         If your internet feels slow this week, there is a known reason, and it probably
@@ -72,7 +78,7 @@ const breadcrumbSchema = {
       </p>
       <table class="data-table">
         <thead>
-          <tr><th>What</th><th>What we know</th></tr>
+          <tr><th scope="col">What</th><th scope="col">What we know</th></tr>
         </thead>
         <tbody>
           <tr><td>Which cable</td><td>SEA-ME-WE 5 (SMW5), landing near Karachi</td></tr>

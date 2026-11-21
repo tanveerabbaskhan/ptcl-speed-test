@@ -1,15 +1,32 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptcl-speed-test.pages.dev/' },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://ptcl-speed-test.pages.dev/guides' },
+    { '@type': 'ListItem', position: 3, name: 'Ping & Jitter Explained', item: 'https://ptcl-speed-test.pages.dev/guides/ping-jitter-explained' },
+  ],
+};
+
 ---
 
 <BaseLayout
   title="Ping and Jitter Explained: Why Games Lag on Fast Internet"
   description="What ping and jitter are, what good values look like in Pakistan, why a fast connection can still lag, and how to lower your ping for gaming and video calls."
   canonical="/guides/ping-jitter-explained"
+  schema={breadcrumbSchema}
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Ping &amp; Jitter Explained</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">Ping &amp; Jitter Explained</li>
+        </ol>
+      </nav>
       <h1>Ping &amp; Jitter Explained</h1>
       <p class="lead">
         Your speed test says 20&nbsp;Mbps, so why does PUBG lag? Because games and calls
@@ -38,7 +55,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <div class="table-wrap">
         <table class="data">
           <thead>
-            <tr><th>Ping</th><th>Rating</th><th>Feels like</th></tr>
+            <tr><th scope="col">Ping</th><th scope="col">Rating</th><th scope="col">Feels like</th></tr>
           </thead>
           <tbody>
             <tr><td><strong>Under 20 ms</strong></td><td>Excellent</td><td>Instant, ideal for competitive gaming</td></tr>

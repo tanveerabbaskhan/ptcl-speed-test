@@ -1,19 +1,36 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptcl-speed-test.pages.dev/' },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://ptcl-speed-test.pages.dev/guides' },
+    { '@type': 'ListItem', position: 3, name: 'Improve PTCL Speed', item: 'https://ptcl-speed-test.pages.dev/guides/improve-ptcl-speed' },
+  ],
+};
+
 ---
 
 <BaseLayout
   title="How to Improve Your PTCL Speed: 10 Fixes That Work"
   description="Slow PTCL internet? Ten practical fixes ordered by impact: test over Ethernet, move your router, check your line, and know when to call PTCL."
   canonical="/guides/improve-ptcl-speed"
+  schema={breadcrumbSchema}
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Improve PTCL Speed</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">Improve PTCL Speed</li>
+        </ol>
+      </nav>
       <h1>How to Improve Your PTCL Speed</h1>
       <p class="lead">
         Before you pay for a faster package, check whether you're actually getting the
-        speed you already pay for. These fixes are ordered by impact, start at the top.
+        speed you already pay for. These fixes are ordered by impact. Start at the top.
       </p>
     </div>
   </section>
@@ -86,7 +103,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <h2>9. Test at different times</h2>
       <p>
         If your speed is fine at 10&nbsp;am but poor at 9&nbsp;pm, the problem is
-        congestion in your area, not your home setup. Note the pattern, it's useful
+        congestion in your area, not your home setup. Note the pattern. It's useful
         evidence when you complain, and it tells you whether an upgrade would even help.
       </p>
 
@@ -103,14 +120,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <p>
           <strong>When nothing works:</strong> if your DSL line physically can't deliver
           more, ask whether Flash Fiber is available on your street. Fibre doesn't suffer
-          from distance or line-noise problems at all, it's the real fix for a bad copper
-          line.
+          from distance or line-noise problems at all. It's the real fix for a bad copper line.
         </p>
       </div>
 
       <div class="cta-band">
         <h2>Test your speed after each fix</h2>
-        <p>Change one thing at a time and re-test, that's how you find what actually helped.</p>
+        <p>Change one thing at a time and re-test. That's how you find what actually helped.</p>
         <a class="btn" href="/speed-test">Run the Speed Test</a>
       </div>
     </div>

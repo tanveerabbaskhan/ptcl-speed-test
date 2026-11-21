@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const faqs = [
   {
     q: 'How do I get Telenor internet settings on my phone?',
-    a: 'The easiest way is by SMS: send "Internet" (or "All" for internet plus MMS) to 131. Telenor sends the settings to your phone, open the message, enter the PIN when asked (usually 1234 or 0000), and tap Install. This fills in the APN and all other fields correctly, which is safer than typing values from a forum.',
+    a: 'The easiest way is by SMS: send "Internet" (or "All" for internet plus MMS) to 131. Telenor sends the settings to your phone. Open the message, enter the PIN when asked (usually 1234 or 0000), and tap Install. This fills in the APN and all other fields correctly, which is safer than typing values from a forum.',
   },
   {
     q: 'What is the Telenor APN?',
@@ -53,7 +53,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Telenor APN Settings</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">Telenor APN Settings</li>
+        </ol>
+      </nav>
       <h1>Telenor APN Settings &amp; Internet Settings</h1>
       <p class="lead">
         The APN (Access Point Name) tells your phone how to reach Telenor’s data network.
@@ -89,7 +95,7 @@ const breadcrumbSchema = {
       </p>
       <table class="data-table">
         <thead>
-          <tr><th>Field</th><th>Value</th></tr>
+          <tr><th scope="col">Field</th><th scope="col">Value</th></tr>
         </thead>
         <tbody>
           <tr><td>Name</td><td>Telenor Internet (any name you like works)</td></tr>

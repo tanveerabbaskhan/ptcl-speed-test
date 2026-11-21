@@ -64,7 +64,7 @@ const faqs = [
   },
   {
     q: 'My wired speed is below 80% of my package. What should I do?',
-    a: 'First confirm it: test over an Ethernet cable at a quiet time (early morning), two or three times. If it stays below 80%, register a complaint with your provider and quote the dated results, for PTCL, call 1218 and note the complaint number.',
+    a: 'First confirm it: test over an Ethernet cable at a quiet time (early morning), two or three times. If it stays below 80%, register a complaint with your provider and quote the dated results. For PTCL, call 1218 and note the complaint number.',
   },
   {
     q: 'Which is faster, PTCL or Nayatel?',
@@ -76,7 +76,7 @@ const faqs = [
   },
   {
     q: 'What is the Jazz APN setting?',
-    a: 'The safest way is to get the official settings by SMS: dial *444*6*5# on prepaid or *446*4# on postpay, or send a blank SMS to 7342. Jazz sends the settings to your phone, open the message and tap Install. See our Jazz APN settings guide for the manual values and 4G SIM checks.',
+    a: 'The safest way is to get the official settings by SMS: dial *444*6*5# on prepaid or *446*4# on postpay, or send a blank SMS to 7342. Jazz sends the settings to your phone. Open the message and tap Install. See our Jazz APN settings guide for the manual values and 4G SIM checks.',
   },
   {
     q: 'What does a red LOS light mean on PTCL fibre?',
@@ -84,7 +84,7 @@ const faqs = [
   },
   {
     q: 'Why is my PTCL DSL light blinking?',
-    a: 'A blinking DSL light means the modem is trying to sync with the exchange. Wait a few minutes after a restart; if it never goes solid, check the phone cable and splitter, confirm the landline has a dial tone, and restart the modem. A DSL light that never syncs usually means a line fault, call PTCL on 1218.',
+    a: 'A blinking DSL light means the modem is trying to sync with the exchange. Wait a few minutes after a restart; if it never goes solid, check the phone cable and splitter, confirm the landline has a dial tone, and restart the modem. A DSL light that never syncs usually means a line fault. Call PTCL on 1218.',
   },
   {
     q: 'How do I lower my ping for PUBG on PTCL?',
@@ -92,7 +92,7 @@ const faqs = [
   },
   {
     q: 'Why is PTCL slow at night?',
-    a: 'Evenings (7–11 pm) are the busiest hours on every Pakistani network, so speeds commonly dip then. Test in the morning and again at 9 pm: if mornings are fast and evenings are slow, that\'s congestion, no router setting will fix it, but both results together are strong evidence for a complaint.',
+    a: 'Evenings (7–11 pm) are the busiest hours on every Pakistani network, so speeds commonly dip then. Test in the morning and again at 9 pm: if mornings are fast and evenings are slow, that\'s congestion. No router setting will fix it, but both results together are strong evidence for a complaint.',
   },
   {
     q: 'Is this site affiliated with PTCL?',
@@ -109,17 +109,31 @@ const faqSchema = {
     acceptedAnswer: { '@type': 'Answer', text: f.a },
   })),
 };
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptcl-speed-test.pages.dev/' },
+    { '@type': 'ListItem', position: 2, name: 'FAQ', item: 'https://ptcl-speed-test.pages.dev/faq' },
+  ],
+};
+
 ---
 
 <BaseLayout
   title="Speed Test FAQ | PTCL Speed Test"
   description="Answers about PTCL internet speed: what is a good speed, why your connection is slower than your package, ping for gaming, Mbps vs MBps, and more."
   canonical="/faq"
-  schema={faqSchema}
+  schema={[faqSchema, breadcrumbSchema]}
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / FAQ</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li aria-current="page">FAQ</li>
+        </ol>
+      </nav>
       <h1>Frequently Asked Questions</h1>
       <p class="lead">
         Everything people usually ask about PTCL speed tests and broadband speeds.

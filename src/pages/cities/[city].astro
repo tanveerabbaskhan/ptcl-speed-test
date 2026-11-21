@@ -18,7 +18,7 @@ const { city } = Astro.props;
 const others = cities.filter((c) => c.slug !== city.slug);
 
 const fastestFixedAnswer = city.fastestFixed
-  ? `On published community tests, ${city.fastestFixed.provider} is the fastest fixed-line provider in ${city.name} at ${city.fastestFixed.detail} (${city.fastestFixed.source}). But fixed-line speed depends on your street, check which providers have fibre on yours before choosing.`
+  ? `On published community tests, ${city.fastestFixed.provider} is the fastest fixed-line provider in ${city.name} at ${city.fastestFixed.detail} (${city.fastestFixed.source}). But fixed-line speed depends on your street. Check which providers have fibre on yours before choosing.`
   : city.fixedNote ?? '';
 
 const faqs = [
@@ -69,7 +69,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/cities">Cities</a> / {city.name}</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/cities">Cities</a></li>
+          <li aria-current="page">{city.name}</li>
+        </ol>
+      </nav>
       <h1>Internet Speed in {city.name}</h1>
       <p class="lead">{city.intro}</p>
     </div>
@@ -84,7 +90,7 @@ const breadcrumbSchema = {
         <>
           <table class="data-table">
             <thead>
-              <tr><th>Type</th><th>Fastest provider</th><th>Average</th></tr>
+              <tr><th scope="col">Type</th><th scope="col">Fastest provider</th><th scope="col">Average</th></tr>
             </thead>
             <tbody>
               <tr>
@@ -102,7 +108,7 @@ const breadcrumbSchema = {
           <p class="small muted">
             Sources: <a href={city.fastestFixed.sourceUrl} target="_blank" rel="noopener">{city.fastestFixed.source}</a>;
             <a href={city.fastestMobile.sourceUrl} target="_blank" rel="noopener">{city.fastestMobile.source}</a>.
-            Averages mix many packages and devices, your own result is what matters.
+            Averages mix many packages and devices. Your own result is what matters.
           </p>
         </>
       ) : (
@@ -110,7 +116,7 @@ const breadcrumbSchema = {
           <p>{city.fixedNote}</p>
           <table class="data-table">
             <thead>
-              <tr><th>Type</th><th>Fastest provider</th><th>Average</th></tr>
+              <tr><th scope="col">Type</th><th scope="col">Fastest provider</th><th scope="col">Average</th></tr>
             </thead>
             <tbody>
               <tr>

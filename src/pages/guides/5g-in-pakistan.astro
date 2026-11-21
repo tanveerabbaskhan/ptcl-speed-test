@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: 'Which phone do I need for 5G in Pakistan?',
-    a: 'Any phone that supports band n78 (3.5 GHz), that is Pakistan’s main 5G band, used by both Jazz and Zong. Band n41 (2.6 GHz) is a bonus. You do not need a new SIM: a recent 4G SIM works on 5G. Check the phone’s spec sheet for "5G bands" before you buy, a phone that only supports bands used abroad will not connect here.',
+    a: 'Any phone that supports band n78 (3.5 GHz). That is Pakistan’s main 5G band, used by both Jazz and Zong. Band n41 (2.6 GHz) is a bonus. You do not need a new SIM: a recent 4G SIM works on 5G. Check the phone’s spec sheet for "5G bands" before you buy, a phone that only supports bands used abroad will not connect here.',
   },
   {
     q: 'Is 5G available in my city?',
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: 'Is 5G worth it in Pakistan yet?',
-    a: 'If you are near a 5G site, it is a real jump over 4G, median downloads around 220 Mbps versus about 18 Mbps on 4G. But coverage is the deciding factor: outside the pockets, your phone falls back to 4G, so check the coverage map for your home and workplace first. A 5G phone is still a sensible buy, the network is growing fast, but don’t pay extra for a 5G plan until you know you are covered.',
+    a: 'If you are near a 5G site, it is a real jump over 4G. Median downloads around 220 Mbps versus about 18 Mbps on 4G. But coverage is the deciding factor: outside the pockets, your phone falls back to 4G, so check the coverage map for your home and workplace first. A 5G phone is still a sensible buy, the network is growing fast, but don’t pay extra for a 5G plan until you know you are covered.',
   },
 ];
 
@@ -53,7 +53,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / 5G in Pakistan</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">5G in Pakistan</li>
+        </ol>
+      </nav>
       <h1>5G in Pakistan</h1>
       <p class="lead">
         5G launched in Pakistan on 19 March 2026, eight months on, there are 1,782 live
@@ -69,7 +75,7 @@ const breadcrumbSchema = {
       <h2>The 5G story so far</h2>
       <table class="data-table">
         <thead>
-          <tr><th>Date</th><th>What happened</th></tr>
+          <tr><th scope="col">Date</th><th scope="col">What happened</th></tr>
         </thead>
         <tbody>
           <tr><td>10 March 2026</td><td>Spectrum auction: about $507 million raised for 480 MHz across four bands</td></tr>
@@ -87,7 +93,7 @@ const breadcrumbSchema = {
       <h2>Who leads 5G in Pakistan?</h2>
       <table class="data-table">
         <thead>
-          <tr><th>Operator</th><th>Live sites (Oct 2026)</th><th>Spectrum</th><th>5G bands</th><th>Strongest cities</th></tr>
+          <tr><th scope="col">Operator</th><th scope="col">Live sites (Oct 2026)</th><th scope="col">Spectrum</th><th scope="col">5G bands</th><th scope="col">Strongest cities</th></tr>
         </thead>
         <tbody>
           <tr><td>Jazz</td><td>1,015</td><td>190 MHz</td><td>700, 2300, 2600, 3500 MHz</td><td>Karachi, Lahore, Faisalabad, Multan</td></tr>
@@ -107,7 +113,7 @@ const breadcrumbSchema = {
       <h2>5G cities and site counts</h2>
       <table class="data-table">
         <thead>
-          <tr><th>City</th><th>Live 5G sites (Oct 2026)</th></tr>
+          <tr><th scope="col">City</th><th scope="col">Live 5G sites (Oct 2026)</th></tr>
         </thead>
         <tbody>
           <tr><td>Karachi</td><td>385</td></tr>
@@ -146,7 +152,7 @@ const breadcrumbSchema = {
       </p>
       <ol>
         <li><strong>Band n78 (3.5 GHz) is essential.</strong> This is Pakistan’s main 5G band, used by both Jazz and Zong. Band n41 (2.6 GHz) is a bonus. Check the phone’s spec sheet under "5G bands", a phone that only supports bands used abroad will not connect here, however expensive it was.</li>
-        <li><strong>Your 4G SIM is fine.</strong> A recent 4G SIM works on 5G, you don’t need a new SIM. If your SIM is very old, swap it at a franchise.</li>
+        <li><strong>Your 4G SIM is fine.</strong> A recent 4G SIM works on 5G. You don’t need a new SIM. If your SIM is very old, swap it at a franchise.</li>
         <li><strong>Switch 5G on.</strong> In your phone’s mobile network settings, set the preferred network type to 5G (or 5G/4G/3G auto). Then test with Wi-Fi off.</li>
       </ol>
       <p>

@@ -145,7 +145,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/speedtest">Speed Tests</a> / {provider.name}</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/speedtest">Speed Tests</a></li>
+          <li aria-current="page">{provider.name}</li>
+        </ol>
+      </nav>
       <h1>{provider.name} Speed Test</h1>
       <p class="lead">{provider.about}</p>
       <p class="small muted">{provider.typeLabel} · {provider.coverage}</p>
@@ -167,7 +173,7 @@ const breadcrumbSchema = {
           </p>
           <table class="data-table">
             <thead>
-              <tr><th>Average</th><th>Download</th><th>Upload</th>{provider.typical.ping && <th>Ping</th>}</tr>
+              <tr><th scope="col">Average</th><th scope="col">Download</th><th scope="col">Upload</th>{provider.typical.ping && <th scope="col">Ping</th>}</tr>
             </thead>
             <tbody>
               <tr>

@@ -5,7 +5,7 @@ import SpeedTest from '../components/SpeedTest.astro';
 const faqs = [
   {
     q: 'What is a good ping?',
-    a: 'Under 50 ms is good for most uses; under 30 ms is great for gaming. Above 100 ms, video calls feel delayed and games lag. Ping depends on the server’s location and your connection type, fibre is lowest (PTCL Flash Fiber averages 27 ms), mobile data is higher, and satellite is highest.',
+    a: 'Under 50 ms is good for most uses; under 30 ms is great for gaming. Above 100 ms, video calls feel delayed and games lag. Ping depends on the server’s location and your connection type: fibre is lowest (PTCL Flash Fiber averages 27 ms), mobile data is higher, and satellite is highest.',
   },
   {
     q: 'Why is my ping high when my speed is fast?',
@@ -49,7 +49,12 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / Ping Test</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li aria-current="page">Ping Test</li>
+        </ol>
+      </nav>
       <h1>Ping Test</h1>
       <p class="lead">
         Ping is how long your connection takes to respond, the number that decides
@@ -74,7 +79,7 @@ const breadcrumbSchema = {
       <h2>What’s a good ping?</h2>
       <table class="data-table">
         <thead>
-          <tr><th>Ping</th><th>Verdict</th><th>Feels like</th></tr>
+          <tr><th scope="col">Ping</th><th scope="col">Verdict</th><th scope="col">Feels like</th></tr>
         </thead>
         <tbody>
           <tr><td>Under 30 ms</td><td>Excellent</td><td>Instant, ideal for competitive gaming</td></tr>
@@ -94,7 +99,7 @@ const breadcrumbSchema = {
         <li><strong>Use an Ethernet cable.</strong> Wi-Fi adds latency and variability, wired is always lower and steadier.</li>
         <li><strong>Pick the nearest server.</strong> For most games in Pakistan, Dubai or Singapore servers give the lowest ping. Avoid Europe or US servers.</li>
         <li><strong>Close background apps.</strong> Downloads, cloud backups and streams on other devices all add latency.</li>
-        <li><strong>On PTCL DSL, ask for FastPath.</strong> DSL’s default interleaved profile adds latency to correct errors; FastPath skips it for lower ping. Call 1218 and ask, it only helps if the line is clean.</li>
+        <li><strong>On PTCL DSL, ask for FastPath.</strong> DSL’s default interleaved profile adds latency to correct errors; FastPath skips it for lower ping. Call 1218 and ask. It only helps if the line is clean.</li>
         <li><strong>Don’t use a VPN for gaming.</strong> A VPN adds a hop and usually raises ping, unless your ISP’s routing to the game server is unusually bad.</li>
       </ul>
       <p>

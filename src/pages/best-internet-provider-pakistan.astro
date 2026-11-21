@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const faqs = [
   {
     q: 'Which is the best internet provider in Pakistan?',
-    a: 'There is no single winner, it depends on what you measure. Nayatel leads on nPerf’s 2025 barometer (best fixed performance), PakSpeed’s recent community tests, and Opensignal’s April 2026 reliability award. PTCL Flash Fiber leads on Ookla’s H1 2025 Speedtest score and SpeedGeo’s ranking. Transworld is close behind both. The honest answer: the best provider is the fastest fibre available on your street.',
+    a: 'There is no single winner. It depends on what you measure. Nayatel leads on nPerf’s 2025 barometer (best fixed performance), PakSpeed’s recent community tests, and Opensignal’s April 2026 reliability award. PTCL Flash Fiber leads on Ookla’s H1 2025 Speedtest score and SpeedGeo’s ranking. Transworld is close behind both. The honest answer: the best provider is the fastest fibre available on your street.',
   },
   {
     q: 'Which provider has the fastest internet in Pakistan?',
@@ -52,7 +52,12 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / Best Internet Provider</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li aria-current="page">Best Internet Provider</li>
+        </ol>
+      </nav>
       <h1>Best Internet Provider in Pakistan</h1>
       <p class="lead">
         Every "best ISP" list you’ll find online is either sponsored or based on one
@@ -69,7 +74,7 @@ const breadcrumbSchema = {
       <h2>The ranking</h2>
       <table class="data-table">
         <thead>
-          <tr><th>Rank</th><th>Provider</th><th>Why it ranks here</th></tr>
+          <tr><th scope="col">Rank</th><th scope="col">Provider</th><th scope="col">Why it ranks here</th></tr>
         </thead>
         <tbody>
           <tr>
@@ -107,17 +112,17 @@ const breadcrumbSchema = {
 
       <h2>Best by use case</h2>
       <ul>
-        <li><strong>Fastest measured speeds:</strong> Nayatel or PTCL Flash Fiber, they trade the top spot depending on the study.</li>
+        <li><strong>Fastest measured speeds:</strong> Nayatel or PTCL Flash Fiber. They trade the top spot depending on the study.</li>
         <li><strong>Widest availability:</strong> PTCL, DSL almost everywhere, Flash Fiber in many cities. No other provider comes close on reach.</li>
         <li><strong>Lowest ping (gaming):</strong> PTCL Flash Fiber (27 ms average on SpeedGeo) or StormFiber (60 ms on PakSpeed). Both beat DSL by a wide margin.</li>
-        <li><strong>Most reliable:</strong> Nayatel, Opensignal’s April 2026 report gave it the Reliability Experience award (330 points).</li>
+        <li><strong>Most reliable:</strong> Nayatel. Opensignal’s April 2026 report gave it the Reliability Experience award (330 points).</li>
         <li><strong>Best mobile internet:</strong> Zong has the highest national 4G averages (PTA Q2 2026); Jazz is fastest in Islamabad, Rawalpindi, Faisalabad and Peshawar. For 5G, Jazz has the biggest network.</li>
       </ul>
 
       <h2>Best by city</h2>
       <table class="data-table">
         <thead>
-          <tr><th>City</th><th>Fastest fixed provider</th><th>Fastest mobile</th></tr>
+          <tr><th scope="col">City</th><th scope="col">Fastest fixed provider</th><th scope="col">Fastest mobile</th></tr>
         </thead>
         <tbody>
           <tr><td>Karachi</td><td>Transworld (37.4 Mbps)</td><td>Zong (18.27 Mbps)</td></tr>
@@ -149,7 +154,7 @@ const breadcrumbSchema = {
         Two things this ranking deliberately does not do: it does not rank on price
         (published prices conflict wildly and go stale fast), and it does not treat a
         national average as a promise for your street. Fibre availability varies by
-        street, and your line’s real speed is what you measure, test it.
+        street, and your line’s real speed is what you measure. Test it.
       </p>
 
       <h2>Frequently asked questions</h2>
@@ -164,7 +169,7 @@ const breadcrumbSchema = {
 
       <div class="cta-band">
         <h2>Test your connection</h2>
-        <p>Rankings are averages, your line is the only number that matters.</p>
+        <p>Rankings are averages. Your line is the only number that matters.</p>
         <div class="cta-links">
           <a class="btn" href="/speed-test">Test My Speed →</a>
           <a class="btn btn-secondary" href="/compare">Compare providers →</a>

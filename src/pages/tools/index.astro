@@ -64,7 +64,12 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / Tools</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li aria-current="page">Tools</li>
+        </ol>
+      </nav>
       <h1>Internet Tools</h1>
       <p class="lead">
         Free tools to measure, understand and fix your connection. No sign-up, no

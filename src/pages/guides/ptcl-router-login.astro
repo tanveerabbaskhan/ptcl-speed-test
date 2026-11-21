@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const faqs = [
   {
     q: 'What is the PTCL router login IP address?',
-    a: 'Most newer PTCL modems use 192.168.10.1, while older DSL modems use 192.168.1.1. PTCL Flash Fiber ONTs (the small fibre box) use the address printed on their own label, Huawei units often use 192.168.100.1. If one address doesn\'t load, try the other.',
+    a: 'Most newer PTCL modems use 192.168.10.1, while older DSL modems use 192.168.1.1. PTCL Flash Fiber ONTs (the small fibre box) use the address printed on their own label. Huawei units often use 192.168.100.1. If one address doesn\'t load, try the other.',
   },
   {
     q: 'What is the default PTCL router username and password?',
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: 'Will changing my WiFi password make my internet faster?',
-    a: 'Only if neighbours or unknown devices were using your WiFi. Check the connected-devices list in the router settings: if you see devices you don\'t recognise, changing the password and removing them can free up your bandwidth. If the list is clean, your speed problem is elsewhere, run a speed test to check.',
+    a: 'Only if neighbours or unknown devices were using your WiFi. Check the connected-devices list in the router settings: if you see devices you don\'t recognise, changing the password and removing them can free up your bandwidth. If the list is clean, your speed problem is elsewhere. Run a speed test to check.',
   },
 ];
 
@@ -66,7 +66,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / PTCL Router Login</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">PTCL Router Login</li>
+        </ol>
+      </nav>
       <h1>PTCL Router Login &amp; WiFi Password Change</h1>
       <p class="lead">
         Everything you need to get into your PTCL router settings: the right address for
@@ -85,7 +91,7 @@ const breadcrumbSchema = {
       </p>
       <table class="data-table">
         <thead>
-          <tr><th>Your device</th><th>Address to try</th><th>Notes</th></tr>
+          <tr><th scope="col">Your device</th><th scope="col">Address to try</th><th scope="col">Notes</th></tr>
         </thead>
         <tbody>
           <tr><td>Newer PTCL broadband modem</td><td><code>192.168.10.1</code></td><td>The usual address for modems installed in recent years</td></tr>
@@ -110,7 +116,7 @@ const breadcrumbSchema = {
       <h2>Default username and password</h2>
       <table class="data-table">
         <thead>
-          <tr><th>Field</th><th>Common default</th></tr>
+          <tr><th scope="col">Field</th><th scope="col">Common default</th></tr>
         </thead>
         <tbody>
           <tr><td>Username</td><td><code>admin</code></td></tr>
@@ -120,7 +126,7 @@ const breadcrumbSchema = {
       <p>
         Defaults vary by model and may have been changed during installation. If
         admin/admin doesn't work, check the sticker on the router itself. Never share
-        your admin password with anyone you don't trust, it controls your whole network.
+        your admin password with anyone you don't trust. It controls your whole network.
       </p>
 
       <h2>How to change the WiFi password</h2>
@@ -133,7 +139,7 @@ const breadcrumbSchema = {
       </ol>
       <p>
         If your router broadcasts separate 2.4&nbsp;GHz and 5&nbsp;GHz networks, change
-        both, they have their own password fields. While you're in the settings, you can
+        both. They have their own password fields. While you're in the settings, you can
         also rename the network (SSID) from the same Wireless menu.
       </p>
 
@@ -142,7 +148,7 @@ const breadcrumbSchema = {
         Look for a <strong>Connected Devices</strong>, <strong>Client List</strong> or
         <strong>DHCP</strong> section in the router menu. It lists every device currently
         on your network by name or MAC address. If you see devices you don't recognise,
-        change the WiFi password, that disconnects them, and check whether your speed
+        change the WiFi password. That disconnects them, and check whether your speed
         improves. Unknown devices quietly eating bandwidth is a common cause of
         "my internet got slow for no reason".
       </p>
@@ -158,7 +164,7 @@ const breadcrumbSchema = {
 
       <h2>Forgot the admin password?</h2>
       <p>
-        The reset button is on the back of the modem, press and hold it with a pin for
+        The reset button is on the back of the modem. Press and hold it with a pin for
         about 10 seconds, until the lights change, then let the modem restart. This
         restores the default admin login, but it also <strong>wipes your internet
         settings</strong>. On PTCL DSL that means the PPPoE connection, where the username

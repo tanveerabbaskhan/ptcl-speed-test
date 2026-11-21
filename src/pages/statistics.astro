@@ -19,7 +19,12 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / Statistics</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li aria-current="page">Statistics</li>
+        </ol>
+      </nav>
       <h1>Internet Speed Statistics for Pakistan</h1>
       <p class="lead">
         The published numbers behind Pakistan's internet speeds, from the regulator
@@ -41,7 +46,7 @@ const breadcrumbSchema = {
       </p>
       <table class="data-table">
         <thead>
-          <tr><th>Network</th><th>Download</th><th>Upload</th><th>Time on 4G</th></tr>
+          <tr><th scope="col">Network</th><th scope="col">Download</th><th scope="col">Upload</th><th scope="col">Time on 4G</th></tr>
         </thead>
         <tbody>
           <tr><td>Zong</td><td>18.55 Mbps</td><td>7.81 Mbps</td><td>96.59%</td></tr>
@@ -65,7 +70,7 @@ const breadcrumbSchema = {
       </p>
       <table class="data-table">
         <thead>
-          <tr><th>Operator</th><th>Live sites</th><th>Spectrum won</th><th>5G bands</th></tr>
+          <tr><th scope="col">Operator</th><th scope="col">Live sites</th><th scope="col">Spectrum won</th><th scope="col">5G bands</th></tr>
         </thead>
         <tbody>
           <tr><td>Jazz</td><td>1,015</td><td>190 MHz</td><td>700, 2300, 2600, 3500 MHz</td></tr>
@@ -95,7 +100,7 @@ const breadcrumbSchema = {
       </p>
       <table class="data-table">
         <thead>
-          <tr><th>Provider</th><th>Download</th><th>Upload</th><th>Latency</th><th>nPerf score</th></tr>
+          <tr><th scope="col">Provider</th><th scope="col">Download</th><th scope="col">Upload</th><th scope="col">Latency</th><th scope="col">nPerf score</th></tr>
         </thead>
         <tbody>
           <tr><td>Nayatel</td><td>28.33 Mbps</td><td>25.21 Mbps</td><td>91.59 ms</td><td>52,257</td></tr>
@@ -114,7 +119,7 @@ const breadcrumbSchema = {
       </p>
       <table class="data-table">
         <thead>
-          <tr><th>Provider</th><th>Download</th><th>Upload</th><th>Ping</th></tr>
+          <tr><th scope="col">Provider</th><th scope="col">Download</th><th scope="col">Upload</th><th scope="col">Ping</th></tr>
         </thead>
         <tbody>
           <tr><td>PTCL Flash Fiber</td><td>31.7 Mbps</td><td>30.1 Mbps</td><td>27 ms</td></tr>
@@ -135,7 +140,7 @@ const breadcrumbSchema = {
       </p>
       <table class="data-table">
         <thead>
-          <tr><th>Provider</th><th>Ookla Speedtest score</th></tr>
+          <tr><th scope="col">Provider</th><th scope="col">Ookla Speedtest score</th></tr>
         </thead>
         <tbody>
           <tr><td>PTCL Flash Fiber</td><td>56.95</td></tr>

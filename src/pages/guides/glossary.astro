@@ -8,7 +8,7 @@ const faqs = [
   },
   {
     q: 'What is a good ping?',
-    a: 'Under 50 ms is good for most uses; under 30 ms is great for gaming. Above 100 ms, video calls feel delayed and games lag. Ping depends on the server’s location and your connection type, fibre is lowest, mobile data and satellite are higher.',
+    a: 'Under 50 ms is good for most uses; under 30 ms is great for gaming. Above 100 ms, video calls feel delayed and games lag. Ping depends on the server’s location and your connection type: fibre is lowest, mobile data and satellite are higher.',
   },
   {
     q: 'What is jitter?',
@@ -45,7 +45,13 @@ const breadcrumbSchema = {
 >
   <section class="page-head">
     <div class="container">
-      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Glossary</p>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">Glossary</li>
+        </ol>
+      </nav>
       <h1>Internet Speed Glossary</h1>
       <p class="lead">
         Every term your provider, your router and this site use, in plain English,
@@ -103,7 +109,7 @@ const breadcrumbSchema = {
       <p>How much signal your DSL line loses over distance, in dB. Below 30 dB is good; above 50 dB means a long line and limited speed. Together with SNR, it explains most slow DSL lines.</p>
 
       <h3>FastPath / Interleaving</h3>
-      <p>Two DSL line profiles. Interleaving corrects errors but adds latency (bad for gaming); FastPath skips the error correction for lower ping. PTCL DSL users can ask for FastPath on 1218, it only helps if the line is clean.</p>
+      <p>Two DSL line profiles. Interleaving corrects errors but adds latency (bad for gaming); FastPath skips the error correction for lower ping. PTCL DSL users can ask for FastPath on 1218. It only helps if the line is clean.</p>
 
       <h3>FUP (Fair Usage Policy)</h3>
       <p>A data cap on your package. After you use a set amount of data in a month, your speed drops until the next billing cycle. See <a href="/guides/ptcl-fup-data-cap">PTCL data cap (FUP) explained</a>.</p>
