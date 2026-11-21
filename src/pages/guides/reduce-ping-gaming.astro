@@ -4,19 +4,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const faqs = [
   {
     q: 'What is a good ping for gaming in Pakistan?',
-    a: 'Under 30 ms to the game server is excellent, 30–70 ms is acceptable for most games, 70–150 ms causes noticeable lag, and above 150 ms makes fast-paced games nearly unplayable. Your ping to a nearby test server will always be lower than your ping to a game server abroad — distance decides that part.',
+    a: 'Under 30 ms to the game server is excellent, 30–70 ms is acceptable for most games, 70–150 ms causes noticeable lag, and above 150 ms makes fast-paced games nearly unplayable. Your ping to a nearby test server will always be lower than your ping to a game server abroad, distance decides that part.',
   },
   {
     q: 'How do I lower my ping on PTCL?',
-    a: 'Use an Ethernet cable instead of Wi-Fi, pick the nearest game server (Dubai/UAE or Singapore for most games), close background downloads and cloud sync, and switch your DNS to Cloudflare (1.1.1.1) or Google (8.8.8.8). On PTCL DSL, ask PTCL on 1218 to switch your line profile to FastPath instead of Interleaved — interleaving adds latency to protect the line, and FastPath removes it.',
+    a: 'Use an Ethernet cable instead of Wi-Fi, pick the nearest game server (Dubai/UAE or Singapore for most games), close background downloads and cloud sync, and switch your DNS to Cloudflare (1.1.1.1) or Google (8.8.8.8). On PTCL DSL, ask PTCL on 1218 to switch your line profile to FastPath instead of Interleaved, interleaving adds latency to protect the line, and FastPath removes it.',
   },
   {
     q: 'Does changing DNS lower gaming ping?',
-    a: 'Sometimes, a little. DNS affects how fast game server addresses are resolved, not the route your game traffic takes — so it helps connection setup and can shave milliseconds, but it won\'t fix a 150 ms route to a distant server. Cloudflare (1.1.1.1 / 1.0.0.1) and Google (8.8.8.8 / 8.8.4.4) are the usual choices; test both, because the faster one varies by network.',
+    a: 'Sometimes, a little. DNS affects how fast game server addresses are resolved, not the route your game traffic takes, so it helps connection setup and can shave milliseconds, but it won\'t fix a 150 ms route to a distant server. Cloudflare (1.1.1.1 / 1.0.0.1) and Google (8.8.8.8 / 8.8.4.4) are the usual choices; test both, because the faster one varies by network.',
   },
   {
     q: 'Does a VPN lower ping in PUBG Mobile?',
-    a: 'Almost never. Most VPNs add 30–100 ms because your traffic takes a longer route through the VPN server. A VPN can occasionally help if your ISP routes to the game server very badly — but that is the exception, and some games flag VPN use. Fix the connection first: wired, nearest server, no background downloads.',
+    a: 'Almost never. Most VPNs add 30–100 ms because your traffic takes a longer route through the VPN server. A VPN can occasionally help if your ISP routes to the game server very badly, but that is the exception, and some games flag VPN use. Fix the connection first: wired, nearest server, no background downloads.',
   },
   {
     q: 'Which Pakistani ISP has the lowest ping for gaming?',
@@ -46,8 +46,8 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title="How to Reduce Ping for Gaming in Pakistan — PUBG, Valorant, Free Fire"
-  description="High ping ruining PUBG or Valorant? Lower your gaming ping on PTCL, Jazz and Zong: wired connection, nearest servers, DNS, FastPath for PTCL DSL, and what doesn't work."
+  title="Reduce Ping for Gaming: PUBG, Valorant, Free Fire"
+  description="High ping ruining PUBG or Valorant? Lower gaming ping on PTCL, Jazz and Zong: wired connection, nearest servers, DNS, and FastPath for PTCL DSL."
   canonical="/guides/reduce-ping-gaming"
   schema={[faqSchema, breadcrumbSchema]}
 >
@@ -57,7 +57,7 @@ const breadcrumbSchema = {
       <h1>How to Reduce Ping for Gaming in Pakistan</h1>
       <p class="lead">
         High ping is the most frustrating gaming problem because your speed test can look
-        fine while your game lags. Ping is about the route, not the speed — here's what
+        fine while your game lags. Ping is about the route, not the speed, here's what
         actually lowers it, in order of impact.
       </p>
     </div>
@@ -67,7 +67,7 @@ const breadcrumbSchema = {
     <div class="container" style="max-width: 720px;">
       <h2>First: measure your real ping</h2>
       <p>
-        Run a <a href="/speed-test">speed test</a> and note the ping — but remember it
+        Run a <a href="/speed-test">speed test</a> and note the ping, but remember it
         measures ping to a nearby server, not to your game. Your in-game ping to a server
         in Dubai or Singapore will be higher. As a guide:
       </p>
@@ -76,8 +76,8 @@ const breadcrumbSchema = {
           <tr><th>Ping to the game server</th><th>What it feels like</th></tr>
         </thead>
         <tbody>
-          <tr><td>Under 30 ms</td><td>Excellent — no noticeable lag</td></tr>
-          <tr><td>30 – 70 ms</td><td>Good — playable for most games</td></tr>
+          <tr><td>Under 30 ms</td><td>Excellent, no noticeable lag</td></tr>
+          <tr><td>30 – 70 ms</td><td>Good, playable for most games</td></tr>
           <tr><td>70 – 150 ms</td><td>Noticeable lag in fast games</td></tr>
           <tr><td>Over 150 ms</td><td>Fast-paced games nearly unplayable</td></tr>
         </tbody>
@@ -87,7 +87,7 @@ const breadcrumbSchema = {
       <p>
         The single biggest fix for most people. Even good Wi-Fi adds variable latency
         (jitter) that makes ping spike unpredictably. Plug your PC or console directly
-        into the router with an Ethernet cable — not through a switch or powerline
+        into the router with an Ethernet cable, not through a switch or powerline
         adapter if you can avoid it. On a phone, sit close to the router on the 5 GHz
         network.
       </p>
@@ -96,7 +96,7 @@ const breadcrumbSchema = {
       <p>
         Pakistan's routing often sends traffic through exchange points in Europe, adding
         150–250 ms to distant servers. Always choose the geographically nearest server
-        the game offers — for most games that's <strong>Dubai / Middle East</strong> or
+        the game offers, for most games that's <strong>Dubai / Middle East</strong> or
         <strong>Singapore / Asia</strong>, never the US or Europe. In PUBG Mobile, the
         Middle East server is usually the lowest-ping choice from Pakistan.
       </p>
@@ -112,7 +112,7 @@ const breadcrumbSchema = {
       <h2>4. Change your DNS</h2>
       <p>
         DNS resolves game server addresses; a slow ISP DNS adds delay to every new
-        connection. Switch to Cloudflare or Google DNS — test both, because the faster
+        connection. Switch to Cloudflare or Google DNS, test both, because the faster
         one varies by network:
       </p>
       <table class="data-table">
@@ -127,7 +127,7 @@ const breadcrumbSchema = {
       <p>
         <strong>On Windows:</strong> Settings → Network → your connection → DNS settings
         → Manual, then enter the addresses. <strong>On the router:</strong> log in at
-        192.168.10.1 (or 192.168.1.1) and set DNS under the internet or DHCP settings —
+        192.168.10.1 (or 192.168.1.1) and set DNS under the internet or DHCP settings,
         that covers every device in the house. Honest note: DNS helps connection setup
         and can shave milliseconds, but it won't fix a 150 ms route to a far server.
       </p>
@@ -136,10 +136,10 @@ const breadcrumbSchema = {
       <p>
         PTCL DSL lines run in one of two modes. <strong>Interleaved</strong> adds error
         correction that protects the line but increases latency; <strong>FastPath</strong>
-        removes it, cutting ping — at the cost of slightly less protection against line
+        removes it, cutting ping, at the cost of slightly less protection against line
         noise. If your line is stable, FastPath is better for gaming. You can't change
         this yourself: call PTCL on <strong>1218</strong> and ask for your line profile
-        to be switched to FastPath. On fibre (Flash Fiber) this doesn't apply — fibre
+        to be switched to FastPath. On fibre (Flash Fiber) this doesn't apply, fibre
         latency is already low.
       </p>
 
@@ -148,24 +148,24 @@ const breadcrumbSchema = {
         If you play competitively, the connection type matters more than any setting.
         Fibre customers typically see 10–25 ms to local servers, versus 35–80 ms on PTCL
         DSL. If Flash Fiber (or another fibre provider) reaches your street, it's the
-        biggest single upgrade for gaming — see our
+        biggest single upgrade for gaming, see our
         <a href="/compare/ptcl-vs-nayatel">provider comparisons</a> for the numbers.
       </p>
 
       <h2>7. On mobile data (PUBG Mobile, Free Fire)</h2>
       <ul>
-        <li>Play on 4G with full signal — move near a window if you're on one or two bars.</li>
+        <li>Play on 4G with full signal, move near a window if you're on one or two bars.</li>
         <li>Lock the network mode to 4G/LTE so the phone doesn't drop to 3G mid-match.</li>
         <li>Close background apps and pause cloud sync before playing.</li>
         <li>Zong 4G generally delivers the lowest mobile gaming ping in Pakistan; Jazz is close behind in many cities. Test both SIMs where you play.</li>
-        <li>PUBG Mobile has built-in network options (Smart Network Optimization) in Settings → Language &amp; Network — worth turning on.</li>
+        <li>PUBG Mobile has built-in network options (Smart Network Optimization) in Settings → Language &amp; Network, worth turning on.</li>
       </ul>
 
       <h2>What doesn't work</h2>
       <ul>
-        <li><strong>Most VPNs.</strong> They add 30–100 ms by routing your traffic through a distant server. A VPN only helps if your ISP's route to the game server is exceptionally bad — and some games flag VPN use.</li>
+        <li><strong>Most VPNs.</strong> They add 30–100 ms by routing your traffic through a distant server. A VPN only helps if your ISP's route to the game server is exceptionally bad, and some games flag VPN use.</li>
         <li><strong>"Ping reducer" apps.</strong> They can't shorten the physical route to the server.</li>
-        <li><strong>Upgrading your package.</strong> A faster package doesn't lower ping — a 100 Mbps line and a 10 Mbps line can have identical latency. Upgrade for speed; fix ping with the steps above.</li>
+        <li><strong>Upgrading your package.</strong> A faster package doesn't lower ping, a 100 Mbps line and a 10 Mbps line can have identical latency. Upgrade for speed; fix ping with the steps above.</li>
       </ul>
 
       <h2>Frequently asked questions</h2>

@@ -4,23 +4,23 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const faqs = [
   {
     q: 'How do I get Ufone internet settings on my phone?',
-    a: 'The easiest way is by SMS: send your phone’s model number (for example "Samsung Galaxy A55") to 222. Ufone sends the settings to your phone — open the message, enter PIN 1234 if prompted, and tap Install. This fills in the APN and all other fields correctly, which is safer than typing values from a forum.',
+    a: 'The easiest way is by SMS: send your phone’s model number (for example "Samsung Galaxy A55") to 222. Ufone sends the settings to your phone, open the message, enter PIN 1234 if prompted, and tap Install. This fills in the APN and all other fields correctly, which is safer than typing values from a forum.',
   },
   {
     q: 'What is the Ufone APN?',
-    a: 'ufone.pinternet for prepaid and ufone.internet for postpaid — the same values for Android and iPhone, with username and password left blank. Older Ufone documents listed "ufone" as the username and password; current guides say to leave them blank. If blank doesn\'t work, try "ufone" for both.',
+    a: 'ufone.pinternet for prepaid and ufone.internet for postpaid, the same values for Android and iPhone, with username and password left blank. Older Ufone documents listed "ufone" as the username and password; current guides say to leave them blank. If blank doesn\'t work, try "ufone" for both.',
   },
   {
     q: 'How do I check if my Ufone SIM is 4G?',
-    a: 'Dial *706# — if the response shows 4G, your SIM is 4G. You can also dial *4# to check whether your SIM and phone are 4G-compatible. If the SIM is old, swap it for a 4G SIM at a Ufone franchise.',
+    a: 'Dial *706#, if the response shows 4G, your SIM is 4G. You can also dial *4# to check whether your SIM and phone are 4G-compatible. If the SIM is old, swap it for a 4G SIM at a Ufone franchise.',
   },
   {
     q: 'My Ufone internet worked, then stopped after I changed the APN. What do I do?',
-    a: 'Go to Settings, Mobile Network, Access Point Names, and choose Reset to Default — then restart the phone. If that doesn\'t restore it, get the official settings by SMS: send your phone model to 222 and install the message.',
+    a: 'Go to Settings, Mobile Network, Access Point Names, and choose Reset to Default, then restart the phone. If that doesn\'t restore it, get the official settings by SMS: send your phone model to 222 and install the message.',
   },
   {
     q: 'Do I need to set the APN on an iPhone?',
-    a: 'Usually not. iPhones on iOS 15 and later detect Ufone’s APN automatically from the SIM, and newer Android phones do the same. If mobile data works, leave it alone. If it doesn\'t, check Settings, Mobile Data, Mobile Data Network — the APN should read ufone.pinternet (prepaid) or ufone.internet (postpaid).',
+    a: 'Usually not. iPhones on iOS 15 and later detect Ufone’s APN automatically from the SIM, and newer Android phones do the same. If mobile data works, leave it alone. If it doesn\'t, check Settings, Mobile Data, Mobile Data Network, the APN should read ufone.pinternet (prepaid) or ufone.internet (postpaid).',
   },
 ];
 
@@ -46,8 +46,8 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title="Ufone APN Settings & Internet Settings (2026) — SMS, Codes & Manual Setup"
-  description="Get Ufone internet settings by SMS (send your phone model to 222), set the Ufone APN (ufone.pinternet prepaid / ufone.internet postpaid) manually on Android and iPhone."
+  title="Ufone APN Settings 2026: SMS Codes, Manual Setup"
+  description="Get Ufone internet settings by SMS (send your phone model to 222), or set the Ufone APN manually: ufone.pinternet prepaid, ufone.internet postpaid."
   canonical="/guides/ufone-apn-settings"
   schema={[faqSchema, breadcrumbSchema]}
 >
@@ -57,7 +57,7 @@ const breadcrumbSchema = {
       <h1>Ufone APN Settings &amp; Internet Settings</h1>
       <p class="lead">
         The APN (Access Point Name) tells your phone how to reach Ufone’s data network.
-        Wrong APN settings mean slow internet or no internet at all — and the safest fix
+        Wrong APN settings mean slow internet or no internet at all, and the safest fix
         is to let Ufone send the settings to your phone automatically.
       </p>
     </div>
@@ -68,7 +68,7 @@ const breadcrumbSchema = {
       <h2>The easiest way: get settings by SMS</h2>
       <p>
         Ufone sends the correct internet settings to your phone as a message. You don’t
-        need to type anything — the SMS fills in the APN and every other field for you.
+        need to type anything, the SMS fills in the APN and every other field for you.
       </p>
       <ol>
         <li>Put the Ufone SIM in the phone and switch mobile data on.</li>
@@ -98,7 +98,7 @@ const breadcrumbSchema = {
           <tr><td>Username</td><td>Leave blank</td><td>Leave blank</td></tr>
           <tr><td>Password</td><td>Leave blank</td><td>Leave blank</td></tr>
           <tr><td>MCC</td><td>410</td><td>410</td></tr>
-          <tr><td>MNC</td><td colspan="2">Leave whatever your SIM shows (listings conflict between 01 and 03 — the SIM default is correct)</td></tr>
+          <tr><td>MNC</td><td colspan="2">Leave whatever your SIM shows (listings conflict between 01 and 03, the SIM default is correct)</td></tr>
           <tr><td>APN type</td><td>default</td><td>default</td></tr>
           <tr><td>APN protocol</td><td>IPv4</td><td>IPv4</td></tr>
         </tbody>
@@ -106,14 +106,14 @@ const breadcrumbSchema = {
       <p>
         <strong>On username and password, guides disagree.</strong> Current guides say to
         leave them blank; older Ufone documents listed "ufone" for both. If blank doesn’t
-        work, try "ufone" as the username and password — and if neither works, use the
+        work, try "ufone" as the username and password, and if neither works, use the
         SMS route above instead of trying random values from forums.
       </p>
       <p>
         <strong>Android:</strong> Settings → Network &amp; Internet → SIMs (or
         Connections → Mobile networks) → Access Point Names → "+" → enter the values →
         Save → select the new APN.
-        <strong>iPhone:</strong> Settings → Mobile Data → Mobile Data Network — iOS 15
+        <strong>iPhone:</strong> Settings → Mobile Data → Mobile Data Network, iOS 15
         and later usually fill this from the SIM automatically; only enter values
         manually if the fields are empty.
       </p>
@@ -123,7 +123,7 @@ const breadcrumbSchema = {
         Settings alone can’t make a 3G SIM or a 3G phone run 4G. Ufone provides free
         checks: dial <strong>*706#</strong> to see your remaining data and whether the
         SIM is 4G, or dial <strong>*4#</strong> to check 4G compatibility. Ufone’s 4G
-        needs a 4G-capable SIM (the newer nano-SIM format) — if yours is old, swap it at
+        needs a 4G-capable SIM (the newer nano-SIM format), if yours is old, swap it at
         a Ufone franchise.
       </p>
 
@@ -138,10 +138,10 @@ const breadcrumbSchema = {
       <h2>If the internet still doesn’t work</h2>
       <ul>
         <li>Reset APNs to default (Settings → Mobile Network → Access Point Names → Reset to Default), then restart.</li>
-        <li>Check the bundle is active — dial <strong>*706#</strong>. No bundle, no data.</li>
+        <li>Check the bundle is active, dial <strong>*706#</strong>. No bundle, no data.</li>
         <li>Toggle airplane mode for 30 seconds to re-register with the nearest tower.</li>
         <li>Try the SIM in another phone to separate a phone problem from a SIM/network problem.</li>
-        <li>Still stuck? Call Ufone on <strong>333</strong> — or work through our <a href="/guides/ufone-internet-slow">slow Ufone internet guide</a>.</li>
+        <li>Still stuck? Call Ufone on <strong>333</strong>, or work through our <a href="/guides/ufone-internet-slow">slow Ufone internet guide</a>.</li>
       </ul>
 
       <h2>Frequently asked questions</h2>

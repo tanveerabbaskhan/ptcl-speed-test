@@ -4,15 +4,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const faqs = [
   {
     q: 'What percentage of my package speed should I get?',
-    a: 'At least 80% on a wired test at a quiet time. If you pay for 30 Mbps and consistently get under 24 Mbps wired, something is wrong — and you have grounds to complain. Below 50% is a clear fault, not a grey area.',
+    a: 'At least 80% on a wired test at a quiet time. If you pay for 30 Mbps and consistently get under 24 Mbps wired, something is wrong, and you have grounds to complain. Below 50% is a clear fault, not a grey area.',
   },
   {
     q: 'Why is my Wi-Fi speed lower than my wired speed?',
-    a: 'Wi-Fi almost always reads slower than the line itself — distance, walls, interference and the Wi-Fi band all eat speed. That’s why this checker asks for a wired result: it tells you whether the line is the problem or your home setup is. If wired is healthy and Wi-Fi is slow, see our Wi-Fi signal guide.',
+    a: 'Wi-Fi almost always reads slower than the line itself, distance, walls, interference and the Wi-Fi band all eat speed. That’s why this checker asks for a wired result: it tells you whether the line is the problem or your home setup is. If wired is healthy and Wi-Fi is slow, see our Wi-Fi signal guide.',
   },
   {
     q: 'My upload is much slower than my download. Is that normal?',
-    a: 'On DSL, yes — uploads of 1–1.5 Mbps are normal even on a 20 Mbps package. On fibre, no — uploads should be close to downloads, so a 30 Mbps fibre line with a 2 Mbps upload has a problem. On mobile data, uploads of 4–8 Mbps are normal.',
+    a: 'On DSL, yes, uploads of 1–1.5 Mbps are normal even on a 20 Mbps package. On fibre, no, uploads should be close to downloads, so a 30 Mbps fibre line with a 2 Mbps upload has a problem. On mobile data, uploads of 4–8 Mbps are normal.',
   },
 ];
 
@@ -38,7 +38,7 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title="Package Health Checker — Are You Getting the Speed You Pay For?"
+  title="Package Health Checker: Are You Getting Your Speed?"
   description="Check whether your connection delivers what your package promises: enter your package speed and your measured result, and get a verdict against the 80% rule."
   canonical="/tools/package-health"
   schema={[faqSchema, breadcrumbSchema]}
@@ -49,7 +49,7 @@ const breadcrumbSchema = {
       <h1>Package Health Checker</h1>
       <p class="lead">
         A healthy connection delivers at least 80% of its advertised speed on a wired
-        test at a quiet time. Enter your package and your measured result — this checker
+        test at a quiet time. Enter your package and your measured result, this checker
         tells you whether your line is healthy, below par, or faulty. Nothing you type
         leaves your browser.
       </p>
@@ -76,11 +76,11 @@ const breadcrumbSchema = {
           <input id="measured" type="number" min="0" max="1000" step="0.1" placeholder="e.g. 22.5" />
         </div>
         <div class="form-group">
-          <label for="upload">Measured upload speed (Mbps) — optional</label>
+          <label for="upload">Measured upload speed (Mbps), optional</label>
           <input id="upload" type="number" min="0" max="1000" step="0.1" placeholder="e.g. 8.1" />
         </div>
         <div class="form-group">
-          <label for="ping">Measured ping (ms) — optional</label>
+          <label for="ping">Measured ping (ms), optional</label>
           <input id="ping" type="number" min="0" max="2000" placeholder="e.g. 35" />
         </div>
         <button class="btn" type="button" id="check-btn">Check my package →</button>
@@ -91,11 +91,11 @@ const breadcrumbSchema = {
         <div class="results-grid" style="grid-template-columns: repeat(2, 1fr);">
           <div class="result-box download">
             <div class="label">Download vs package</div>
-            <div class="value" id="pct-value">—</div>
+            <div class="value" id="pct-value">–</div>
           </div>
           <div class="result-box">
             <div class="label">Verdict</div>
-            <div class="value" id="verdict-value" style="font-size: 1.2rem;">—</div>
+            <div class="value" id="verdict-value" style="font-size: 1.2rem;">–</div>
           </div>
         </div>
         <div id="advice" style="margin-top: 1.2rem;"></div>
@@ -107,10 +107,10 @@ const breadcrumbSchema = {
 
       <h2 style="margin-top: 2.5rem;">How to measure fairly</h2>
       <ul>
-        <li><strong>Test wired</strong> — plug a laptop into the router with an Ethernet cable. Wi-Fi results don’t count for this check.</li>
-        <li><strong>Test at a quiet time</strong> — early morning is best. Evening congestion can cost 20–30% even on a healthy line.</li>
+        <li><strong>Test wired</strong>: plug a laptop into the router with an Ethernet cable. Wi-Fi results don’t count for this check.</li>
+        <li><strong>Test at a quiet time</strong>: early morning is best. Evening congestion can cost 20–30% even on a healthy line.</li>
         <li><strong>Test three times</strong> and use the middle result. One test can be a fluke; three tell the truth.</li>
-        <li><strong>Close everything else</strong> — pause downloads, cloud backups and streams on every device before testing.</li>
+        <li><strong>Close everything else</strong>: pause downloads, cloud backups and streams on every device before testing.</li>
       </ul>
 
       <h2>Frequently asked questions</h2>
@@ -146,7 +146,7 @@ const breadcrumbSchema = {
         var ping = parseFloat(val('ping'));
 
         if (isNaN(pkg) || pkg <= 0 || isNaN(measured) || measured < 0) {
-          pctValue.textContent = '—';
+          pctValue.textContent = '–';
           verdictValue.textContent = 'Enter both speeds';
           advice.innerHTML = '<p>Enter your package speed and your measured download speed to get a verdict.</p>';
           result.style.display = 'block';
@@ -158,29 +158,29 @@ const breadcrumbSchema = {
         var verdict, verdictAdvice;
         if (pct >= 80) {
           verdict = 'Healthy';
-          verdictAdvice = '<p><strong>Your line is healthy.</strong> You are getting at least 80% of your package speed, which is what a good connection should deliver. If some devices still feel slow, the problem is Wi-Fi or the device — not the line. See our <a href="/guides/improve-wifi-signal">Wi-Fi signal guide</a>.</p>';
+          verdictAdvice = '<p><strong>Your line is healthy.</strong> You are getting at least 80% of your package speed, which is what a good connection should deliver. If some devices still feel slow, the problem is Wi-Fi or the device, not the line. See our <a href="/guides/improve-wifi-signal">Wi-Fi signal guide</a>.</p>';
         } else if (pct >= 50) {
           verdict = 'Below par';
-          verdictAdvice = '<p><strong>Your line is underperforming.</strong> You are getting ' + pct + '% of your package — below the 80% a healthy connection should deliver. Work through our <a href="/guides/troubleshoot-slow-internet">troubleshooter</a> first (router restart, wired test, line check), and if it stays below 80%, complain with your test results.</p>';
+          verdictAdvice = '<p><strong>Your line is underperforming.</strong> You are getting ' + pct + '% of your package, below the 80% a healthy connection should deliver. Work through our <a href="/guides/troubleshoot-slow-internet">troubleshooter</a> first (router restart, wired test, line check), and if it stays below 80%, complain with your test results.</p>';
         } else {
-          verdict = 'Poor — likely a fault';
-          verdictAdvice = '<p><strong>Your line is delivering less than half your package speed.</strong> That is a fault, not a grey area — assuming you tested wired at a quiet time. Work through the <a href="/guides/troubleshoot-slow-internet">troubleshooter</a>, then <a href="/tools/ptcl-complaint">generate a complaint</a> with these numbers.</p>';
+          verdict = 'Poor (likely a fault)';
+          verdictAdvice = '<p><strong>Your line is delivering less than half your package speed.</strong> That is a fault, not a grey area, assuming you tested wired at a quiet time. Work through the <a href="/guides/troubleshoot-slow-internet">troubleshooter</a>, then <a href="/tools/ptcl-complaint">generate a complaint</a> with these numbers.</p>';
         }
         verdictValue.textContent = verdict;
 
         var extra = '';
         if (!isNaN(upload)) {
           if (type === 'fibre' && upload < measured * 0.5) {
-            extra += '<p><strong>Upload looks low for fibre.</strong> On a fibre line, upload should be close to download. A large gap can mean a line or configuration problem — worth mentioning in a complaint.</p>';
+            extra += '<p><strong>Upload looks low for fibre.</strong> On a fibre line, upload should be close to download. A large gap can mean a line or configuration problem, worth mentioning in a complaint.</p>';
           } else if (type === 'dsl' && upload < 2) {
-            extra += '<p><strong>Upload is normal for DSL.</strong> DSL uploads of 1–1.5 Mbps are expected even on a fast package — the copper line is the limit, not a fault.</p>';
+            extra += '<p><strong>Upload is normal for DSL.</strong> DSL uploads of 1–1.5 Mbps are expected even on a fast package, the copper line is the limit, not a fault.</p>';
           }
         }
         if (!isNaN(ping)) {
           if (ping < 50) {
-            extra += '<p><strong>Ping is good</strong> (under 50 ms) — fine for video calls and gaming.</p>';
+            extra += '<p><strong>Ping is good</strong> (under 50 ms), fine for video calls and gaming.</p>';
           } else if (ping <= 100) {
-            extra += '<p><strong>Ping is fair</strong> (50–100 ms) — fine for browsing and calls, noticeable in fast games.</p>';
+            extra += '<p><strong>Ping is fair</strong> (50–100 ms), fine for browsing and calls, noticeable in fast games.</p>';
           } else {
             extra += '<p><strong>Ping is high</strong> (over 100 ms). On DSL, ask your provider about a FastPath line profile; on any connection, test wired and close background apps. See our <a href="/guides/reduce-ping-gaming">ping guide</a>.</p>';
           }

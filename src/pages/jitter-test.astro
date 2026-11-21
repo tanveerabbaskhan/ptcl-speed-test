@@ -5,7 +5,7 @@ import SpeedTest from '../components/SpeedTest.astro';
 const faqs = [
   {
     q: 'What is a good jitter?',
-    a: 'Under 30 ms is good — calls stay smooth and games don’t stutter. Above 50 ms, you’ll notice voice breaking up and rubber-banding in games even when the average ping looks fine.',
+    a: 'Under 30 ms is good, calls stay smooth and games don’t stutter. Above 50 ms, you’ll notice voice breaking up and rubber-banding in games even when the average ping looks fine.',
   },
   {
     q: 'What causes high jitter?',
@@ -13,11 +13,11 @@ const faqs = [
   },
   {
     q: 'How do I reduce jitter?',
-    a: 'Use an Ethernet cable instead of Wi-Fi, close background downloads and streams, move closer to the router (or the router closer to you), and on DSL ask your provider to check the line quality. If jitter is high only at peak hours, it’s congestion — and no setting will fix it.',
+    a: 'Use an Ethernet cable instead of Wi-Fi, close background downloads and streams, move closer to the router (or the router closer to you), and on DSL ask your provider to check the line quality. If jitter is high only at peak hours, it’s congestion, and no setting will fix it.',
   },
   {
     q: 'Is jitter more important than ping?',
-    a: 'For calls and gaming, yes — a steady 60 ms ping plays better than a ping that averages 40 ms but jumps to 200 ms every few seconds. Ping tells you the average delay; jitter tells you how reliable that delay is.',
+    a: 'For calls and gaming, yes, a steady 60 ms ping plays better than a ping that averages 40 ms but jumps to 200 ms every few seconds. Ping tells you the average delay; jitter tells you how reliable that delay is.',
   },
 ];
 
@@ -42,7 +42,7 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title="Jitter Test — Check How Steady Your Ping Is (ms)"
+  title="Jitter Test: Check How Steady Your Ping Is (ms)"
   description="Free jitter test: measure how much your ping varies, see whether it's low enough for smooth calls and gaming, and learn how to reduce it."
   canonical="/jitter-test"
   schema={[faqSchema, breadcrumbSchema]}
@@ -52,7 +52,7 @@ const breadcrumbSchema = {
       <p class="breadcrumbs"><a href="/">Home</a> / Jitter Test</p>
       <h1>Jitter Test</h1>
       <p class="lead">
-        Your ping looks fine — but calls still stutter and games still rubber-band.
+        Your ping looks fine, but calls still stutter and games still rubber-band.
         That’s jitter: how much your ping jumps around. Test it below.
       </p>
     </div>
@@ -60,13 +60,13 @@ const breadcrumbSchema = {
 
   <section class="section">
     <div class="container" style="max-width: 720px;">
-      <SpeedTest />
+      <SpeedTest mode="jitter" />
 
       <h2>What is jitter?</h2>
       <p>
         Jitter is the variation in your ping from moment to moment, measured in
         milliseconds. A steady 40 ms ping is fine; a ping that jumps between 20 and
-        150 ms causes stuttering calls and rubber-banding in games — even though the
+        150 ms causes stuttering calls and rubber-banding in games, even though the
         average looks good. Ping tells you the average delay; jitter tells you how
         reliable that delay is.
       </p>
@@ -77,7 +77,7 @@ const breadcrumbSchema = {
           <tr><th>Jitter</th><th>Verdict</th><th>Feels like</th></tr>
         </thead>
         <tbody>
-          <tr><td>Under 10 ms</td><td>Excellent</td><td>Rock steady — ideal for calls and gaming</td></tr>
+          <tr><td>Under 10 ms</td><td>Excellent</td><td>Rock steady, ideal for calls and gaming</td></tr>
           <tr><td>10–30 ms</td><td>Good</td><td>Smooth calls, no noticeable stutter</td></tr>
           <tr><td>30–50 ms</td><td>Fair</td><td>Occasional voice breakup, minor game stutter</td></tr>
           <tr><td>Over 50 ms</td><td>Poor</td><td>Choppy calls, rubber-banding, frozen video</td></tr>
@@ -86,20 +86,20 @@ const breadcrumbSchema = {
 
       <h2>What causes high jitter?</h2>
       <ul>
-        <li><strong>Wi-Fi.</strong> The biggest cause — interference, distance and competing devices make Wi-Fi ping jump around. Wired is far steadier.</li>
+        <li><strong>Wi-Fi.</strong> The biggest cause, interference, distance and competing devices make Wi-Fi ping jump around. Wired is far steadier.</li>
         <li><strong>Congestion.</strong> A busy network (evenings, crowded towers) makes delays vary. High jitter only at peak hours is congestion.</li>
         <li><strong>Line problems.</strong> On DSL, a noisy line (low SNR) causes variable latency. On fibre, a dirty connector or damaged cable can do the same.</li>
-        <li><strong>Mobile tower switching.</strong> On 4G/5G, the phone switching between towers — or between 4G and 3G — shows up as jitter spikes.</li>
+        <li><strong>Mobile tower switching.</strong> On 4G/5G, the phone switching between towers, or between 4G and 3G, shows up as jitter spikes.</li>
         <li><strong>Background traffic.</strong> A download or cloud backup starting and stopping on another device makes your ping jump.</li>
       </ul>
 
       <h2>How to reduce jitter</h2>
       <ul>
-        <li><strong>Use an Ethernet cable.</strong> The single biggest fix — wired jitter is a fraction of Wi-Fi jitter.</li>
+        <li><strong>Use an Ethernet cable.</strong> The single biggest fix, wired jitter is a fraction of Wi-Fi jitter.</li>
         <li><strong>Close background apps.</strong> Pause downloads, cloud backups and streams on every device.</li>
-        <li><strong>Move closer to the router</strong> — or move the router closer to you. See our <a href="/guides/improve-wifi-signal">Wi-Fi signal guide</a>.</li>
-        <li><strong>On DSL, check the line.</strong> Low SNR or high attenuation means a noisy line — call your provider and quote the figures.</li>
-        <li><strong>On mobile, stay still.</strong> Jitter spikes when the phone switches towers — test from one spot, near a window.</li>
+        <li><strong>Move closer to the router</strong>: or move the router closer to you. See our <a href="/guides/improve-wifi-signal">Wi-Fi signal guide</a>.</li>
+        <li><strong>On DSL, check the line.</strong> Low SNR or high attenuation means a noisy line, call your provider and quote the figures.</li>
+        <li><strong>On mobile, stay still.</strong> Jitter spikes when the phone switches towers, test from one spot, near a window.</li>
       </ul>
 
       <h2>Frequently asked questions</h2>
@@ -114,7 +114,7 @@ const breadcrumbSchema = {
 
       <div class="cta-band">
         <h2>Test the full picture</h2>
-        <p>Jitter is one number — see your download, upload and ping too.</p>
+        <p>Jitter is one number, see your download, upload and ping too.</p>
         <div class="cta-links">
           <a class="btn" href="/speed-test">Full Speed Test →</a>
           <a class="btn btn-secondary" href="/ping-test">Ping Test →</a>

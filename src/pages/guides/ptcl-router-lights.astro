@@ -4,19 +4,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const faqs = [
   {
     q: 'What does a red LOS light mean on my PTCL router?',
-    a: 'LOS means Loss of Signal: the fibre box (ONT) is receiving no light from PTCL\'s equipment. It is a fibre-line fault, not a Wi-Fi problem, and restarting the router will not fix it. Reseat the green fibre connector until it clicks and power-cycle the ONT for 30 seconds; if LOS is still red, call PTCL on 1218 — the fault is in the fibre cable or PTCL\'s equipment.',
+    a: 'LOS means Loss of Signal: the fibre box (ONT) is receiving no light from PTCL\'s equipment. It is a fibre-line fault, not a Wi-Fi problem, and restarting the router will not fix it. Reseat the green fibre connector until it clicks and power-cycle the ONT for 30 seconds; if LOS is still red, call PTCL on 1218, the fault is in the fibre cable or PTCL\'s equipment.',
   },
   {
     q: 'Why is my PTCL DSL light blinking?',
-    a: 'A blinking DSL light means the modem is trying to sync with the PTCL exchange. Give it a few minutes after a restart — if it keeps blinking, check the phone cable and splitter, confirm the landline has a dial tone, and restart the modem. A DSL light that never goes solid usually means a line fault; call PTCL on 1218.',
+    a: 'A blinking DSL light means the modem is trying to sync with the PTCL exchange. Give it a few minutes after a restart, if it keeps blinking, check the phone cable and splitter, confirm the landline has a dial tone, and restart the modem. A DSL light that never goes solid usually means a line fault; call PTCL on 1218.',
   },
   {
     q: 'What do the lights on a PTCL Flash Fiber ONT mean?',
-    a: 'PON solid green means the fibre link is registered and healthy. PON blinking green means it is trying to register. LOS red means no optical signal is arriving. LAN blinking is normal traffic to your router; LAN off means the cable or router port is dead. POWER off means no power at all — check the plug and adapter.',
+    a: 'PON solid green means the fibre link is registered and healthy. PON blinking green means it is trying to register. LOS red means no optical signal is arriving. LAN blinking is normal traffic to your router; LAN off means the cable or router port is dead. POWER off means no power at all, check the plug and adapter.',
   },
   {
     q: 'Is it safe to unplug the fibre cable from the ONT?',
-    a: 'Yes, to reseat it — push the green connector in until it clicks. But never look into the end of a fibre cable or an open ONT port: the light is infrared and invisible, and it can damage your eye before you notice anything. Don\'t bend the thin fibre cable sharply, and don\'t squash it behind furniture.',
+    a: 'Yes, to reseat it, push the green connector in until it clicks. But never look into the end of a fibre cable or an open ONT port: the light is infrared and invisible, and it can damage your eye before you notice anything. Don\'t bend the thin fibre cable sharply, and don\'t squash it behind furniture.',
   },
 ];
 
@@ -42,8 +42,8 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title="PTCL Router Lights Explained — DSL Blinking, LOS Red, PON (2026)"
-  description="What do the lights on your PTCL router mean? DSL blinking, red LOS light, PON, Internet and LAN — what each one says about your line and what to do about it."
+  title="PTCL Router Lights Explained: DSL, LOS Red, PON"
+  description="What do the lights on your PTCL router mean? DSL blinking, red LOS light, PON, Internet and LAN: what each one says about your line and what to do about it."
   canonical="/guides/ptcl-router-lights"
   schema={[faqSchema, breadcrumbSchema]}
 >
@@ -53,7 +53,7 @@ const breadcrumbSchema = {
       <h1>PTCL Router Lights Explained</h1>
       <p class="lead">
         The small lights on your PTCL modem or fibre box name the fault for you. Read
-        them before you call support — and before you restart anything — so you know
+        them before you call support, and before you restart anything, so you know
         whether the problem is your line, your router, or your Wi-Fi.
       </p>
     </div>
@@ -71,9 +71,9 @@ const breadcrumbSchema = {
           <tr><th>Light</th><th>State</th><th>What it means</th><th>What to do</th></tr>
         </thead>
         <tbody>
-          <tr><td><strong>DSL</strong></td><td>Solid green</td><td>Line is synced with the exchange — healthy</td><td>Nothing; the line is fine</td></tr>
+          <tr><td><strong>DSL</strong></td><td>Solid green</td><td>Line is synced with the exchange, healthy</td><td>Nothing; the line is fine</td></tr>
           <tr><td><strong>DSL</strong></td><td>Blinking</td><td>Modem is trying to sync</td><td>Wait a few minutes; if it never goes solid, check cables and restart</td></tr>
-          <tr><td><strong>DSL</strong></td><td>Red or off</td><td>Cannot sync — line fault</td><td>Check the phone cable and splitter, confirm dial tone, call 1218</td></tr>
+          <tr><td><strong>DSL</strong></td><td>Red or off</td><td>Cannot sync, line fault</td><td>Check the phone cable and splitter, confirm dial tone, call 1218</td></tr>
           <tr><td><strong>Internet</strong></td><td>Solid green</td><td>Connected to the internet</td><td>Nothing</td></tr>
           <tr><td><strong>Internet</strong></td><td>Red or blinking</td><td>Line synced but login failed, or no internet</td><td>Restart the modem; if it persists, the login or line needs PTCL</td></tr>
           <tr><td><strong>WiFi / WLAN</strong></td><td>Off</td><td>Wi-Fi is switched off</td><td>Press the Wi-Fi button on the modem or enable it in settings</td></tr>
@@ -84,7 +84,7 @@ const breadcrumbSchema = {
         If the DSL light never goes solid, pick up the landline handset and listen: no
         dial tone, or heavy crackling, confirms a line fault rather than a modem problem.
         Report it to PTCL on <strong>1218</strong> and mention the DSL light and the dial
-        tone — it gets you to a line technician faster.
+        tone, it gets you to a line technician faster.
       </p>
 
       <h2>PTCL Flash Fiber ONT lights</h2>
@@ -98,40 +98,40 @@ const breadcrumbSchema = {
         </thead>
         <tbody>
           <tr><td><strong>POWER</strong></td><td>Off</td><td>No power</td><td>Check the plug and power adapter</td></tr>
-          <tr><td><strong>PON</strong></td><td>Solid green</td><td>Fibre link registered — healthy</td><td>Nothing</td></tr>
-          <tr><td><strong>PON</strong></td><td>Blinking green</td><td>Trying to register on the network</td><td>Wait; if it never settles, it's a provisioning issue — call 1218</td></tr>
-          <tr><td><strong>LOS</strong></td><td>Off</td><td>Optical signal arriving normally</td><td>Nothing — this is the good state</td></tr>
-          <tr><td><strong>LOS</strong></td><td>Red / blinking red</td><td>Loss of Signal — no light reaching the ONT</td><td>Reseat the fibre connector, power-cycle the ONT, then call 1218</td></tr>
+          <tr><td><strong>PON</strong></td><td>Solid green</td><td>Fibre link registered, healthy</td><td>Nothing</td></tr>
+          <tr><td><strong>PON</strong></td><td>Blinking green</td><td>Trying to register on the network</td><td>Wait; if it never settles, it's a provisioning issue, call 1218</td></tr>
+          <tr><td><strong>LOS</strong></td><td>Off</td><td>Optical signal arriving normally</td><td>Nothing, this is the good state</td></tr>
+          <tr><td><strong>LOS</strong></td><td>Red / blinking red</td><td>Loss of Signal, no light reaching the ONT</td><td>Reseat the fibre connector, power-cycle the ONT, then call 1218</td></tr>
           <tr><td><strong>LAN</strong></td><td>Blinking</td><td>Normal traffic to your router</td><td>Nothing</td></tr>
           <tr><td><strong>LAN</strong></td><td>Off</td><td>No connection to the router</td><td>Check the cable between the ONT and the router</td></tr>
         </tbody>
       </table>
       <p>
         The combination that matters: <strong>PON green + LOS off + LAN blinking</strong>
-        is a healthy fibre link — if your internet is still slow, the problem is your
+        is a healthy fibre link, if your internet is still slow, the problem is your
         router or Wi-Fi, not the fibre. <strong>LOS red</strong> is always a fibre
         problem, and no router restart will touch it.
       </p>
 
       <h2>Red LOS light: what to do</h2>
       <p>
-        LOS means Loss of Signal — the ONT is receiving no light down the fibre. In order
+        LOS means Loss of Signal, the ONT is receiving no light down the fibre. In order
         of likelihood: the fibre connector has worked loose, the cable is bent too
         tightly, the connector end is dirty, there's an outage, the fibre outside is cut,
         or the ONT has failed. Two things are safe to try yourself:
       </p>
       <ol>
-        <li><strong>Reseat the fibre connector.</strong> The thin cable (usually with a green SC/APC connector) clips into the back of the ONT — push it in until it clicks. Check the cable isn't bent sharply or squashed behind furniture; fibre is glass and kinks easily.</li>
+        <li><strong>Reseat the fibre connector.</strong> The thin cable (usually with a green SC/APC connector) clips into the back of the ONT, push it in until it clicks. Check the cable isn't bent sharply or squashed behind furniture; fibre is glass and kinks easily.</li>
         <li><strong>Power-cycle the ONT.</strong> Switch it off for 30 seconds, then on, and wait for the lights to settle.</li>
       </ol>
       <p>
-        If LOS is still red after both, stop — everything left is PTCL's cable or
+        If LOS is still red after both, stop, everything left is PTCL's cable or
         equipment. Call <strong>1218</strong>, say "red LOS light", and ask for a
         technician visit.
       </p>
       <p>
         <strong>Safety:</strong> never look into the end of a fibre cable or an open ONT
-        port. The light is infrared, so you can't see it — and it can damage your eye
+        port. The light is infrared, so you can't see it, and it can damage your eye
         before you notice anything.
       </p>
 
@@ -140,7 +140,7 @@ const breadcrumbSchema = {
         Healthy lights with slow internet means the fault is past the modem: Wi-Fi, too
         many devices, congestion, or a slow line that still syncs. Run a
         <a href="/speed-test">speed test</a> over an Ethernet cable, then work through
-        our <a href="/guides/troubleshoot-slow-internet">troubleshooter</a> — and on DSL,
+        our <a href="/guides/troubleshoot-slow-internet">troubleshooter</a>, and on DSL,
         check your line stats (SNR margin and attenuation) in the modem settings.
       </p>
 

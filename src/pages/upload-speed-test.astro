@@ -5,19 +5,19 @@ import SpeedTest from '../components/SpeedTest.astro';
 const faqs = [
   {
     q: 'What is a good upload speed?',
-    a: 'For video calls, 3–4 Mbps up is enough for 1080p group calls. For sending large files or cloud backups, faster is better — a 1 GB file takes about 13 minutes to upload at 10 Mbps, but over two hours at 1 Mbps (typical DSL). On fibre, upload should be close to download; on DSL, 1–1.5 Mbps is normal.',
+    a: 'For video calls, 3–4 Mbps up is enough for 1080p group calls. For sending large files or cloud backups, faster is better, a 1 GB file takes about 13 minutes to upload at 10 Mbps, but over two hours at 1 Mbps (typical DSL). On fibre, upload should be close to download; on DSL, 1–1.5 Mbps is normal.',
   },
   {
     q: 'Why is my upload speed so much slower than my download?',
-    a: 'On DSL, that’s by design — the technology is asymmetric, with uploads capped around 1–1.5 Mbps. On cable, uploads are also much lower than downloads. On fibre, uploads should be near-symmetrical — if your fibre upload is far below your download, something is wrong.',
+    a: 'On DSL, that’s by design, the technology is asymmetric, with uploads capped around 1–1.5 Mbps. On cable, uploads are also much lower than downloads. On fibre, uploads should be near-symmetrical, if your fibre upload is far below your download, something is wrong.',
   },
   {
     q: 'Does upload speed affect streaming?',
-    a: 'Watching streams, no — that’s download. But if you’re on a video call while someone streams, your upload is what carries your voice and video to the other side. Low upload is the usual reason your video freezes on calls even when you can see everyone else fine.',
+    a: 'Watching streams, no, that’s download. But if you’re on a video call while someone streams, your upload is what carries your voice and video to the other side. Low upload is the usual reason your video freezes on calls even when you can see everyone else fine.',
   },
   {
     q: 'How can I improve my upload speed?',
-    a: 'On DSL, you mostly can’t — the copper line caps uploads at 1–1.5 Mbps, and the real fix is fibre. On fibre or mobile, test wired (or with good signal), close cloud backups and other uploads while you test, and if the upload is far below the download on fibre, report it to your provider.',
+    a: 'On DSL, you mostly can’t, the copper line caps uploads at 1–1.5 Mbps, and the real fix is fibre. On fibre or mobile, test wired (or with good signal), close cloud backups and other uploads while you test, and if the upload is far below the download on fibre, report it to your provider.',
   },
 ];
 
@@ -42,7 +42,7 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title="Upload Speed Test — Check Your Upload Speed (Mbps)"
+  title="Upload Speed Test: Check Your Upload Speed (Mbps)"
   description="Free upload speed test: measure how fast you send data, see whether it's enough for video calls and cloud backups, and learn why DSL uploads are so slow."
   canonical="/upload-speed-test"
   schema={[faqSchema, breadcrumbSchema]}
@@ -52,7 +52,7 @@ const breadcrumbSchema = {
       <p class="breadcrumbs"><a href="/">Home</a> / Upload Speed Test</p>
       <h1>Upload Speed Test</h1>
       <p class="lead">
-        Download gets all the attention — but upload is what carries your voice on
+        Download gets all the attention, but upload is what carries your voice on
         video calls, sends your files, and backs up your photos. Test it below, and
         see whether yours is holding you back.
       </p>
@@ -61,13 +61,13 @@ const breadcrumbSchema = {
 
   <section class="section">
     <div class="container" style="max-width: 720px;">
-      <SpeedTest />
+      <SpeedTest mode="upload" />
 
       <h2>What is upload speed?</h2>
       <p>
-        Upload speed is how fast your connection sends data out — to a video call, a
+        Upload speed is how fast your connection sends data out, to a video call, a
         cloud backup, an email attachment, a game server. It’s measured in Mbps, like
-        download, but it’s a separate number — and on most connections in Pakistan,
+        download, but it’s a separate number, and on most connections in Pakistan,
         it’s much lower than the download speed.
       </p>
 
@@ -77,10 +77,10 @@ const breadcrumbSchema = {
           <tr><th>Upload</th><th>What it handles</th></tr>
         </thead>
         <tbody>
-          <tr><td>1–2 Mbps</td><td>Basic video calls (720p), email, messaging — typical DSL</td></tr>
+          <tr><td>1–2 Mbps</td><td>Basic video calls (720p), email, messaging, typical DSL</td></tr>
           <tr><td>3–5 Mbps</td><td>1080p group video calls (Zoom needs 3.8 Mbps up), small file uploads</td></tr>
           <tr><td>10 Mbps</td><td>Comfortable calls, cloud backup, 1 GB upload in ~13 minutes</td></tr>
-          <tr><td>25+ Mbps</td><td>Heavy uploads, 4K video calls, large backups — typical fibre</td></tr>
+          <tr><td>25+ Mbps</td><td>Heavy uploads, 4K video calls, large backups, typical fibre</td></tr>
         </tbody>
       </table>
 
@@ -89,7 +89,7 @@ const breadcrumbSchema = {
         DSL is asymmetric by design: the copper line gives most of its capacity to
         downloads, leaving uploads at around 1–1.5 Mbps even on a 20 Mbps package.
         That’s enough for a basic video call, but it means your video freezes when
-        anyone else in the house uploads anything — and a 1 GB file takes over two
+        anyone else in the house uploads anything, and a 1 GB file takes over two
         hours to send.
       </p>
       <p>
@@ -101,10 +101,10 @@ const breadcrumbSchema = {
 
       <h2>How to test upload fairly</h2>
       <ul>
-        <li><strong>Test wired</strong> — Wi-Fi slows uploads as well as downloads.</li>
-        <li><strong>Pause cloud backups</strong> — Google Photos, iCloud, Dropbox and OneDrive all upload in the background and will eat your upload during the test.</li>
-        <li><strong>Close video calls</strong> — an active call uses your upload continuously.</li>
-        <li><strong>Test twice</strong> — upload results vary more than download results, so take the better of two runs.</li>
+        <li><strong>Test wired</strong>: Wi-Fi slows uploads as well as downloads.</li>
+        <li><strong>Pause cloud backups</strong>: Google Photos, iCloud, Dropbox and OneDrive all upload in the background and will eat your upload during the test.</li>
+        <li><strong>Close video calls</strong>: an active call uses your upload continuously.</li>
+        <li><strong>Test twice</strong>: upload results vary more than download results, so take the better of two runs.</li>
       </ul>
 
       <h2>Frequently asked questions</h2>
@@ -119,7 +119,7 @@ const breadcrumbSchema = {
 
       <div class="cta-band">
         <h2>Upload too slow?</h2>
-        <p>Check whether your package is delivering what it promises — and what to do about it.</p>
+        <p>Check whether your package is delivering what it promises, and what to do about it.</p>
         <div class="cta-links">
           <a class="btn" href="/tools/package-health">Package health checker →</a>
           <a class="btn btn-secondary" href="/compare/dsl-vs-flash-fiber">DSL vs Flash Fiber →</a>

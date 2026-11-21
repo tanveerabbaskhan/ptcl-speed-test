@@ -1,18 +1,30 @@
 ---
 /**
- * SpeedTest — a real, client-side internet speed test.
+ * SpeedTest – a real, client-side internet speed test.
  * Measures ping, jitter, download and upload against the nearest
  * Cloudflare edge server (the same public endpoints Cloudflare's own
  * speed test uses). No account, no data leaves the browser except the
  * test traffic itself. Results history is stored in localStorage only.
+ *
+ * Modes: 'full' runs every phase; 'ping' measures ping and jitter only;
+ * 'jitter' measures ping and jitter with more samples; 'upload' measures
+ * ping briefly, then upload only.
  */
 interface Props {
   compact?: boolean;
+  mode?: 'full' | 'ping' | 'jitter' | 'upload';
 }
-const { compact = false } = Astro.props;
+const { compact = false, mode = 'full' } = Astro.props;
+
+const startLabels: Record<string, string> = {
+  full: 'Start Speed Test',
+  ping: 'Start Ping Test',
+  jitter: 'Start Jitter Test',
+  upload: 'Start Upload Test',
+};
 ---
 
-<div class="speedtest-card" id="speedtest" data-compact={compact}>
+<div class="speedtest-card" id="speedtest" data-compact={compact} data-mode={mode}>
   <div class="gauge-wrap">
     <svg class="gauge-svg" viewBox="0 0 320 190" role="img" aria-label="Speed gauge">
       <defs>
@@ -64,29 +76,29 @@ const { compact = false } = Astro.props;
   <div class="gauge-phase" id="gauge-phase">Ready when you are</div>
 
   <div class="test-controls">
-    <button class="btn btn-lg" id="start-btn" type="button">Start Speed Test</button>
+    <button class="btn btn-lg" id="start-btn" type="button">{startLabels[mode]}</button>
   </div>
   <div class="test-progress" aria-hidden="true">
     <div class="test-progress-bar" id="progress-bar"></div>
   </div>
 
   <div class="results-grid" id="results-grid">
-    <div class="result-box download">
+    <div class="result-box download" id="box-download">
       <div class="label">Download</div>
       <div class="value" id="res-download">–</div>
       <div class="unit">Mbps</div>
     </div>
-    <div class="result-box upload">
+    <div class="result-box upload" id="box-upload">
       <div class="label">Upload</div>
       <div class="value" id="res-upload">–</div>
       <div class="unit">Mbps</div>
     </div>
-    <div class="result-box">
+    <div class="result-box" id="box-ping">
       <div class="label">Ping</div>
       <div class="value" id="res-ping">–</div>
       <div class="unit">ms</div>
     </div>
-    <div class="result-box">
+    <div class="result-box" id="box-jitter">
       <div class="label">Jitter</div>
       <div class="value" id="res-jitter">–</div>
       <div class="unit">ms</div>
@@ -127,6 +139,8 @@ const { compact = false } = Astro.props;
   const MAX_GAUGE_MBPS = 1000;
 
   const $ = (id) => document.getElementById(id);
+  const mode = ($('speedtest').dataset.mode || 'full');
+  const startLabel = { full: 'Start Speed Test', ping: 'Start Ping Test', jitter: 'Start Jitter Test', upload: 'Start Upload Test' }[mode] || 'Start Speed Test';
   const gaugeArc = $('gauge-arc');
   const gaugeNeedle = $('gauge-needle');
   const gaugeNumber = $('gauge-number');
@@ -140,6 +154,17 @@ const { compact = false } = Astro.props;
   const serverMeta = $('server-meta');
   const historyEl = $('history');
   const historyBody = $('history-body');
+  const resultsGrid = $('results-grid');
+
+  // Hide result boxes this mode never measures, and size the grid to fit.
+  if (mode === 'ping' || mode === 'jitter') {
+    $('box-download').style.display = 'none';
+    $('box-upload').style.display = 'none';
+    resultsGrid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+  } else if (mode === 'upload') {
+    $('box-download').style.display = 'none';
+    resultsGrid.style.gridTemplateColumns = 'repeat(3, 1fr)';
+  }
 
   let running = false;
   let stopFlag = false;
@@ -184,9 +209,39 @@ const { compact = false } = Astro.props;
     if (down < 50)
       return '<strong>Excellent.</strong> 4K streaming, fast downloads and gaming all work comfortably, even with several people online.';
     if (down < 100)
-      return '<strong>Excellent — plenty of headroom.</strong> 4K on multiple screens, big game downloads and video calls at the same time.';
+      return '<strong>Excellent, with plenty of headroom.</strong> 4K on multiple screens, big game downloads and video calls at the same time.';
     const pingNote = ping <= 30 ? ' Low ping too, so online gaming should feel responsive.' : '';
-    return `<strong>Outstanding.</strong> A very fast connection — good for anything a home or small office can throw at it.${pingNote}`;
+    return `<strong>Outstanding.</strong> A very fast connection, good for anything a home or small office can throw at it.${pingNote}`;
+  }
+
+  function pingVerdict(ping) {
+    if (ping < 30)
+      return '<strong>Excellent ping.</strong> Under 30 ms is ideal for competitive gaming and video calls. Your connection responds almost instantly.';
+    if (ping < 50)
+      return '<strong>Good ping.</strong> Fine for gaming and video calls. If you play competitively, a wired connection and the nearest server (Dubai or Singapore) can shave a few ms off.';
+    if (ping < 100)
+      return '<strong>Fair ping.</strong> Browsing and calls are fine, but you will notice lag in fast games. Try a wired connection and the nearest game server. See our <a href="/guides/reduce-ping-gaming">guide to reducing ping</a>.';
+    return '<strong>High ping.</strong> Over 100 ms means delayed calls and laggy games. Test wired, close background downloads, and check whether your connection is routed to a faraway server. See our <a href="/guides/reduce-ping-gaming">guide to reducing ping</a>.';
+  }
+
+  function jitterVerdict(jitter, ping) {
+    if (jitter < 10)
+      return '<strong>Rock-steady connection.</strong> Jitter under 10 ms means calls stay smooth and games never stutter.';
+    if (jitter < 30)
+      return '<strong>Good jitter.</strong> Your ping is steady enough for smooth calls and gaming.';
+    if (jitter < 50)
+      return '<strong>Noticeable jitter.</strong> You may hear voice breaking up on calls and feel the odd stutter in games. A wired connection usually steadies it, so test over Ethernet if you tested on Wi-Fi.';
+    return '<strong>High jitter.</strong> Your ping jumps around too much for smooth calls and gaming, even if the average ping looks fine. Test wired, close background downloads, and if it stays high, ask your provider to check the line.';
+  }
+
+  function uploadVerdict(up, ping) {
+    if (up < 2)
+      return '<strong>Typical DSL upload.</strong> Uploads of 1–1.5 Mbps are normal on a copper DSL line, and they are the reason video freezes on calls. The real fix is fibre, where uploads run close to downloads.';
+    if (up < 10)
+      return '<strong>Good enough for calls.</strong> Video calls and sending files work fine, but cloud backups and large uploads will crawl.';
+    if (up < 25)
+      return '<strong>Solid upload.</strong> Group video calls, cloud backups and large file uploads all work comfortably.';
+    return '<strong>Excellent upload.</strong> Fast enough for livestreaming, big backups and heavy uploads without slowing anything else down.';
   }
 
   function loadHistory() {
@@ -204,11 +259,12 @@ const { compact = false } = Astro.props;
       return;
     }
     historyEl.hidden = false;
+    const cell = (v, unit) => (v === undefined || v === '–' ? '–' : `${v} ${unit}`);
     historyBody.innerHTML = items
       .slice(0, 5)
       .map(
         (h) =>
-          `<tr><td>${h.date}</td><td>${h.down} Mbps</td><td>${h.up} Mbps</td><td>${h.ping} ms</td><td>${h.jitter} ms</td></tr>`
+          `<tr><td>${h.date}</td><td>${cell(h.down, 'Mbps')}</td><td>${cell(h.up, 'Mbps')}</td><td>${cell(h.ping, 'ms')}</td><td>${cell(h.jitter, 'ms')}</td></tr>`
       )
       .join('');
   }
@@ -222,7 +278,7 @@ const { compact = false } = Astro.props;
     try {
       localStorage.setItem(HISTORY_KEY, JSON.stringify(items.slice(0, 10)));
     } catch {
-      /* storage unavailable — ignore */
+      /* storage unavailable – ignore */
     }
     renderHistory();
   }
@@ -239,16 +295,17 @@ const { compact = false } = Astro.props;
     }
   }
 
-  async function measurePing(samples = 8) {
+  async function measurePing(samples = 8, p0 = 2, p1 = 10) {
     const times = [];
     for (let i = 0; i < samples; i++) {
       if (stopFlag) break;
       const t0 = performance.now();
       await fetch(`${DOWN_URL}?bytes=0&r=${Math.random()}`, { cache: 'no-store' });
       times.push(performance.now() - t0);
-      setProgress(2 + (i / samples) * 8);
+      setProgress(p0 + (i / samples) * (p1 - p0));
       await new Promise((r) => setTimeout(r, 60));
     }
+    if (!times.length) throw new Error('No ping samples collected');
     const ping = Math.min(...times);
     let jitter = 0;
     if (times.length > 1) {
@@ -259,7 +316,7 @@ const { compact = false } = Astro.props;
     return { ping, jitter };
   }
 
-  async function measureDownload(durationMs = 9000, streams = 4) {
+  async function measureDownload(durationMs = 9000, streams = 4, p0 = 10, p1 = 60) {
     let bytes = 0;
     let active = true;
     const worker = async () => {
@@ -294,7 +351,7 @@ const { compact = false } = Astro.props;
         gaugeNumber.textContent = mbps.toFixed(1);
         setGauge(mbps);
       }
-      setProgress(10 + ((performance.now() - t0) / (durationMs - 1000)) * 50);
+      setProgress(p0 + ((performance.now() - t0) / (durationMs - 1000)) * (p1 - p0));
     }, 200);
 
     await new Promise((r) => setTimeout(r, durationMs - 1000));
@@ -306,9 +363,13 @@ const { compact = false } = Astro.props;
     return ((b1 - b0) * 8) / (((t1 - t0) / 1000) * 1e6);
   }
 
-  async function measureUpload(durationMs = 7000, streams = 3) {
+  async function measureUpload(durationMs = 7000, streams = 3, p0 = 60, p1 = 95) {
     const payload = new Uint8Array(256 * 1024);
-    crypto.getRandomValues(payload);
+    // getRandomValues throws if asked for more than 65536 bytes at once,
+    // so fill the payload in 64 KiB chunks.
+    for (let i = 0; i < payload.length; i += 65536) {
+      crypto.getRandomValues(payload.subarray(i, i + 65536));
+    }
     let bytes = 0;
     let active = true;
     const worker = async () => {
@@ -333,7 +394,7 @@ const { compact = false } = Astro.props;
         gaugeNumber.textContent = mbps.toFixed(1);
         setGauge(mbps);
       }
-      setProgress(60 + ((performance.now() - t0) / (durationMs - 1000)) * 35);
+      setProgress(p0 + ((performance.now() - t0) / (durationMs - 1000)) * (p1 - p0));
     }, 200);
 
     await new Promise((r) => setTimeout(r, durationMs - 1000));
@@ -358,66 +419,127 @@ const { compact = false } = Astro.props;
     for (const id of ['res-download', 'res-upload', 'res-ping', 'res-jitter']) $(id).textContent = '–';
 
     try {
-      setPhase('Measuring ping');
-      setProgress(2);
-      const { ping, jitter } = await measurePing();
-      $('res-ping').textContent = ping.toFixed(0);
-      $('res-jitter').textContent = jitter.toFixed(0);
-      gaugeNumber.textContent = ping.toFixed(0);
-      gaugeUnit.textContent = 'ms ping';
-      setGauge(0);
-      setProgress(10);
+      let result = { down: '–', up: '–', ping: '–', jitter: '–' };
+      let verdictHtml = '';
 
-      setPhase('Measuring download');
-      gaugeUnit.textContent = 'Mbps';
-      const down = await measureDownload();
-      $('res-download').textContent = down.toFixed(1);
-      gaugeNumber.textContent = down.toFixed(1);
-      setGauge(down);
-      setProgress(60);
+      if (mode === 'ping' || mode === 'jitter') {
+        // Ping and jitter only: a few seconds, no download or upload phase.
+        setPhase(mode === 'jitter' ? 'Measuring jitter' : 'Measuring ping');
+        setProgress(2);
+        const samples = mode === 'jitter' ? 20 : 8;
+        const { ping, jitter } = await measurePing(samples, 5, 95);
+        $('res-ping').textContent = ping.toFixed(0);
+        $('res-jitter').textContent = jitter.toFixed(0);
+        if (mode === 'jitter') {
+          gaugeNumber.textContent = jitter.toFixed(0);
+          gaugeUnit.textContent = 'ms jitter';
+        } else {
+          gaugeNumber.textContent = ping.toFixed(0);
+          gaugeUnit.textContent = 'ms ping';
+        }
+        setGauge(0);
+        result = { down: '–', up: '–', ping: ping.toFixed(0), jitter: jitter.toFixed(0) };
+        verdictHtml = mode === 'jitter' ? jitterVerdict(jitter, ping) : pingVerdict(ping);
+      } else if (mode === 'upload') {
+        // Quick ping for context, then upload only.
+        setPhase('Measuring ping');
+        setProgress(2);
+        const { ping, jitter } = await measurePing(4, 2, 8);
+        $('res-ping').textContent = ping.toFixed(0);
+        $('res-jitter').textContent = jitter.toFixed(0);
+        setPhase('Measuring upload');
+        gaugeUnit.textContent = 'Mbps';
+        const up = await measureUpload(7000, 3, 10, 96);
+        $('res-upload').textContent = up.toFixed(1);
+        gaugeNumber.textContent = up.toFixed(1);
+        setGauge(up);
+        result = { down: '–', up: up.toFixed(1), ping: ping.toFixed(0), jitter: jitter.toFixed(0) };
+        verdictHtml = uploadVerdict(up, ping);
+      } else {
+        setPhase('Measuring ping');
+        setProgress(2);
+        const { ping, jitter } = await measurePing(8, 2, 10);
+        $('res-ping').textContent = ping.toFixed(0);
+        $('res-jitter').textContent = jitter.toFixed(0);
+        gaugeNumber.textContent = ping.toFixed(0);
+        gaugeUnit.textContent = 'ms ping';
+        setGauge(0);
+        setProgress(10);
 
-      setPhase('Measuring upload');
-      const up = await measureUpload();
-      $('res-upload').textContent = up.toFixed(1);
-      gaugeNumber.textContent = up.toFixed(1);
-      setGauge(up);
-      setProgress(96);
+        setPhase('Measuring download');
+        gaugeUnit.textContent = 'Mbps';
+        const down = await measureDownload(9000, 4, 10, 60);
+        $('res-download').textContent = down.toFixed(1);
+        gaugeNumber.textContent = down.toFixed(1);
+        setGauge(down);
+        setProgress(60);
+
+        // Upload is the phase most likely to be blocked (VPN, firewall, proxy),
+        // so a failure here must not throw away the ping and download results.
+        let up = null;
+        try {
+          setPhase('Measuring upload');
+          up = await measureUpload(7000, 3, 60, 96);
+          $('res-upload').textContent = up.toFixed(1);
+          gaugeNumber.textContent = up.toFixed(1);
+          setGauge(up);
+        } catch (uploadErr) {
+          console.warn('Upload measurement failed', uploadErr);
+          setPhase('Upload unavailable');
+        }
+        setProgress(96);
+
+        result = {
+          down: down.toFixed(1),
+          up: up === null ? '–' : up.toFixed(1),
+          ping: ping.toFixed(0),
+          jitter: jitter.toFixed(0),
+        };
+        verdictHtml = verdictFor(down, ping);
+        if (up === null) {
+          verdictHtml +=
+            '<p>Upload could not be measured this time, so it is not included above. Your download, ping and jitter results are still valid. Try again in a moment.</p>';
+        }
+      }
 
       setPhase('Complete');
       setProgress(100);
-      const result = {
-        down: down.toFixed(1),
-        up: up.toFixed(1),
-        ping: ping.toFixed(0),
-        jitter: jitter.toFixed(0),
-      };
-      verdictEl.innerHTML = verdictFor(down, ping);
+      verdictEl.innerHTML = verdictHtml;
       verdictEl.hidden = false;
       resultActions.hidden = false;
       saveResult(result);
     } catch (err) {
       console.error(err);
       showError(
-        'The test could not reach the test server. Check your internet connection and try again — if you use a VPN, ad-blocker or firewall, it may be blocking the test.'
+        'The test could not reach the test server. Check your internet connection and try again. If you use a VPN, ad-blocker or firewall, it may be blocking the test.'
       );
       setPhase('Test failed');
     } finally {
       running = false;
       startBtn.disabled = false;
-      startBtn.textContent = 'Start Speed Test';
+      startBtn.textContent = startLabel;
     }
   }
 
   startBtn.addEventListener('click', runTest);
   $('retest-btn')?.addEventListener('click', runTest);
   $('copy-btn')?.addEventListener('click', async () => {
-    const text = `My internet speed: ${$('res-download').textContent} Mbps down / ${$('res-upload').textContent} Mbps up, ping ${$('res-ping').textContent} ms, jitter ${$('res-jitter').textContent} ms — tested at PTCL Speed Test`;
+    const parts = [];
+    const down = $('res-download').textContent;
+    const up = $('res-upload').textContent;
+    const ping = $('res-ping').textContent;
+    const jitter = $('res-jitter').textContent;
+    if (down !== '–') parts.push(`${down} Mbps down`);
+    if (up !== '–') parts.push(`${up} Mbps up`);
+    if (ping !== '–') parts.push(`ping ${ping} ms`);
+    if (jitter !== '–') parts.push(`jitter ${jitter} ms`);
+    const text = `My internet speed: ${parts.join(', ')}, tested at PTCL Speed Test`;
     try {
       await navigator.clipboard.writeText(text);
       $('copy-btn').textContent = 'Copied!';
       setTimeout(() => { $('copy-btn').textContent = 'Copy result'; }, 2000);
     } catch {
-      showError('Could not copy automatically — select the numbers above to copy them manually.');
+      showError('Could not copy automatically. Select the numbers above to copy them manually.');
     }
   });
   $('clear-history-btn')?.addEventListener('click', () => {

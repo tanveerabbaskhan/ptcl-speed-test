@@ -4,11 +4,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const faqs = [
   {
     q: 'Is Mbps the same as MBps?',
-    a: 'No — and the difference is the most common source of confusion about internet speed. Mbps means megabits per second (how ISPs advertise speed); MBps means megabytes per second (how browsers and apps show download speed). 1 byte = 8 bits, so 100 Mbps = 12.5 MB/s. Your 50 Mbps connection downloading at 6 MB/s is working correctly.',
+    a: 'No, and the difference is the most common source of confusion about internet speed. Mbps means megabits per second (how ISPs advertise speed); MBps means megabytes per second (how browsers and apps show download speed). 1 byte = 8 bits, so 100 Mbps = 12.5 MB/s. Your 50 Mbps connection downloading at 6 MB/s is working correctly.',
   },
   {
     q: 'Why does my 100 Mbps internet only download at 12 MB/s?',
-    a: 'Because 100 megabits per second divided by 8 bits per byte equals 12.5 megabytes per second — and a little is lost to overhead. 12 MB/s on a 100 Mbps line is exactly right. If you expected 100 MB/s, you were comparing megabits with megabytes.',
+    a: 'Because 100 megabits per second divided by 8 bits per byte equals 12.5 megabytes per second, and a little is lost to overhead. 12 MB/s on a 100 Mbps line is exactly right. If you expected 100 MB/s, you were comparing megabits with megabytes.',
   },
   {
     q: 'How long does it take to download 1 GB?',
@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     q: 'What is Gbps?',
-    a: 'Gigabits per second — 1,000 Mbps. A 1 Gbps fibre connection downloads at up to about 125 MB/s. Most home connections in Pakistan are measured in Mbps, not Gbps.',
+    a: 'Gigabits per second, 1,000 Mbps. A 1 Gbps fibre connection downloads at up to about 125 MB/s. Most home connections in Pakistan are measured in Mbps, not Gbps.',
   },
 ];
 
@@ -42,8 +42,8 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title="Mbps vs MBps Explained — Why Your 100 Mbps Downloads at 12 MB/s"
-  description="Mbps vs MBps: the difference between megabits and megabytes, why your download speed looks 8× slower than your package, and how long a 1 GB download really takes."
+  title="Mbps vs MBps: Why 100 Mbps Downloads at 12 MB/s"
+  description="Mbps vs MBps: megabits vs megabytes, why downloads look 8× slower than your package, and how long a 1 GB download really takes."
   canonical="/guides/mbps-vs-mbps"
   schema={[faqSchema, breadcrumbSchema]}
 >
@@ -52,7 +52,7 @@ const breadcrumbSchema = {
       <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Mbps vs MBps</p>
       <h1>Mbps vs MBps Explained</h1>
       <p class="lead">
-        "I pay for 100 Mbps but my downloads only reach 12 MB/s — am I being cheated?"
+        "I pay for 100 Mbps but my downloads only reach 12 MB/s, am I being cheated?"
         No. You’re comparing two different units. One small letter makes an 8×
         difference.
       </p>
@@ -64,7 +64,7 @@ const breadcrumbSchema = {
       <h2>The one rule: 1 byte = 8 bits</h2>
       <p>
         Internet speed is measured in <strong>bits</strong> per second. File sizes are
-        measured in <strong>bytes</strong>. One byte is 8 bits — so to convert, divide
+        measured in <strong>bytes</strong>. One byte is 8 bits, so to convert, divide
         by 8.
       </p>
       <table class="data-table">
@@ -95,7 +95,7 @@ const breadcrumbSchema = {
         </tbody>
       </table>
       <p class="small muted">
-        Times assume the full package speed with no overhead — real downloads are a
+        Times assume the full package speed with no overhead, real downloads are a
         little slower. 1 GB = 8,000 megabits.
       </p>
 
@@ -104,15 +104,15 @@ const breadcrumbSchema = {
         Check it properly: run a <a href="/speed-test">speed test</a> (which reports in
         Mbps, the same unit as your package) over an Ethernet cable. A healthy
         connection delivers at least 80% of the advertised speed. If you pay for 50
-        Mbps and the test shows 45 Mbps, your connection is fine — even though your
+        Mbps and the test shows 45 Mbps, your connection is fine, even though your
         browser downloads at 5–6 MB/s. If the test shows 15 Mbps, that’s a real problem.
       </p>
 
       <h2>Other units you’ll see</h2>
       <ul>
-        <li><strong>MB vs MiB:</strong> a megabyte is sometimes 1,000,000 bytes (decimal, used by storage makers) and sometimes 1,048,576 bytes (binary, used by Windows). That’s why a "1 TB" drive shows as 931 GB — a different quirk, same family.</li>
+        <li><strong>MB vs MiB:</strong> a megabyte is sometimes 1,000,000 bytes (decimal, used by storage makers) and sometimes 1,048,576 bytes (binary, used by Windows). That’s why a "1 TB" drive shows as 931 GB, a different quirk, same family.</li>
         <li><strong>Ping (ms):</strong> milliseconds of delay, not a speed at all. Under 50 ms is good; under 30 ms is great for gaming.</li>
-        <li><strong>GB (data allowance):</strong> your monthly data cap, if your package has one — measured in gigabytes, not speed. See our guide on <a href="/guides/ptcl-fup-data-cap">PTCL data caps (FUP)</a>.</li>
+        <li><strong>GB (data allowance):</strong> your monthly data cap, if your package has one, measured in gigabytes, not speed. See our guide on <a href="/guides/ptcl-fup-data-cap">PTCL data caps (FUP)</a>.</li>
       </ul>
 
       <h2>Frequently asked questions</h2>
@@ -127,7 +127,7 @@ const breadcrumbSchema = {
 
       <div class="cta-band">
         <h2>Test your speed in Mbps</h2>
-        <p>Compare the result with your package — same unit, no confusion.</p>
+        <p>Compare the result with your package, same unit, no confusion.</p>
         <div class="cta-links">
           <a class="btn" href="/speed-test">Test My Speed →</a>
           <a class="btn btn-secondary" href="/guides/understanding-your-results">Understanding your results →</a>

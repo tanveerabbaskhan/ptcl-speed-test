@@ -12,11 +12,11 @@ const faqs = [
   },
   {
     q: 'What does "request timed out" mean in ping?',
-    a: 'It means a packet never came back — packet loss. A few timeouts in a long test can be normal, but regular timeouts mean an unstable connection: a damaged line, a congested link, or a failing router. Note how often they happen and report it to your provider with the numbers.',
+    a: 'It means a packet never came back, packet loss. A few timeouts in a long test can be normal, but regular timeouts mean an unstable connection: a damaged line, a congested link, or a failing router. Note how often they happen and report it to your provider with the numbers.',
   },
   {
     q: 'Is the CMD speed test more accurate than a browser test?',
-    a: 'For ping and packet loss, yes — the terminal has no browser overhead and shows every packet. For download/upload speed, the Ookla CLI and a good browser test measure the same thing; the CLI is mainly useful for scripting, remote help, and testing on machines without a browser.',
+    a: 'For ping and packet loss, yes, the terminal has no browser overhead and shows every packet. For download/upload speed, the Ookla CLI and a good browser test measure the same thing; the CLI is mainly useful for scripting, remote help, and testing on machines without a browser.',
   },
 ];
 
@@ -42,8 +42,8 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title="How to Test Internet Speed Using CMD (Windows Command Prompt)"
-  description="Check ping, packet loss and speed from Windows Command Prompt: ping, tracert and the Ookla Speedtest CLI — no browser needed, with what each number means."
+  title="How to Test Internet Speed Using CMD on Windows"
+  description="Check ping, packet loss and speed from Windows Command Prompt: ping, tracert and the Ookla Speedtest CLI, no browser needed, with what each number means."
   canonical="/guides/test-speed-using-cmd"
   schema={[faqSchema, breadcrumbSchema]}
 >
@@ -53,7 +53,7 @@ const breadcrumbSchema = {
       <h1>How to Test Internet Speed Using CMD</h1>
       <p class="lead">
         You don't always need a browser to check your connection. Windows Command Prompt
-        can measure ping, packet loss and the route your traffic takes — and with one
+        can measure ping, packet loss and the route your traffic takes, and with one
         free tool, full download and upload speed too.
       </p>
     </div>
@@ -64,7 +64,7 @@ const breadcrumbSchema = {
       <h2>First: open Command Prompt</h2>
       <p>
         Press the <strong>Windows key</strong>, type <code>cmd</code>, and press Enter.
-        A black window opens — that's Command Prompt. Type the commands below and press
+        A black window opens, that's Command Prompt. Type the commands below and press
         Enter after each one.
       </p>
 
@@ -77,13 +77,13 @@ const breadcrumbSchema = {
         maximum and average ping, and how many packets were lost.
       </p>
       <ul>
-        <li><strong>Average under 50 ms</strong> — good for browsing, calls and gaming.</li>
-        <li><strong>Average 50–100 ms</strong> — usable, but games will feel laggy.</li>
-        <li><strong>Wildly varying times</strong> (20 ms, then 300 ms, then 40 ms) — high jitter, which freezes video calls even when speed looks fine.</li>
-        <li><strong>"Request timed out"</strong> — packet loss. Occasional timeouts happen; regular ones mean an unstable line.</li>
+        <li><strong>Average under 50 ms</strong>: good for browsing, calls and gaming.</li>
+        <li><strong>Average 50–100 ms</strong>: usable, but games will feel laggy.</li>
+        <li><strong>Wildly varying times</strong> (20 ms, then 300 ms, then 40 ms), high jitter, which freezes video calls even when speed looks fine.</li>
+        <li><strong>"Request timed out"</strong>: packet loss. Occasional timeouts happen; regular ones mean an unstable line.</li>
       </ul>
       <p>
-        Try pinging your own router too — <code>ping 192.168.1.1 -t</code> (or
+        Try pinging your own router too, <code>ping 192.168.1.1 -t</code> (or
         <code>192.168.10.1</code> on newer PTCL modems). If ping to the router is slow or
         lossy, the problem is inside your home (Wi-Fi or the router itself). If ping to
         the router is clean but ping to Google is bad, the problem is your line or beyond.
@@ -94,7 +94,7 @@ const breadcrumbSchema = {
       <p>
         This lists every hop your traffic takes to reach Google, with the ping at each
         one. The first hop is your router (should be 1–5 ms on a cable). A sudden jump
-        at one hop — say from 10 ms to 150 ms — shows where the delay starts. If the jump
+        at one hop, say from 10 ms to 150 ms, shows where the delay starts. If the jump
         is at hop 1 or 2, it's your home network or your provider's local equipment; if
         it's several hops in, it's further up the network, and there's little you can do
         except report it.
@@ -110,7 +110,7 @@ speedtest</code></pre>
       <p>
         The first run asks you to accept the licence; after that, <code>speedtest</code>
         prints your download speed, upload speed, ping and jitter, and the server it
-        tested against — no browser needed. It's the same measurement engine as
+        tested against, no browser needed. It's the same measurement engine as
         speedtest.net, so results are comparable with a browser test.
       </p>
       <p>
@@ -123,7 +123,7 @@ speedtest</code></pre>
       <p>
         This shows the Wi-Fi network you're connected to, the band (2.4 GHz or 5 GHz),
         the channel, and the signal strength as a percentage. Below about 50% signal,
-        Wi-Fi becomes the bottleneck no matter how fast your line is — move closer to the
+        Wi-Fi becomes the bottleneck no matter how fast your line is, move closer to the
         router or switch to a cable and test again.
       </p>
 
@@ -135,17 +135,17 @@ speedtest</code></pre>
         <tbody>
           <tr><td>Ping to google.com</td><td>Under 50 ms</td><td>Over 100 ms</td></tr>
           <tr><td>Ping to your router</td><td>1–5 ms wired, under 20 ms on Wi-Fi</td><td>Over 50 ms, or timeouts</td></tr>
-          <tr><td>Packet loss</td><td>0%</td><td>Over 2% — calls and games suffer</td></tr>
-          <tr><td>Jitter (ping variation)</td><td>Under 30 ms</td><td>Over 50 ms — stuttering calls</td></tr>
+          <tr><td>Packet loss</td><td>0%</td><td>Over 2%, calls and games suffer</td></tr>
+          <tr><td>Jitter (ping variation)</td><td>Under 30 ms</td><td>Over 50 ms, stuttering calls</td></tr>
         </tbody>
       </table>
 
       <h2>When CMD is better than a browser test</h2>
       <ul>
-        <li><strong>Diagnosing with support.</strong> Ping and tracert output is exactly what a technician asks for — copy it into your complaint.</li>
+        <li><strong>Diagnosing with support.</strong> Ping and tracert output is exactly what a technician asks for, copy it into your complaint.</li>
         <li><strong>Watching stability over time.</strong> A continuous ping shows drops and spikes a 30-second browser test can miss.</li>
         <li><strong>Testing without a browser.</strong> Useful on servers, remote machines, or a PC with browser problems.</li>
-        <li><strong>Separating Wi-Fi from the line.</strong> Ping the router vs ping Google — the comparison locates the fault.</li>
+        <li><strong>Separating Wi-Fi from the line.</strong> Ping the router vs ping Google, the comparison locates the fault.</li>
       </ul>
 
       <h2>Frequently asked questions</h2>

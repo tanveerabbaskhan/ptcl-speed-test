@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const faqs = [
   {
     q: 'How do I complain about slow PTCL internet?',
-    a: 'Call PTCL on 1218 with your account number and your measured speeds. The most effective complaints quote numbers: your package speed, your measured download and upload, the date and time of the tests, and whether you tested over Ethernet. This generator writes that complaint for you — copy it, paste it into an email or read it on the call.',
+    a: 'Call PTCL on 1218 with your account number and your measured speeds. The most effective complaints quote numbers: your package speed, your measured download and upload, the date and time of the tests, and whether you tested over Ethernet. This generator writes that complaint for you, copy it, paste it into an email or read it on the call.',
   },
   {
     q: 'What evidence do I need for a slow internet complaint?',
@@ -38,8 +38,8 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title="Internet Complaint Draft Generator — PTCL, Nayatel, StormFiber & More"
-  description="Generate a ready-to-send complaint about slow internet: enter your package, your measured speed and the problem, and get a complaint letter with the evidence your provider needs."
+  title="Internet Complaint Letter Generator: PTCL and More"
+  description="Generate a ready-to-send complaint about slow internet: enter your package, measured speed and problem, and get a letter with the evidence your provider needs."
   canonical="/tools/ptcl-complaint"
   schema={[faqSchema, breadcrumbSchema]}
 >
@@ -91,7 +91,7 @@ const breadcrumbSchema = {
           <input id="measured" type="number" min="0" max="1000" step="0.1" placeholder="e.g. 12.4" />
         </div>
         <div class="form-group">
-          <label for="upload">Measured upload speed (Mbps) — optional</label>
+          <label for="upload">Measured upload speed (Mbps), optional</label>
           <input id="upload" type="number" min="0" max="1000" step="0.1" placeholder="e.g. 1.2" />
         </div>
         <div class="form-group">
@@ -99,11 +99,11 @@ const breadcrumbSchema = {
           <input id="testdate" type="date" />
         </div>
         <div class="form-group">
-          <label for="account">Account / customer number — optional</label>
+          <label for="account">Account / customer number, optional</label>
           <input id="account" type="text" placeholder="e.g. your PTCL account number" />
         </div>
         <div class="form-group">
-          <label for="name">Your name — optional</label>
+          <label for="name">Your name, optional</label>
           <input id="name" type="text" placeholder="Your name" />
         </div>
         <button class="btn" type="button" id="generate-btn">Generate complaint →</button>
@@ -117,14 +117,14 @@ const breadcrumbSchema = {
         <button class="btn btn-secondary" type="button" id="copy-btn">Copy to clipboard</button>
         <p class="small muted" id="copy-status" style="margin-top: 0.5rem;"></p>
         <div class="callout" style="margin-top: 1.5rem;">
-          <p><strong>Where to send it:</strong> PTCL customers can call <strong>1218</strong> and read this out, or send it to PTCL’s customer care email. For other providers, call their helpline or use their complaint portal — and always note the complaint reference number you’re given.</p>
+          <p><strong>Where to send it:</strong> PTCL customers can call <strong>1218</strong> and read this out, or send it to PTCL’s customer care email. For other providers, call their helpline or use their complaint portal, and always note the complaint reference number you’re given.</p>
         </div>
       </div>
 
       <h2 style="margin-top: 2.5rem;">Before you complain</h2>
       <ul>
-        <li><strong>Test wired.</strong> A complaint based on Wi-Fi results will be dismissed — test over an Ethernet cable (or with Wi-Fi off, on mobile data).</li>
-        <li><strong>Test three times.</strong> Morning, afternoon and evening. If mornings are fast and evenings are slow, that’s congestion, not a fault — and your complaint should say so.</li>
+        <li><strong>Test wired.</strong> A complaint based on Wi-Fi results will be dismissed, test over an Ethernet cable (or with Wi-Fi off, on mobile data).</li>
+        <li><strong>Test three times.</strong> Morning, afternoon and evening. If mornings are fast and evenings are slow, that’s congestion, not a fault, and your complaint should say so.</li>
         <li><strong>Rule out your own setup.</strong> Restart the router, check for a red LOS light on fibre, and work through our <a href="/guides/troubleshoot-slow-internet">troubleshooter</a> first. A complaint that survives those checks is much stronger.</li>
       </ul>
 
@@ -175,7 +175,7 @@ const breadcrumbSchema = {
         }[issue] || 'my internet speed is consistently well below the speed of my package';
 
         var lines = [];
-        lines.push('Subject: Complaint — ' + issueText.charAt(0).toUpperCase() + issueText.slice(1));
+        lines.push('Subject: Complaint: ' + issueText.charAt(0).toUpperCase() + issueText.slice(1));
         lines.push('');
         lines.push('Dear ' + provider + ' Customer Support,');
         lines.push('');
@@ -187,7 +187,7 @@ const breadcrumbSchema = {
           lines.push(
             'My package is advertised at ' + pkg + ' Mbps. I tested my connection on ' +
             (testdate || 'a recent date') + ' and measured a download speed of ' + measured +
-            ' Mbps — only ' + pct + '% of the advertised speed.' +
+            ' Mbps, only ' + pct + '% of the advertised speed.' +
             (pct < 80 ? ' This is below the 80% of package speed that a healthy connection should deliver.' : '')
           );
           if (!isNaN(upload)) {

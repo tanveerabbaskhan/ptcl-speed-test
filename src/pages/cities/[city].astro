@@ -18,7 +18,7 @@ const { city } = Astro.props;
 const others = cities.filter((c) => c.slug !== city.slug);
 
 const fastestFixedAnswer = city.fastestFixed
-  ? `On published community tests, ${city.fastestFixed.provider} is the fastest fixed-line provider in ${city.name} at ${city.fastestFixed.detail} (${city.fastestFixed.source}). But fixed-line speed depends on your street — check which providers have fibre on yours before choosing.`
+  ? `On published community tests, ${city.fastestFixed.provider} is the fastest fixed-line provider in ${city.name} at ${city.fastestFixed.detail} (${city.fastestFixed.source}). But fixed-line speed depends on your street, check which providers have fibre on yours before choosing.`
   : city.fixedNote ?? '';
 
 const faqs = [
@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     q: `Which mobile network is fastest in ${city.name}?`,
-    a: `${city.fastestMobile.provider} — ${city.fastestMobile.detail} (${city.fastestMobile.source}). Mobile speed varies by location and tower load, so test both SIMs where you actually live and work.`,
+    a: `${city.fastestMobile.provider}, ${city.fastestMobile.detail} (${city.fastestMobile.source}). Mobile speed varies by location and tower load, so test both SIMs where you actually live and work.`,
   },
   {
     q: `Is 5G available in ${city.name}?`,
@@ -62,7 +62,7 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title={`${city.name} Internet Speed — Fastest Providers & 5G Status (2026)`}
+  title={`${city.name} Internet Speed: Fastest Providers, 5G Status`}
   description={`Internet speed in ${city.name}: fastest fixed and mobile providers from published PakSpeed and PTA data, 5G status, and a free speed test for your connection.`}
   canonical={`/cities/${city.slug}`}
   schema={[faqSchema, breadcrumbSchema]}
@@ -102,7 +102,7 @@ const breadcrumbSchema = {
           <p class="small muted">
             Sources: <a href={city.fastestFixed.sourceUrl} target="_blank" rel="noopener">{city.fastestFixed.source}</a>;
             <a href={city.fastestMobile.sourceUrl} target="_blank" rel="noopener">{city.fastestMobile.source}</a>.
-            Averages mix many packages and devices — your own result is what matters.
+            Averages mix many packages and devices, your own result is what matters.
           </p>
         </>
       ) : (
@@ -129,7 +129,7 @@ const breadcrumbSchema = {
       <h2>5G in {city.name}</h2>
       <p>{city.fiveG}</p>
       <p>
-        5G coverage is still pockets, not blanket — business districts, campuses and
+        5G coverage is still pockets, not blanket, business districts, campuses and
         city centres got sites first. See our guide on
         <a href="/guides/5g-in-pakistan"> 5G in Pakistan</a> for the full picture,
         including how to check whether your phone supports it.
@@ -142,7 +142,7 @@ const breadcrumbSchema = {
         ))}
       </ul>
       <p class="small muted">
-        Availability varies street by street — check each provider for your exact
+        Availability varies street by street, check each provider for your exact
         address before choosing.
       </p>
 

@@ -4,19 +4,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const faqs = [
   {
     q: 'Why is my Telenor internet slow?',
-    a: 'The usual reasons, in order: your bundle has run out, weak signal where you are, the phone is on 3G instead of 4G, a wrong APN, or peak-hour tower congestion (7–11 pm). Telenor also has the lowest 4G averages of Pakistan’s big four networks on the PTA’s Q2 2026 benchmarking (7.5 Mbps download), so expectations should be lower than on Zong or Jazz — but under 2 Mbps in a good-signal area still means something is wrong.',
+    a: 'The usual reasons, in order: your bundle has run out, weak signal where you are, the phone is on 3G instead of 4G, a wrong APN, or peak-hour tower congestion (7–11 pm). Telenor also has the lowest 4G averages of Pakistan’s big four networks on the PTA’s Q2 2026 benchmarking (7.5 Mbps download), so expectations should be lower than on Zong or Jazz, but under 2 Mbps in a good-signal area still means something is wrong.',
   },
   {
     q: 'What is a good Telenor 4G speed?',
-    a: 'The PTA’s Q2 2026 benchmarking puts Telenor’s national 4G average at 7.5 Mbps download and 2.8 Mbps upload — the lowest of the big four. That’s enough for browsing, messaging and HD video, but tight for 4K or heavy work calls. If you consistently get under 2 Mbps in a good-signal area, work through the steps in this guide.',
+    a: 'The PTA’s Q2 2026 benchmarking puts Telenor’s national 4G average at 7.5 Mbps download and 2.8 Mbps upload, the lowest of the big four. That’s enough for browsing, messaging and HD video, but tight for 4K or heavy work calls. If you consistently get under 2 Mbps in a good-signal area, work through the steps in this guide.',
   },
   {
     q: 'Is Telenor still working after the Ufone merger?',
-    a: 'Yes. PTCL bought Telenor Pakistan in December 2025 and merged it into Ufone on 1 July 2026, but Telenor SIMs still work. If the old Telenor settings stop connecting, try the Ufone settings instead — APN ufone.pinternet for prepaid or ufone.internet for postpaid.',
+    a: 'Yes. PTCL bought Telenor Pakistan in December 2025 and merged it into Ufone on 1 July 2026, but Telenor SIMs still work. If the old Telenor settings stop connecting, try the Ufone settings instead, APN ufone.pinternet for prepaid or ufone.internet for postpaid.',
   },
   {
     q: 'How do I complain about slow Telenor internet?',
-    a: 'Call Telenor on 345 from your Telenor number. Before you call, run three speed tests at different times and note the results, your location, and whether the problem is everywhere or in one spot — that evidence gets a faster, better answer than "my internet is slow".',
+    a: 'Call Telenor on 345 from your Telenor number. Before you call, run three speed tests at different times and note the results, your location, and whether the problem is everywhere or in one spot, that evidence gets a faster, better answer than "my internet is slow".',
   },
 ];
 
@@ -42,8 +42,8 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title="Telenor Internet Slow? How to Fix Slow Telenor 4G Speed (2026)"
-  description="Telenor internet slow? Fix it in order: bundle check, signal, 4G-only mode, APN settings, old SIM — and what the Ufone merger means for your Telenor SIM."
+  title="Telenor Internet Slow? How to Fix Slow Telenor 4G"
+  description="Telenor internet slow? Fix it in order: bundle check, signal, 4G-only mode, APN settings, old SIM, and what the Ufone merger means for your Telenor SIM."
   canonical="/guides/telenor-internet-slow"
   schema={[faqSchema, breadcrumbSchema]}
 >
@@ -52,7 +52,7 @@ const breadcrumbSchema = {
       <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Telenor Internet Slow</p>
       <h1>Telenor Internet Slow? How to Fix Slow Telenor 4G</h1>
       <p class="lead">
-        Telenor has the lowest 4G averages of Pakistan’s big four networks — so slow
+        Telenor has the lowest 4G averages of Pakistan’s big four networks, so slow
         Telenor isn’t always a fault. But if your speed is well below even Telenor’s
         modest average, work through these fixes in order.
       </p>
@@ -65,13 +65,13 @@ const breadcrumbSchema = {
       <p>
         The most common cause of slow mobile internet is the simplest: the data bundle
         has run out or expired. Dial <strong>*123#</strong> to check your remaining
-        balance and bundle status. No bundle, no data — or data at a crawl on
+        balance and bundle status. No bundle, no data, or data at a crawl on
         pay-as-you-go rates.
       </p>
 
       <h2>Step 2: Check your signal</h2>
       <p>
-        Mobile speed is mostly signal. Move near a window or outdoors and test again —
+        Mobile speed is mostly signal. Move near a window or outdoors and test again,
         one or two bars indoors can become four bars outside. If the speed jumps, the
         problem was your location, not the network. Walls, basements and metal roofs all
         eat signal.
@@ -79,7 +79,7 @@ const breadcrumbSchema = {
 
       <h2>Step 3: Make sure you’re on 4G</h2>
       <p>
-        If the status bar shows E, H or H+, you’re on 2G/3G — far slower than 4G. Go to
+        If the status bar shows E, H or H+, you’re on 2G/3G, far slower than 4G. Go to
         Settings → Mobile Network → Preferred Network Type and set it to 4G or LTE. On
         dual-SIM phones, check the Telenor SIM is in the slot that supports 4G.
       </p>
@@ -116,7 +116,7 @@ const breadcrumbSchema = {
       <h2>What speed should you expect?</h2>
       <p>
         The PTA’s Q2 2026 benchmarking puts Telenor’s national 4G average at
-        <strong>7.5 Mbps download and 2.8 Mbps upload</strong> — the lowest of
+        <strong>7.5 Mbps download and 2.8 Mbps upload</strong>, the lowest of
         Pakistan’s big four networks (Zong leads at 18.6 Mbps). That’s enough for
         browsing, messaging and HD video, but tight for 4K or heavy work calls. If you
         consistently get under 2 Mbps in a good-signal area at a quiet time, something
@@ -126,7 +126,7 @@ const breadcrumbSchema = {
       <h2>A note on the Ufone merger</h2>
       <p>
         PTCL bought Telenor Pakistan in December 2025, and on 1 July 2026 Telenor
-        Pakistan was merged into Ufone. Telenor SIMs still work — but if the old Telenor
+        Pakistan was merged into Ufone. Telenor SIMs still work, but if the old Telenor
         settings stop connecting, try the Ufone settings instead: APN
         <strong>ufone.pinternet</strong> for prepaid or <strong>ufone.internet</strong>
         for postpaid. See our <a href="/guides/ufone-apn-settings">Ufone APN

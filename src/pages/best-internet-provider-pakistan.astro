@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const faqs = [
   {
     q: 'Which is the best internet provider in Pakistan?',
-    a: 'There is no single winner — it depends on what you measure. Nayatel leads on nPerf’s 2025 barometer (best fixed performance), PakSpeed’s recent community tests, and Opensignal’s April 2026 reliability award. PTCL Flash Fiber leads on Ookla’s H1 2025 Speedtest score and SpeedGeo’s ranking. Transworld is close behind both. The honest answer: the best provider is the fastest fibre available on your street.',
+    a: 'There is no single winner, it depends on what you measure. Nayatel leads on nPerf’s 2025 barometer (best fixed performance), PakSpeed’s recent community tests, and Opensignal’s April 2026 reliability award. PTCL Flash Fiber leads on Ookla’s H1 2025 Speedtest score and SpeedGeo’s ranking. Transworld is close behind both. The honest answer: the best provider is the fastest fibre available on your street.',
   },
   {
     q: 'Which provider has the fastest internet in Pakistan?',
@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: 'Which ISP is best for gaming in Pakistan?',
-    a: 'Fibre with the lowest ping — PTCL Flash Fiber averages 27 ms on SpeedGeo’s ranking, and StormFiber averages 60 ms on PakSpeed’s recent tests. Avoid DSL for gaming: its ping is higher and more variable. Whichever provider you choose, play wired, not on Wi-Fi.',
+    a: 'Fibre with the lowest ping, PTCL Flash Fiber averages 27 ms on SpeedGeo’s ranking, and StormFiber averages 60 ms on PakSpeed’s recent tests. Avoid DSL for gaming: its ping is higher and more variable. Whichever provider you choose, play wired, not on Wi-Fi.',
   },
   {
     q: 'Which mobile network is fastest in Pakistan?',
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: 'Is PTCL the best internet provider in Pakistan?',
-    a: 'PTCL is the biggest and most widely available — and its Flash Fiber is genuinely among the fastest in the country. But PTCL’s overall averages are dragged down by its large DSL base, so "PTCL" as a whole ranks below Nayatel and Transworld on several studies. The comparison that matters is Flash Fiber versus the other fibre providers, where PTCL is right at the top.',
+    a: 'PTCL is the biggest and most widely available, and its Flash Fiber is genuinely among the fastest in the country. But PTCL’s overall averages are dragged down by its large DSL base, so "PTCL" as a whole ranks below Nayatel and Transworld on several studies. The comparison that matters is Flash Fiber versus the other fibre providers, where PTCL is right at the top.',
   },
 ];
 
@@ -45,8 +45,8 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title="Best Internet Provider in Pakistan (2026) — Ranked on Published Speed Data"
-  description="The best ISP in Pakistan, ranked on published data: Nayatel, PTCL Flash Fiber, Transworld and StormFiber compared on speed, ping and reliability — plus the best provider by city and by use case."
+  title="Best Internet Provider in Pakistan: Ranked on Speed Data"
+  description="Best ISP in Pakistan, ranked on published data: Nayatel, PTCL Flash Fiber, Transworld and StormFiber on speed and ping, plus the best by city."
   canonical="/best-internet-provider-pakistan"
   schema={[faqSchema, breadcrumbSchema]}
 >
@@ -57,7 +57,7 @@ const breadcrumbSchema = {
       <p class="lead">
         Every "best ISP" list you’ll find online is either sponsored or based on one
         study. This one isn’t: it combines five published data sources, shows where
-        they disagree, and admits the truth — the best provider is the fastest fibre
+        they disagree, and admits the truth, the best provider is the fastest fibre
         available on your street.
       </p>
       <p class="small muted">Last updated: 21 November 2026</p>
@@ -95,7 +95,7 @@ const breadcrumbSchema = {
           <tr>
             <td><strong>5</strong></td>
             <td><strong>PTCL (overall)</strong></td>
-            <td>The nationwide incumbent — but its averages mix fibre with older DSL, so it ranks below the pure-fibre providers (21.7 Mbps on PakSpeed, 22.4 Mbps on nPerf). The right choice where no other fibre reaches.</td>
+            <td>The nationwide incumbent, but its averages mix fibre with older DSL, so it ranks below the pure-fibre providers (21.7 Mbps on PakSpeed, 22.4 Mbps on nPerf). The right choice where no other fibre reaches.</td>
           </tr>
         </tbody>
       </table>
@@ -107,10 +107,10 @@ const breadcrumbSchema = {
 
       <h2>Best by use case</h2>
       <ul>
-        <li><strong>Fastest measured speeds:</strong> Nayatel or PTCL Flash Fiber — they trade the top spot depending on the study.</li>
-        <li><strong>Widest availability:</strong> PTCL — DSL almost everywhere, Flash Fiber in many cities. No other provider comes close on reach.</li>
+        <li><strong>Fastest measured speeds:</strong> Nayatel or PTCL Flash Fiber, they trade the top spot depending on the study.</li>
+        <li><strong>Widest availability:</strong> PTCL, DSL almost everywhere, Flash Fiber in many cities. No other provider comes close on reach.</li>
         <li><strong>Lowest ping (gaming):</strong> PTCL Flash Fiber (27 ms average on SpeedGeo) or StormFiber (60 ms on PakSpeed). Both beat DSL by a wide margin.</li>
-        <li><strong>Most reliable:</strong> Nayatel — Opensignal’s April 2026 report gave it the Reliability Experience award (330 points).</li>
+        <li><strong>Most reliable:</strong> Nayatel, Opensignal’s April 2026 report gave it the Reliability Experience award (330 points).</li>
         <li><strong>Best mobile internet:</strong> Zong has the highest national 4G averages (PTA Q2 2026); Jazz is fastest in Islamabad, Rawalpindi, Faisalabad and Peshawar. For 5G, Jazz has the biggest network.</li>
       </ul>
 
@@ -140,8 +140,8 @@ const breadcrumbSchema = {
         We combined five published sources rather than trusting one: nPerf’s 2025
         barometer (large-sample, methodical), Ookla’s H1 2025 Speedtest scores, PakSpeed’s
         community tests (recent, but self-selected), SpeedGeo’s ranking (158,631 tests),
-        and Opensignal’s April 2026 experience report. Where the sources disagree — and
-        they do, because samples and methods differ — we say so on the
+        and Opensignal’s April 2026 experience report. Where the sources disagree, and
+        they do, because samples and methods differ, we say so on the
         <a href="/statistics"> statistics page</a> and in each
         <a href="/compare"> head-to-head comparison</a>.
       </p>
@@ -149,7 +149,7 @@ const breadcrumbSchema = {
         Two things this ranking deliberately does not do: it does not rank on price
         (published prices conflict wildly and go stale fast), and it does not treat a
         national average as a promise for your street. Fibre availability varies by
-        street, and your line’s real speed is what you measure — test it.
+        street, and your line’s real speed is what you measure, test it.
       </p>
 
       <h2>Frequently asked questions</h2>
@@ -164,7 +164,7 @@ const breadcrumbSchema = {
 
       <div class="cta-band">
         <h2>Test your connection</h2>
-        <p>Rankings are averages — your line is the only number that matters.</p>
+        <p>Rankings are averages, your line is the only number that matters.</p>
         <div class="cta-links">
           <a class="btn" href="/speed-test">Test My Speed →</a>
           <a class="btn btn-secondary" href="/compare">Compare providers →</a>

@@ -4,23 +4,23 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const faqs = [
   {
     q: 'What is the PTCL router login IP address?',
-    a: 'Most newer PTCL modems use 192.168.10.1, while older DSL modems use 192.168.1.1. PTCL Flash Fiber ONTs (the small fibre box) use the address printed on their own label — Huawei units often use 192.168.100.1. If one address doesn\'t load, try the other.',
+    a: 'Most newer PTCL modems use 192.168.10.1, while older DSL modems use 192.168.1.1. PTCL Flash Fiber ONTs (the small fibre box) use the address printed on their own label, Huawei units often use 192.168.100.1. If one address doesn\'t load, try the other.',
   },
   {
     q: 'What is the default PTCL router username and password?',
-    a: 'On many PTCL routers both are "admin". If that is rejected, the password is often the last five digits of the router\'s MAC address (no dashes), printed on the sticker on the back or bottom of the router. If someone changed it and you don\'t know the new one, a factory reset restores the default — but it also wipes your internet settings.',
+    a: 'On many PTCL routers both are "admin". If that is rejected, the password is often the last five digits of the router\'s MAC address (no dashes), printed on the sticker on the back or bottom of the router. If someone changed it and you don\'t know the new one, a factory reset restores the default, but it also wipes your internet settings.',
   },
   {
     q: 'How do I change my PTCL WiFi password from my mobile phone?',
-    a: 'Connect your phone to your PTCL WiFi (not mobile data), open Chrome or Safari, and type 192.168.10.1 — or 192.168.1.1 on older modems — into the address bar. Log in, open Wireless / WLAN settings, enter the new password and save. Every device will need to reconnect with the new password.',
+    a: 'Connect your phone to your PTCL WiFi (not mobile data), open Chrome or Safari, and type 192.168.10.1, or 192.168.1.1 on older modems, into the address bar. Log in, open Wireless / WLAN settings, enter the new password and save. Every device will need to reconnect with the new password.',
   },
   {
     q: 'Why won\'t 192.168.1.1 open?',
-    a: 'The usual reasons: your device is on mobile data instead of the PTCL WiFi, you typed the address into a search box instead of the browser address bar, your router uses the other address (try 192.168.10.1), or the router needs a restart. Check the sticker on the router — some models print the correct address there.',
+    a: 'The usual reasons: your device is on mobile data instead of the PTCL WiFi, you typed the address into a search box instead of the browser address bar, your router uses the other address (try 192.168.10.1), or the router needs a restart. Check the sticker on the router, some models print the correct address there.',
   },
   {
     q: 'Will changing my WiFi password make my internet faster?',
-    a: 'Only if neighbours or unknown devices were using your WiFi. Check the connected-devices list in the router settings: if you see devices you don\'t recognise, changing the password and removing them can free up your bandwidth. If the list is clean, your speed problem is elsewhere — run a speed test to check.',
+    a: 'Only if neighbours or unknown devices were using your WiFi. Check the connected-devices list in the router settings: if you see devices you don\'t recognise, changing the password and removing them can free up your bandwidth. If the list is clean, your speed problem is elsewhere, run a speed test to check.',
   },
 ];
 
@@ -41,7 +41,7 @@ const howToSchema = {
   step: [
     { '@type': 'HowToStep', name: 'Connect to your PTCL network', text: 'Connect your phone or laptop to your PTCL WiFi, or plug in a LAN cable. Turn mobile data off on your phone so the browser uses WiFi.' },
     { '@type': 'HowToStep', name: 'Open the router login page', text: 'Type 192.168.10.1 into the browser address bar and press Enter. If nothing loads, try 192.168.1.1.' },
-    { '@type': 'HowToStep', name: 'Log in', text: 'Enter the admin username and password — commonly admin / admin, or the password printed on the router sticker.' },
+    { '@type': 'HowToStep', name: 'Log in', text: 'Enter the admin username and password, commonly admin / admin, or the password printed on the router sticker.' },
     { '@type': 'HowToStep', name: 'Open Wireless settings', text: 'Find the Wireless or WLAN menu, then Wireless Security or Security Settings.' },
     { '@type': 'HowToStep', name: 'Enter the new password and save', text: 'Type a new password of at least 8 characters in the Pre-Shared Key or Password field and click Apply or Save. Reconnect all devices with the new password.' },
   ],
@@ -59,8 +59,8 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title="PTCL Router Login (192.168.10.1 / 192.168.1.1) & WiFi Password Change"
-  description="Log in to your PTCL router at 192.168.10.1 or 192.168.1.1, change your WiFi password from phone or laptop, see who's connected, and fix the login page when it won't open."
+  title="PTCL Router Login 192.168.10.1: WiFi Password Change"
+  description="Log in to your PTCL router at 192.168.10.1 or 192.168.1.1, change your WiFi password, see who is connected, and fix the login page when it won't open."
   canonical="/guides/ptcl-router-login"
   schema={[faqSchema, howToSchema, breadcrumbSchema]}
 >
@@ -102,7 +102,7 @@ const breadcrumbSchema = {
       <h2>How to log in to your PTCL router</h2>
       <ol>
         <li>Connect your phone or laptop to your PTCL WiFi, or plug a LAN cable into one of the modem's LAN ports.</li>
-        <li>On a phone, switch mobile data off so the browser uses your WiFi — the router page is only reachable from inside your own network.</li>
+        <li>On a phone, switch mobile data off so the browser uses your WiFi, the router page is only reachable from inside your own network.</li>
         <li>Type <code>http://192.168.10.1</code> into the browser's <strong>address bar</strong> (not the Google search box) and press Enter. If nothing loads, try <code>http://192.168.1.1</code>.</li>
         <li>Enter the admin username and password (see below). The status page opens, with menus such as Wireless, Advanced Setup and Management.</li>
       </ol>
@@ -114,13 +114,13 @@ const breadcrumbSchema = {
         </thead>
         <tbody>
           <tr><td>Username</td><td><code>admin</code></td></tr>
-          <tr><td>Password</td><td><code>admin</code> — or the password printed on the router sticker (often the last five digits of the MAC address, with no dashes)</td></tr>
+          <tr><td>Password</td><td><code>admin</code>, or the password printed on the router sticker (often the last five digits of the MAC address, with no dashes)</td></tr>
         </tbody>
       </table>
       <p>
         Defaults vary by model and may have been changed during installation. If
         admin/admin doesn't work, check the sticker on the router itself. Never share
-        your admin password with anyone you don't trust — it controls your whole network.
+        your admin password with anyone you don't trust, it controls your whole network.
       </p>
 
       <h2>How to change the WiFi password</h2>
@@ -128,12 +128,12 @@ const breadcrumbSchema = {
         <li>Log in to the router as above.</li>
         <li>Open <strong>Wireless</strong> (or <strong>WLAN</strong>), then <strong>Wireless Security</strong> or <strong>Security Settings</strong>. Menu names vary slightly by model.</li>
         <li>Find the field labelled <strong>Pre-Shared Key</strong>, <strong>WPA Key</strong> or <strong>Password</strong>.</li>
-        <li>Type a new password of at least 8 characters — mix letters and numbers — and click <strong>Apply</strong> or <strong>Save</strong>.</li>
+        <li>Type a new password of at least 8 characters, mix letters and numbers, and click <strong>Apply</strong> or <strong>Save</strong>.</li>
         <li>Every device will disconnect. Reconnect each one with the new password.</li>
       </ol>
       <p>
         If your router broadcasts separate 2.4&nbsp;GHz and 5&nbsp;GHz networks, change
-        both — they have their own password fields. While you're in the settings, you can
+        both, they have their own password fields. While you're in the settings, you can
         also rename the network (SSID) from the same Wireless menu.
       </p>
 
@@ -142,14 +142,14 @@ const breadcrumbSchema = {
         Look for a <strong>Connected Devices</strong>, <strong>Client List</strong> or
         <strong>DHCP</strong> section in the router menu. It lists every device currently
         on your network by name or MAC address. If you see devices you don't recognise,
-        change the WiFi password — that disconnects them — and check whether your speed
+        change the WiFi password, that disconnects them, and check whether your speed
         improves. Unknown devices quietly eating bandwidth is a common cause of
         "my internet got slow for no reason".
       </p>
 
       <h2>The login page won't open</h2>
       <ul>
-        <li><strong>Check you're on the right network.</strong> Your device must be connected to your PTCL WiFi or LAN cable — not mobile data, and not a neighbour's WiFi.</li>
+        <li><strong>Check you're on the right network.</strong> Your device must be connected to your PTCL WiFi or LAN cable, not mobile data, and not a neighbour's WiFi.</li>
         <li><strong>Use the address bar, not search.</strong> Typing 192.168.1.1 into a search box runs a Google search instead of opening the router.</li>
         <li><strong>Try the other address.</strong> If 192.168.10.1 fails, try 192.168.1.1, and vice versa.</li>
         <li><strong>Restart the router.</strong> Switch it off for 30 seconds, then on again, and wait for the lights to settle.</li>
@@ -158,7 +158,7 @@ const breadcrumbSchema = {
 
       <h2>Forgot the admin password?</h2>
       <p>
-        The reset button is on the back of the modem — press and hold it with a pin for
+        The reset button is on the back of the modem, press and hold it with a pin for
         about 10 seconds, until the lights change, then let the modem restart. This
         restores the default admin login, but it also <strong>wipes your internet
         settings</strong>. On PTCL DSL that means the PPPoE connection, where the username
@@ -169,8 +169,8 @@ const breadcrumbSchema = {
 
       <h2>Security tips</h2>
       <ul>
-        <li>Change the default <strong>admin</strong> password as soon as you log in — anyone on your network who knows the default can change your settings.</li>
-        <li>Use WPA2 (or WPA3 if your router offers it) — never WEP, which is trivially breakable.</li>
+        <li>Change the default <strong>admin</strong> password as soon as you log in, anyone on your network who knows the default can change your settings.</li>
+        <li>Use WPA2 (or WPA3 if your router offers it), never WEP, which is trivially breakable.</li>
         <li>Change your WiFi password every few months, and immediately if you suspect someone has it.</li>
       </ul>
 
@@ -185,7 +185,7 @@ const breadcrumbSchema = {
       </div>
 
       <div class="cta-band">
-        <h2>Changed the password — is your speed back?</h2>
+        <h2>Changed the password: is your speed back?</h2>
         <p>Run a test now and compare with your package speed.</p>
         <div class="cta-links">
           <a class="btn" href="/speed-test">Test My Speed →</a>

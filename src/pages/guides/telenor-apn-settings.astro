@@ -4,23 +4,23 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const faqs = [
   {
     q: 'How do I get Telenor internet settings on my phone?',
-    a: 'The easiest way is by SMS: send "Internet" (or "All" for internet plus MMS) to 131. Telenor sends the settings to your phone — open the message, enter the PIN when asked (usually 1234 or 0000), and tap Install. This fills in the APN and all other fields correctly, which is safer than typing values from a forum.',
+    a: 'The easiest way is by SMS: send "Internet" (or "All" for internet plus MMS) to 131. Telenor sends the settings to your phone, open the message, enter the PIN when asked (usually 1234 or 0000), and tap Install. This fills in the APN and all other fields correctly, which is safer than typing values from a forum.',
   },
   {
     q: 'What is the Telenor APN?',
-    a: 'internet — the same value for Android and iPhone. Most guides list the username and password as "Telenor" (case sensitive); the most recent settings guides say to leave them blank and only use Telenor/Telenor if the blank version doesn\'t connect. If one doesn\'t work, try the other. APN type is default,supl and MCC/MNC are 410/06.',
+    a: 'internet, the same value for Android and iPhone. Most guides list the username and password as "Telenor" (case sensitive); the most recent settings guides say to leave them blank and only use Telenor/Telenor if the blank version doesn\'t connect. If one doesn\'t work, try the other. APN type is default,supl and MCC/MNC are 410/06.',
   },
   {
     q: 'Do Telenor settings still work after the Ufone merger?',
-    a: 'Usually yes — Telenor SIMs still work after the merger into Ufone on 1 July 2026. But if the Telenor settings stop connecting, try the Ufone settings instead: APN ufone.pinternet for prepaid or ufone.internet for postpaid, username and password blank.',
+    a: 'Usually yes, Telenor SIMs still work after the merger into Ufone on 1 July 2026. But if the Telenor settings stop connecting, try the Ufone settings instead: APN ufone.pinternet for prepaid or ufone.internet for postpaid, username and password blank.',
   },
   {
     q: 'My Telenor internet worked, then stopped after I changed the APN. What do I do?',
-    a: 'Go to Settings, Mobile Network, Access Point Names, and choose Reset to Default — then restart the phone. If that doesn\'t restore it, get the official settings by SMS: send "Internet" to 131 and install the message.',
+    a: 'Go to Settings, Mobile Network, Access Point Names, and choose Reset to Default, then restart the phone. If that doesn\'t restore it, get the official settings by SMS: send "Internet" to 131 and install the message.',
   },
   {
     q: 'Do I need to set the APN on an iPhone?',
-    a: 'Usually not. iPhones and newer Android phones set the APN automatically from the SIM. If mobile data works, leave it alone. If it doesn\'t, check Settings, Mobile Data, Mobile Data Network — the APN should read "internet" — and use the settings SMS route rather than typing values manually.',
+    a: 'Usually not. iPhones and newer Android phones set the APN automatically from the SIM. If mobile data works, leave it alone. If it doesn\'t, check Settings, Mobile Data, Mobile Data Network, the APN should read "internet", and use the settings SMS route rather than typing values manually.',
   },
 ];
 
@@ -46,8 +46,8 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title="Telenor APN Settings & Internet Settings (2026) — SMS, Codes & Manual Setup"
-  description="Get Telenor internet settings by SMS (send 'Internet' to 131), set the Telenor APN (internet) manually on Android and iPhone, and what to do after the Ufone merger."
+  title="Telenor APN Settings 2026: SMS Codes, Manual Setup"
+  description="Get Telenor internet settings by SMS (send 'Internet' to 131), set the Telenor APN manually on Android and iPhone, and what to do after the Ufone merger."
   canonical="/guides/telenor-apn-settings"
   schema={[faqSchema, breadcrumbSchema]}
 >
@@ -57,7 +57,7 @@ const breadcrumbSchema = {
       <h1>Telenor APN Settings &amp; Internet Settings</h1>
       <p class="lead">
         The APN (Access Point Name) tells your phone how to reach Telenor’s data network.
-        Wrong APN settings mean slow internet or no internet at all — and the safest fix
+        Wrong APN settings mean slow internet or no internet at all, and the safest fix
         is to let Telenor send the settings to your phone automatically.
       </p>
     </div>
@@ -68,13 +68,13 @@ const breadcrumbSchema = {
       <h2>The easiest way: get settings by SMS</h2>
       <p>
         Telenor sends the correct internet settings to your phone as a message. You don’t
-        need to type anything — the SMS fills in the APN and every other field for you.
+        need to type anything, the SMS fills in the APN and every other field for you.
       </p>
       <ol>
         <li>Put the Telenor SIM in the phone and switch mobile data on.</li>
-        <li>Send <strong>"Internet"</strong> to <strong>131</strong> — or <strong>"All"</strong> to 131 for internet plus MMS settings.</li>
+        <li>Send <strong>"Internet"</strong> to <strong>131</strong>, or <strong>"All"</strong> to 131 for internet plus MMS settings.</li>
         <li>Wait for the settings message.</li>
-        <li>Open it, enter the PIN when asked (usually <strong>1234</strong> or <strong>0000</strong> — guides disagree, so try the one the message suggests), and tap <strong>Install</strong> or <strong>Save</strong>.</li>
+        <li>Open it, enter the PIN when asked (usually <strong>1234</strong> or <strong>0000</strong>, guides disagree, so try the one the message suggests), and tap <strong>Install</strong> or <strong>Save</strong>.</li>
         <li>Restart the phone. Mobile data should start working.</li>
       </ol>
       <p>
@@ -84,7 +84,7 @@ const breadcrumbSchema = {
 
       <h2>Manual APN settings</h2>
       <p>
-        The Telenor APN is <strong>internet</strong> — the same value for Android and
+        The Telenor APN is <strong>internet</strong>, the same value for Android and
         iPhone. Type it exactly as shown, in small letters.
       </p>
       <table class="data-table">
@@ -94,8 +94,8 @@ const breadcrumbSchema = {
         <tbody>
           <tr><td>Name</td><td>Telenor Internet (any name you like works)</td></tr>
           <tr><td>APN</td><td><strong>internet</strong></td></tr>
-          <tr><td>Username</td><td>Telenor (case sensitive) — or leave blank, see note below</td></tr>
-          <tr><td>Password</td><td>Telenor (case sensitive) — or leave blank, see note below</td></tr>
+          <tr><td>Username</td><td>Telenor (case sensitive), or leave blank, see note below</td></tr>
+          <tr><td>Password</td><td>Telenor (case sensitive), or leave blank, see note below</td></tr>
           <tr><td>Authentication type</td><td>PAP (or leave default)</td></tr>
           <tr><td>APN type</td><td>default,supl</td></tr>
           <tr><td>MCC</td><td>410</td></tr>
@@ -107,21 +107,21 @@ const breadcrumbSchema = {
         <strong>On username and password, guides disagree.</strong> Most list
         Telenor/Telenor; the most recent settings guides (verified November 2026) say to
         leave them blank and only use Telenor/Telenor if the blank version doesn’t
-        connect. If one doesn’t work, try the other — and if neither works, use the SMS
+        connect. If one doesn’t work, try the other, and if neither works, use the SMS
         route above instead of trying random values from forums.
       </p>
       <p>
         <strong>Android:</strong> Settings → Network &amp; Internet → SIMs (or
         Connections → Mobile networks) → Access Point Names → "+" → enter the values →
         Save → select the new APN.
-        <strong>iPhone:</strong> Settings → Mobile Data → Mobile Data Network — type
+        <strong>iPhone:</strong> Settings → Mobile Data → Mobile Data Network, type
         "internet" in the APN field.
       </p>
 
       <h2>After the Ufone merger</h2>
       <p>
         PTCL bought Telenor Pakistan in December 2025, and on 1 July 2026 Telenor
-        Pakistan was merged into Ufone. Telenor SIMs still work — but if the Telenor
+        Pakistan was merged into Ufone. Telenor SIMs still work, but if the Telenor
         settings above stop connecting, try the Ufone settings instead: APN
         <strong>ufone.pinternet</strong> for prepaid or <strong>ufone.internet</strong>
         for postpaid, username and password blank. See our
@@ -140,11 +140,11 @@ const breadcrumbSchema = {
       <h2>If the internet still doesn’t work</h2>
       <ul>
         <li>Reset APNs to default (Settings → Mobile Network → Access Point Names → Reset to Default), then restart.</li>
-        <li>Check the bundle is active — dial <strong>*123#</strong>. No bundle, no data.</li>
+        <li>Check the bundle is active, dial <strong>*123#</strong>. No bundle, no data.</li>
         <li>Toggle airplane mode for 30 seconds to re-register with the nearest tower.</li>
-        <li>Try the Ufone APN (ufone.pinternet / ufone.internet) — the merger means some Telenor SIMs now connect through Ufone’s settings.</li>
+        <li>Try the Ufone APN (ufone.pinternet / ufone.internet), the merger means some Telenor SIMs now connect through Ufone’s settings.</li>
         <li>Try the SIM in another phone to separate a phone problem from a SIM/network problem.</li>
-        <li>Still stuck? Call Telenor on <strong>345</strong> — or work through our <a href="/guides/telenor-internet-slow">slow Telenor internet guide</a>.</li>
+        <li>Still stuck? Call Telenor on <strong>345</strong>, or work through our <a href="/guides/telenor-internet-slow">slow Telenor internet guide</a>.</li>
       </ul>
 
       <h2>Frequently asked questions</h2>

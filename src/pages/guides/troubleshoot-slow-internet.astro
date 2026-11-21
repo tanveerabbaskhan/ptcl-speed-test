@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const faqs = [
   {
     q: 'My WiFi is slow but the wired connection is fast. What\'s wrong?',
-    a: 'Your line is fine — the problem is between the router and your device. Move closer to the router, switch to the 5 GHz network if you\'re near it, move the router out of a cabinet and up high, and restart it. If the router is old, its Wi-Fi radio may simply be too weak for your package speed.',
+    a: 'Your line is fine, the problem is between the router and your device. Move closer to the router, switch to the 5 GHz network if you\'re near it, move the router out of a cabinet and up high, and restart it. If the router is old, its Wi-Fi radio may simply be too weak for your package speed.',
   },
   {
     q: 'Both WiFi and wired are slow. Is it my line?',
@@ -12,11 +12,11 @@ const faqs = [
   },
   {
     q: 'What do the lights on my PTCL router mean?',
-    a: 'On a fibre (Flash Fiber) ONT, the PON light should be solid green — a red or blinking LOS light means the fibre signal isn\'t reaching your home, and only PTCL can fix that. On a DSL modem, a red or blinking Internet/DSL light usually means a line or login problem. A restart fixes a stuck modem; it does not fix a red LOS light.',
+    a: 'On a fibre (Flash Fiber) ONT, the PON light should be solid green, a red or blinking LOS light means the fibre signal isn\'t reaching your home, and only PTCL can fix that. On a DSL modem, a red or blinking Internet/DSL light usually means a line or login problem. A restart fixes a stuck modem; it does not fix a red LOS light.',
   },
   {
     q: 'How do I check my DSL line quality?',
-    a: 'Log in to your modem at 192.168.10.1 (or 192.168.1.1 on older modems) and open Status, then DSL or Device Info. Look at the downstream SNR margin — above 12 dB is good, below 6 dB causes drops and slow speed — and line attenuation — below 30 dB is good, above 50 dB means a long or damaged line. Quote both numbers when you complain to PTCL.',
+    a: 'Log in to your modem at 192.168.10.1 (or 192.168.1.1 on older modems) and open Status, then DSL or Device Info. Look at the downstream SNR margin, above 12 dB is good, below 6 dB causes drops and slow speed, and line attenuation, below 30 dB is good, above 50 dB means a long or damaged line. Quote both numbers when you complain to PTCL.',
   },
 ];
 
@@ -42,7 +42,7 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title="Slow Internet? Troubleshoot by Symptom — PTCL & Pakistan"
+  title="Slow Internet? Troubleshoot by Symptom | PTCL & Pakistan"
   description="WiFi slow but wired fast? Everything slow? Internet dropping? Find your symptom and work through the fix in order, with DSL line stats and when to call PTCL."
   canonical="/guides/troubleshoot-slow-internet"
   schema={[faqSchema, breadcrumbSchema]}
@@ -52,7 +52,7 @@ const breadcrumbSchema = {
       <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Troubleshoot Slow Internet</p>
       <h1>Slow Internet? Troubleshoot by Symptom</h1>
       <p class="lead">
-        Don't guess — match what you're seeing to the symptom below and work through the
+        Don't guess, match what you're seeing to the symptom below and work through the
         fix in order. Start with a <a href="/speed-test">speed test</a> so you know your
         actual numbers before you change anything.
       </p>
@@ -67,11 +67,11 @@ const breadcrumbSchema = {
         and your device.
       </p>
       <ol>
-        <li>Move closer to the router and test again — distance and walls are the usual cause.</li>
+        <li>Move closer to the router and test again, distance and walls are the usual cause.</li>
         <li>Connect to the <strong>5 GHz</strong> network if you're in the same room (fast, short range); use <strong>2.4 GHz</strong> further away (slower, longer range). Real-world 2.4 GHz rarely passes 35–45 Mbps, whatever your package.</li>
         <li>Move the router out of a cabinet, off the floor and up high, away from the TV and microwave.</li>
-        <li>Restart the router — switch it off for 30 seconds, then on.</li>
-        <li>If the router is several years old, its Wi-Fi radio may be too weak for your package speed — a newer router or a Wi-Fi extender may be the real fix.</li>
+        <li>Restart the router, switch it off for 30 seconds, then on.</li>
+        <li>If the router is several years old, its Wi-Fi radio may be too weak for your package speed, a newer router or a Wi-Fi extender may be the real fix.</li>
       </ol>
 
       <h2>Symptom: both WiFi and wired are slow</h2>
@@ -81,8 +81,8 @@ const breadcrumbSchema = {
       </p>
       <ol>
         <li>Test again early in the morning. Fast at 7 am and slow at 9 pm means peak-hour congestion.</li>
-        <li>Check the router lights (see below) — a red LOS or DSL light means a line fault.</li>
-        <li>Check for a known outage or cable fault — see <a href="/guides/why-internet-slow-pakistan">why the internet is slow in Pakistan</a>.</li>
+        <li>Check the router lights (see below), a red LOS or DSL light means a line fault.</li>
+        <li>Check for a known outage or cable fault, see <a href="/guides/why-internet-slow-pakistan">why the internet is slow in Pakistan</a>.</li>
         <li>On DSL, check your line stats in the modem (below) and quote them to your provider.</li>
         <li>Call your provider with dated, wired test results. For PTCL, the helpline is 1218.</li>
       </ol>
@@ -93,22 +93,22 @@ const breadcrumbSchema = {
       </p>
       <ul>
         <li>Check every cable: the phone line into the modem, the splitter, and the fibre cable into the ONT. A bent or crushed fibre cable kills the signal.</li>
-        <li>On DSL, remove the splitter and plug the modem directly into the wall socket to test — a faulty splitter is a classic cause of drops.</li>
-        <li>Check the modem isn't overheating — dusty, enclosed modems reboot themselves.</li>
+        <li>On DSL, remove the splitter and plug the modem directly into the wall socket to test, a faulty splitter is a classic cause of drops.</li>
+        <li>Check the modem isn't overheating, dusty, enclosed modems reboot themselves.</li>
         <li>On fibre, a blinking or red LOS light means the fibre signal is lost. Restarting won't fix it; report a fault.</li>
-        <li>Drops that get worse when it rains usually mean a wet or damaged joint in the copper line — only PTCL can fix that.</li>
+        <li>Drops that get worse when it rains usually mean a wet or damaged joint in the copper line, only PTCL can fix that.</li>
       </ul>
 
       <h2>Symptom: speed is fine, but video calls freeze</h2>
       <p>
         <strong>Diagnosis:</strong> your download is fine, but upload or jitter is the
-        problem — calls need steady two-way traffic, not just fast downloads.
+        problem, calls need steady two-way traffic, not just fast downloads.
       </p>
       <ul>
         <li>Check your <strong>upload</strong> and <strong>jitter</strong> on the test, not just download. Upload under 2 Mbps or jitter over 30 ms will freeze calls.</li>
-        <li>Pause cloud backups, photo sync and downloads during calls — uploads are the first thing they steal.</li>
+        <li>Pause cloud backups, photo sync and downloads during calls, uploads are the first thing they steal.</li>
         <li>Use 5 GHz Wi-Fi or a cable for the calling device.</li>
-        <li>On DSL, upload is the weak link by design — if calls matter, a fibre upgrade is the real fix.</li>
+        <li>On DSL, upload is the weak link by design, if calls matter, a fibre upgrade is the real fix.</li>
       </ul>
 
       <h2>Symptom: slow only at night</h2>
@@ -116,7 +116,7 @@ const breadcrumbSchema = {
         <strong>Diagnosis:</strong> peak-hour congestion. Evenings (roughly 7–11 pm) are
         the busiest hours on every Pakistani network. Test in the morning and again at
         9 pm and keep both results: if mornings are fast and evenings are slow, no router
-        setting will fix it — but both results together are strong evidence for a
+        setting will fix it, but both results together are strong evidence for a
         complaint, and they tell you the line itself is healthy.
       </p>
 
@@ -125,7 +125,7 @@ const breadcrumbSchema = {
         <strong>Diagnosis:</strong> the device, not the connection. Check for background
         updates or cloud sync running on that device, turn off any VPN, forget and
         rejoin the Wi-Fi network, and restart the device. On older laptops, a weak Wi-Fi
-        adapter or an old driver can cap speed well below what the line delivers — test
+        adapter or an old driver can cap speed well below what the line delivers, test
         the same device over Ethernet to confirm.
       </p>
 
@@ -146,7 +146,7 @@ const breadcrumbSchema = {
         </tbody>
       </table>
       <p>
-        Quote both numbers when you complain — they turn "my internet is slow" into a
+        Quote both numbers when you complain, they turn "my internet is slow" into a
         specific line fault the technician can act on.
       </p>
 
@@ -156,7 +156,7 @@ const breadcrumbSchema = {
         at quiet times, when the LOS/DSL light is red, or when drops keep happening after
         you've checked cables and the splitter. Have ready: your account or landline
         number, dated test results, and (for DSL) your SNR and attenuation figures. For
-        PTCL, the helpline is <strong>1218</strong> — ask for a complaint number and note
+        PTCL, the helpline is <strong>1218</strong>, ask for a complaint number and note
         it down.
       </p>
 
@@ -172,7 +172,7 @@ const breadcrumbSchema = {
 
       <div class="cta-band">
         <h2>Start with the numbers</h2>
-        <p>Run a test before you change anything — then test again after each fix.</p>
+        <p>Run a test before you change anything, then test again after each fix.</p>
         <div class="cta-links">
           <a class="btn" href="/speed-test">Test My Speed →</a>
           <a class="btn btn-secondary" href="/guides/improve-ptcl-speed">10 ways to improve speed →</a>

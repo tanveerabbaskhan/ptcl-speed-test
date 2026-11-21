@@ -105,7 +105,7 @@ const faqs = [
   {
     q: `What is a good speed for ${provider.name}?`,
     a: isMobile
-      ? `For mobile data, 10–20 Mbps down is good for HD video and calls; 5 Mbps is enough for browsing and messaging. Ping under 80 ms feels fine on mobile — under 50 ms is great for gaming.`
+      ? `For mobile data, 10–20 Mbps down is good for HD video and calls; 5 Mbps is enough for browsing and messaging. Ping under 80 ms feels fine on mobile, under 50 ms is great for gaming.`
       : `For most homes, 10–15 Mbps covers HD streaming and video calls; 25 Mbps or more handles 4K and several people online at once. Ping under 50 ms is good, and jitter under 30 ms keeps calls smooth.`,
   },
   {
@@ -138,8 +138,8 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title={`${provider.name} Speed Test — Check Your ${provider.name} Internet Speed`}
-  description={`Free ${provider.name} speed test. Measure your ${provider.name} download speed, upload speed, ping and jitter in under 30 seconds — no sign-up needed.`}
+  title={`${provider.name} Speed Test: Check Your Internet Speed`}
+  description={`Free ${provider.name} speed test: measure download, upload, ping and jitter in under 30 seconds. No sign-up needed.`}
   canonical={`/speedtest/${provider.slug}`}
   schema={[faqSchema, breadcrumbSchema]}
 >
@@ -162,7 +162,7 @@ const breadcrumbSchema = {
           <h2>What speed do most {provider.name} users get?</h2>
           <p>
             Published averages give you a benchmark for your own result. Your line can
-            legitimately be faster or slower than these figures — they mix many packages,
+            legitimately be faster or slower than these figures, they mix many packages,
             cities and devices.
           </p>
           <table class="data-table">
@@ -202,7 +202,7 @@ const breadcrumbSchema = {
           <h3>On Android</h3>
           <p>
             Turn Wi-Fi off so the phone uses mobile data, then open this page in Chrome
-            and press Start. Check the status bar shows 4G — if it shows 3G or H+, move
+            and press Start. Check the status bar shows 4G, if it shows 3G or H+, move
             somewhere with better signal first.
           </p>
           <h3>On iPhone</h3>
@@ -213,7 +213,7 @@ const breadcrumbSchema = {
           <h3>On a 4G hotspot or dongle</h3>
           <p>
             Connect your laptop to the hotspot, then test from the laptop browser. Place
-            the hotspot device near a window — its signal decides your speed.
+            the hotspot device near a window, its signal decides your speed.
           </p>
         </>
       )}
@@ -225,7 +225,7 @@ const breadcrumbSchema = {
             On fibre, the line itself is rarely the problem. A wired test (Ethernet cable
             from the router to a laptop) shows what your line delivers; a Wi-Fi test shows
             what your devices actually get. If wired is fast and Wi-Fi is slow, the fix is
-            your router placement or the Wi-Fi band — connect to the 5&nbsp;GHz network
+            your router placement or the Wi-Fi band, connect to the 5&nbsp;GHz network
             near the router, and 2.4&nbsp;GHz further away. See our guide on
             <a href="/guides/improve-ptcl-speed"> how to improve your speed</a> for the
             full checklist.
@@ -242,7 +242,7 @@ const breadcrumbSchema = {
 
       <h2>What do the results mean?</h2>
       <p>
-        <strong>Download</strong> is how fast data reaches you — the number your package
+        <strong>Download</strong> is how fast data reaches you, the number your package
         advertises. <strong>Upload</strong> is how fast you send data, which matters for
         video calls and sending files. <strong>Ping</strong> is responsiveness (under
         50&nbsp;ms is good), and <strong>jitter</strong> is how steady that ping is
@@ -271,8 +271,8 @@ const breadcrumbSchema = {
         <h2>Compare {provider.name} with the alternatives</h2>
         <p>
           {compareLinks[provider.slug]
-            ? <>See how {provider.name} stacks up on speed, latency and coverage — with published data, not marketing claims.</>
-            : <>See how Pakistan's providers compare on speed, latency and coverage — with published data, not marketing claims.</>}
+            ? <>See how {provider.name} stacks up on speed, latency and coverage, with published data, not marketing claims.</>
+            : <>See how Pakistan's providers compare on speed, latency and coverage, with published data, not marketing claims.</>}
         </p>
         <div class="cta-links">
           {(compareLinks[provider.slug] ?? [{ href: '/compare', label: 'All provider comparisons' }]).map((c) => (

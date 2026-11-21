@@ -39,8 +39,8 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title={`${c.aName} vs ${c.bName} — Speed, Ping & Coverage Compared (2026)`}
-  description={c.description ?? `${c.aName} vs ${c.bName}: compare real measured speeds, ping and coverage from published PTA, nPerf, Ookla and PakSpeed data — then test your own connection.`}
+  title={`${c.aName} vs ${c.bName}: Speed & Ping Compared`}
+  description={c.description ?? `${c.aName} vs ${c.bName}: real measured speeds, ping and coverage from PTA, nPerf, Ookla and PakSpeed data. Test your own connection too.`}
   canonical={`/compare/${c.slug}`}
   schema={[faqSchema, breadcrumbSchema]}
 >
@@ -59,7 +59,7 @@ const breadcrumbSchema = {
       <h2>The verdict</h2>
       <p>{c.verdict}</p>
 
-      <h2>{c.aName} vs {c.bName} — side by side</h2>
+      <h2>{c.aName} vs {c.bName}: side by side</h2>
       <table class="data-table">
         <thead>
           <tr><th>Metric</th><th>{c.aName}</th><th>{c.bName}</th></tr>
@@ -76,7 +76,7 @@ const breadcrumbSchema = {
       </table>
       <p class="small muted">
         Averages mix many packages, cities and devices. Your own result depends on your
-        package, your street and the time of day — test it above rather than trusting any
+        package, your street and the time of day, test it above rather than trusting any
         national average.
       </p>
 
@@ -119,7 +119,7 @@ const breadcrumbSchema = {
       <div class="cta-band">
         <h2>Test your own connection</h2>
         <p>
-          Averages are a starting point — your line is the only number that matters.
+          Averages are a starting point, your line is the only number that matters.
           Test it on your provider's page:
         </p>
         <div class="cta-links">

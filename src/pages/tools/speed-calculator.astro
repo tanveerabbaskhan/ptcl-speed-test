@@ -4,15 +4,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const faqs = [
   {
     q: 'How much speed do I need for 4K streaming?',
-    a: 'Netflix recommends 15 Mbps per 4K stream; YouTube needs about 20 Mbps and Disney+ about 25 Mbps. Two 4K TVs at once need 30–50 Mbps of steady speed — not just a package that says it.',
+    a: 'Netflix recommends 15 Mbps per 4K stream; YouTube needs about 20 Mbps and Disney+ about 25 Mbps. Two 4K TVs at once need 30–50 Mbps of steady speed, not just a package that says it.',
   },
   {
     q: 'Does gaming need a fast connection?',
-    a: 'Not really — most online games use only 3–6 Mbps. What gaming needs is low, stable ping: under 50 ms is good, under 30 ms is great. A 10 Mbps fibre line with 20 ms ping plays far better than a 100 Mbps line with 150 ms ping.',
+    a: 'Not really, most online games use only 3–6 Mbps. What gaming needs is low, stable ping: under 50 ms is good, under 30 ms is great. A 10 Mbps fibre line with 20 ms ping plays far better than a 100 Mbps line with 150 ms ping.',
   },
   {
     q: 'Why does the calculator add 25%?',
-    a: 'Because real speeds dip below the package figure, especially at peak hours, and because a household’s busiest moment is what matters — not the average. A 25% margin means the recommendation still works when the connection is under load.',
+    a: 'Because real speeds dip below the package figure, especially at peak hours, and because a household’s busiest moment is what matters, not the average. A 25% margin means the recommendation still works when the connection is under load.',
   },
 ];
 
@@ -38,7 +38,7 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title="Internet Speed Calculator — How Much Speed Does Your Household Need?"
+  title="Internet Speed Calculator: How Much Speed Do You Need?"
   description="Work out how much internet speed you need: pick your household's simultaneous activities and get a recommended speed, with whether DSL or fibre fits."
   canonical="/tools/speed-calculator"
   schema={[faqSchema, breadcrumbSchema]}
@@ -48,8 +48,8 @@ const breadcrumbSchema = {
       <p class="breadcrumbs"><a href="/">Home</a> / <a href="/tools">Tools</a> / Speed Calculator</p>
       <h1>Internet Speed Calculator</h1>
       <p class="lead">
-        Count what your household does at the same time — at the busiest moment, not
-        the average — and this calculator works out the speed you actually need.
+        Count what your household does at the same time, at the busiest moment, not
+        the average, and this calculator works out the speed you actually need.
         Nothing you enter leaves your browser.
       </p>
     </div>
@@ -60,7 +60,7 @@ const breadcrumbSchema = {
       <form id="calc-form" onsubmit="return false;">
         <h2 style="margin-top: 0;">At the busiest time in your home, how many of these happen at once?</h2>
         <div class="form-group">
-          <label for="hd">HD video streams (1080p — Netflix, YouTube, Disney+)</label>
+          <label for="hd">HD video streams (1080p, Netflix, YouTube, Disney+)</label>
           <select id="hd">
             <option value="0">0</option>
             <option value="1" selected>1</option>
@@ -121,11 +121,11 @@ const breadcrumbSchema = {
         <div class="results-grid" style="grid-template-columns: repeat(2, 1fr);">
           <div class="result-box download">
             <div class="label">You need at least</div>
-            <div class="value" id="speed-value">—</div>
+            <div class="value" id="speed-value">–</div>
           </div>
           <div class="result-box">
             <div class="label">Best connection type</div>
-            <div class="value" id="type-value" style="font-size: 1.2rem;">—</div>
+            <div class="value" id="type-value" style="font-size: 1.2rem;">–</div>
           </div>
         </div>
         <div id="advice" style="margin-top: 1.2rem;"></div>
@@ -138,11 +138,11 @@ const breadcrumbSchema = {
       <h2 style="margin-top: 2.5rem;">How the numbers work</h2>
       <ul>
         <li><strong>HD stream:</strong> 5 Mbps each (Netflix/YouTube 1080p).</li>
-        <li><strong>4K stream:</strong> 20 Mbps each (Netflix 15, YouTube ~20, Disney+ 25 — we use 20 as the middle).</li>
+        <li><strong>4K stream:</strong> 20 Mbps each (Netflix 15, YouTube ~20, Disney+ 25, we use 20 as the middle).</li>
         <li><strong>Video call:</strong> 4 Mbps each (Zoom 1080p needs 3.8 up / 3.0 down).</li>
-        <li><strong>Online gaming:</strong> 5 Mbps each — but ping matters far more than speed.</li>
+        <li><strong>Online gaming:</strong> 5 Mbps each, but ping matters far more than speed.</li>
         <li><strong>Browsing:</strong> 2 Mbps each.</li>
-        <li><strong>Cloud backup / uploads:</strong> 10 Mbps — and this is where upload speed matters.</li>
+        <li><strong>Cloud backup / uploads:</strong> 10 Mbps, and this is where upload speed matters.</li>
         <li><strong>Margin:</strong> +25%, because real speeds dip below the package figure at peak hours.</li>
       </ul>
 
@@ -205,14 +205,14 @@ const breadcrumbSchema = {
           advice.innerHTML =
             '<p><strong>Fibre is the right fit.</strong> ' +
             (uhd > 0 ? '4K streaming needs steady speed that DSL struggles to deliver. ' : '') +
-            (calls > 0 ? 'Video calls need upload speed — DSL uploads of 1–1.5 Mbps will freeze your video. ' : '') +
+            (calls > 0 ? 'Video calls need upload speed, DSL uploads of 1–1.5 Mbps will freeze your video. ' : '') +
             (gamers > 0 ? 'Gaming needs low, stable ping, which fibre delivers far better than DSL. ' : '') +
-            (backup ? 'Cloud backups need upload speed — fibre uploads are 10–20× faster than DSL. ' : '') +
-            'If fibre reaches your street, take it — see <a href="/compare/dsl-vs-flash-fiber">DSL vs Flash Fiber</a>.</p>';
+            (backup ? 'Cloud backups need upload speed, fibre uploads are 10–20× faster than DSL. ' : '') +
+            'If fibre reaches your street, take it. See <a href="/compare/dsl-vs-flash-fiber">DSL vs Flash Fiber</a>.</p>';
         } else {
           typeValue.textContent = 'DSL is fine';
           advice.innerHTML =
-            '<p><strong>Your needs are light.</strong> A DSL connection in the ' + tier + ' range handles this comfortably, as long as the line is healthy. If fibre is available at a similar price, it’s still the better long-term choice — but you don’t need it for this usage.</p>';
+            '<p><strong>Your needs are light.</strong> A DSL connection in the ' + tier + ' range handles this comfortably, as long as the line is healthy. If fibre is available at a similar price, it’s still the better long-term choice, but you don’t need it for this usage.</p>';
         }
         result.style.display = 'block';
         result.scrollIntoView({ behavior: 'smooth', block: 'start' });

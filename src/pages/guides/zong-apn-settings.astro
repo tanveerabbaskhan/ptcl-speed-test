@@ -4,23 +4,23 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const faqs = [
   {
     q: 'How do I get Zong internet settings on my phone?',
-    a: 'The easiest way is by SMS: send "all" to 2161 (free). Zong sends the settings to your phone — open the message, enter PIN 1234 when asked, and tap Install. This fills in the APN and all other fields correctly, which is safer than typing values from a forum.',
+    a: 'The easiest way is by SMS: send "all" to 2161 (free). Zong sends the settings to your phone, open the message, enter PIN 1234 when asked, and tap Install. This fills in the APN and all other fields correctly, which is safer than typing values from a forum.',
   },
   {
     q: 'What is the Zong APN?',
-    a: 'zonginternet — the same value for Android and iPhone, with username and password left blank, authentication set to None and APN type "default". Zong’s own settings guide lists exactly these values. Ignore the old "zongwap" profile — that was for WAP browsing on feature phones, not modern smartphones.',
+    a: 'zonginternet, the same value for Android and iPhone, with username and password left blank, authentication set to None and APN type "default". Zong’s own settings guide lists exactly these values. Ignore the old "zongwap" profile, that was for WAP browsing on feature phones, not modern smartphones.',
   },
   {
     q: 'How do I turn on 4G on Zong?',
-    a: 'Go to Settings, Mobile Network, Preferred Network Type and select 4G or LTE (or 5G/4G on a 5G phone). The Zong SIM must sit in the slot that supports 4G — on some dual-SIM phones only one slot does. If the status bar still shows E or H, move somewhere with better signal.',
+    a: 'Go to Settings, Mobile Network, Preferred Network Type and select 4G or LTE (or 5G/4G on a 5G phone). The Zong SIM must sit in the slot that supports 4G, on some dual-SIM phones only one slot does. If the status bar still shows E or H, move somewhere with better signal.',
   },
   {
     q: 'My Zong internet worked, then stopped after I changed the APN. What do I do?',
-    a: 'Go to Settings, Mobile Network, Access Point Names, and choose Reset to Default — then restart the phone. If that doesn\'t restore it, get the official settings by SMS: send "all" to 2161 and install with PIN 1234.',
+    a: 'Go to Settings, Mobile Network, Access Point Names, and choose Reset to Default, then restart the phone. If that doesn\'t restore it, get the official settings by SMS: send "all" to 2161 and install with PIN 1234.',
   },
   {
     q: 'Do I need to set the APN on an iPhone?',
-    a: 'Usually not. iPhones and newer Android phones set the APN automatically from the SIM. If mobile data works, leave it alone. If it doesn\'t, check Settings, Mobile Data, Mobile Data Network — the APN should read zonginternet — and use the settings SMS route rather than typing values manually.',
+    a: 'Usually not. iPhones and newer Android phones set the APN automatically from the SIM. If mobile data works, leave it alone. If it doesn\'t, check Settings, Mobile Data, Mobile Data Network, the APN should read zonginternet, and use the settings SMS route rather than typing values manually.',
   },
 ];
 
@@ -46,8 +46,8 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title="Zong APN Settings & Internet Settings (2026) — SMS, Codes & Manual Setup"
-  description="Get Zong internet settings by SMS (send 'all' to 2161, free), set the Zong APN (zonginternet) manually on Android and iPhone, and fix Zong internet that won't connect."
+  title="Zong APN Settings 2026: SMS Codes, Manual Setup"
+  description="Get Zong internet settings by SMS (send 'all' to 2161, free), set the Zong APN manually on Android and iPhone, and fix Zong internet that won't connect."
   canonical="/guides/zong-apn-settings"
   schema={[faqSchema, breadcrumbSchema]}
 >
@@ -57,7 +57,7 @@ const breadcrumbSchema = {
       <h1>Zong APN Settings &amp; Internet Settings</h1>
       <p class="lead">
         The APN (Access Point Name) tells your phone how to reach Zong’s data network.
-        Wrong APN settings mean slow internet or no internet at all — and the safest fix
+        Wrong APN settings mean slow internet or no internet at all, and the safest fix
         is to let Zong send the settings to your phone automatically.
       </p>
     </div>
@@ -68,12 +68,12 @@ const breadcrumbSchema = {
       <h2>The easiest way: get settings by SMS</h2>
       <p>
         Zong sends the correct internet settings to your phone as a message. You don’t
-        need to type anything — the SMS fills in the APN and every other field for you.
+        need to type anything, the SMS fills in the APN and every other field for you.
       </p>
       <ol>
         <li>Put the Zong SIM in the phone and switch mobile data on.</li>
         <li>Send <strong>"all"</strong> (without quotes) to <strong>2161</strong>. The SMS is free.</li>
-        <li>Wait for the settings message — usually within 1–5 minutes.</li>
+        <li>Wait for the settings message, usually within 1–5 minutes.</li>
         <li>Open it, enter PIN <strong>1234</strong> when asked, and tap <strong>Install</strong>.</li>
         <li>Turn mobile data off and on, then open a website to test.</li>
       </ol>
@@ -100,7 +100,7 @@ const breadcrumbSchema = {
           <tr><td>Authentication type</td><td>None</td></tr>
           <tr><td>APN type</td><td>default</td></tr>
           <tr><td>MCC</td><td>410</td></tr>
-          <tr><td>MNC</td><td>Leave whatever your SIM shows (listings disagree — the SIM default is correct)</td></tr>
+          <tr><td>MNC</td><td>Leave whatever your SIM shows (listings disagree, the SIM default is correct)</td></tr>
           <tr><td>APN protocol</td><td>IPv4/IPv6</td></tr>
         </tbody>
       </table>
@@ -108,11 +108,11 @@ const breadcrumbSchema = {
         <strong>Android:</strong> Settings → Network &amp; Internet → SIMs (or
         Connections → Mobile networks) → Access Point Names → "+" → enter the values →
         Save from the three-dot menu → select the new APN.
-        <strong>iPhone:</strong> Settings → Mobile Data → Mobile Data Network — type
+        <strong>iPhone:</strong> Settings → Mobile Data → Mobile Data Network, type
         zonginternet in the APN field under Mobile Data.
       </p>
       <p>
-        Ignore the old <strong>zongwap</strong> profile you may see in older guides —
+        Ignore the old <strong>zongwap</strong> profile you may see in older guides,
         that was for WAP browsing on feature phones. On a modern smartphone, use
         zonginternet. If your phone already shows a Zong profile under Access Point
         Names, select it and leave it alone.
@@ -123,7 +123,7 @@ const breadcrumbSchema = {
         Settings alone can’t make a phone run 4G if it’s set to 3G. Go to Settings →
         Mobile Network → Preferred Network Type and select 4G or LTE (or the option
         that includes 5G on a 5G phone). The Zong SIM must sit in the slot that supports
-        4G — on some dual-SIM phones only one slot does.
+        4G, on some dual-SIM phones only one slot does.
       </p>
 
       <h2>MMS settings (if you need them)</h2>
@@ -136,10 +136,10 @@ const breadcrumbSchema = {
       <h2>If the internet still doesn’t work</h2>
       <ul>
         <li>Reset APNs to default (Settings → Mobile Network → Access Point Names → Reset to Default), then restart.</li>
-        <li>Check the bundle is active — dial <strong>*102#</strong> to see remaining MBs. No bundle, no data.</li>
+        <li>Check the bundle is active, dial <strong>*102#</strong> to see remaining MBs. No bundle, no data.</li>
         <li>Toggle airplane mode for 30 seconds to re-register with the nearest tower.</li>
         <li>Try the SIM in another phone to separate a phone problem from a SIM/network problem.</li>
-        <li>Still stuck? Call Zong on <strong>310</strong> — or work through our <a href="/guides/zong-internet-slow">slow Zong internet guide</a>.</li>
+        <li>Still stuck? Call Zong on <strong>310</strong>, or work through our <a href="/guides/zong-internet-slow">slow Zong internet guide</a>.</li>
       </ul>
 
       <h2>Frequently asked questions</h2>

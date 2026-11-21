@@ -4,19 +4,19 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const faqs = [
   {
     q: 'Where should I put my router?',
-    a: 'In the middle of your home, out in the open, at about waist to chest height — on a shelf or table, not on the floor or inside a cabinet. Wi-Fi spreads out and down from the router, so a central, elevated spot covers the most rooms. Keep it away from thick concrete walls, metal objects, mirrors and the microwave.',
+    a: 'In the middle of your home, out in the open, at about waist to chest height, on a shelf or table, not on the floor or inside a cabinet. Wi-Fi spreads out and down from the router, so a central, elevated spot covers the most rooms. Keep it away from thick concrete walls, metal objects, mirrors and the microwave.',
   },
   {
     q: 'Should I use 2.4 GHz or 5 GHz Wi-Fi?',
-    a: 'Use 5 GHz when you’re near the router — it’s faster but doesn’t travel far or pass through walls well. Use 2.4 GHz further away or through walls — it’s slower but reaches further. Most modern routers broadcast both; connect to 5 GHz in the same room as the router and 2.4 GHz in distant rooms.',
+    a: 'Use 5 GHz when you’re near the router, it’s faster but doesn’t travel far or pass through walls well. Use 2.4 GHz further away or through walls, it’s slower but reaches further. Most modern routers broadcast both; connect to 5 GHz in the same room as the router and 2.4 GHz in distant rooms.',
   },
   {
     q: 'Does a Wi-Fi extender slow down my internet?',
-    a: 'Usually, yes — a basic extender rebroadcasts the signal, which can roughly halve the speed on the extended network, and it adds latency. It still helps if the alternative is no signal at all. A mesh system is the better fix: its nodes talk to each other on a dedicated channel and keep speeds much closer to the router’s.',
+    a: 'Usually, yes, a basic extender rebroadcasts the signal, which can roughly halve the speed on the extended network, and it adds latency. It still helps if the alternative is no signal at all. A mesh system is the better fix: its nodes talk to each other on a dedicated channel and keep speeds much closer to the router’s.',
   },
   {
     q: 'How do I know if Wi-Fi is my problem or my line?',
-    a: 'Test over an Ethernet cable. If the wired result is close to your package speed and Wi-Fi is slow, your line is fine and the fix is in your home setup — router placement, the Wi-Fi band, or a mesh system. If wired is slow too, the problem is the line or the provider.',
+    a: 'Test over an Ethernet cable. If the wired result is close to your package speed and Wi-Fi is slow, your line is fine and the fix is in your home setup, router placement, the Wi-Fi band, or a mesh system. If wired is slow too, the problem is the line or the provider.',
   },
   {
     q: 'How many devices can my Wi-Fi handle?',
@@ -46,8 +46,8 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title="How to Improve Your Wi-Fi Signal (2026) — Router Placement, Bands & Mesh"
-  description="Wi-Fi slow in some rooms? Router placement, 2.4 vs 5 GHz, channels, and when a mesh system beats an extender — the fixes that actually work, in order."
+  title="How to Improve Your Wi-Fi Signal: Placement, Bands, Mesh"
+  description="Wi-Fi slow in some rooms? Router placement, 2.4 vs 5 GHz, channels, and when a mesh system beats an extender. The fixes that actually work, in order."
   canonical="/guides/improve-wifi-signal"
   schema={[faqSchema, breadcrumbSchema]}
 >
@@ -56,7 +56,7 @@ const breadcrumbSchema = {
       <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Improve Wi-Fi Signal</p>
       <h1>How to Improve Your Wi-Fi Signal</h1>
       <p class="lead">
-        Most "slow internet" complaints are actually slow Wi-Fi — the line is fine, but
+        Most "slow internet" complaints are actually slow Wi-Fi, the line is fine, but
         the signal never reaches the far rooms properly. These fixes work in order, from
         free to "worth paying for".
       </p>
@@ -69,26 +69,26 @@ const breadcrumbSchema = {
       <p>
         Plug a laptop into the router with an Ethernet cable and run a
         <a href="/speed-test">speed test</a>. If the wired result is close to your
-        package speed and Wi-Fi is slow, your line is fine — the fixes below will help.
+        package speed and Wi-Fi is slow, your line is fine, the fixes below will help.
         If wired is slow too, the problem is the line or the provider, and no Wi-Fi fix
         will help.
       </p>
 
       <h2>1. Move the router (free, biggest effect)</h2>
       <p>
-        Wi-Fi spreads out and down from the router, and it weakens fast through walls —
+        Wi-Fi spreads out and down from the router, and it weakens fast through walls,
         especially the thick concrete walls common in Pakistani homes. The best spot is:
       </p>
       <ul>
-        <li><strong>Central</strong> — in the middle of your home, not in a corner room or at one end.</li>
-        <li><strong>Out in the open</strong> — on a shelf or table, not inside a cabinet, behind the TV, or under a desk.</li>
-        <li><strong>Waist to chest height</strong> — not on the floor, where half the signal goes into the ground.</li>
-        <li><strong>Away from interference</strong> — not next to the microwave, a metal cabinet, a mirror, or a large fish tank. Water and metal both block Wi-Fi.</li>
-        <li><strong>Antennas up</strong> — if the router has external antennas, point them vertically for the best horizontal coverage.</li>
+        <li><strong>Central</strong>: in the middle of your home, not in a corner room or at one end.</li>
+        <li><strong>Out in the open</strong>: on a shelf or table, not inside a cabinet, behind the TV, or under a desk.</li>
+        <li><strong>Waist to chest height</strong>: not on the floor, where half the signal goes into the ground.</li>
+        <li><strong>Away from interference</strong>: not next to the microwave, a metal cabinet, a mirror, or a large fish tank. Water and metal both block Wi-Fi.</li>
+        <li><strong>Antennas up</strong>: if the router has external antennas, point them vertically for the best horizontal coverage.</li>
       </ul>
       <p>
         If the router has to live where the fibre or phone line enters the house, a long
-        Ethernet cable to a better spot is a cheap fix — or a mesh node (see below).
+        Ethernet cable to a better spot is a cheap fix, or a mesh node (see below).
       </p>
 
       <h2>2. Use the right band: 2.4 GHz vs 5 GHz</h2>
@@ -97,22 +97,22 @@ const breadcrumbSchema = {
           <tr><th>Band</th><th>Speed</th><th>Range</th><th>Best for</th></tr>
         </thead>
         <tbody>
-          <tr><td>5 GHz</td><td>Fast</td><td>Short — struggles through walls</td><td>Same room as the router, 4K streaming, gaming</td></tr>
-          <tr><td>2.4 GHz</td><td>Slower</td><td>Long — passes through walls better</td><td>Distant rooms, smart devices, basic browsing</td></tr>
+          <tr><td>5 GHz</td><td>Fast</td><td>Short, struggles through walls</td><td>Same room as the router, 4K streaming, gaming</td></tr>
+          <tr><td>2.4 GHz</td><td>Slower</td><td>Long, passes through walls better</td><td>Distant rooms, smart devices, basic browsing</td></tr>
         </tbody>
       </table>
       <p>
         Most modern routers broadcast both, often as separate networks (for example
         "MyWiFi" and "MyWiFi-5G"). Connect to 5 GHz in the same room as the router and
         2.4 GHz further away. If your router has band steering (one network name for
-        both), it usually makes the right choice — but it sometimes sticks devices on
+        both), it usually makes the right choice, but it sometimes sticks devices on
         2.4 GHz when 5 GHz would be faster, so splitting the bands can help.
       </p>
 
       <h2>3. Change the channel</h2>
       <p>
         In a dense neighbourhood, every router competes for the same airwaves. On 2.4
-        GHz, only channels 1, 6 and 11 don’t overlap — pick the least crowded of the
+        GHz, only channels 1, 6 and 11 don’t overlap, pick the least crowded of the
         three. A free Wi-Fi analyser app on your phone shows which channels your
         neighbours use. On 5 GHz there are more channels and less crowding, so this
         matters less. Most routers have an "auto" setting that does a reasonable job;
@@ -121,7 +121,7 @@ const breadcrumbSchema = {
 
       <h2>4. Restart the router</h2>
       <p>
-        A router that hasn’t been restarted in months can slow down — memory fills up,
+        A router that hasn’t been restarted in months can slow down, memory fills up,
         connections pile up. Switch it off for 30 seconds and back on. If speeds recover
         and then fade again over days, the router may be struggling with the load (see
         below).
@@ -134,15 +134,15 @@ const breadcrumbSchema = {
         </thead>
         <tbody>
           <tr><td>Wi-Fi extender / repeater</td><td>Rebroadcasts the router’s signal further</td><td>Roughly halves speed on the extended network; adds latency</td></tr>
-          <tr><td>Mesh system (2–3 nodes)</td><td>Nodes form one seamless network with a dedicated backhaul channel</td><td>Costs more — but the proper fix for a large home</td></tr>
+          <tr><td>Mesh system (2–3 nodes)</td><td>Nodes form one seamless network with a dedicated backhaul channel</td><td>Costs more, but the proper fix for a large home</td></tr>
           <tr><td>Powerline adapters</td><td>Carry internet through your home’s electrical wiring</td><td>Speed depends on your wiring quality; poor on old wiring</td></tr>
-          <tr><td>Ethernet cable</td><td>A cable from the router to the far room (or to a second access point)</td><td>Needs a cable run — but the fastest and most reliable option</td></tr>
+          <tr><td>Ethernet cable</td><td>A cable from the router to the far room (or to a second access point)</td><td>Needs a cable run, but the fastest and most reliable option</td></tr>
         </tbody>
       </table>
       <p>
         For most homes, the right answer is a mesh system (two or three nodes) if the
         house is large or has thick walls, and an Ethernet cable if you just need one
-        far room fixed. An extender is a budget stopgap — better than no signal, but
+        far room fixed. An extender is a budget stopgap, better than no signal, but
         don’t expect full speed from it.
       </p>
 
@@ -151,7 +151,7 @@ const breadcrumbSchema = {
         <li><strong>Old routers struggle.</strong> A router from the Wi-Fi 4 era (802.11n) caps out well below modern speeds. Wi-Fi 5 (802.11ac) is the minimum for a fast connection; Wi-Fi 6 handles many devices better.</li>
         <li><strong>ISP routers are basic.</strong> The router your provider supplied is built to a budget. If you have fast fibre and many devices, a better router is often the single biggest upgrade.</li>
         <li><strong>Too many devices.</strong> A typical ISP router handles 10–20 devices; beyond that, connections start dropping. A Wi-Fi 6 router or mesh system handles the load better.</li>
-        <li><strong>Update the firmware.</strong> Log in to the router and check for a firmware update — it can fix bugs and improve stability. See our <a href="/guides/ptcl-router-login">PTCL router login guide</a>.</li>
+        <li><strong>Update the firmware.</strong> Log in to the router and check for a firmware update, it can fix bugs and improve stability. See our <a href="/guides/ptcl-router-login">PTCL router login guide</a>.</li>
       </ul>
 
       <h2>Frequently asked questions</h2>
@@ -166,7 +166,7 @@ const breadcrumbSchema = {
 
       <div class="cta-band">
         <h2>Moved the router? Test the difference</h2>
-        <p>Run a test in the far room before and after — the numbers don’t lie.</p>
+        <p>Run a test in the far room before and after, the numbers don’t lie.</p>
         <div class="cta-links">
           <a class="btn" href="/speed-test">Test My Speed →</a>
           <a class="btn btn-secondary" href="/guides/troubleshoot-slow-internet">Slow internet troubleshooter →</a>
