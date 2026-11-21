@@ -24,7 +24,7 @@ import { providers } from '../../data/providers';
       <div class="cards">
         {providers.map((p) => (
           <a class="card card-link" href={`/speedtest/${p.slug}`}>
-            <h3>{p.name} Speed Test</h3>
+            <h2>{p.name} Speed Test</h2>
             <p>{p.typeLabel} — {p.coverage}</p>
           </a>
         ))}

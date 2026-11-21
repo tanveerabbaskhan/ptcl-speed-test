@@ -46,6 +46,37 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </table>
       </div>
 
+      <h2>What speed should you actually get?</h2>
+      <p>
+        On a <strong>wired test at a quiet time</strong>, your download should land close
+        to your package speed. These are realistic expectations — Wi-Fi reads lower, and
+        evenings run slower than mornings. If your wired result stays below about 80% of
+        your tier, that's worth a complaint to PTCL with your results as evidence.
+      </p>
+      <div class="table-wrap">
+        <table class="data">
+          <thead>
+            <tr><th>Package</th><th>Technology</th><th>Expected download</th><th>Expected upload</th><th>Typical ping</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>6 Mbps</strong></td><td>DSL (ADSL2+)</td><td>5 – 6 Mbps</td><td>0.5 – 1 Mbps</td><td>25 – 45 ms</td></tr>
+            <tr><td><strong>10 Mbps</strong></td><td>DSL (VDSL)</td><td>8.5 – 10 Mbps</td><td>1 – 1.5 Mbps</td><td>20 – 40 ms</td></tr>
+            <tr><td><strong>15 Mbps</strong></td><td>VDSL / Flash Fiber</td><td>13 – 15 Mbps</td><td>2 – 14 Mbps</td><td>12 – 28 ms</td></tr>
+            <tr><td><strong>20 Mbps</strong></td><td>Flash Fiber (GPON)</td><td>19 – 21 Mbps</td><td>18 – 20 Mbps</td><td>5 – 15 ms</td></tr>
+            <tr><td><strong>25 Mbps</strong></td><td>Flash Fiber / VDSL</td><td>23 – 26 Mbps</td><td>10 – 24 Mbps</td><td>8 – 20 ms</td></tr>
+            <tr><td><strong>50 Mbps</strong></td><td>Flash Fiber (GPON)</td><td>47 – 52 Mbps</td><td>45 – 50 Mbps</td><td>5 – 12 ms</td></tr>
+            <tr><td><strong>100 Mbps</strong></td><td>Flash Fiber (GPON)</td><td>95 – 105 Mbps</td><td>90 – 100 Mbps</td><td>4 – 10 ms</td></tr>
+            <tr><td><strong>250 Mbps</strong></td><td>Flash Fiber</td><td>235 – 255 Mbps</td><td>230 – 250 Mbps</td><td>3 – 8 ms</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Notice the upload column: on DSL, uploads are a small fraction of downloads,
+        while fibre is near-symmetrical. That difference matters more than download speed
+        for video calls and working from home.
+        <a href="/speedtest/ptcl-flash-fiber">Test your Flash Fiber speed →</a>
+      </p>
+
       <h2>DSL vs Flash Fiber — what's the difference?</h2>
       <p>
         PTCL offers two kinds of home connection, and they behave very differently:

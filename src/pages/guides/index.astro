@@ -20,6 +20,30 @@ const guides = [
     title: 'Ping & Jitter Explained',
     desc: 'Why your game lags on a "fast" connection, what good ping looks like in Pakistan, and how to lower it.',
   },
+  {
+    href: '/guides/ptcl-router-login',
+    icon: '🔐',
+    title: 'PTCL Router Login & WiFi Password Change',
+    desc: 'Log in at 192.168.10.1 or 192.168.1.1, change your WiFi password from phone or laptop, and fix the login when it won\'t open.',
+  },
+  {
+    href: '/guides/why-internet-slow-pakistan',
+    icon: '🐢',
+    title: 'Why Is the Internet Slow in Pakistan?',
+    desc: 'From submarine cable faults to peak-hour congestion: what\'s slowing Pakistan down right now, and how to tell if it\'s your line or the network.',
+  },
+  {
+    href: '/guides/troubleshoot-slow-internet',
+    icon: '🔧',
+    title: 'Slow Internet? Troubleshoot by Symptom',
+    desc: 'WiFi slow but wired fast? Everything slow? Internet dropping? Find your symptom and work through the fix in order.',
+  },
+  {
+    href: '/guides/test-speed-using-cmd',
+    icon: '💻',
+    title: 'How to Test Internet Speed Using CMD',
+    desc: 'Check ping, packet loss and speed from Windows Command Prompt — ping, tracert and the Ookla CLI, no browser needed.',
+  },
 ];
 ---
 
@@ -45,7 +69,7 @@ const guides = [
         {guides.map((g) => (
           <a class="card card-link" href={g.href}>
             <div class="icon">{g.icon}</div>
-            <h3>{g.title}</h3>
+            <h2>{g.title}</h2>
             <p>{g.desc}</p>
           </a>
         ))}

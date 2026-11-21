@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    q: 'Why is the internet slow in Pakistan today?',
+    a: 'As of 21 November 2026, the known cause is a fault in the SEA-ME-WE 5 (SMW5) submarine cable about 11 km off Pakistan\'s coast, confirmed by the PTA on 18 November. Traffic is being rerouted through other international links, which keeps services running but slows speeds — especially at peak hours. Transworld Associates, which operates the cable landing, expects repairs to finish by 6 December 2026, though that date is tentative.',
+  },
+  {
+    q: 'Is the slow internet my fault or the network\'s?',
+    a: 'Test over an Ethernet cable at a quiet time (early morning). If the wired result is close to your package speed, your line is fine and the problem is Wi-Fi, congestion or the wider network. If wired is also slow at 7 am, the problem is your line or the network — and if neighbours on different providers are slow too, it\'s the network.',
+  },
+  {
+    q: 'Why is my internet slow only at night?',
+    a: 'Evenings (roughly 7 pm to 11 pm) are the busiest hours on any network in Pakistan — everyone is streaming, gaming and on video calls at once. Test in the morning and again at 9 pm: if mornings are fast and evenings are slow, that\'s congestion, and no router setting will fix it. Keep both results as evidence if you complain.',
+  },
+  {
+    q: 'Do submarine cable faults happen often in Pakistan?',
+    a: 'Often enough to be a recurring problem. Pakistan relies on seven international submarine cables, and faults on one system push extra load onto the rest. The SMW5 cable had a fault in July 2026 as well as the November 2026 fault — both caused nationwide slowdowns while repairs were arranged.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptclspeed.example.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://ptclspeed.example.com/guides' },
+    { '@type': 'ListItem', position: 3, name: 'Why Is the Internet Slow in Pakistan?', item: 'https://ptclspeed.example.com/guides/why-internet-slow-pakistan' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Why Is the Internet Slow in Pakistan? (SMW5 Cable Fault, Nov 2026)"
+  description="Why is the internet slow in Pakistan today? The SMW5 submarine cable fault explained, plus how to tell whether it's your line or the network — and what you can actually do about it."
+  canonical="/guides/why-internet-slow-pakistan"
+  schema={[faqSchema, breadcrumbSchema]}
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/guides">Guides</a> / Why Is the Internet Slow?</p>
+      <h1>Why Is the Internet Slow in Pakistan?</h1>
+      <p class="lead">
+        If your internet feels slow this week, there is a known reason — and it probably
+        isn't your router. Here's what's happening, how to check whether it's your line
+        or the network, and what you can actually do about it.
+      </p>
+      <p class="small muted">Last updated: 21 November 2026</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 720px;">
+      <h2>The current situation: a submarine cable fault</h2>
+      <p>
+        On Wednesday, 18 November 2026, the Pakistan Telecommunication Authority (PTA)
+        confirmed a fault in the SEA-ME-WE 5 (SMW5) international submarine cable, about
+        11 kilometres off Pakistan's coast. The PTA warned that users may face
+        intermittent connectivity and a decline in service quality while the fault is
+        repaired.
+      </p>
+      <table class="data-table">
+        <thead>
+          <tr><th>What</th><th>What we know</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Which cable</td><td>SEA-ME-WE 5 (SMW5), landing near Karachi</td></tr>
+          <tr><td>Fault location</td><td>About 11 km off Pakistan's coast</td></tr>
+          <tr><td>Confirmed</td><td>18 November 2026, by the PTA</td></tr>
+          <tr><td>Who is fixing it</td><td>Transworld Associates, with the SMW5 consortium — a specialised cable repair ship is needed</td></tr>
+          <tr><td>Expected repair</td><td>By 6 December 2026, according to Transworld — the date is tentative and could change</td></tr>
+          <tr><td>Effect so far</td><td>Slower speeds, especially at peak hours; independent monitors reported a drop in connectivity consistent with the fault</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Traffic is being rerouted through Pakistan's other international links so services
+        keep running — but rerouting keeps the lights on, it doesn't keep speeds where
+        they were. This is the second fault on the same cable system in 2026: SMW5 also
+        failed in July, with similar nationwide effects. Pakistan relies on seven
+        submarine cables for international connectivity, so every fault puts extra load
+        on the remaining ones.
+      </p>
+      <p class="small muted">
+        Sources: PTA statement of 18 November 2026, as reported by The Nation and others;
+        Transworld Associates customer notice, as reported by
+        <a href="https://www.techjuice.pk/transworld-expects-submarine-cable-repairs-to-finish-by-dec-6/" target="_blank" rel="noopener">TechJuice</a>
+        and
+        <a href="https://itinsider.pk/pakistan-internet-slow-until-december-6/" target="_blank" rel="noopener">ITInsider</a>.
+      </p>
+
+      <h2>Is it the network — or your line?</h2>
+      <p>
+        Before blaming the cable (or your provider), spend five minutes finding out where
+        the problem actually is:
+      </p>
+      <ol>
+        <li><strong>Test over an Ethernet cable.</strong> Plug a laptop into the router and run a <a href="/speed-test">speed test</a>. If the wired result is close to your package speed, your line is fine — the problem is Wi-Fi or congestion.</li>
+        <li><strong>Test at a quiet time.</strong> Run the test early in the morning. Fast at 7 am and slow at 9 pm means congestion, not a faulty line.</li>
+        <li><strong>Test your mobile data.</strong> If your phone's 4G is also unusually slow, the problem is wider than your home connection.</li>
+        <li><strong>Ask a neighbour on a different provider.</strong> If PTCL, Nayatel and Jazz users on your street are all slow, it's the network — no router fix will help.</li>
+        <li><strong>Check for outage reports.</strong> Search for the latest PTA notices or check an outage tracker before calling your provider.</li>
+      </ol>
+
+      <h2>The usual reasons (even without a cable fault)</h2>
+      <ul>
+        <li><strong>Peak-hour congestion (7–11 pm).</strong> Everyone streams at once; the exchange and the international links carry more than they comfortably can.</li>
+        <li><strong>Wi-Fi, not the line.</strong> A weak signal or a router in the wrong room can halve your speed. Test wired to see what the line itself delivers.</li>
+        <li><strong>Too many devices.</strong> Every phone, TV and laptop shares the same connection — a 10 Mbps line split five ways feels like 2 Mbps each.</li>
+        <li><strong>Old copper lines.</strong> On DSL, distance from the exchange and damaged wiring quietly eat speed, and rain makes it worse.</li>
+        <li><strong>International links.</strong> Even in normal times, traffic to servers abroad travels through the submarine cables — a fault anywhere on the route shows up as slow, laggy internet at home.</li>
+      </ul>
+
+      <h2>What you can do about it</h2>
+      <ul>
+        <li>Test wired, test early, and keep dated screenshots of slow results — they are your evidence.</li>
+        <li>Work through the fixes in our <a href="/guides/improve-ptcl-speed">improve your PTCL speed</a> guide and the <a href="/guides/troubleshoot-slow-internet">symptom troubleshooter</a>.</li>
+        <li>If your wired speed stays below about 80% of your package at quiet times, register a complaint with your provider and quote the results. For PTCL, the helpline is 1218.</li>
+        <li>If it's a cable fault, there is nothing to fix at home — but the tests above tell you that for certain, instead of guessing.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list" style="margin-top: 1rem;">
+        {faqs.map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <div class="cta-band">
+        <h2>Is your connection slow right now?</h2>
+        <p>Run a test and compare with your package — it takes under 30 seconds.</p>
+        <div class="cta-links">
+          <a class="btn" href="/speed-test">Test My Speed →</a>
+          <a class="btn btn-secondary" href="/statistics">Pakistan speed statistics →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

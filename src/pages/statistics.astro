@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptclspeed.example.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Speed Statistics', item: 'https://ptclspeed.example.com/statistics' },
+  ],
+};
+---
+
+<BaseLayout
+  title="Internet Speed Statistics Pakistan — PTA, nPerf & Ookla Data (2026)"
+  description="Published internet speed averages for Pakistan: mobile 4G speeds by network (PTA Q2 2026), fixed broadband averages (nPerf 2025, SpeedGeo), and Ookla scores — with sources."
+  canonical="/statistics"
+  schema={breadcrumbSchema}
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / Statistics</p>
+      <h1>Internet Speed Statistics for Pakistan</h1>
+      <p class="lead">
+        The published numbers behind Pakistan's internet speeds — from the regulator
+        (PTA), independent measurement firms (nPerf, Ookla, SpeedGeo) and community
+        tests. Every table cites its source, and the caveats are stated plainly.
+      </p>
+      <p class="small muted">Last updated: 21 November 2026</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 720px;">
+      <h2>Mobile 4G speeds by network (PTA, Q2 2026)</h2>
+      <p>
+        The Pakistan Telecommunication Authority's Mobile Network Experience Benchmarking
+        report for April–June 2026 measured real smartphone users over 90 days across 20
+        cities. National 4G averages: <strong>18.9 Mbps download</strong> and
+        <strong>5.32 Mbps upload</strong>.
+      </p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Network</th><th>Download</th><th>Upload</th><th>Time on 4G</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Zong</td><td>18.55 Mbps</td><td>7.81 Mbps</td><td>96.59%</td></tr>
+          <tr><td>Jazz</td><td>17.61 Mbps</td><td>6.26 Mbps</td><td>93.33%</td></tr>
+          <tr><td>Ufone</td><td>12.82 Mbps</td><td>4.42 Mbps</td><td>92.16%</td></tr>
+          <tr><td>Telenor</td><td>7.50 Mbps</td><td>2.82 Mbps</td><td>92.58%</td></tr>
+        </tbody>
+      </table>
+      <p class="small muted">
+        Source: PTA Mobile Network Experience Benchmarking Report, Q2 2026 (published 29
+        September 2026), as reported by ProPakistani and Pakera. PTA notes these
+        crowd-sourced results are not directly comparable with its own drive tests.
+      </p>
+
+      <h2>Fixed broadband speeds (nPerf, 2025)</h2>
+      <p>
+        nPerf's barometer of fixed internet connections in Pakistan for 2025 ranked
+        Nayatel first overall, PTCL second and Cybernet third, across download, upload,
+        latency, browsing and streaming.
+      </p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Provider</th><th>Download</th><th>Upload</th><th>Latency</th><th>nPerf score</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Nayatel</td><td>28.33 Mbps</td><td>25.21 Mbps</td><td>91.59 ms</td><td>52,257</td></tr>
+          <tr><td>PTCL</td><td>22.42 Mbps</td><td>19.08 Mbps</td><td>97.03 ms</td><td>44,528</td></tr>
+          <tr><td>Cybernet</td><td>16.58 Mbps</td><td>13.95 Mbps</td><td>95.03 ms</td><td>40,736</td></tr>
+        </tbody>
+      </table>
+      <p class="small muted">
+        Source: <a href="https://media.nperf.com/files/publications/PK/PK-Barometer-fixe-connections-nPerf-2025_8036.pdf" target="_blank" rel="noopener">nPerf barometer of fixed internet connections in Pakistan, 2025</a>.
+      </p>
+
+      <h2>Fastest broadband network (SpeedGeo, Q4 2025 – Q3 2026)</h2>
+      <p>
+        SpeedGeo's broadband ranking, based on 158,631 tests over 12 months, named PTCL
+        Flash Fiber the fastest broadband network in Pakistan for the period.
+      </p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Provider</th><th>Download</th><th>Upload</th><th>Ping</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>PTCL Flash Fiber</td><td>31.7 Mbps</td><td>30.1 Mbps</td><td>27 ms</td></tr>
+          <tr><td>Cybernet</td><td>13.9 Mbps</td><td>13.5 Mbps</td><td>70 ms</td></tr>
+          <tr><td>Connect</td><td>11.3 Mbps</td><td>15.2 Mbps</td><td>41 ms</td></tr>
+          <tr><td>All ISPs (average)</td><td>13.8 Mbps</td><td>13.7 Mbps</td><td>56 ms</td></tr>
+        </tbody>
+      </table>
+      <p class="small muted">
+        Source: <a href="https://www.speedgeo.net/statistics/pakistan" target="_blank" rel="noopener">SpeedGeo internet speed in Pakistan</a>.
+      </p>
+
+      <h2>Ookla Speedtest scores (H1 2025)</h2>
+      <p>
+        Ookla's Speedtest scores combine speed and consistency into a single figure. For
+        fixed broadband in Pakistan in the first half of 2025, the top three were
+        separated by less than one point:
+      </p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Provider</th><th>Ookla Speedtest score</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>PTCL Flash Fiber</td><td>56.95</td></tr>
+          <tr><td>Transworld</td><td>56.71</td></tr>
+          <tr><td>Nayatel</td><td>56.31</td></tr>
+        </tbody>
+      </table>
+      <p class="small muted">
+        Source: Ookla Speedtest H1 2025 report, as reported by NubiaPage. Scores combine
+        download, upload and latency — they are not raw speeds.
+      </p>
+
+      <h2>Why the numbers disagree</h2>
+      <p>
+        The same provider can look faster or slower depending on the source — and all of
+        them can be right. The differences come from:
+      </p>
+      <ul>
+        <li><strong>Different samples.</strong> PTA measures real phone users; nPerf and SpeedGeo measure whoever runs their tests; Ookla combines multiple factors into a score.</li>
+        <li><strong>Different mixes.</strong> "PTCL" in one study means all PTCL fixed lines (fibre + old DSL); in another it means Flash Fiber only. Fibre-only figures are always higher.</li>
+        <li><strong>Different periods.</strong> A 30-day community average and a 12-month ranking cover different conditions.</li>
+        <li><strong>Averages hide streets.</strong> A national average of 22 Mbps says nothing about your street — fibre availability, distance from the exchange and tower load vary enormously within one city.</li>
+      </ul>
+      <p>
+        Use these tables as a benchmark, not a verdict. The only number that matters for
+        you is your own: <a href="/speed-test">test your connection</a> and compare it
+        with your package.
+      </p>
+
+      <div class="cta-band">
+        <h2>Compare providers head to head</h2>
+        <p>Side-by-side comparisons with the same sourced data:</p>
+        <div class="cta-links">
+          <a class="btn" href="/compare/ptcl-vs-nayatel">PTCL vs Nayatel →</a>
+          <a class="btn btn-secondary" href="/compare/ptcl-vs-transworld">PTCL vs Transworld →</a>
+          <a class="btn btn-secondary" href="/compare/jazz-vs-zong">Jazz vs Zong →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SpeedTest from '../../components/SpeedTest.astro';
+import { comparisons, type Comparison } from '../../data/comparisons';
+
+export function getStaticPaths() {
+  return comparisons.map((comparison) => ({
+    params: { comparison: comparison.slug },
+    props: { comparison },
+  }));
+}
+
+interface Props {
+  comparison: Comparison;
+}
+
+const { comparison: c } = Astro.props;
+const others = comparisons.filter((x) => x.slug !== c.slug);
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: c.faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ptclspeed.example.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Compare Providers', item: 'https://ptclspeed.example.com/compare' },
+    { '@type': 'ListItem', position: 3, name: `${c.aName} vs ${c.bName}`, item: `https://ptclspeed.example.com/compare/${c.slug}` },
+  ],
+};
+---
+
+<BaseLayout
+  title={`${c.aName} vs ${c.bName} — Speed, Ping & Coverage Compared (2026)`}
+  description={`${c.aName} vs ${c.bName}: compare real measured speeds, ping and coverage from published PTA, nPerf, Ookla and PakSpeed data — then test your own connection.`}
+  canonical={`/compare/${c.slug}`}
+  schema={[faqSchema, breadcrumbSchema]}
+>
+  <section class="page-head">
+    <div class="container">
+      <p class="breadcrumbs"><a href="/">Home</a> / <a href="/compare">Compare</a> / {c.aName} vs {c.bName}</p>
+      <h1>{c.aName} vs {c.bName}</h1>
+      <p class="lead">{c.intro}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 720px;">
+      <SpeedTest />
+
+      <h2>The verdict</h2>
+      <p>{c.verdict}</p>
+
+      <h2>{c.aName} vs {c.bName} — side by side</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Metric</th><th>{c.aName}</th><th>{c.bName}</th></tr>
+        </thead>
+        <tbody>
+          {c.rows.map((r) => (
+            <tr>
+              <td>{r.metric}</td>
+              <td class={r.winner === 'a' ? 'winner' : undefined}>{r.a}{r.winner === 'a' ? ' ✓' : ''}</td>
+              <td class={r.winner === 'b' ? 'winner' : undefined}>{r.b}{r.winner === 'b' ? ' ✓' : ''}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="small muted">
+        Averages mix many packages, cities and devices. Your own result depends on your
+        package, your street and the time of day — test it above rather than trusting any
+        national average.
+      </p>
+
+      <h2>Where {c.aName} wins</h2>
+      <ul>
+        {c.aStrengths.map((s) => (
+          <li>{s}</li>
+        ))}
+      </ul>
+
+      <h2>Where {c.bName} wins</h2>
+      <ul>
+        {c.bStrengths.map((s) => (
+          <li>{s}</li>
+        ))}
+      </ul>
+
+      <h2>Which should you choose?</h2>
+      {c.choose.map((item) => (
+        <p><strong>{item.label}:</strong> {item.text}</p>
+      ))}
+
+      <h2>Sources</h2>
+      <ul>
+        {c.sources.map((s) => (
+          <li><a href={s.url} target="_blank" rel="noopener">{s.label}</a></li>
+        ))}
+      </ul>
+
+      <h2>{c.aName} vs {c.bName} FAQ</h2>
+      <div class="faq-list" style="margin-top: 1rem;">
+        {c.faqs.map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <div class="cta-band">
+        <h2>Test your own connection</h2>
+        <p>
+          Averages are a starting point — your line is the only number that matters.
+          Test it on your provider's page:
+        </p>
+        <div class="cta-links">
+          <a class="btn" href={`/speedtest/${c.aSlug}`}>{c.aName} speed test →</a>
+          <a class="btn btn-secondary" href={`/speedtest/${c.bSlug}`}>{c.bName} speed test →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container">
+      <h2 class="center">More comparisons</h2>
+      <div class="cards">
+        {others.map((o) => (
+          <a class="card card-link" href={`/compare/${o.slug}`}>
+            <h3>{o.aName} vs {o.bName}</h3>
+            <p>Speed, ping &amp; coverage compared</p>
+          </a>
+        ))}
+        <a class="card card-link" href="/statistics">
+          <h3>Pakistan Speed Statistics</h3>
+          <p>All providers, all published data</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
