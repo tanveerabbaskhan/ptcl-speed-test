@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { title, description, canonical, schema, noindex = false } = Astro.props;
-const siteUrl = 'https://ptclspeed.example.com';
+const siteUrl = 'https://ptcl-speed-test.pages.dev';
 const pageUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 

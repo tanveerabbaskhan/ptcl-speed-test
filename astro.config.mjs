@@ -3,6 +3,6 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://ptclspeed.example.com',
+  site: 'https://ptcl-speed-test.pages.dev',
   integrations: [sitemap()],
 });

@@ -90,7 +90,7 @@ npm run preview  # preview the production build
 ## Before launch
 
 - Set the real domain in `astro.config.mjs` (`site`), `public/robots.txt`, and the
-  `siteUrl` in `src/layouts/BaseLayout.astro` (currently `ptclspeed.example.com`).
+  `siteUrl` in `src/layouts/BaseLayout.astro` (currently `ptcl-speed-test.pages.dev`).
 - Replace the placeholder contact email in `src/pages/contact.astro`.
 - Deploy the `dist/` folder to any static host (Netlify, Vercel, Cloudflare Pages,
   GitHub Pages).
